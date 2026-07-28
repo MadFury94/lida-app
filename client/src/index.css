@@ -1,6 +1,18 @@
 @import "tailwindcss/theme" layer(theme);
 @import "tailwindcss/utilities" layer(utilities);
 
+/* Force desktop navbar visible — Bootstrap collapse hides it when JS runs after React */
+@media (min-width: 1200px) {
+    .header-section .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
+
+    .header-section .navbar-collapse.collapsing {
+        display: flex !important;
+    }
+}
+
 /* ── Lida Design Tokens (mirrors store/site.js theme object) ── */
 @theme {
     --color-body: #101010;
