@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* ── Lida Design Tokens (mirrors store/site.js theme object) ── */
+@theme {
+    --color-body: #101010;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-accent: #FF471C;
+    --color-heading: #ffffff;
+    --color-muted: #B1B1B1;
+    --color-border: #FCFCFC;
+    --color-card: #272727;
+
+    --font-sans: "Urbanist", sans-serif;
+    --font-serif: "Instrument Serif", serif;
+
+    --shadow-card: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
+}
+
+/* ── Keep Orixo template CSS variables in sync ── */
+:root {
+    --body: #101010;
+    --black: #000000;
+    --white: #ffffff;
+    --theme: #FF471C;
+    --header: #ffffff;
+    --text: #B1B1B1;
+    --border: #FCFCFC;
+    --bg: #272727;
+    --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
+}

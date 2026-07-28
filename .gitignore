@@ -1,0 +1,65 @@
+# ── Dependencies ──────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Build output ───────────────────────────────────────────────
+dist/
+dist-ssr/
+build/
+.output/
+
+# ── Logs ───────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ── Environment & secrets ──────────────────────────────────────
+.env
+.env.*
+!.env.example
+.dev.vars
+*.secret
+
+# ── Template assets (purchased theme — do not commit) ──────────
+# The zip and extracted template folder are licensed assets
+client/public/themeforest-xASBMjuU-orixo-digital-agency-portfolio-html-template.zip
+client/public/themeforest-xASBMjuU-orixo-digital-agency-portfolio-html-template/
+
+# Compiled/copied assets from the template (large binary files)
+# Run the copy step locally: cp template/Main files/assets -> client/public/assets
+client/public/assets/
+
+# ── Large files / documents ────────────────────────────────────
+*.pdf
+*.zip
+*.rar
+*.tar.gz
+
+# ── OS files ───────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor ─────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── Misc stray scripts ────────────────────────────────────────
+fix_paths.py
+*.local
+
+# ── Cloudflare / Wrangler ──────────────────────────────────────
+.wrangler/
+worker-configuration.d.ts
