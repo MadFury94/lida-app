@@ -25,20 +25,18 @@ lerna-debug.log*
 .dev.vars
 *.secret
 
-# ── Template assets (purchased theme — do not commit) ──────────
-# The zip and extracted template folder are licensed assets
+# ── Template source (purchased — keep out of git, assets committed separately) ──
 client/public/themeforest-xASBMjuU-orixo-digital-agency-portfolio-html-template.zip
 client/public/themeforest-xASBMjuU-orixo-digital-agency-portfolio-html-template/
-
-# Compiled/copied assets from the template (large binary files)
-# Run the copy step locally: cp template/Main files/assets -> client/public/assets
-client/public/assets/
 
 # ── Large files / documents ────────────────────────────────────
 *.pdf
 *.zip
 *.rar
 *.tar.gz
+
+# assets/ is intentionally committed (private repo, licensed use)
+!client/public/assets/
 
 # ── OS files ───────────────────────────────────────────────────
 .DS_Store
