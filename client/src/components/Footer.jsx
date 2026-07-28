@@ -7,7 +7,7 @@ export default function Footer() {
                                       <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".2s">
                                         <div class="footer-widget-items">
                                             <div class="widget-head">
-                                                <a href="index.html" class="footer-logo">
+                                                <a href="/" class="footer-logo">
                                                     <img src="/assets/img/home-1/footer-logo.svg" alt="img">
                                                 </a>
                                             </div>
@@ -31,32 +31,32 @@ export default function Footer() {
                                             </div>
                                             <ul class="gt-list-area">
                                                 <li>
-                                                    <a href="about.html">
+                                                    <a href="/about">
                                                         About Us
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="service.html">
+                                                    <a href="/services">
                                                         Services
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="about.html">
+                                                    <a href="/about">
                                                        About us
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="about.html">
+                                                    <a href="/about">
                                                        History
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="contact.html">
+                                                    <a href="/contact">
                                                        Contact
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="news.html">
+                                                    <a href="/blog">
                                                        Blogs
                                                     </a>
                                                 </li>
@@ -70,32 +70,32 @@ export default function Footer() {
                                             </div>
                                             <ul class="gt-list-area">
                                                 <li>
-                                                    <a href="service-details.html">
+                                                    <a href="/services">
                                                         Strategic business
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="service-details.html">
+                                                    <a href="/services">
                                                        Financial growth
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="service-details.html">
+                                                    <a href="/services">
                                                         Digital transform
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="service-details.html">
+                                                    <a href="/services">
                                                        Creative brand
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="service-details.html">
+                                                    <a href="/services">
                                                        Business innovation
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="service-details.html">
+                                                    <a href="/services">
                                                        Solution hub
                                                     </a>
                                                 </li>
@@ -137,16 +137,17 @@ export default function Footer() {
                                     </p>
                                     <ul class="footer-list wow fadeInUp" data-wow-delay=".5s">
                                         <li>
-                                            <a href="contact.html">Privacy policy</a>
+                                            <a href="/contact">Privacy policy</a>
                                         </li>
                                         <li>।</li>
                                         <li>
-                                            <a href="contact.html">Terms & conditions</a>
+                                            <a href="/contact">Terms & conditions</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </footer>`}} />
+                    </footer>
+`}} />
   )
 }
