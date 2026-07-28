@@ -8,8 +8,14 @@ export default function Layout() {
   const location = useLocation()
 
   useEffect(() => {
+    // The legacy template normally reveals the page from main.js. In React the
+    // load event may have fired before that handler can find the mounted nodes,
+    // so make visibility part of the layout lifecycle as well.
+    const page = document.getElementById('page')
+    page?.classList.add('visible')
+
     // Re-init all template JS on every page mount/change
-    if (typeof window.$ === 'undefined') return
+    if (typeof window.$ === 'undefined') return undefined
 
     // WOW animations
     if (typeof window.WOW !== 'undefined') {
@@ -19,9 +25,10 @@ export default function Layout() {
     // Sticky header scroll
     const onScroll = () => {
       const h = document.getElementById('sticky-header')
-      if (h) h.classList.toggle('sticky', window.scrollY > 100)
+      if (h) h.classList.toggle('sticky-menu', window.scrollY > 100)
     }
     window.addEventListener('scroll', onScroll)
+    onScroll()
 
     // Mobile menu bars toggle
     const bars = document.querySelector('.bars')
@@ -128,18 +135,32 @@ export default function Layout() {
       window.$('.count').counterUp({ delay: 10, time: 1000 })
     }
 
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      bars && (bars.onclick = null)
+      closeMobile && (closeMobile.onclick = null)
+      mobileOverlay && (mobileOverlay.onclick = null)
+      offcanvasBtn && (offcanvasBtn.onclick = null)
+      offcanvasClose && (offcanvasClose.onclick = null)
+      offcanvasOverlay && (offcanvasOverlay.onclick = null)
+    }
   }, [location.pathname])
 
   return (
     <div className="page-wrapper">
       <Preloader />
       <div id="page">
-        <Header />
+        <div className="global-header">
+          <Header />
+        </div>
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            <Outlet />
-            <Footer />
+            <main>
+              <Outlet />
+            </main>
+            <div className="global-footer">
+              <Footer />
+            </div>
           </div>
         </div>
       </div>

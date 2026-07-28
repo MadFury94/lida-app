@@ -42,3 +42,135 @@
     --bg: #272727;
     --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
 }
+
+/* Shared site chrome. `display: contents` prevents the React component
+   boundaries from changing the original template's layout selectors. */
+.global-header,
+.global-header > div,
+.global-footer,
+.global-footer > div {
+    display: contents;
+}
+
+/* Global navigation */
+.site-header {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 100000;
+    width: 100%;
+    padding: 24px clamp(20px, 5vw, 90px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.site-header.sticky-menu {
+    position: fixed !important;
+    top: 0 !important;
+    padding: 16px clamp(20px, 5vw, 90px);
+    background: #101010;
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    max-width: 1640px;
+    margin: 0 auto;
+}
+
+.site-header__logo img {
+    display: block;
+    width: 132px;
+    height: auto;
+}
+
+.site-header__desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(18px, 2.1vw, 38px);
+}
+
+.site-header__desktop a,
+.site-header__mobile a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.site-header__desktop a:hover,
+.site-header__desktop a.active,
+.site-header__mobile a:hover,
+.site-header__mobile a.active {
+    color: var(--theme);
+}
+
+.site-header__cta {
+    padding: 13px 22px;
+    border-radius: 999px;
+    background: var(--theme);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.site-header__toggle,
+.site-header__mobile {
+    display: none;
+}
+
+@media (max-width: 1199px) {
+    .site-header {
+        padding: 20px clamp(16px, 5vw, 50px);
+    }
+
+    .site-header__desktop,
+    .site-header__cta {
+        display: none;
+    }
+
+    .site-header__toggle {
+        display: grid;
+        gap: 5px;
+        padding: 8px;
+        border: 0;
+        background: transparent;
+    }
+
+    .site-header__toggle span {
+        display: block;
+        width: 27px;
+        height: 2px;
+        background: #fff;
+    }
+
+    .site-header__mobile {
+        position: absolute;
+        top: 100%;
+        right: clamp(16px, 5vw, 50px);
+        left: clamp(16px, 5vw, 50px);
+        padding: 12px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: #191a18;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .site-header__mobile.is-open {
+        display: grid;
+    }
+
+    .site-header__mobile a {
+        padding: 11px 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .site-header__mobile a:last-child {
+        border-bottom: 0;
+    }
+}
