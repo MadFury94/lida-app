@@ -1,7 +1,43 @@
 @import "tailwindcss/theme" layer(theme);
 @import "tailwindcss/utilities" layer(utilities);
 
-/* Force desktop navbar visible — Bootstrap collapse hides it when JS runs after React */
+/* ================================================================
+   LIDA DIGITAL — SINGLE SOURCE OF TRUTH FOR COLORS & FONTS
+   Change values here and the entire site updates.
+   - main.css uses var(--theme), var(--body) etc — all read here.
+   - Tailwind utilities also use these via @theme below.
+   - JS reference lives in src/store/site.js (keep in sync).
+================================================================ */
+:root {
+    --theme: #FF471C;
+    /* Primary accent — CTAs, highlights */
+    --body: #101010;
+    /* Page background */
+    --bg: #272727;
+    /* Card / section background */
+    --black: #000000;
+    --white: #ffffff;
+    --header: #ffffff;
+    /* Heading text color */
+    --text: #B1B1B1;
+    /* Body / paragraph text */
+    --border: #FCFCFC;
+    --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
+}
+
+/* Tailwind v4 theme tokens — map to same :root values above */
+@theme {
+    --color-accent: var(--theme);
+    --color-body: var(--body);
+    --color-card: var(--bg);
+    --color-heading: var(--header);
+    --color-muted: var(--text);
+    --font-sans: "Urbanist", sans-serif;
+    --font-serif: "Instrument Serif", serif;
+}
+
+/* Force desktop navbar visible — Bootstrap collapse hides it when JS
+   runs after React mounts the DOM */
 @media (min-width: 1200px) {
     .header-section .navbar-collapse {
         display: flex !important;
@@ -13,164 +49,19 @@
     }
 }
 
-/* ── Lida Design Tokens (mirrors store/site.js theme object) ── */
-@theme {
-    --color-body: #101010;
-    --color-black: #000000;
-    --color-white: #ffffff;
-    --color-accent: #FF471C;
-    --color-heading: #ffffff;
-    --color-muted: #B1B1B1;
-    --color-border: #FCFCFC;
-    --color-card: #272727;
-
-    --font-sans: "Urbanist", sans-serif;
-    --font-serif: "Instrument Serif", serif;
-
-    --shadow-card: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
-}
-
-/* ── Keep Orixo template CSS variables in sync ── */
-:root {
-    --body: #101010;
-    --black: #000000;
-    --white: #ffffff;
-    --theme: #FF471C;
-    --header: #ffffff;
-    --text: #B1B1B1;
-    --border: #FCFCFC;
-    --bg: #272727;
-    --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
-}
-
-/* Shared site chrome. `display: contents` prevents the React component
-   boundaries from changing the original template's layout selectors. */
-.global-header,
-.global-header > div,
-.global-footer,
-.global-footer > div {
-    display: contents;
-}
-
-/* Global navigation */
-.site-header {
-    position: absolute;
-    inset: 0 0 auto;
-    z-index: 100000;
-    width: 100%;
-    padding: 24px clamp(20px, 5vw, 90px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-}
-
-.site-header.sticky-menu {
-    position: fixed !important;
-    top: 0 !important;
-    padding: 16px clamp(20px, 5vw, 90px);
-    background: #101010;
-}
-
-.site-header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-    max-width: 1640px;
-    margin: 0 auto;
-}
-
-.site-header__logo img {
-    display: block;
-    width: 132px;
-    height: auto;
-}
-
-.site-header__desktop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(18px, 2.1vw, 38px);
-}
-
-.site-header__desktop a,
-.site-header__mobile a {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: color 0.2s ease;
-}
-
-.site-header__desktop a:hover,
-.site-header__desktop a.active,
-.site-header__mobile a:hover,
-.site-header__mobile a.active {
-    color: var(--theme);
-}
-
-.site-header__cta {
-    padding: 13px 22px;
-    border-radius: 999px;
-    background: var(--theme);
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.site-header__toggle,
-.site-header__mobile {
-    display: none;
-}
-
-@media (max-width: 1199px) {
-    .site-header {
-        padding: 20px clamp(16px, 5vw, 50px);
-    }
-
-    .site-header__desktop,
-    .site-header__cta {
-        display: none;
-    }
-
-    .site-header__toggle {
-        display: grid;
-        gap: 5px;
-        padding: 8px;
-        border: 0;
-        background: transparent;
-    }
-
-    .site-header__toggle span {
+/* Keep the rotating hero ball visible on mobile */
+@media (max-width: 767px) {
+    .hero-1 .hero-circle {
         display: block;
-        width: 27px;
-        height: 2px;
-        background: #fff;
+        top: 18%;
+        left: 50%;
+        width: 70%;
+        transform: translateX(-50%);
     }
 
-    .site-header__mobile {
-        position: absolute;
-        top: 100%;
-        right: clamp(16px, 5vw, 50px);
-        left: clamp(16px, 5vw, 50px);
-        padding: 12px 20px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 12px;
-        background: #191a18;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    .site-header__mobile.is-open {
-        display: grid;
-    }
-
-    .site-header__mobile a {
-        padding: 11px 4px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .site-header__mobile a:last-child {
-        border-bottom: 0;
+    .hero-1 .hero-circle img {
+        display: block;
+        width: 100%;
+        height: auto;
     }
 }

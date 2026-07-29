@@ -35,23 +35,25 @@ export const contact = {
   },
 }
 
-// Design tokens — mirror Orixo SCSS variables
-// Tailwind v4 will read these via CSS custom properties
+// Design tokens — CSS source of truth is src/index.css :root variables.
+// Values here are JS references only (e.g. for dynamic inline styles,
+// Cloudflare Workers API, or any JS that needs color values).
+// If you change a color, update BOTH index.css :root AND here.
 export const theme = {
   colors: {
-    body: '#101010',
-    black: '#000000',
-    white: '#ffffff',
-    accent: '#FF471C',       // --theme: primary CTA orange-red
-    heading: '#ffffff',
-    text: '#B1B1B1',
-    border: '#FCFCFC',
-    bg: '#272727',           // card / section bg
+    accent:  '#FF471C',   // --theme
+    body:    '#101010',   // --body
+    card:    '#272727',   // --bg
+    heading: '#ffffff',   // --header
+    text:    '#B1B1B1',   // --text
+    border:  '#FCFCFC',   // --border
+    black:   '#000000',
+    white:   '#ffffff',
   },
   fonts: {
     heading: "'Urbanist', sans-serif",
-    serif: "'Instrument Serif', serif",
-    body: "'Urbanist', sans-serif",
+    serif:   "'Instrument Serif', serif",
+    body:    "'Urbanist', sans-serif",
   },
 }
 
