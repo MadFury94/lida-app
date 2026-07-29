@@ -1,76 +1,292 @@
-import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-
-const navigation = [
-  { label: 'Home', to: '/' },
-  { label: 'About Us', to: '/about' },
-  { label: 'Services', to: '/services' },
-  { label: 'Our Work', to: '/work' },
-  { label: 'Team', to: '/team' },
-  { label: 'FAQ', to: '/faq' },
-  { label: 'Contact', to: '/contact' },
-]
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { services, contact, brand } from '../store/site'
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
-  const closeMenu = () => setMenuOpen(false)
+  useEffect(() => {
+    const $ = window.$
+    if (!$) return
+
+    // Sticky header
+    const onScroll = () => {
+      const h = document.getElementById('sticky-header')
+      if (h) h.classList.toggle('sticky-menu', window.scrollY > 100)
+    }
+    window.addEventListener('scroll', onScroll)
+
+    // Offcanvas
+    const offBtn     = document.querySelector('.offcanvas-btn')
+    const offMenu    = document.querySelector('.offcanvas-menu')
+    const offOverlay = document.querySelector('.offcanvas-overlay')
+    const offClose   = document.querySelector('.offcasvas-close')
+    const openOff  = () => { offMenu?.classList.add('active');    offOverlay?.classList.add('active') }
+    const closeOff = () => { offMenu?.classList.remove('active'); offOverlay?.classList.remove('active') }
+    offBtn?.addEventListener('click', openOff)
+    offClose?.addEventListener('click', closeOff)
+    offOverlay?.addEventListener('click', closeOff)
+
+    // Mobile menu
+    const bars       = document.querySelector('.bars')
+    const mobileMain = document.querySelector('.mobile-menu-main')
+    const mobileOver = document.querySelector('.mobile-menu-overlay')
+    const mobileClose = document.querySelector('.close-mobile-menu')
+    const openMob  = () => { mobileMain?.classList.add('active');    mobileOver?.classList.add('active') }
+    const closeMob = () => { mobileMain?.classList.remove('active'); mobileOver?.classList.remove('active') }
+    bars?.addEventListener('click', openMob)
+    mobileClose?.addEventListener('click', closeMob)
+    mobileOver?.addEventListener('click', closeMob)
+
+    // Mobile sub-menu accordion
+    document.querySelectorAll('.sub-mobile-menu > a').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); a.closest('li').classList.toggle('open') })
+    })
+
+    // Search popup
+    const searchPopup = document.querySelector('.search-popup')
+    document.querySelectorAll('.search-toggler').forEach(btn => {
+      btn.addEventListener('click', e => { e.preventDefault(); searchPopup?.classList.toggle('active') })
+    })
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      offBtn?.removeEventListener('click', openOff)
+      offClose?.removeEventListener('click', closeOff)
+      offOverlay?.removeEventListener('click', closeOff)
+      bars?.removeEventListener('click', openMob)
+      mobileClose?.removeEventListener('click', closeMob)
+      mobileOver?.removeEventListener('click', closeMob)
+    }
+  }, [location.pathname])
+
+  const navCls = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`
 
   return (
-    <header className="site-header" id="sticky-header">
-      <div className="site-header__inner">
-        <Link className="site-header__logo" to="/" onClick={closeMenu}>
-          <img src="/assets/img/logo/white-logo.svg" alt="Lida Digital" />
-        </Link>
-
-        <nav className="site-header__desktop" aria-label="Main navigation">
-          {navigation.map(({ label, to }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === '/'}
-              className={({ isActive }) => isActive ? 'active' : undefined}
-            >
-              {label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <Link className="site-header__cta" to="/contact">
-          Let's Talk <i className="fa-solid fa-arrow-up-right" />
-        </Link>
-
-        <button
-          className="site-header__toggle"
-          type="button"
-          aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setMenuOpen(open => !open)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
-
-      <nav
-        id="mobile-navigation"
-        className={`site-header__mobile${menuOpen ? ' is-open' : ''}`}
-        aria-label="Mobile navigation"
+    <>
+      <style>{`
+        .site-nav-desktop { display: flex !important; }
+        .site-nav-desktop .navbar-collapse { display: flex !important; flex: 1; align-items: center; }
+        @media (max-width: 1199px) { .site-nav-desktop { display: none !important; } #mobile-menu-area { display: block !important; } }
+      `}</style>
+      <header
+        className={`header-section ${isHome ? 'header-1' : 'header-3'}`}
+        id="sticky-header"
       >
-        {navigation.map(({ label, to }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
-            className={({ isActive }) => isActive ? 'active' : undefined}
-            onClick={closeMenu}
-          >
-            {label}
-          </NavLink>
-        ))}
-      </nav>
-    </header>
+        <div className="header-main">
+          {/* ── DESKTOP NAV ── */}
+          <nav className="navbar p-0 navbar-expand-xl site-nav-desktop" style={{display:'flex'}}>
+            <Link className="navbar-brand" to="/">
+              <img src="/assets/img/logo/white-logo.svg" alt={brand.name} />
+            </Link>
+
+            <div style={{display:'flex', flex:1, alignItems:'center'}} id="navbarSupportedContent">
+              <ul className="navbar-nav mx-auto mb-lg-0">
+
+                <li className="nav-item">
+                  <NavLink className={navCls} to="/">Home</NavLink>
+                </li>
+
+                <li className="nav-item">
+                  <NavLink className={navCls} to="/about">About Us</NavLink>
+                </li>
+
+                <li className="nav-item">
+                  <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
+                    Services <i className="fas fa-chevron-down"></i>
+                  </a>
+                  <ul className="sub-menu list-unstyled">
+                    <li><Link to="/services">All Services</Link></li>
+                    {services.map(s => (
+                      <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.shortTitle}</Link></li>
+                    ))}
+                  </ul>
+                </li>
+
+                <li className="has-dropdown nav-item">
+                  <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
+                    Work <i className="fas fa-chevron-down"></i>
+                  </a>
+                  <ul className="sub-menu list-unstyled">
+                    <li><Link to="/work">Case Studies</Link></li>
+                    <li><Link to="/team">Our Team</Link></li>
+                  </ul>
+                </li>
+
+                <li className="nav-item">
+                  <NavLink className={navCls} to="/faq">FAQ</NavLink>
+                </li>
+
+                <li className="nav-item">
+                  <NavLink className={navCls} to="/contact">Contact</NavLink>
+                </li>
+
+              </ul>
+
+              <div className={isHome ? 'menu-right-info' : 'header-right'}>
+                <a href="#" className="main-header__search search-toggler">
+                  <i className="fa-regular fa-magnifying-glass"></i>
+                </a>
+                {!isHome && (
+                  <Link className="theme-btn-main style-2 bg-white-style" to="/contact">
+                    <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
+                    <span className="theme-btn">Let's Talk</span>
+                    <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
+                  </Link>
+                )}
+                <div className="sidebar__toggle offcanvas-btn">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        {/* ── OFFCANVAS ── */}
+        <div className="offcanvas-overlay position-fixed top-0 start-0 w-100 h-100"></div>
+        <div className="offcanvas-menu position-fixed">
+          <div className="header-top d-flex align-items-center justify-content-between gap-4">
+            <div className="logo">
+              <Link to="/"><img src="/assets/img/logo/white-logo.svg" alt={brand.name} /></Link>
+            </div>
+            <button className="offcasvas-close black-bg border-0 text-white d-flex align-items-center justify-content-center rounded-pill">
+              <i className="fa-regular fa-xmark"></i>
+            </button>
+          </div>
+          <span className="action-title">Happy You're Here</span>
+          <Link to="/contact" className="news-btn">
+            <span className="text">
+              <span className="text-default">Know more about us <i className="fa-regular fa-arrow-up-right"></i></span>
+              <span className="text-hover">Know more about us <i className="fa-regular fa-arrow-up-right"></i></span>
+            </span>
+          </Link>
+          <div className="offcanvas_gallery d-none d-lg-block">
+            <img className="gallery_img" src="/assets/img/header/offcanvas1.jpg" alt="" />
+            <img className="gallery_img" src="/assets/img/header/offcanvas2.jpg" alt="" />
+            <img className="gallery_img" src="/assets/img/header/offcanvas3.jpg" alt="" />
+            <img className="gallery_img" src="/assets/img/header/offcanvas4.jpg" alt="" />
+          </div>
+          <div className="off-contact-info">
+            <span className="info-title">Contact Info</span>
+            <div className="contact-details">
+              <span className="sub-info">Phone</span>
+              <p><a href={contact.phoneHref}>{contact.phone}</a></p>
+            </div>
+            <div className="contact-details">
+              <span className="sub-info">Email</span>
+              <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+            </div>
+            <div className="contact-details">
+              <span className="sub-info">Location</span>
+              <p>{brand.location}</p>
+            </div>
+          </div>
+          <div className="social-icon-list">
+            <span className="follow-title">Follow us:</span>
+            <div className="social-icon d-flex align-items-center">
+              <a href={contact.social.facebook}><i className="fab fa-facebook-f"></i></a>
+              <a href={contact.social.twitter}><i className="fab fa-twitter"></i></a>
+              <a href={contact.social.linkedin}><i className="fab fa-linkedin-in"></i></a>
+              <a href={contact.social.instagram}><i className="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        {/* ── MOBILE MENU ── */}
+        <div className="mobile-menu-area" style={{display: 'none'}} id="mobile-menu-area">
+          <div className="container">
+            <div className="mobile-topbar">
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="logo">
+                  <Link to="/"><img src="/assets/img/logo/white-logo.svg" alt={brand.name} /></Link>
+                </div>
+                <div className="menu-search d-flex align-items-center gap-4">
+                  <a href="#" className="main-header__search search-toggler">
+                    <i className="fa-regular fa-magnifying-glass"></i>
+                  </a>
+                  <div className="bars">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mobile-menu-overlay"></div>
+          <div className="mobile-menu-main">
+            <div className="logo">
+              <Link to="/"><img src="/assets/img/logo/white-logo.svg" alt={brand.name} /></Link>
+            </div>
+            <div className="close-mobile-menu"><i className="fas fa-times"></i></div>
+            <div className="menu-body">
+              <div className="menu-list">
+                <ul className="list-unstyled">
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/about">About Us</Link></li>
+                  <li className="sub-mobile-menu">
+                    <a href="#">Services <i className="fas fa-chevron-down float-end"></i></a>
+                    <ul className="list-unstyled">
+                      <li><Link to="/services">All Services</Link></li>
+                      {services.map(s => (
+                        <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.shortTitle}</Link></li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li className="sub-mobile-menu">
+                    <a href="#">Work <i className="fas fa-chevron-down float-end"></i></a>
+                    <ul className="list-unstyled">
+                      <li><Link to="/work">Case Studies</Link></li>
+                      <li><Link to="/team">Our Team</Link></li>
+                    </ul>
+                  </li>
+                  <li><Link to="/faq">FAQ</Link></li>
+                  <li><Link to="/contact">Contact</Link></li>
+                </ul>
+              </div>
+            </div>
+            <div className="off-contact-area">
+              <div className="off-contact-info">
+                <span className="info-title">Contact Info</span>
+                <div className="contact-details">
+                  <span className="sub-info">Phone</span>
+                  <p><a href={contact.phoneHref}>{contact.phone}</a></p>
+                </div>
+                <div className="contact-details">
+                  <span className="sub-info">Email</span>
+                  <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+                </div>
+                <div className="contact-details">
+                  <span className="sub-info">Location</span>
+                  <p>{brand.location}</p>
+                </div>
+              </div>
+              <div className="social-icon-list">
+                <span className="follow-title">Follow us:</span>
+                <div className="social-icon d-flex align-items-center">
+                  <a href={contact.social.facebook}><i className="fab fa-facebook-f"></i></a>
+                  <a href={contact.social.twitter}><i className="fab fa-twitter"></i></a>
+                  <a href={contact.social.linkedin}><i className="fab fa-linkedin-in"></i></a>
+                  <a href={contact.social.instagram}><i className="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      {/* Search Popup */}
+      <div className="search-popup">
+        <div className="search-popup__overlay search-toggler"></div>
+        <div className="search-popup__content">
+          <form role="search" className="search-popup__form">
+            <input type="text" name="search" placeholder="Search Here..." />
+            <button type="submit" aria-label="search submit" className="search-btn">
+              <span><i className="fa-regular fa-magnifying-glass"></i></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
   )
 }

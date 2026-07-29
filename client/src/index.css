@@ -36,16 +36,20 @@
     --font-serif: "Instrument Serif", serif;
 }
 
-/* Force desktop navbar visible — Bootstrap collapse hides it when JS
-   runs after React mounts the DOM */
-@media (min-width: 1200px) {
-    .header-section .navbar-collapse {
-        display: flex !important;
-        flex-basis: auto;
-    }
+/* Desktop nav — controlled by React component class .site-desktop-nav
+   Bypasses Bootstrap d-none/d-xl-flex timing issues with React */
+.site-desktop-nav {
+    display: flex !important;
+}
 
-    .header-section .navbar-collapse.collapsing {
-        display: flex !important;
+.site-desktop-nav .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+}
+
+@media (max-width: 1199px) {
+    .site-desktop-nav {
+        display: none !important;
     }
 }
 
