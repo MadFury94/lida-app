@@ -91,7 +91,7 @@ export default function Home() {
                             </ul>
                         </div>
                         <div class="hero-circle">
-                            <img src="https://res.cloudinary.com/dqwfjxn8g/image/upload/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png" alt="img">
+                            <img src="https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.7/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png" alt="Rotating abstract sphere" fetchpriority="high">
                         </div>
                     </section>
                     
