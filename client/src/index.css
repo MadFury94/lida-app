@@ -9,7 +9,7 @@
    - JS reference lives in src/store/site.js (keep in sync).
 ================================================================ */
 :root {
-    --theme: #FF471C;
+    --theme: #1B6FFF;
     /* Primary accent — CTAs, highlights */
     --body: #101010;
     /* Page background */
