@@ -3,27 +3,57 @@ import { Link } from 'react-router-dom'
 import { brand, contact, stats, services, caseStudies } from '../store/site'
 
 const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.7/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
-
-// Marquee items — brand keywords
 const marqueeItems = ['Brand Strategy', 'Market Entry', 'Communications', 'Digital Growth', 'Africa', 'Consulting']
 
 export default function Home() {
   useEffect(() => {
+    // Counter up
     if (window.$ && window.$.fn.counterUp) {
       window.$('.count').counterUp({ delay: 10, time: 1000 })
     }
+    // WOW
     if (typeof window.WOW !== 'undefined') {
       new window.WOW({ live: false }).init()
     }
-    // Service accordion
-    window.$?.('.service-list-wrap .service-acc-btn')?.on('click', function () {
-      const wrap = window.$(this).closest('.service-list-wrap')
-      window.$('.service-list-wrap').removeClass('active-block')
-      window.$('.service-acc-content').removeClass('current')
-      window.$('.service-acc-btn').removeClass('active')
-      wrap.addClass('active-block')
-      wrap.find('.service-acc-content').addClass('current')
-      window.$(this).addClass('active')
+
+    // Service accordion — native JS, no jQuery dependency
+    const serviceBtns = document.querySelectorAll('.service-acc-btn')
+    serviceBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrap = btn.closest('.service-list-wrap')
+        const isActive = wrap.classList.contains('active-block')
+        // close all
+        document.querySelectorAll('.service-list-wrap').forEach(w => {
+          w.classList.remove('active-block')
+          w.querySelector('.service-acc-content')?.classList.remove('current')
+          w.querySelector('.service-acc-btn')?.classList.remove('active')
+        })
+        // open clicked if it wasn't already open
+        if (!isActive) {
+          wrap.classList.add('active-block')
+          wrap.querySelector('.service-acc-content')?.classList.add('current')
+          btn.classList.add('active')
+        }
+      })
+    })
+
+    // FAQ accordion — native JS
+    const accBtns = document.querySelectorAll('.accordion-box .acc-btn')
+    accBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const block = btn.closest('.accordion')
+        const isActive = block.classList.contains('active-block')
+        block.closest('.accordion-box')?.querySelectorAll('.accordion').forEach(b => {
+          b.classList.remove('active-block')
+          b.querySelector('.acc-content')?.classList.remove('current')
+          b.querySelector('.acc-btn')?.classList.remove('active')
+        })
+        if (!isActive) {
+          block.classList.add('active-block')
+          block.querySelector('.acc-content')?.classList.add('current')
+          btn.classList.add('active')
+        }
+      })
     })
   }, [])
 
