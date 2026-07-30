@@ -10,6 +10,7 @@ import Team from './pages/Team'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import NotFound from './pages/NotFound'
+import Careers from './pages/Careers'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="team" element={<Team />} />
         <Route path="faq" element={<FAQ />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="careers" element={<Careers />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -15,8 +15,10 @@ export const brand = {
   location: 'Abuja, Nigeria',
   founded: '2020',
   website: 'www.lidadigitalmedia.com',
-  logoLight: '/assets/img/logo/white-logo.svg',
-  logoDark: '/assets/img/home-1/footer-logo.svg',
+  // ── All logo references come from here ──
+  logo: '/assets/img/logo/lida-logo.svg',       // primary — used everywhere
+  logoLight: '/assets/img/logo/lida-logo.svg',  // alias for light backgrounds
+  logoDark: '/assets/img/logo/lida-logo.svg',   // alias for dark backgrounds
   favicon: '/assets/img/favicon.svg',
 }
 

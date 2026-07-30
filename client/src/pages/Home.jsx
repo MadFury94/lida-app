@@ -435,7 +435,7 @@ export default function Home() {
       </div>
 
       {/* ── TESTIMONIALS ─────────────────────────────────── */}
-      <section className="testimonial-section client-testimonial fix section-padding">
+      <section className="testimonial-section home-testimonials client-testimonial fix section-padding">
         <div className="light-bg"><img src="/assets/img/home-1/light.png" alt="" /></div>
         <div className="container">
           <div className="section-title text-center">
