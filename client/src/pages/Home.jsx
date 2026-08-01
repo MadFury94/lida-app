@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { brand, contact, stats, services, caseStudies } from '../store/site'
 
-const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.7/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
+const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
 const marqueeItems = ['Brand Strategy', 'Market Entry', 'Communications', 'Digital Growth', 'Africa', 'Consulting']
 
 export default function Home() {
