@@ -53,7 +53,22 @@
     }
 }
 
-/* Keep the rotating hero ball visible on mobile */
+/* Logo sizing — SVG needs explicit dimensions to render */
+.brand-logo {
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+/* Testimonials — keep section background dark, reduce light-bg glow */
+.testimonial-section {
+    background-color: var(--body) !important;
+}
+
+.testimonial-section .light-bg img {
+    opacity: 0.15;
+}
+
 @media (max-width: 767px) {
     .hero-1 .hero-circle {
         display: block;

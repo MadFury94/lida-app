@@ -10,15 +10,17 @@ export const brand = {
   fullName: 'Lida Digital Media & Communications Services Ltd.',
   tagline: 'Positioning Global Brands for Success in Africa.',
   subTagline: 'Local Insight. Strategic Execution. Measurable Impact.',
-  description:
-    'A strategic brand, marketing, and communications consultancy helping organizations build visibility, credibility, and sustainable growth within Nigeria and emerging African markets.',
+  // Footer description
+  description: 'Helping Businesses Earn Trust, Win Customers, and Grow.',
+  descriptionLong: 'LIDA partners with ambitious organizations to solve growth challenges through commercial strategy, brand positioning, customer acquisition, strategic communications, AI enabled solutions, and measurable execution.',
+  descriptionTag: 'Strategy First. Execution Always. Results That Matter.',
   location: 'Abuja, Nigeria',
   founded: '2020',
   website: 'www.lidadigitalmedia.com',
   // ── All logo references come from here ──
-  logo: '/assets/img/logo/lida-logo.svg',       // primary — used everywhere
-  logoLight: '/assets/img/logo/lida-logo.svg',  // alias for light backgrounds
-  logoDark: '/assets/img/logo/lida-logo.svg',   // alias for dark backgrounds
+  logo: '/assets/img/logo/lida-logo.svg',
+  logoLight: '/assets/img/logo/lida-logo.svg',
+  logoDark: '/assets/img/logo/lida-logo.svg',
   favicon: '/assets/img/favicon.svg',
 }
 

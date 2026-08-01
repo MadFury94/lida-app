@@ -13,11 +13,13 @@ export default function Footer() {
               <div className="footer-widget-items">
                 <div className="widget-head">
                   <Link to="/" className="footer-logo">
-                    <img className="brand-logo" src={brand.logo} alt={brand.name} />
+                    <img className="brand-logo" src={brand.logo} alt={brand.name} style={{maxWidth:'160px', height:'auto', display:'block'}} />
                   </Link>
                 </div>
                 <div className="footer-content">
-                  <p>{brand.description}</p>
+                  <p style={{fontWeight:600, color:'#fff', marginBottom:'8px'}}>{brand.description}</p>
+                  <p style={{marginBottom:'8px'}}>{brand.descriptionLong}</p>
+                  <p style={{fontStyle:'italic', color:'var(--theme)', marginBottom:'16px'}}>{brand.descriptionTag}</p>
                   <div className="social-icon d-flex align-items-center">
                     <a href={contact.social.facebook} aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                     <a href={contact.social.twitter} aria-label="Twitter"><i className="fab fa-twitter"></i></a>

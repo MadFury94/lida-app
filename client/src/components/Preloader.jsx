@@ -9,8 +9,8 @@ export default function Preloader() {
       <div className="bracket br"></div>
 
       <div className="pre-logo">
-        {brand.name.toUpperCase()}
-        <div className="pre-logo-fill" id="logoFill">{brand.name.toUpperCase()}</div>
+        LiDa
+        <div className="pre-logo-fill" id="logoFill">LiDa</div>
       </div>
 
       <div className="loader-ring">
