@@ -258,3 +258,9 @@
         margin-left: 15px;
     }
 }
+
+/* Hero circle — gradient overlay scales with the resized ball image */
+.hero-1 .hero-circle::before {
+    width: 100%;
+    height: 100%;
+}

@@ -9,8 +9,8 @@ export default function Preloader() {
       <div className="bracket br"></div>
 
       <div className="pre-logo">
-        LiDa
-        <div className="pre-logo-fill" id="logoFill">LiDa</div>
+        LIDA
+        <div className="pre-logo-fill" id="logoFill">LIDA</div>
       </div>
 
       <div className="loader-ring">
