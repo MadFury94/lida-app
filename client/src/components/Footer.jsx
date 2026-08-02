@@ -13,7 +13,7 @@ export default function Footer() {
               <div className="footer-widget-items">
                 <div className="widget-head">
                   <Link to="/" className="footer-logo">
-                    <img className="brand-logo" src={brand.logo} alt={brand.name} style={{maxWidth:'160px', height:'auto', display:'block'}} />
+                    <img className="brand-logo" src={brand.logo} alt={brand.name} />
                   </Link>
                 </div>
                 <div className="footer-content">

@@ -55,7 +55,7 @@
 
 /* Logo sizing — SVG needs explicit dimensions to render */
 .brand-logo {
-    max-width: 150px;
+    max-width: 90px;
     height: auto;
     display: block;
 }
