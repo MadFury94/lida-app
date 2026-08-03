@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { brand, contact } from '../store/site'
+// Page copy is intentionally local while content editing is store-independent.
 
 const paths = [
   {
@@ -23,7 +23,7 @@ const paths = [
 ]
 
 export default function Careers() {
-  const applicationSubject = encodeURIComponent(`Career interest — ${brand.name}`)
+  const applicationSubject = encodeURIComponent('Career interest — Lida Digital')
 
   return (
     <>
@@ -43,7 +43,7 @@ export default function Careers() {
             </div>
             <div className="breadcrumb-items">
               <ul>
-                <li>{brand.location}</li>
+                <li>Abuja, Nigeria</li>
                 <li>Hybrid collaboration</li>
               </ul>
               <h2 className="title">Careers</h2>
@@ -117,7 +117,7 @@ export default function Careers() {
             </div>
             <a
               className="theme-btn-main style-2"
-              href={`mailto:${contact.email}?subject=${applicationSubject}`}
+              href={`mailto:hello@lidadigital.com.ng?subject=${applicationSubject}`}
             >
               <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
               <span className="theme-btn">Introduce Yourself</span>

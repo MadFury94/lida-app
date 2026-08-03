@@ -7,28 +7,24 @@ const marqueeItems = ['Brand Strategy', 'Market Entry', 'Communications', 'Digit
 
 export default function Home() {
   useEffect(() => {
-    // Counter up
     if (window.$ && window.$.fn.counterUp) {
       window.$('.count').counterUp({ delay: 10, time: 1000 })
     }
-    // WOW
     if (typeof window.WOW !== 'undefined') {
       new window.WOW({ live: false }).init()
     }
 
-    // Service accordion — native JS, no jQuery dependency
+    // Service accordion
     const serviceBtns = document.querySelectorAll('.service-acc-btn')
     serviceBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const wrap = btn.closest('.service-list-wrap')
         const isActive = wrap.classList.contains('active-block')
-        // close all
         document.querySelectorAll('.service-list-wrap').forEach(w => {
           w.classList.remove('active-block')
           w.querySelector('.service-acc-content')?.classList.remove('current')
           w.querySelector('.service-acc-btn')?.classList.remove('active')
         })
-        // open clicked if it wasn't already open
         if (!isActive) {
           wrap.classList.add('active-block')
           wrap.querySelector('.service-acc-content')?.classList.add('current')
@@ -37,7 +33,7 @@ export default function Home() {
       })
     })
 
-    // FAQ accordion — native JS
+    // FAQ accordion
     const accBtns = document.querySelectorAll('.accordion-box .acc-btn')
     accBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -67,10 +63,10 @@ export default function Home() {
         <div className="row g-4 align-items-end">
           <div className="col-xl-8">
             <div className="hero-content">
-              <p className="split-title">©{new Date().getFullYear()} {brand.name}</p>
+              <p className="split-title">YOUR GROWTH PARTNER</p>
               <h1 className="split-title">
-                {brand.tagline.split('.')[0]}.<br />
-                <span>{brand.subTagline}</span>
+                We Help <span>{brand.subTagline}</span>
+                You Earn Trust, Win<br />Customers, and Grow.
               </h1>
               <div className="hero-button wow fadeInUp" data-wow-delay=".3s">
                 <Link className="theme-btn-main style-2 bg-white-style" to="/contact">
@@ -119,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── BRAND / CLIENT LOGOS ─────────────────────────── */}
+      {/* ── BRAND LOGOS ──────────────────────────────────── */}
       <div className="brand-section">
         <div className="container">
           <h2 className="title wa_title_spilt_1">
@@ -163,7 +159,7 @@ export default function Home() {
                       <span className="style-font">Positioning Global Brands</span> for Success in Africa
                     </h2>
                   </div>
-                  <p className="text wow fadeInUp" data-wow-delay=".3s">{brand.description}</p>
+                  <p className="text wow fadeInUp" data-wow-delay=".3s">{brand.descriptionLong}</p>
                   <Link className="theme-btn-main style-2 bg-white-style wow fadeInUp" data-wow-delay=".5s" to="/about">
                     <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
                     <span className="theme-btn">Know more about us</span>
@@ -210,14 +206,14 @@ export default function Home() {
               </span>
               <h2 className="wa_title_spilt_1">
                 <span className="style-font">Our Core Services</span> That Deliver <br className="d-none d-lg-block" />
-                Strategic Insight, <span className="style-color">And Measurable <br className="d-none d-lg-block" /> Results</span>
+                Strategic Insight, <span className="style-color">And Measurable Results</span>
               </h2>
             </div>
             <div className="client-info wow fadeInUp" data-wow-delay=".3s">
               <img src="/assets/img/home-1/client-info.png" alt="" />
               <div className="content">
-                <h2><span className="count">{stats[1].value.replace('+','')}</span>+</h2>
-                <p>{stats[1].label}</p>
+                <h2><span className="count">2500</span>+</h2>
+                <p>Campaigns Managed</p>
               </div>
             </div>
           </div>
@@ -259,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS / WHY CHOOSE US ────────────────────────── */}
+      {/* ── STATS ────────────────────────────────────────── */}
       <section className="choose-us-section section-padding">
         <div className="container">
           <div className="section-title text-center">
@@ -435,7 +431,7 @@ export default function Home() {
       </div>
 
       {/* ── TESTIMONIALS ─────────────────────────────────── */}
-      <section className="testimonial-section home-testimonials client-testimonial fix section-padding">
+      <section className="testimonial-section client-testimonial fix section-padding">
         <div className="light-bg"><img src="/assets/img/home-1/light.png" alt="" /></div>
         <div className="container">
           <div className="section-title text-center">

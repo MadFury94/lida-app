@@ -1,5 +1,3 @@
-import { brand } from '../store/site'
-
 export default function Preloader() {
   return (
     <div id="preloader">

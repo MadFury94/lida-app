@@ -1,6 +1,22 @@
 ﻿import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { services, contact, brand } from '../store/site'
+import { brand } from '../store/site'
+
+const services = [
+  ['market-entry', 'Market Entry'],
+  ['corporate-positioning', 'Corporate Positioning'],
+  ['brand-strategy', 'Brand Strategy'],
+  ['marketing-growth', 'Marketing & Growth'],
+  ['public-relations', 'Public Relations'],
+  ['digital-presence', 'Digital Presence'],
+].map(([slug, shortTitle]) => ({ slug, shortTitle }))
+
+const contact = {
+  email: 'hello@lidadigital.com.ng',
+  phone: '+234-807-436-3918',
+  phoneHref: 'tel:+2348074363918',
+  social: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' },
+}
 
 export default function Header() {
   const location = useLocation()
@@ -83,7 +99,7 @@ export default function Header() {
           {/* â”€â”€ DESKTOP NAV â”€â”€ */}
           <nav className="navbar p-0 navbar-expand-xl site-nav-desktop" style={{display:'flex'}}>
             <Link className="navbar-brand" to="/">
-              <img className="brand-logo" src={brand.logo} alt={brand.name} />
+              <img className="brand-logo" src={brand.logo} alt="Lida Digital" />
             </Link>
 
             <div style={{display:'flex', flex:1, alignItems:'center'}} id="navbarSupportedContent">
@@ -154,7 +170,7 @@ export default function Header() {
         <div className="offcanvas-menu position-fixed">
           <div className="header-top d-flex align-items-center justify-content-between gap-4">
             <div className="logo">
-              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt={brand.name} /></Link>
+              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt="Lida Digital" /></Link>
             </div>
             <button className="offcasvas-close black-bg border-0 text-white d-flex align-items-center justify-content-center rounded-pill">
               <i className="fa-regular fa-xmark"></i>
@@ -185,7 +201,7 @@ export default function Header() {
             </div>
             <div className="contact-details">
               <span className="sub-info">Location</span>
-              <p>{brand.location}</p>
+              <p>Abuja, Nigeria</p>
             </div>
           </div>
           <div className="social-icon-list">
@@ -205,7 +221,7 @@ export default function Header() {
             <div className="mobile-topbar">
               <div className="d-flex justify-content-between align-items-center">
                 <div className="logo">
-                  <Link to="/"><img className="brand-logo" src={brand.logo} alt={brand.name} /></Link>
+                  <Link to="/"><img className="brand-logo" src={brand.logo} alt="Lida Digital" /></Link>
                 </div>
                 <div className="menu-search d-flex align-items-center gap-4">
                   <a href="#" className="main-header__search search-toggler">
@@ -221,7 +237,7 @@ export default function Header() {
           <div className="mobile-menu-overlay"></div>
           <div className="mobile-menu-main">
             <div className="logo">
-              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt={brand.name} /></Link>
+              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt="Lida Digital" /></Link>
             </div>
             <div className="close-mobile-menu"><i className="fas fa-times"></i></div>
             <div className="menu-body">
@@ -264,7 +280,7 @@ export default function Header() {
                 </div>
                 <div className="contact-details">
                   <span className="sub-info">Location</span>
-                  <p>{brand.location}</p>
+                  <p>Abuja, Nigeria</p>
                 </div>
               </div>
               <div className="social-icon-list">
