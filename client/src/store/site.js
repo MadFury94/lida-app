@@ -6,7 +6,7 @@
 // ============================================================
 
 export const brand = {
-  name: 'Lida Digital',
+  name: 'LIDA',
   fullName: 'Lida Digital Media & Communications Services Ltd.',
   tagline: 'We Help You Earn Trust, Win Customers, and Grow.',
   subTagline: 'Strategy. Execution. Results.',
@@ -22,6 +22,33 @@ export const brand = {
   logoLight: '/assets/img/logo/lida-logo.svg',
   logoDark: '/assets/img/logo/lida-logo.svg',
   favicon: '/assets/img/favicon.svg',
+}
+
+export const aboutPage = {
+  eyebrow: 'About Us',
+  title: 'We Build Trust That Drives Growth.',
+  introduction: `${brand.name} is more than an agency. We are a partner in growth. We help ambitious organizations strengthen their positioning, earn trust, attract customers, and create measurable commercial value through strategy-led execution.`,
+  impact: [
+    { value: '100+', label: 'Businesses Supported', description: 'Partnering with ambitious organizations across multiple industries to strengthen positioning, build trust, and support commercial growth.' },
+    { value: '360°', label: 'Growth Support', description: 'From strategy and positioning to creative execution and customer acquisition, we support businesses at every stage of growth.' },
+    { value: '15+', label: 'Industries Served', description: 'Delivering solutions across finance, real estate, technology, engineering, hospitality, manufacturing, professional services, and more.' },
+    { value: '10+', label: 'Years of Experience', description: 'A decade of helping businesses solve communication, branding, and market growth challenges through strategy-led execution.' },
+  ],
+  reasons: [
+    {
+      title: 'Strategic Thinking, Not Just Execution',
+      description: 'We go beyond delivering creative assets. Every recommendation, campaign, and communication strategy is designed to support measurable business objectives, strengthen market positioning, and drive long-term growth.',
+    },
+    {
+      title: 'Creativity With Commercial Purpose',
+      description: 'We believe creativity should do more than look good. Our work is intentionally crafted to build trust, increase visibility, influence perception, and create opportunities that contribute to business success.',
+    },
+    {
+      title: 'Industry Insight & Market Understanding',
+      description: 'Our experience across real estate, financial services, technology, legal, and emerging industries enables us to develop solutions that are relevant, practical, and aligned with the realities of each market.',
+    },
+  ],
+  closingTitle: 'More Than An Agency. A Partner In Growth.',
 }
 
 export const contact = {
@@ -224,6 +251,24 @@ export const team = [
     bio: 'Fortune Ugwuala oversees operations, project delivery, and organizational efficiency at Lida. She plays a critical role in ensuring the successful execution of client engagements, coordinating teams, processes, and resources to deliver projects on time and to standard. Her expertise in operations management and business process optimization translates strategy into effective execution.',
     image: '/assets/img/inner-page/team-3.jpg',
     social: { linkedin: '#', twitter: '#' },
+  },
+]
+
+export const testimonials = [
+  {
+    name: 'Peter A.',
+    role: 'CEO, Duxbank',
+    quote: 'Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow.',
+  },
+  {
+    name: 'Oye E.',
+    role: 'CEO, Voda Beach Club',
+    quote: 'LIDA has become an extension of our team. Their strategic approach to content, brand positioning, and audience engagement has consistently strengthened our visibility while maintaining the premium image we wanted to build. They do not simply create content. They create experiences that connect with people and support business growth.',
+  },
+  {
+    name: 'Bari M.',
+    role: 'MD, Nuts & Bolts',
+    quote: 'Our engagement with LIDA transformed the way our business is perceived. They helped us build a stronger brand identity, improve how we communicate our value, and position the business with greater credibility. Their strategic thinking and attention to detail made a measurable difference in how we present ourselves to customers and partners.',
   },
 ]
 

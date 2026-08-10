@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { brand } from '../store/site'
 
 
 export default function About() {
@@ -24,14 +25,14 @@ export default function About() {
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                            Based in texus, USA
+                                            Abuja, Nigeria
                                         </li>
                                         <li>
-                                            (©2015 — 2026)
+                                            (©2020 — 2026)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                        About orixo
+                                        About ${brand.name}
                                     </h2>
                                 </div>
                             </div>
@@ -63,13 +64,13 @@ export default function About() {
                                     <div class="about-info wow fadeInUp" data-wow-delay=".3s">
                                         <img src="/assets/img/home-2/about-info.png" alt="img">
                                         <p>
-                                            <b>Join 5,000+ </b>
-                                            satisfied members
+                                            <b>150+ </b>
+                                            satisfied clients
                                         </p>
                                     </div>
                                     <div class="section-title mb-0">
                                         <h2 class="split-title">
-                                            <span class="style-font">Orixo is a creative studio based </span> In Texus We Think Like <span class="style-color"> An Agency And Produce Like A Visuals For</span> Vrands & Agencies.
+                                            <span class="style-font">${brand.name} is a strategic brand, marketing </span> and communications consultancy. <span class="style-color"> Helping organizations build visibility, credibility and sustainable growth.</span>
                                         </h2>
                                         <div class="sec-content">
                                             <a class="theme-btn-main style-2 bg-white-style" href="contact.html">
@@ -78,7 +79,7 @@ export default function About() {
                                                 <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                             </a>
                                             <p>
-                                                We help ambitious brands break boundaries with bold design and smart strategies. Our creative team is driven by innovation and fueled by passion, delivering solutions that capture attention and drive growth. Whether you're a startup or an established business, we bring your vision to life.
+                                                We work with local and international businesses, investors, development organizations, and growth-focused enterprises to navigate market entry, strengthen brand positioning, improve stakeholder engagement, and develop communication strategies that support long-term business objectives.
                                             </p>
                                         </div>
                                     </div>
@@ -93,9 +94,9 @@ export default function About() {
                                         <img src="/assets/img/home-3/icon1.svg" alt="img">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Discover</h3>
-                                        <p>Understand your business, <br>
-                                        users, & goals </p>
+                                        <h3 class="title">Understand</h3>
+                                        <p>Deep dive into your market,<br>
+                                        audiences &amp; objectives</p>
                                     </div>
                                 </div>
                                 <div class="work-process-items-3 wow fadeInUp" data-wow-delay=".2s">
@@ -103,10 +104,10 @@ export default function About() {
                                         <img src="/assets/img/home-3/icon2.svg" alt="img">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Define</h3>
+                                        <h3 class="title">Strategise</h3>
                                         <p>
-                                            Align on strategy, structure, <br>
-                                            and scope
+                                            Build your brand positioning,<br>
+                                            messaging &amp; market entry plan
                                         </p>
                                     </div>
                                 </div>
@@ -115,10 +116,10 @@ export default function About() {
                                         <img src="/assets/img/home-3/icon3.svg" alt="img">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Design</h3>
+                                        <h3 class="title">Create</h3>
                                         <p>
-                                            Visualize the solution and bring <br>
-                                            ideas to life
+                                            Develop identity systems,<br>
+                                            campaigns &amp; communications
                                         </p>
                                     </div>
                                 </div>
@@ -127,10 +128,10 @@ export default function About() {
                                         <img src="/assets/img/home-3/icon4.svg" alt="img">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Develop</h3>
+                                        <h3 class="title">Execute</h3>
                                         <p>
-                                            Build high-performing <br>
-                                            digital products
+                                            Launch campaigns, PR<br>
+                                            and stakeholder engagement
                                         </p>
                                     </div>
                                 </div>
@@ -139,10 +140,10 @@ export default function About() {
                                         <img src="/assets/img/home-3/icon5.svg" alt="img">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Deploy & Market</h3>
+                                        <h3 class="title">Measure</h3>
                                         <p>
-                                            Launch, optimize, <br>
-                                            and scale
+                                            Track outcomes, optimise<br>
+                                            and deliver results
                                         </p>
                                     </div>
                                 </div>
@@ -263,7 +264,7 @@ export default function About() {
                                         <img src="/assets/img/home-1/01.png" alt="img"> Why choose us
                                     </span>
                                     <h2 class="rr_title_anim">
-                                        <span class="style-font">Transforming Modern Business </span> Ideas Into Innovative Global <br>  Solutions That Inspire Long-Term Success Through <br> Business Collaboration.
+                                        <span class="style-font">Positioning Global Brands </span> for Success in Africa. <br> Local Insight. Strategic Execution. <br> <span class="style-color">Measurable Impact.</span>
                                     </h2>
                                 </div>
                                 <div class="row g-4">
@@ -275,7 +276,7 @@ export default function About() {
                                     <div class="col-xl-7 col-lg-6">
                                         <div class="choose-us-content">
                                             <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                                We help ambitious brands break boundaries with bold design and smart strategies. Our creative team is driven by innovation and fueled by passion, delivering solutions that capture attention and drive growth. Whether you're a startup or an established business, we bring your vision to life.
+                                                We work with local and international businesses, investors, development organizations, and growth-focused enterprises to navigate market entry, strengthen brand positioning, improve stakeholder engagement, and develop communication strategies that support long-term business objectives.
                                             </p>
                                             <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="contact.html">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
@@ -533,145 +534,6 @@ export default function About() {
                     </section>
 
                     <!-- Footer Section Start -->
-                    <footer class="footer-section-3">
-                        <div class="footer-area-3 mt-0 bg-cover fix" style="background-image: url('/assets/img/home-3/footer-bg.jpg');">
-                            <div class="footer-widget-wrapper-5">
-                                <div class="container">
-                                <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="footer-left-item">
-                                                <h2 class="split-title">
-                                                    <span>Fresh Strategies, Trends</span>, & Tips Are Delivered To Your Inbox Regular!
-                                                </h2>
-                                                <form action="#" class="wow fadeInUp" data-wow-delay=".3s">
-                                                    <input type="text" placeholder="Enter your email...">
-                                                    <button class="email-btn" type="submit">
-                                                        <i class="fa-solid fa-envelope"></i>
-                                                    </button>
-                                                </form>
-                                                <ul class="wow fadeInUp" data-wow-delay=".5s">
-                                                    <li>
-                                                        Call: <a href="tel:+1234567890">+(123) 456-7890</a>
-                                                    </li>
-                                                    <li>
-                                                        /
-                                                    </li>
-                                                    <li>
-                                                        Mail:<a href="mailto:info@orixo.com">info@orixo.com</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="footer-right-item">
-                                                <div class="footer-header-item">
-                                                    <a href="index.html" class="footer-logo wow fadeInUp" data-wow-delay=".3s">
-                                                        <img src="/assets/img/home-3/black-logo.png" alt="img">
-                                                    </a>
-                                                    <p class="wow fadeInUp" data-wow-delay=".5s">Sed ut perspiciatis unde omnis iste natus ut perspic iatis unde.</p>
-                                                </div>
-                                                <div class="row g-4 justify-content-between">
-                                                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                                                        <div class="footer-widget-items">
-                                                            <div class="widget-head">
-                                                                <h3>Resourses</h3>
-                                                            </div>
-                                                            <ul class="gt-list-area">
-                                                                <li>
-                                                                    <a href="contact.html">
-                                                                        Contact us
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="team.html">
-                                                                        Our teams
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="contact.html">
-                                                                    Careers
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="contact.html">
-                                                                    Feedback
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="404.html">
-                                                                    Error 404
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-5 col-lg-6 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
-                                                        <div class="footer-widget-items">
-                                                            <div class="widget-head">
-                                                                <h3>Services</h3>
-                                                            </div>
-                                                            <ul class="gt-list-area">
-                                                                <li>
-                                                                    <a href="service-details.html">
-                                                                        Leadership coaching
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="service-details.html">
-                                                                        Business strategy
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="service-details.html">
-                                                                        Risk & compliance
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="service-details.html">
-                                                                        Market research
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="service-details.html">
-                                                                        Management
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-6 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
-                                                        <div class="social-icon d-grid align-items-center">
-                                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                                </div> 
-                            </div>
-                            <div class="footer-bottom-5">
-                                <div class="container">
-                                    <div class="footer-bottom-wrapper-5">
-                                        <p class="wow fadeInUp" data-wow-delay=".3s">
-                                           © 2026 <b>Orixo.</b> All rights reserved.
-                                        </p>
-                                        <ul class="footer-list wow fadeInUp" data-wow-delay=".5s">
-                                            <li>
-                                                <a href="contact.html">Privacy policy</a>
-                                            </li>
-                                            <li><span class="dots"></span></li>
-                                            <li>
-                                                <a href="contact.html">Terms &amp; conditions</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>`}} />
+`}} />
   )
 }
