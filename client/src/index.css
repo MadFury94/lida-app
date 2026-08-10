@@ -297,3 +297,12 @@
     height: auto;
     object-fit: contain;
 }
+
+
+/* About section small portrait — constrain to match template sizing */
+.about-wrapper .about-content .about-counter-items .about-small img {
+    width: 254px;
+    height: 227px;
+    object-fit: cover;
+    object-position: center top;
+}
