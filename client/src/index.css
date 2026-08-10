@@ -287,3 +287,13 @@
         padding-top: 110px !important;
     }
 }
+
+
+/* Client logos - size only, hover animation from main.css untouched */
+.brand-box-1 .brand-img-1 img {
+    max-width: 100px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
