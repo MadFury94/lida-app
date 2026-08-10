@@ -85,9 +85,9 @@ export default function Home() {
           <div className="col-xl-4">
             <div className="hero-right-items">
               <div className="hero-small-slider wow fadeInUp" data-wow-delay=".3s">
-                <div className="small-thumb"><img src="/assets/img/home-1/hero-small-1.jpg" alt="" /></div>
-                <div className="small-thumb active"><img src="/assets/img/home-1/hero-small-2.jpg" alt="" /></div>
-                <div className="small-thumb"><img src="/assets/img/home-1/hero-small-3.jpg" alt="" /></div>
+                <div className="small-thumb"><img src="/assets/img/home-1/Lida Mascot.png" alt="" /></div>
+                <div className="small-thumb active"><img src="/assets/img/home-1/Lida Mascot-57.png" alt="" /></div>
+                <div className="small-thumb"><img src="/assets/img/home-1/Lida Mascot-56.png" alt="" /></div>
               </div>
               <p className="text wow fadeInUp" data-wow-delay=".5s">
                 <b>{brand.name}</b> — {brand.description}
@@ -145,7 +145,7 @@ export default function Home() {
                   <div className="about-circle">
                     <img src="/assets/img/home-1/about-circle.png" alt="" />
                   </div>
-                  <img src="/assets/img/home-1/about-image.png" alt="About Lida Digital" />
+                  <img src="/assets/img/home-1/Lida Exec Team-59.jpeg" alt="About Lida Digital" />
                 </div>
               </div>
               <div className="col-lg-6">
@@ -170,7 +170,7 @@ export default function Home() {
                       <p>{stats[0].desc}</p>
                     </div>
                     <div className="about-small wow fadeInUp" data-wow-delay=".5s">
-                      <img src="/assets/img/home-1/about-small.jpg" alt="" />
+                      <img src="/assets/img/home-1/Lida - MD.jpeg" alt="" />
                     </div>
                   </div>
                 </div>
