@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { brand, contact, stats, services, caseStudies } from '../store/site'
+import { brand, contact, stats, services, caseStudies, partners } from '../store/site'
 
 const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
 const marqueeItems = ['Brand Strategy', 'Market Entry', 'Communications', 'Digital Growth', 'Africa', 'Consulting']
@@ -119,16 +119,15 @@ export default function Home() {
       <div className="brand-section">
         <div className="container">
           <h2 className="title wa_title_spilt_1">
-            The Visionaries and <span><span className="font-style">Industry Leaders</span> We've</span> <br /> Proudly Partnered.
-          </h2>
+           Trusted by Businesses <span><span className="font-style">Committed to Growth</span> </span> <br />       </h2>
         </div>
         <div className="swiper brand-slider wow fadeInUp" data-wow-delay=".3s">
           <div className="swiper-wrapper">
-            {[1,2,3,4,5,6,7,8].map(n => (
-              <div className="swiper-slide" key={n}>
+            {partners.map(p => (
+              <div className="swiper-slide" key={p.name}>
                 <div className="brand-box-1">
-                  <span className="brand-img-1"><img src={`/assets/img/home-1/brand-${n}.png`} alt="" /></span>
-                  <span className="brand-img-1"><img src={`/assets/img/home-1/brand-${n}${n}.png`} alt="" /></span>
+                  <span className="brand-img-1"><img src={p.logo} alt={p.name} /></span>
+                  <span className="brand-img-1"><img src={p.logoHover} alt={p.name} /></span>
                 </div>
               </div>
             ))}

@@ -270,6 +270,17 @@ export const industries = [
   { name: 'Oil, Gas & Renewable Energy', icon: 'fa-solid fa-bolt', score: '98%' },
 ]
 
+export const partners = [
+  { name: 'Partner 1', logo: '/assets/img/home-1/brand-1.png', logoHover: '/assets/img/home-1/brand-11.png' },
+  { name: 'Partner 2', logo: '/assets/img/home-1/brand-2.png', logoHover: '/assets/img/home-1/brand-22.png' },
+  { name: 'Partner 3', logo: '/assets/img/home-1/brand-3.png', logoHover: '/assets/img/home-1/brand-33.png' },
+  { name: 'Partner 4', logo: '/assets/img/home-1/brand-4.png', logoHover: '/assets/img/home-1/brand-44.png' },
+  { name: 'Partner 5', logo: '/assets/img/home-1/brand-5.png', logoHover: '/assets/img/home-1/brand-55.png' },
+  { name: 'Partner 6', logo: '/assets/img/home-1/brand-6.png', logoHover: '/assets/img/home-1/brand-66.png' },
+  { name: 'Partner 7', logo: '/assets/img/home-1/brand-7.png', logoHover: '/assets/img/home-1/brand-77.png' },
+  { name: 'Partner 8', logo: '/assets/img/home-1/brand-8.png', logoHover: '/assets/img/home-1/brand-88.png' },
+]
+
 export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
