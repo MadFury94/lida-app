@@ -9,7 +9,7 @@
    - JS reference lives in src/store/site.js (keep in sync).
 ================================================================ */
 :root {
-    --theme: #1B6FFF;
+    --theme: #0000FF;
     /* Primary accent — CTAs, highlights */
     --body: #101010;
     /* Page background */
@@ -98,11 +98,11 @@
 }
 
 #preloader .ring-arc.a1 {
-    filter: drop-shadow(0 0 5px rgba(27, 111, 255, 0.9));
+    filter: drop-shadow(0 0 5px rgba(0, 0, 255, 0.9));
 }
 
 #preloader .ring-center-dot {
-    box-shadow: 0 0 14px rgba(27, 111, 255, 0.9);
+    box-shadow: 0 0 14px rgba(0, 0, 255, 0.9);
 }
 
 .home-testimonials {
