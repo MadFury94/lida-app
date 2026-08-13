@@ -168,7 +168,7 @@ export default function Home() {
                   </Link>
                   <div className="about-counter-items">
                     <div className="content wow fadeInUp" data-wow-delay=".3s">
-                      <h2><span className="count">{stats[0].value}</span><span className="plus">{stats[0].suffix}</span></h2>
+                      <h2>{stats[0].value}{stats[0].suffix}</h2>
                       <p>{stats[0].desc}</p>
                     </div>
                     <div className="about-small wow fadeInUp" data-wow-delay=".5s">
@@ -211,10 +211,10 @@ export default function Home() {
               </h2>
             </div>
             <div className="client-info wow fadeInUp" data-wow-delay=".3s">
-              <img src="/assets/img/home-1/client-info.png" alt="" />
+              <img src="/assets/img/home-1/Lida1.png" alt="" />
               <div className="content">
-                <h2><span className="count">2500</span>+</h2>
-                <p>Campaigns Managed</p>
+                <h2>100+</h2>
+                <p>Clients trusted us to facilitate growth</p>
               </div>
             </div>
           </div>

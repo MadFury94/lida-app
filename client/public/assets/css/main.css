@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*======================================================================================
 Theme Name: Orixo
 Author: Gramentheme
@@ -25,7 +25,7 @@ Version: 1.0.0
   --body: #101010;
   --black: #000;
   --white: #fff;
-  --theme: #FF471C;
+  --theme: #0000FF;
   --header: #fff;
   --text: #B1B1B1;
   --border: #FCFCFC;
@@ -738,7 +738,7 @@ span {
 .bracket::after {
   content: "";
   position: absolute;
-  background: rgba(255, 71, 28, 0.9);
+  background: rgba(0, 0, 255, 0.9);
 }
 
 .bracket::before {
@@ -836,12 +836,12 @@ span {
 }
 
 .ring-arc.a1 {
-  stroke: rgba(255, 71, 28, 0.9);
-  filter: drop-shadow(0 0 5px rgba(255, 71, 28, 0.9));
+  stroke: rgba(0, 0, 255, 0.9);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 255, 0.9));
 }
 
 .ring-arc.a2 {
-  stroke: rgba(255, 71, 28, 0.9);
+  stroke: rgba(0, 0, 255, 0.9);
   stroke-dasharray: 60 346;
   animation: arc-chase2 2s ease-in-out infinite;
 }
@@ -853,9 +853,9 @@ span {
   transform: translate(-50%, -50%);
   width: 6px;
   height: 6px;
-  background: rgba(255, 71, 28, 0.9);
+  background: rgba(0, 0, 255, 0.9);
   border-radius: 50%;
-  box-shadow: 0 0 14px rgba(255, 71, 28, 0.9);
+  box-shadow: 0 0 14px rgba(0, 0, 255, 0.9);
   animation: dot-breathe 2s ease-in-out infinite;
 }
 
@@ -929,25 +929,25 @@ span {
 
 @-webkit-keyframes rippleOne {
   70% {
-    -webkit-box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
-    box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
+    -webkit-box-shadow: 0 0 0 40px rgba(0, 0, 255, 0);
+    box-shadow: 0 0 0 40px rgba(0, 0, 255, 0);
   }
 
   100% {
-    -webkit-box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
-    box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
   }
 }
 
 @keyframes rippleOne {
   70% {
-    -webkit-box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
-    box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
+    -webkit-box-shadow: 0 0 0 40px rgba(0, 0, 255, 0);
+    box-shadow: 0 0 0 40px rgba(0, 0, 255, 0);
   }
 
   100% {
-    -webkit-box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
-    box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
   }
 }
 
@@ -1684,7 +1684,7 @@ span {
 }
 
 .header-main .navbar .navbar-nav .nav-item .has-homemenu .homemenu-items .homemenu .homemenu-thumb::before {
-  background: linear-gradient(to bottom, rgba(255, 71, 28, 0) 0%, var(--theme) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 255, 0) 0%, var(--theme) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -2190,7 +2190,7 @@ span {
 }
 
 .mobile-menu-area {
-  /* 🔥 ACTIVE STATE */
+  /* ðŸ”¥ ACTIVE STATE */
 }
 
 .mobile-menu-area .mobile-menu-main.active {
@@ -11965,7 +11965,7 @@ span {
   left: 0;
   right: 0;
   content: "";
-  background: rgba(255, 71, 28, 0.5);
+  background: rgba(0, 0, 255, 0.5);
   filter: blur(117px);
   width: 446px;
   height: 400px;
@@ -14883,7 +14883,7 @@ span {
   height: 35px;
   font-size: 16px;
   line-height: 35px;
-  background-color: rgba(255, 71, 28, 0.1);
+  background-color: rgba(0, 0, 255, 0.1);
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 50%;

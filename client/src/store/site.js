@@ -73,7 +73,7 @@ export const contact = {
 // If you change a color, update BOTH index.css :root AND here.
 export const theme = {
   colors: {
-    accent:  '#1B6FFF',   // --theme
+    accent:  '#0000FF',   // --theme
     body:    '#101010',   // --body
     card:    '#272727',   // --bg
     heading: '#ffffff',   // --header
