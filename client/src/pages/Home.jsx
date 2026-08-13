@@ -206,8 +206,8 @@ export default function Home() {
                 <img src="/assets/img/home-1/01.png" alt="" /> Our services
               </span>
               <h2 className="wa_title_spilt_1">
-                <span className="style-font">Our Core Services</span> That Deliver <br className="d-none d-lg-block" />
-                Strategic Insight, <span className="style-color">And Measurable Results</span>
+                <span className="style-font">More Than Services.</span>  <br className="d-none d-lg-block" />
+                A Better Way <span className="style-color"> to Grow.</span>
               </h2>
             </div>
             <div className="client-info wow fadeInUp" data-wow-delay=".3s">
