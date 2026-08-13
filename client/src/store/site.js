@@ -12,7 +12,8 @@ export const brand = {
   subTagline: 'Strategy. Execution. Results.',
   // Footer description
   description: 'We Help You Earn Trust, Win Customers, and Grow.',
-  descriptionLong: 'LIDA partners with ambitious organizations to solve growth challenges through commercial strategy, brand positioning, customer acquisition, strategic communications, AI enabled solutions, and measurable execution.',
+  descriptionLong: 'Lida is a business growth partner in Nigeria. We work with ambitious businesses, founders and leaders to identify what is holding growth back, strengthen market positioning and build the trust needed to move forward.',
+ descriptionLong2: 'Through strategy, branding, marketing, strategic communications and digital experiences, we bring together the right solutions for the challenge at hand. We do not begin with a standard service list; we begin by understanding the opportunity, the audience and the outcome that matters.',
   descriptionTag: 'Strategy First. Execution Always. Results That Matter.',
   location: 'Abuja, Nigeria',
   founded: '2020',
@@ -89,7 +90,7 @@ export const theme = {
 }
 
 export const stats = [
-  { label: 'Satisfied Clients', value: '150', suffix: '+', desc: 'Trusted by clients worldwide for quality service.' },
+  { label: 'Satisfied Clients', value: '01',  desc: 'Partner for your next stage of growth.' },
   { label: 'Campaigns Managed', value: '2500', suffix: '+', desc: 'Successfully executed with measurable impact.' },
   { label: 'Brands Designed', value: '100', suffix: '+', desc: 'Differentiated brands built for African markets.' },
   { label: 'Campaign Impressions', value: '5.3', suffix: 'B+', desc: 'Cumulative impressions across all client campaigns.' },

@@ -155,13 +155,15 @@ export default function Home() {
                       <img src="/assets/img/home-1/01.png" alt="" /> About us
                     </span>
                     <h2 className="wa_title_spilt_1">
-                      <span className="style-font">Positioning Global Brands</span> for Success in Africa
+                      <span className="style-font">Helping Ambitious Businesses </span> and Leaders Grow with Clarity.
                     </h2>
                   </div>
                   <p className="text wow fadeInUp" data-wow-delay=".3s">{brand.descriptionLong}</p>
+                  <p className="text wow fadeInUp" data-wow-delay=".3s">{brand.descriptionLong2}</p>
+
                   <Link className="theme-btn-main style-2 bg-white-style wow fadeInUp" data-wow-delay=".5s" to="/about">
                     <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-                    <span className="theme-btn">Know more about us</span>
+                    <span className="theme-btn">Meet Lida</span>
                     <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
                   </Link>
                   <div className="about-counter-items">
