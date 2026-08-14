@@ -250,7 +250,7 @@ export default function Home() {
             ))}
           </div>
           <div className="video-banner fix">
-            <img data-speed=".8" src="/assets/img/home-1/video-banner.jpg" alt="" />
+            <img data-speed=".8" src="https://img.youtube.com/vi/dDpATH_E1yQ/maxresdefault.jpg" alt="Watch our video" />
             <div className="video-circle">
               <a href="https://youtu.be/dDpATH_E1yQ" className="video-btn ripple video-popup">
                 <i className="fa-solid fa-play"></i>
