@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { brand, contact, stats, services, caseStudies, partners } from '../store/site'
 
@@ -6,6 +6,9 @@ const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v178
 const marqueeItems = ['Brand Strategy', 'Market Entry', 'Communications', 'Digital Growth', 'Africa', 'Consulting']
 
 export default function Home() {
+  const [openService, setOpenService] = useState(0)
+  const [openFaq, setOpenFaq] = useState(0)
+
   useEffect(() => {
     if (window.$ && window.$.fn.counterUp) {
       window.$('.count').counterUp({ delay: 10, time: 1000 })
@@ -13,44 +16,6 @@ export default function Home() {
     if (typeof window.WOW !== 'undefined') {
       new window.WOW({ live: false }).init()
     }
-
-    // Service accordion
-    const serviceBtns = document.querySelectorAll('.service-acc-btn')
-    serviceBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const wrap = btn.closest('.service-list-wrap')
-        const isActive = wrap.classList.contains('active-block')
-        document.querySelectorAll('.service-list-wrap').forEach(w => {
-          w.classList.remove('active-block')
-          w.querySelector('.service-acc-content')?.classList.remove('current')
-          w.querySelector('.service-acc-btn')?.classList.remove('active')
-        })
-        if (!isActive) {
-          wrap.classList.add('active-block')
-          wrap.querySelector('.service-acc-content')?.classList.add('current')
-          btn.classList.add('active')
-        }
-      })
-    })
-
-    // FAQ accordion
-    const accBtns = document.querySelectorAll('.accordion-box .acc-btn')
-    accBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const block = btn.closest('.accordion')
-        const isActive = block.classList.contains('active-block')
-        block.closest('.accordion-box')?.querySelectorAll('.accordion').forEach(b => {
-          b.classList.remove('active-block')
-          b.querySelector('.acc-content')?.classList.remove('current')
-          b.querySelector('.acc-btn')?.classList.remove('active')
-        })
-        if (!isActive) {
-          block.classList.add('active-block')
-          block.querySelector('.acc-content')?.classList.add('current')
-          btn.classList.add('active')
-        }
-      })
-    })
   }, [])
 
   return (
@@ -168,8 +133,8 @@ export default function Home() {
                   </Link>
                   <div className="about-counter-items">
                     <div className="content wow fadeInUp" data-wow-delay=".3s">
-                      <h2>{stats[0].value}{stats[0].suffix}</h2>
-                      <p>{stats[0].desc}</p>
+                      <h2>01</h2>
+                      <p>Partner for your next stage of growth.</p>
                     </div>
                     <div className="about-small wow fadeInUp" data-wow-delay=".5s">
                       <img src="/assets/img/home-1/Lida - MD.jpeg" alt="" />
@@ -220,13 +185,20 @@ export default function Home() {
           </div>
           <div className="service-box-style">
             {services.map((s, i) => (
-              <div className={`service-list-wrap accordion block${i === 0 ? ' active-block' : ''} wow fadeInUp`} data-wow-delay={`.${(i+2)*2}s`} key={s.slug}>
-                <div className={`service-acc-btn${i === 0 ? ' active' : ''}`}>
+              <div
+                className={`service-list-wrap accordion block${openService === i ? ' active-block' : ''} wow fadeInUp`}
+                data-wow-delay={`.${(i+2)*2}s`}
+                key={s.slug}
+              >
+                <div
+                  className={`service-acc-btn${openService === i ? ' active' : ''}`}
+                  onClick={() => setOpenService(openService === i ? null : i)}
+                >
                   <span className="number">{s.number}</span>
                   <h3>{s.title}</h3>
                   <div className="icon fa-solid fa-plus"></div>
                 </div>
-                <div className={`service-acc-content${i === 0 ? ' current' : ''}`}>
+                <div className={`service-acc-content${openService === i ? ' current' : ''}`}>
                   <div className="service-wrap">
                     <div className="service-box">
                       <img  src="/assets/img/home-1/Lida Mascot.png" alt="" />
@@ -264,8 +236,8 @@ export default function Home() {
               <img src="/assets/img/home-1/01.png" alt="" /> Why choose us
             </span>
             <h2 className="rr_title_anim">
-              <span className="style-font">Transforming African Market Entry Into</span> Lasting Business Success Through{' '}
-              <span className="style-color">Strategic Insight &amp; Measurable Outcomes.</span>
+              <span className="style-font">Business Growth, </span> Brand Strategy {' '}
+              <span className="style-color">and Marketing That Move You Forward.</span>
             </h2>
           </div>
           <div className="counter-wrapper">
@@ -280,7 +252,7 @@ export default function Home() {
           <div className="video-banner fix">
             <img data-speed=".8" src="/assets/img/home-1/video-banner.jpg" alt="" />
             <div className="video-circle">
-              <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" className="video-btn ripple video-popup">
+              <a href="https://youtu.be/dDpATH_E1yQ" className="video-btn ripple video-popup">
                 <i className="fa-solid fa-play"></i>
               </a>
               <div className="text-circle">
@@ -398,13 +370,16 @@ export default function Home() {
                     { num: '02.', title: 'Build Your Strategy', body: 'We develop tailored brand positioning, market entry, and communications strategies designed to resonate with your target audiences and build lasting credibility.' },
                     { num: '03.', title: 'Execute & Deliver Results', body: 'We execute with precision — managing campaigns, stakeholder engagement, and brand communications — tracking measurable outcomes that support your long-term business growth.' },
                   ].map((item, i) => (
-                    <li className={`accordion block${i === 0 ? ' active-block' : ''} wow fadeInUp`} data-wow-delay={`.${i * 2}s`} key={item.num}>
-                      <div className={`acc-btn${i === 0 ? ' active' : ''}`}>
+                    <li className={`accordion block${openFaq === i ? ' active-block' : ''} wow fadeInUp`} data-wow-delay={`.${i * 2}s`} key={item.num}>
+                      <div
+                        className={`acc-btn${openFaq === i ? ' active' : ''}`}
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      >
                         <span className="number">{item.num}</span>
                         {item.title}
                         <div className="icon fa-solid fa-arrow-down"></div>
                       </div>
-                      <div className={`acc-content${i === 0 ? ' current' : ''}`}>
+                      <div className={`acc-content${openFaq === i ? ' current' : ''}`}>
                         <div className="content"><div className="text">{item.body}</div></div>
                       </div>
                     </li>

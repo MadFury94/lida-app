@@ -90,12 +90,10 @@ export const theme = {
 }
 
 export const stats = [
-  { label: 'Satisfied Clients', value: '01',  desc: 'Partner for your next stage of growth.' },
-  { label: 'Campaigns Managed', value: '2500', suffix: '+', desc: 'Successfully executed with measurable impact.' },
-  { label: 'Brands Designed', value: '100', suffix: '+', desc: 'Differentiated brands built for African markets.' },
-  { label: 'Campaign Impressions', value: '5.3', suffix: 'B+', desc: 'Cumulative impressions across all client campaigns.' },
-  { label: 'Attributable Revenue', value: '$1.1', suffix: 'M+', desc: 'In attributable campaign revenue generated for clients.' },
-  { label: 'Client Continents', value: '4', suffix: '', desc: 'Africa, Asia, North America, Europe.' },
+  { label: 'Businesses Supported', value: '100', suffix: '+', desc: 'Helping ambitious businesses strengthen their position, build trust and grow with confidence.' },
+  { label: 'End-to-End Growth Support', value: '01', suffix: '', desc: 'From strategy and positioning to branding, marketing and execution, we bring the right support together around your goals.' },
+  { label: 'Industries Served', value: '15', suffix: '+', desc: 'Experience across finance, real estate, technology, engineering, hospitality, professional services and more.' },
+  { label: 'Years of Experience', value: '10', suffix: '+', desc: 'Over a decade of helping businesses communicate clearly, reach the right people and create stronger market opportunities.' },
 ]
 
 export const services = [
