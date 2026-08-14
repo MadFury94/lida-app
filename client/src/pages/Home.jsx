@@ -229,7 +229,7 @@ export default function Home() {
                 <div className={`service-acc-content${i === 0 ? ' current' : ''}`}>
                   <div className="service-wrap">
                     <div className="service-box">
-                      <img src="/assets/img/home-1/service-box.png" alt="" />
+                      <img  src="/assets/img/home-1/Lida Mascot.png" alt="" />
                     </div>
                     <div className="item-text">
                       <h4>Overview:</h4>

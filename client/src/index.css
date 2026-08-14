@@ -291,8 +291,8 @@
 
 /* Client logos - size only, hover animation from main.css untouched */
 .brand-box-1 .brand-img-1 img {
-    max-width: 100px;
-    max-height: 50px;
+    max-width: 144px;
+    max-height: 72px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -305,4 +305,12 @@
     height: 227px;
     object-fit: cover;
     object-position: center top;
+}
+
+/* Service accordion — close button suppressed; theme .icon handles it natively */
+
+/* Service section decorative image — constrain so it doesn't overlap content */
+.service-box-style .service-list-wrap .service-box img {
+    max-width: 180px;
+    height: auto;
 }
