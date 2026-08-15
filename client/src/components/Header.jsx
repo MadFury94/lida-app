@@ -170,7 +170,7 @@ export default function Header() {
         <div className="offcanvas-menu position-fixed">
           <div className="header-top d-flex align-items-center justify-content-between gap-4">
             <div className="logo">
-              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt="Lida Digital" /></Link>
+              <Link to="/"><img className="brand-logo" src={brand.logo} alt="Lida Digital" /></Link>
             </div>
             <button className="offcasvas-close black-bg border-0 text-white d-flex align-items-center justify-content-center rounded-pill">
               <i className="fa-regular fa-xmark"></i>

@@ -244,7 +244,7 @@ export default function Home() {
             {stats.slice(0, 4).map((s, i) => (
               <div className="counter-box service-box-1 wow fadeInUp" data-wow-delay={`.${(i+2)*2}s`} key={s.label}>
                 <span className="text">{s.label}</span>
-                <h2><span className="count">{s.value}</span>{s.suffix}</h2>
+                <h2>{s.value}{s.suffix}</h2>
                 <p>{s.desc}</p>
               </div>
             ))}
@@ -252,7 +252,7 @@ export default function Home() {
           <div className="video-banner fix">
             <img data-speed=".8" src="https://img.youtube.com/vi/dDpATH_E1yQ/maxresdefault.jpg" alt="Watch our video" />
             <div className="video-circle">
-              <a href="https://youtu.be/dDpATH_E1yQ" className="video-btn ripple video-popup">
+              <a href="https://www.youtube.com/watch?v=dDpATH_E1yQ" className="video-btn ripple video-popup">
                 <i className="fa-solid fa-play"></i>
               </a>
               <div className="text-circle">
