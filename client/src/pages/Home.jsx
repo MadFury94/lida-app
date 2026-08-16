@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { brand, contact, stats, services, caseStudies, partners } from '../store/site'
 
 const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
-const marqueeItems = ['Brand Strategy', 'Market Entry', 'Communications', 'Digital Growth', 'Africa', 'Consulting']
+const marqueeItems = ['Growth Strategy', 'Brand Positioning', 'Strategic Marketing', 'Customer Acquisition', 'Corporate Communications', 'Content & Campaigns', 'Digital Experiences', 'Executive Positioning', 'Market Intelligence', 'Visibility & Trust', 'Media Planning']
 
 export default function Home() {
   const [openService, setOpenService] = useState(0)
@@ -284,10 +284,10 @@ export default function Home() {
           <div className="row">
             <div className="col-lg-5 col-md-5">
               <div className="text-items">
-                <p>Strategic brand communications and market entry that deliver real, measurable outcomes across Africa.</p>
+                <p>A closer look at how Lida uses brand strategy, marketing and communications to help clients move forward.</p>
                 <Link to="/work" className="news-btn">
                   <span className="text">
-                    <span className="text-default">Explore More <i className="fa-regular fa-arrow-up-right"></i></span>
+                    <span className="text-default">Explore our Work <i className="fa-regular fa-arrow-up-right"></i></span>
                     <span className="text-hover">Explore More <i className="fa-regular fa-arrow-up-right"></i></span>
                   </span>
                 </Link>
@@ -347,7 +347,7 @@ export default function Home() {
           <div className="row g-4">
             <div className="col-lg-6">
               <div className="faq-image-1 fix wow fadeInUp" data-wow-delay=".3s">
-                <img data-speed=".8" src="/assets/img/home-1/faq-image.jpg" alt="" />
+                <img data-speed=".8" src="/assets/img/home-1/Lida - 3x growth.jpeg" alt="" />
                 <div className="incrase-box float-bob-y">
                   <span>Business Growth</span>
                   <p>3X</p>
@@ -358,17 +358,17 @@ export default function Home() {
               <div className="faq-content-1 section-padding">
                 <div className="section-title mb-0">
                   <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                    <img src="/assets/img/home-1/01.png" alt="" /> Our working process
+                    <img src="/assets/img/home-1/01.png" alt="" /> How we Work
                   </span>
                   <h2 className="wa_title_spilt_1">
-                    <span className="style-font">Our Streamlined</span> Process <span className="style-color">For Success.</span>
+                    <span className="style-font">We Find What Is Holding Growth Back. </span> Then We Build What .<span className="style-color">Moves It Forward</span>
                   </h2>
                 </div>
                 <ul className="accordion-box">
                   {[
-                    { num: '01.', title: 'Understand Your Market', body: 'We start by deeply understanding your target market — local business environment, consumer behavior, stakeholder expectations, and competitive landscape in Nigeria and Africa.' },
-                    { num: '02.', title: 'Build Your Strategy', body: 'We develop tailored brand positioning, market entry, and communications strategies designed to resonate with your target audiences and build lasting credibility.' },
-                    { num: '03.', title: 'Execute & Deliver Results', body: 'We execute with precision — managing campaigns, stakeholder engagement, and brand communications — tracking measurable outcomes that support your long-term business growth.' },
+                    { num: '01.', title: 'Understand the Business', body: 'We begin with a Growth Audit to understand your goals, audience, market position and the issues slowing your business down.' },
+                    { num: '02.', title: 'Build the Right Plan', body: 'We turn the findings into a focused plan, using the right mix of brand strategy, marketing, communications and digital solutions.' },
+                    { num: '03.', title: 'Create, Launch & Improve', body: 'Our team brings the plan to life through brand identity, content, campaigns, websites and experiences - then tracks what is working and improves it.' },
                   ].map((item, i) => (
                     <li className={`accordion block${openFaq === i ? ' active-block' : ''} wow fadeInUp`} data-wow-delay={`.${i * 2}s`} key={item.num}>
                       <div
