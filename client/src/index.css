@@ -473,3 +473,74 @@
         display: none;
     }
 }
+
+/* Testimonial cards — equal height */
+.client-testimonial__warpper {
+    display: flex;
+    align-items: stretch !important;
+}
+
+.client-testimonial__item {
+    height: auto;
+    flex: 1;
+    min-height: unset;
+}
+
+.client-testimonial__item h3 {
+    flex: 1;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    display: block;
+}
+
+/* FAQ / Process section — reduce heading size so section fits viewport */
+.faq-content-1 .section-title h2 {
+    font-size: 38px;
+    line-height: 120%;
+}
+
+@media (max-width: 1399px) {
+    .faq-content-1 .section-title h2 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 991px) {
+    .faq-content-1 .section-title h2 {
+        font-size: 28px;
+    }
+}
+
+/* FAQ / Process section — image same height as right column */
+.faq-section .row {
+    align-items: stretch;
+}
+
+.faq-section .col-lg-6:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-image-1 {
+    flex: 1;
+    position: relative;
+    overflow: visible !important;
+    min-height: 0;
+}
+
+.faq-image-1 img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    max-height: unset;
+}
+
+/* Remove double padding on right column */
+.faq-content-1.section-padding {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
