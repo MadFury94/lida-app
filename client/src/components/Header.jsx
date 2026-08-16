@@ -97,16 +97,28 @@ export default function Header() {
                   <NavLink className={navCls} to="/about">About Us</NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li className="nav-item has-megamenu">
                   <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
                     Services <i className="fas fa-chevron-down"></i>
                   </a>
-                  <ul className="sub-menu list-unstyled">
-                    <li><Link to="/services">All Services</Link></li>
-                    {services.map(s => (
-                      <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.shortTitle}</Link></li>
-                    ))}
-                  </ul>
+                  <div className="services-mega-menu">
+                    <div className="mega-menu-inner">
+                      <div className="mega-menu-grid">
+                        {services.map(s => (
+                          <Link key={s.slug} to={`/services/${s.slug}`} className="mega-menu-item">
+                            <span className="mega-num">{s.number}</span>
+                            <span className="mega-title">{s.shortTitle}</span>
+                            <span className="mega-desc">{s.summary}</span>
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="mega-menu-footer">
+                        <Link to="/services" className="mega-all-link">
+                          View All Services <i className="fa-regular fa-arrow-up-right"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </li>
 
                 <li className="has-dropdown nav-item">
