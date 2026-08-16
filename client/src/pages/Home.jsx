@@ -361,7 +361,7 @@ export default function Home() {
                     <img src="/assets/img/home-1/01.png" alt="" /> How we Work
                   </span>
                   <h2 className="wa_title_spilt_1">
-                    <span className="style-font">We Find What Is Holding Growth Back. </span> Then We Build What .<span className="style-color">Moves It Forward</span>
+                    <span className="style-font">We Find What Is Holding Growth Back. </span> Then We Build What Moves It Forward
                   </h2>
                 </div>
                 <ul className="accordion-box">
@@ -412,11 +412,11 @@ export default function Home() {
         <div className="container">
           <div className="section-title text-center">
             <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-              <img src="/assets/img/home-1/01.png" alt="" /> Our testimonials
+              <img src="/assets/img/home-1/01.png" alt="" /> Client Voices
             </span>
             <h2 className="wa_title_spilt_1">
-              <span className="style-font">Our Valued Clients Trust Us</span> To Deliver{' '}
-              <span className="style-color">Outstanding Results.</span>
+              <span className="style-font">Trusted for the Work.</span>  {' '}
+              <span className="style-color">Valued for the Results.</span>
             </h2>
           </div>
         </div>
