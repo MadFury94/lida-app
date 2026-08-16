@@ -1,22 +1,6 @@
 ﻿import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { brand } from '../store/site'
-
-const services = [
-  ['market-entry', 'Market Entry'],
-  ['corporate-positioning', 'Corporate Positioning'],
-  ['brand-strategy', 'Brand Strategy'],
-  ['marketing-growth', 'Marketing & Growth'],
-  ['public-relations', 'Public Relations'],
-  ['digital-presence', 'Digital Presence'],
-].map(([slug, shortTitle]) => ({ slug, shortTitle }))
-
-const contact = {
-  email: 'hello@lidadigital.com.ng',
-  phone: '+234-807-436-3918',
-  phoneHref: 'tel:+2348074363918',
-  social: { facebook: '#', twitter: '#', linkedin: '#', instagram: '#' },
-}
+import { brand, services, contact } from '../store/site'
 
 export default function Header() {
   const location = useLocation()

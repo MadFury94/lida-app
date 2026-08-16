@@ -60,10 +60,10 @@ export const contact = {
   address: 'Abuja, Nigeria',
   calendly: 'https://calendly.com/lidadigitalagency',
   social: {
-    facebook: '#',
-    twitter: '#',
-    linkedin: '#',
-    instagram: '#',
+    facebook: 'https://facebook.com/lida.nigeria',
+    twitter: 'https://twitter.com/lida_nigeria',
+    linkedin: 'https://linkedin.com/company/lida-nigeria',
+    instagram: 'https://instagram.com/lida_nigeria',
   },
 }
 
@@ -207,7 +207,7 @@ export const caseStudies = [
     tags: ['Energy', 'Digital', 'Market Entry'],
     challenge: 'Introducing an internationally recognized energy solutions brand into the Nigerian market while building awareness, trust, and local relevance.',
     solution: 'Developed and managed Calpak Nigeria\'s digital presence, executed targeted advertising campaigns, and produced locally optimized marketing materials and events.',
-    impact: '25.9 million cumulative campaign impressions. Sales grew from 50–100 units/month at campaign start to 3,500+ units/month by Month 3.',
+    impact: '25.9M campaign impressions. Sales grew from 50–100 units per month at campaign start, to 350+ units per month by Month 3.',
     stats: [
       { label: 'Campaign Impressions', value: '25.9M' },
       { label: 'Sales Growth', value: '35x' },
@@ -223,7 +223,9 @@ export const caseStudies = [
     tags: ['Finance', 'Branding', 'Identity'],
     challenge: 'Launching a new financial institution in a highly competitive market while establishing credibility and differentiation from day one.',
     solution: 'Refined the bank\'s brand identity, enhanced its logo system, and developed high-impact outdoor campaign creatives for market introduction and long-term positioning.',
-    impact: 'Stronger market presence and a modern, credible brand identity that set Duxbank apart in Nigeria\'s competitive financial services sector from launch.',
+    impact: 'Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow.',
+    clientName: 'Peter A.',
+    clientRole: 'CEO, Duxbank Microfinance Bank',
     stats: [
       { label: 'Sector', value: 'Fintech' },
       { label: 'Deliverable', value: 'Full Identity' },
@@ -239,7 +241,9 @@ export const caseStudies = [
     tags: ['Automotive', 'Repositioning', 'Premium Brand'],
     challenge: 'Move beyond the perception of a typical automotive workshop and establish a premium maintenance and vehicle care brand commanding greater trust and value.',
     solution: 'Comprehensive brand repositioning — rebranding strategy, premium marketing materials, professional industrial photography, branded staff apparel, and customer-facing assets.',
-    impact: 'Stronger professional market presence, improved customer perception, and a brand identity aligned with premium service aspirations across Abuja\'s automotive market.',
+    impact: 'Our engagement with LIDA transformed the way our business is perceived. They helped us build a stronger brand identity, improve how we communicate our value, and position the business with greater credibility. Their strategic thinking and attention to detail made a measurable difference in how we present ourselves to customers and partners.',
+    clientName: 'M. Bari',
+    clientRole: 'MD, Nuts & Bolts Automotive',
     stats: [
       { label: 'Sector', value: 'Automotive' },
       { label: 'Type', value: 'Repositioning' },
@@ -250,12 +254,12 @@ export const caseStudies = [
   },
   {
     slug: 'manitowoc-savvytech',
-    client: 'Manitowoc / Savvytech',
+    client: 'Savvytech / Manitowoc',
     sector: 'Industrial B2B',
     tags: ['B2B', 'Industrial', 'Market Visibility'],
-    challenge: 'Increase awareness and engagement for globally recognized crane brands (Potain, Grove, National Crane, Manitowoc) within Nigeria\'s industrial and construction sectors.',
+    challenge: 'Increase awareness and engagement for globally recognized crane brands within Nigeria\'s industrial and construction sectors.',
     solution: 'Targeted digital marketing campaigns, product communications, creative development, and audience-focused advertising reaching specialized B2B decision makers.',
-    impact: '50,000+ targeted industry professionals reached. 2.5M+ campaign impressions. 180% increase in social media engagement. 120% improvement in website traffic.',
+    impact: '50,000+ targeted industry professionals reached, 2.5M+ campaign impressions, 180% growth in social media engagement and 120% improvement in website traffic.',
     stats: [
       { label: 'Professionals Reached', value: '50K+' },
       { label: 'Impressions', value: '2.5M+' },

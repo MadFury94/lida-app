@@ -431,8 +431,8 @@ export default function Home() {
               <h3>"{cs.impact}"</h3>
               <div className="client-info-item">
                 <div className="client-info">
-                  <h4>{cs.client}</h4>
-                  <span>{cs.sector}</span>
+                  <h4>{cs.clientName || cs.client}</h4>
+                  <span>{cs.clientRole || cs.sector}</span>
                 </div>
                 <div className="star">
                   {[1,2,3,4,5].map(s => <i key={s} className="fa-solid fa-star"></i>)}
@@ -454,11 +454,17 @@ export default function Home() {
             <div className="as-partner-3-big-title">
               <h2 className="title"><span>Let's</span> Talk Now</h2>
             </div>
-            <Link className="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".3s" to="/contact">
+            <a
+              className="theme-btn-main style-2 wow fadeInUp"
+              data-wow-delay=".3s"
+              href="https://calendly.com/lida_nigeria"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-              <span className="theme-btn">Book a Free Consultation</span>
+              <span className="theme-btn">Schedule a Quick Meeting</span>
               <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

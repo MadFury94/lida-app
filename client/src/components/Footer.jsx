@@ -1,14 +1,5 @@
 ﻿import { Link } from 'react-router-dom'
-import { brand } from '../store/site'
-
-const footerServices = [
-  ['market-entry', 'Market Entry'],
-  ['corporate-positioning', 'Corporate Positioning'],
-  ['brand-strategy', 'Brand Strategy'],
-  ['marketing-growth', 'Marketing & Growth'],
-  ['public-relations', 'Public Relations'],
-  ['digital-presence', 'Digital Presence'],
-]
+import { brand, services, contact } from '../store/site'
 
 export default function Footer() {
   return (
@@ -22,16 +13,16 @@ export default function Footer() {
               <div className="footer-widget-items">
                 <div className="widget-head">
                   <Link to="/" className="footer-logo">
-                    <img className="brand-logo" src={brand.logo} alt="Lida Digital" />
+                    <img className="brand-logo" src={brand.logo} alt="Lida Nigeria" />
                   </Link>
                 </div>
                 <div className="footer-content">
                   <p style={{marginBottom:'8px'}}>LIDA partners with ambitious organizations to solve growth challenges through commercial strategy, brand positioning, customer acquisition, strategic communications, AI enabled solutions, and measurable execution.</p>
                   <div className="social-icon d-flex align-items-center">
-                    <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                    <a href={contact.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                    <a href={contact.social.twitter} target="_blank" rel="noreferrer" aria-label="Twitter/X"><i className="fab fa-twitter"></i></a>
+                    <a href={contact.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                    <a href={contact.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
                   </div>
                 </div>
               </div>
@@ -53,14 +44,14 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 3 — Services from store */}
+            {/* Col 3 — Services */}
             <div className="col-xl-3 ps-lg-0 col-lg-4 col-md-6 col-sm-6 col-6 wow fadeInUp" data-wow-delay=".6s">
               <div className="footer-widget-items">
                 <div className="widget-head"><span>Our services</span></div>
                 <ul className="gt-list-area">
-                  {footerServices.map(([slug, title]) => (
-                    <li key={slug}>
-                      <Link to={`/services/${slug}`}>{title}</Link>
+                  {services.map(s => (
+                    <li key={s.slug}>
+                      <Link to={`/services/${s.slug}`}>{s.shortTitle}</Link>
                     </li>
                   ))}
                 </ul>
@@ -100,15 +91,10 @@ export default function Footer() {
       {/* Footer bottom */}
       <div className="footer-bottom style-bottom-4">
         <div className="container">
-          <div className="footer-bottom-wrapper">
-            <p className="wow fadeInUp" data-wow-delay=".3s">
-              © {new Date().getFullYear()} <b>Lida Digital.</b> All rights reserved.
+          <div className="footer-bottom-wrapper" style={{ justifyContent: 'center' }}>
+            <p className="wow fadeInUp text-center" data-wow-delay=".3s">
+              © {new Date().getFullYear()} <b>Lida Nigeria.</b> All rights reserved.
             </p>
-            <ul className="footer-list wow fadeInUp" data-wow-delay=".5s">
-              <li><Link to="/privacy-policy">Privacy policy</Link></li>
-              <li><span className="dots"></span></li>
-              <li><Link to="/terms">Terms &amp; conditions</Link></li>
-            </ul>
           </div>
         </div>
       </div>
