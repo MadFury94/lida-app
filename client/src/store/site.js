@@ -392,3 +392,62 @@ export const navLinks = [
   { label: 'FAQ', to: '/faq' },
   { label: 'Contact', to: '/contact' },
 ]
+
+export const insights = [
+  {
+    slug: 'why-brand-positioning-matters-in-africa',
+    title: 'Why Brand Positioning Matters More Than Ever in African Markets',
+    category: 'Brand Strategy',
+    date: 'July 2026',
+    readTime: '5 min read',
+    excerpt: 'In a crowded, fast-moving market, the businesses that win are not always the most capable — they are the most clearly positioned. Here is why positioning is the foundation of every growth strategy.',
+    body: `Brand positioning is the process of defining how your business is perceived in the minds of your target audience relative to your competitors. In African markets — where consumer trust is hard-earned, word of mouth is powerful, and differentiation is often unclear — getting your positioning right is not a nice-to-have. It is the foundation.
+
+Many businesses in Nigeria and across Africa compete on price because they have not yet defined what makes them worth paying for. They have great products and capable teams, but the market does not fully understand who they are, who they serve, or why they are the right choice.
+
+Strong positioning answers three questions clearly: Who are you for? What problem do you solve? Why should someone choose you over the alternatives? When these questions are answered with precision and communicated consistently, the business becomes easier to trust, easier to recommend, and easier to buy from.
+
+The businesses that grow fastest are not always the cheapest or the most technically advanced. They are the ones the market trusts and understands. Positioning is how you build that trust at scale.`,
+    image: '/assets/img/home-1/news-01.jpg',
+    author: 'Leroy Iwu',
+    authorRole: 'Founder & Creative Director',
+  },
+  {
+    slug: 'market-entry-nigeria-what-international-brands-get-wrong',
+    title: 'Market Entry in Nigeria: What International Brands Get Wrong',
+    category: 'Market Entry',
+    date: 'June 2026',
+    readTime: '6 min read',
+    excerpt: 'Nigeria is Africa\'s largest economy and one of the most dynamic consumer markets in the world. But many international brands stumble on entry. Here are the most common mistakes and how to avoid them.',
+    body: `Nigeria offers enormous opportunity — a population of over 200 million, a rapidly expanding middle class, and one of the most entrepreneurial cultures in the world. Yet many international brands that enter the market fail to gain traction, not because the opportunity is not there, but because they approach Nigeria the same way they approach every other market.
+
+The most common mistake is assuming that a global brand identity, campaign, or product strategy will translate directly. Nigerian consumers are sophisticated. They respond to brands that understand their context, speak to their aspirations, and demonstrate genuine relevance to their lives and challenges.
+
+The second mistake is underinvesting in trust-building. In a market where institutional trust has historically been fragile, consumers look for social proof, community validation, and visible consistency before committing. A brand that shows up inconsistently — or launches without a clear local narrative — will struggle to build the credibility it needs to compete.
+
+The third mistake is choosing the wrong local partners or none at all. Navigating Nigeria's business environment requires relationships, cultural intelligence, and an understanding of how decisions get made at every level of the market. International brands that try to enter remotely, without local strategic support, consistently underperform those that invest in genuine on-the-ground expertise.
+
+Getting Nigeria right takes preparation, patience, and the right partners. When it works, the growth it unlocks is substantial.`,
+    image: '/assets/img/home-1/news-02.jpg',
+    author: 'Omua Williams-Ogoke',
+    authorRole: 'Lead, Brand Management',
+  },
+  {
+    slug: 'building-customer-trust-financial-services-nigeria',
+    title: 'Building Customer Trust in Financial Services: A Communications Perspective',
+    category: 'Strategic Communications',
+    date: 'May 2026',
+    readTime: '5 min read',
+    excerpt: 'In financial services, trust is the product. Before a customer deposits money, takes a loan, or recommends your institution, they need to believe you are credible, stable, and on their side. Communications is how you build that belief.',
+    body: `Financial services is one of the most trust-sensitive industries in Nigeria. Consumers have experienced institutional failures, fraud, and broken promises. They approach new financial products and institutions with genuine caution — and they have every reason to.
+
+For financial brands, this means that marketing alone is not enough. You can have the best product, the lowest fees, and the most convenient platform — and still fail to acquire customers at scale if the market does not trust you yet.
+
+Trust in financial services is built through three things: consistency, transparency, and social proof. Consistency means showing up reliably across every touchpoint — your visual identity, your messaging, your customer service, your communications. Transparency means communicating clearly about what you offer, what it costs, and what customers can expect. Social proof means giving potential customers evidence that others have benefited — through testimonials, case studies, community presence, and earned media.
+
+The financial institutions that grow fastest in Nigeria are not always the ones with the most features. They are the ones the market talks about positively, recommends to friends, and returns to. Communications strategy is the engine that builds that kind of reputation — deliberately, consistently, and at scale.`,
+    image: '/assets/img/home-1/news-03.jpg',
+    author: 'Fortune Ugwuala',
+    authorRole: 'Lead, Operations & Growth',
+  },
+]

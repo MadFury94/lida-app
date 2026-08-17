@@ -11,6 +11,8 @@ import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import NotFound from './pages/NotFound'
 import Careers from './pages/Careers'
+import Insights from './pages/Insights'
+import InsightDetail from './pages/InsightDetail'
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
         <Route path="faq" element={<FAQ />} />
         <Route path="contact" element={<Contact />} />
         <Route path="careers" element={<Careers />} />
+        <Route path="insights" element={<Insights />} />
+        <Route path="insights/:slug" element={<InsightDetail />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

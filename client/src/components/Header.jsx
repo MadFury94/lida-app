@@ -137,6 +137,10 @@ export default function Header() {
                 </li>
 
                 <li className="nav-item">
+                  <NavLink className={navCls} to="/insights">Insights</NavLink>
+                </li>
+
+                <li className="nav-item">
                   <NavLink className={navCls} to="/contact">Contact</NavLink>
                 </li>
 
@@ -259,6 +263,7 @@ export default function Header() {
                     </ul>
                   </li>
                   <li><Link to="/faq">FAQ</Link></li>
+                  <li><Link to="/insights">Insights</Link></li>
                   <li><Link to="/contact">Contact</Link></li>
                 </ul>
               </div>

@@ -446,8 +446,8 @@ export default function Home() {
       {/* ── CTA ──────────────────────────────────────────── */}
       <section
         className="lets-talk-section fix hero-ptb image-distortion p-relative z-index-1 bg-cover"
-        data-background="/assets/img/bg-wrap-3.jpg"
-        style={{ backgroundImage: "url('/assets/img/bg-wrap-3.jpg')" }}
+        data-background="/assets/img/bg-wrap-3.png"
+        style={{ backgroundImage: "url('/assets/img/bg-wrap-3.png')" }}
       >
         <div className="container">
           <div className="lets-talk-content text-center">
