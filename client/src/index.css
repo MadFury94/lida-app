@@ -774,3 +774,10 @@
     color: var(--text);
     line-height: 1.6;
 }
+
+/* Marquee 2 — constrain star icon size */
+.marque-section-2 .text-2 img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}

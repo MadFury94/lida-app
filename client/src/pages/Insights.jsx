@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { insights, brand } from '../store/site'
+import { insights } from '../store/site'
 
 export default function Insights() {
   useEffect(() => {
@@ -18,10 +18,10 @@ export default function Insights() {
           <img src="/assets/img/inner-page/light.png" alt="" />
         </div>
         <div className="container">
-          <div className="page-heading">
+          <div className="page-heading mb-0">
             <div className="breadcrumb-sub-title">
               <h1 className="text-white rr_title_anim">
-                <span>Insights &amp; </span> Perspectives
+                <span>Insights &amp; Perspectives</span> From the Lida Team
               </h1>
             </div>
             <div className="breadcrumb-items">
@@ -29,51 +29,45 @@ export default function Insights() {
                 <li><Link to="/">Home</Link></li>
                 <li>Insights</li>
               </ul>
-              <h2 className="title wa_title_spilt_1">Our thinking</h2>
+              <h2 className="title wa_title_spilt_1">Our Thinking</h2>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── POSTS GRID ───────────────────────────────────── */}
-      <section className="blog-section section-padding">
+      {/* ── NEWS GRID ────────────────────────────────────── */}
+      <section className="news-section-5 fix section-padding">
         <div className="container">
-          <div className="section-title text-center mb-5">
-            <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-              <img src="/assets/img/home-1/01.png" alt="" /> {brand.name} Insights
-            </span>
-            <h2 className="wa_title_spilt_1">
-              <span className="style-font">Strategy. Communications.</span>{' '}
-              <span className="style-color">Growth Thinking.</span>
-            </h2>
-          </div>
-
           <div className="row g-4">
             {insights.map((post, i) => (
               <div
                 key={post.slug}
-                className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
-                data-wow-delay={`.${(i + 2) * 2}s`}
+                className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay={`.${(i % 3) * 2 + 3}s`}
               >
-                <div className="insights-card">
-                  <div className="insights-card__thumb">
+                <div className="news-box-items-2 mt-0">
+                  <div className="thumb">
                     <img src={post.image} alt={post.title} />
-                    <span className="insights-card__cat">{post.category}</span>
+                    <img src={post.image} alt={post.title} />
                   </div>
-                  <div className="insights-card__body">
-                    <div className="insights-card__meta">
-                      <span>{post.date}</span>
-                      <span className="dot">·</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                    <h3 className="insights-card__title">
+                  <div className="content">
+                    <ul>
+                      <li>
+                        <Link to={`/insights?category=${encodeURIComponent(post.category)}`}>
+                          {post.category}
+                        </Link>
+                      </li>
+                      <li>
+                        <p><span>By</span> {post.author}</p>
+                      </li>
+                    </ul>
+                    <h3 className="title">
                       <Link to={`/insights/${post.slug}`}>{post.title}</Link>
                     </h3>
-                    <p className="insights-card__excerpt">{post.excerpt}</p>
-                    <Link to={`/insights/${post.slug}`} className="news-btn mt-3">
+                    <Link to={`/insights/${post.slug}`} className="news-btn">
                       <span className="text">
-                        <span className="text-default">Read Article <i className="fa-regular fa-arrow-up-right"></i></span>
-                        <span className="text-hover">Read Article <i className="fa-regular fa-arrow-up-right"></i></span>
+                        <span className="text-default">Read More <i className="fa-regular fa-arrow-up-right"></i></span>
+                        <span className="text-hover">Read More <i className="fa-regular fa-arrow-up-right"></i></span>
                       </span>
                     </Link>
                   </div>
