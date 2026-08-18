@@ -781,3 +781,14 @@
     height: 45px;
     object-fit: contain;
 }
+
+/* Work process icons — FA icon sizing inside the circular container */
+.work-process-items-3 .icon i {
+    font-size: 28px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}

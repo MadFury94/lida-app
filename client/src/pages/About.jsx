@@ -64,17 +64,17 @@ export default function About() {
                                     </div>
                                     <div class="section-title mb-0">
                                         <h2 class="split-title">
-                                            <span class="style-font">${brand.name} is a strategic brand, marketing </span> and communications consultancy. <span class="style-color"> Helping organizations build visibility, credibility and sustainable growth.</span>
+                                            <span class="style-font"> We Think Like a Growth Partner. </span> We Deliver Like an Agency.</span>
                                         </h2>
                                         <div class="sec-content">
-                                            <a class="theme-btn-main style-2 bg-white-style" href="contact.html">
+                                            <p>
+                                               Lida is a brand, marketing and communications agency based in Abuja, Nigeria. We help businesses, founders and leaders build stronger brands, reach the right people and create more opportunities for growth. Our work begins with understanding the challenge. From there, we combine strategy with creative thinking, content, campaigns, media and digital experiences to deliver work that is clear, relevant and built to move the business forward.
+                                            </p>
+                                            <a class="theme-btn-main style-2 bg-white-style mt-3" href="https://calendly.com/lida_nigeria">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
-                                                <span class="theme-btn">Get In Touch</span>
+                                                <span class="theme-btn">Book a Growth Audit</span>
                                                 <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                             </a>
-                                            <p>
-                                                We work with local and international businesses, investors, development organizations, and growth-focused enterprises to navigate market entry, strengthen brand positioning, improve stakeholder engagement, and develop communication strategies that support long-term business objectives.
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -85,60 +85,47 @@ export default function About() {
                                 </div>
                                 <div class="work-process-items-3 active wow fadeInUp">
                                     <div class="icon">
-                                        <img src="/assets/img/home-3/icon1.svg" alt="img">
+                                        <img src="/assets/img/home-3/icon1.svg" alt="Understand">
                                     </div>
                                     <div class="content">
                                         <h3 class="title">Understand</h3>
-                                        <p>Deep dive into your market,<br>
-                                        audiences &amp; objectives</p>
+                                        <p>We learn about your business, audience, goals and the problem getting in the way of growth.</p>
                                     </div>
                                 </div>
                                 <div class="work-process-items-3 wow fadeInUp" data-wow-delay=".2s">
                                     <div class="icon">
-                                        <img src="/assets/img/home-3/icon2.svg" alt="img">
+                                        <img src="/assets/img/home-3/icon2.svg" alt="Plan">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Strategise</h3>
-                                        <p>
-                                            Build your brand positioning,<br>
-                                            messaging &amp; market entry plan
-                                        </p>
+                                        <h3 class="title">Plan</h3>
+                                        <p>We build a focused strategy for your positioning, message, marketing and visibility.</p>
                                     </div>
                                 </div>
                                 <div class="work-process-items-3 wow fadeInUp" data-wow-delay=".4s">
                                     <div class="icon">
-                                        <img src="/assets/img/home-3/icon3.svg" alt="img">
+                                        <img src="/assets/img/home-3/icon3.svg" alt="Create">
                                     </div>
                                     <div class="content">
                                         <h3 class="title">Create</h3>
-                                        <p>
-                                            Develop identity systems,<br>
-                                            campaigns &amp; communications
-                                        </p>
+                                        <p>We develop the brand identity, content, campaigns, media assets and digital tools the strategy requires.</p>
                                     </div>
                                 </div>
                                 <div class="work-process-items-3 wow fadeInUp" data-wow-delay=".6s">
                                     <div class="icon">
-                                        <img src="/assets/img/home-3/icon4.svg" alt="img">
+                                        <img src="/assets/img/home-3/icon5.svg" alt="Launch">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Execute</h3>
-                                        <p>
-                                            Launch campaigns, PR<br>
-                                            and stakeholder engagement
-                                        </p>
+                                        <h3 class="title">Launch</h3>
+                                        <p>We put the work into the market through marketing campaigns, communications, media and customer touchpoints.</p>
                                     </div>
                                 </div>
                                 <div class="work-process-items-3 wow fadeInUp" data-wow-delay=".8s">
                                     <div class="icon">
-                                        <img src="/assets/img/home-3/icon5.svg" alt="img">
+                                        <img src="/assets/img/home-3/icon6.svg" alt="Measure">
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">Measure</h3>
-                                        <p>
-                                            Track outcomes, optimise<br>
-                                            and deliver results
-                                        </p>
+                                        <h3 class="title">Measure &amp; Improve</h3>
+                                        <p>We track performance, learn from the response and improve the work to deliver better results.</p>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +136,7 @@ export default function About() {
                         <div class="container">
                             <div class="section-title text-center tp-project-5-2-title">
                                 <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                    <img src="/assets/img/home-1/01.png" alt="img"> Our testimonials
+                                    <img src="/assets/img/home-1/01.png" alt="img"> Client Voices
                                 </span>
                                 <h2 class="wa_title_spilt_1">
                                     <span class="style-font">Our Valued Clients Trust Us</span> To <br>
