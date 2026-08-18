@@ -21,7 +21,7 @@ export default function About() {
                         <div class="container">
                             <div class="page-heading">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Empowering</span> Your Business With Smart         Solutions
+                                    <h1 class="text-white rr_title_anim"><span>Helping Businesses and Leaders</span>  Grow With Clarity.
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
@@ -30,7 +30,7 @@ export default function About() {
                                             Abuja, Nigeria
                                         </li>
                                         <li>
-                                            (©2020 — 2026)
+                                            (©2022 — 2026)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
@@ -56,7 +56,7 @@ export default function About() {
                             <div class="about-wrapper-2 about-page-style-3">
                                 <div class="section-title-area">
                                     <div class="about-info wow fadeInUp" data-wow-delay=".3s">
-                                        <img src="/assets/img/home-2/about-info.png" alt="img">
+                                        <img src="/assets/img/home-1/Lida1.png" alt="img">
                                         <p>
                                             <b>150+ </b>
                                             satisfied clients
