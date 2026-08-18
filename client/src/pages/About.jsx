@@ -142,8 +142,8 @@ export default function About() {
               <img src="/assets/img/home-1/01.png" alt="" /> Client Voices
             </span>
             <h2 className="wa_title_spilt_1">
-              <span className="style-font">Our Valued Clients Trust Us</span> To Deliver{' '}
-              <span className="style-color">Outstanding Results.</span>
+              <span className="style-font">What Our Clients Say</span> About <br />
+              Working <span className="testi-iimg"><img className="img-custom-anim-left" src="/assets/img/home-1/client-info-2.png" alt="" /></span> <span className="style-color">With Lida.</span>
             </h2>
           </div>
           <div className="row justify-content-between">
