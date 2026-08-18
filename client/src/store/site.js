@@ -300,16 +300,19 @@ export const team = [
 
 export const testimonials = [
   {
+    slug: 'peter-a',
     name: 'Peter A.',
     role: 'CEO, Duxbank',
     quote: 'Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow.',
   },
   {
+    slug: 'oye-e',
     name: 'Oye E.',
     role: 'CEO, Voda Beach Club',
     quote: 'LIDA has become an extension of our team. Their strategic approach to content, brand positioning, and audience engagement has consistently strengthened our visibility while maintaining the premium image we wanted to build. They do not simply create content. They create experiences that connect with people and support business growth.',
   },
   {
+    slug: 'bari-m',
     name: 'Bari M.',
     role: 'MD, Nuts & Bolts',
     quote: 'Our engagement with LIDA transformed the way our business is perceived. They helped us build a stronger brand identity, improve how we communicate our value, and position the business with greater credibility. Their strategic thinking and attention to detail made a measurable difference in how we present ourselves to customers and partners.',
@@ -452,3 +455,4 @@ The financial institutions that grow fastest in Nigeria are not always the ones 
     authorRole: 'Lead, Operations & Growth',
   },
 ]
+

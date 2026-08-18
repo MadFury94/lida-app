@@ -22,8 +22,8 @@ export default function VideoBanner({
   const thumb = thumbnail || (videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '')
 
   return (
-    <div className={`${className} fix wow fadeInUp`} data-wow-delay=".7s">
-      <img data-speed=".8" src={thumb} alt="Watch our video" />
+    <div className={`${className} fix`}>
+      <img data-speed=".8" src={thumb} alt="Watch our video" style={{ display: 'block' }} />
       <div className="video-circle">
         <a href={url} className="video-btn ripple video-popup">
           <i className="fa-solid fa-play"></i>

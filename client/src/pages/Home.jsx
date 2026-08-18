@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { brand, contact, stats, services, caseStudies, partners } from '../store/site'
+import { brand, contact, stats, services, caseStudies, partners, testimonials } from '../store/site'
 import VideoBanner from '../components/VideoBanner'
 
 const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
@@ -412,18 +412,18 @@ export default function Home() {
           </div>
         </div>
         <div className="client-testimonial__warpper">
-          {caseStudies.map((cs, i) => (
+          {testimonials.map((t, i) => (
             <div
-              key={cs.slug}
+              key={t.slug}
               className={`client-testimonial__item testimonial-box-style-1${i % 2 === 1 ? ' style-2' : ''} bg-cover`}
               style={{ backgroundImage: "url('/assets/img/home-1/process-shape.png')" }}
             >
               <div className="quote-icon"><img src="/assets/img/home-1/quote.png" alt="" /></div>
-              <h3>"{cs.impact}"</h3>
+              <h3>"{t.quote}"</h3>
               <div className="client-info-item">
                 <div className="client-info">
-                  <h4>{cs.clientName || cs.client}</h4>
-                  <span>{cs.clientRole || cs.sector}</span>
+                  <h4>{t.name}</h4>
+                  <span>{t.role}</span>
                 </div>
                 <div className="star">
                   {[1,2,3,4,5].map(s => <i key={s} className="fa-solid fa-star"></i>)}

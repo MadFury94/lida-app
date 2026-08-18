@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { brand } from '../store/site'
+﻿import { useEffect } from 'react'
+import { brand, testimonials } from '../store/site'
 import VideoBanner from '../components/VideoBanner'
 
 
@@ -132,110 +132,60 @@ export default function About() {
                         </div>
                     </section>
 
-                    <section class="testimonial-section-about section-padding tp-project-5-2-area bg-cover" style="background-image: url('/assets/img/inner-page/testimonial-bg2.jpg');">
-                        <div class="container">
-                            <div class="section-title text-center tp-project-5-2-title">
-                                <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                    <img src="/assets/img/home-1/01.png" alt="img"> Client Voices
-                                </span>
-                                <h2 class="wa_title_spilt_1">
-                                    <span class="style-font">Our Valued Clients Trust Us</span> To <br>
-                                    Innovative <span class="testi-iimg"><img class="img-custom-anim-left" src="/assets/img/home-1/client-info-2.png" alt="img"></span> <span class="style-color">Solutions And <br> Outstanding Results.</span>
-                                </h2>
-                            </div>
-                            <div class="row justify-content-between">
-                                <div class="col-xl-4 col-lg-6 col-md-6">
-                                    <div class="testimonial-box-style-5 bg-cover" style="background-image: url('/assets/img/home-1/process-shape.png');">
-                                        <div class="quote-icon">
-                                            <img src="/assets/img/home-1/quote.png" alt="img">
-                                        </div>
-                                        <h3>
-                                            “From the outset, we provid expectations and regular updates our progress. You’ll receive comprehensive reports outline. From the outset, we pro expectations and regular updates our progress.
-                                        </h3>
-                                        <div class="client-info-item">
-                                        <div class="client-info">
-                                                <h4>Robert Allison</h4>
-                                                <span>Sales manager</span>
-                                        </div>
-                                        <div class="star">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-box-style-5 style-2 bg-cover" style="background-image: url('/assets/img/home-1/process-shape.png');">
-                                        <div class="quote-icon">
-                                            <img src="/assets/img/home-1/quote.png" alt="img">
-                                        </div>
-                                        <h3>
-                                            “From the outset, we provid expectations and regular updates our progress. You’ll receive comprehensive reports outline. From the outset, we pro expectations and regular updates our progress.
-                                        </h3>
-                                        <div class="client-info-item">
-                                        <div class="client-info">
-                                                <h4>Robert Allison</h4>
-                                                <span>Sales manager</span>
-                                        </div>
-                                        <div class="star">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6">
-                                    <div class="testimonial-box-style-5 style-2 bg-cover" style="background-image: url('/assets/img/home-1/process-shape.png');">
-                                        <div class="quote-icon">
-                                            <img src="/assets/img/home-1/quote.png" alt="img">
-                                        </div>
-                                        <h3>
-                                            “From the outset, we provid expectations and regular updates our progress. You’ll receive comprehensive reports outline. From the outset, we pro expectations and regular updates our progress.
-                                        </h3>
-                                        <div class="client-info-item">
-                                        <div class="client-info">
-                                                <h4>Robert Allison</h4>
-                                                <span>Sales manager</span>
-                                        </div>
-                                        <div class="star">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-box-style-5 style-3 bg-cover" style="background-image: url('/assets/img/home-1/process-shape.png');">
-                                        <div class="quote-icon">
-                                            <img src="/assets/img/home-1/quote.png" alt="img">
-                                        </div>
-                                        <h3>
-                                            “From the outset, we provid expectations and regular updates our progress. You’ll receive comprehensive reports outline. From the outset, we pro expectations and regular updates our progress.
-                                        </h3>
-                                        <div class="client-info-item">
-                                        <div class="client-info">
-                                                <h4>Robert Allison</h4>
-                                                <span>Sales manager</span>
-                                        </div>
-                                        <div class="star">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                 
+      `}} />
+
+      {/* ── TESTIMONIALS ─────────────────────────────────── */}
+      <section className="testimonial-section-about section-padding tp-project-5-2-area bg-cover" style={{ backgroundImage: "url('/assets/img/inner-page/testimonial-bg2.jpg')" }}>
+        <div className="container">
+          <div className="section-title text-center tp-project-5-2-title">
+            <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
+              <img src="/assets/img/home-1/01.png" alt="" /> Client Voices
+            </span>
+            <h2 className="wa_title_spilt_1">
+              <span className="style-font">Our Valued Clients Trust Us</span> To Deliver{' '}
+              <span className="style-color">Outstanding Results.</span>
+            </h2>
+          </div>
+          <div className="row justify-content-between">
+            <div className="col-xl-4 col-lg-6 col-md-6">
+              {testimonials.slice(0, 2).map((t, i) => (
+                <div key={t.slug} className={`testimonial-box-style-5${i === 1 ? ' style-2' : ''} bg-cover`} style={{ backgroundImage: "url('/assets/img/home-1/process-shape.png')" }}>
+                  <div className="quote-icon"><img src="/assets/img/home-1/quote.png" alt="" /></div>
+                  <h3>"{t.quote}"</h3>
+                  <div className="client-info-item">
+                    <div className="client-info">
+                      <h4>{t.name}</h4>
+                      <span>{t.role}</span>
+                    </div>
+                    <div className="star">
+                      {[1,2,3,4,5].map(s => <i key={s} className="fa-solid fa-star"></i>)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="col-xl-4 col-lg-6 col-md-6">
+              {testimonials.slice(2, 4).map((t, i) => (
+                <div key={t.slug} className={`testimonial-box-style-5${i === 0 ? ' style-2' : ' style-3'} bg-cover`} style={{ backgroundImage: "url('/assets/img/home-1/process-shape.png')" }}>
+                  <div className="quote-icon"><img src="/assets/img/home-1/quote.png" alt="" /></div>
+                  <h3>"{t.quote}"</h3>
+                  <div className="client-info-item">
+                    <div className="client-info">
+                      <h4>{t.name}</h4>
+                      <span>{t.role}</span>
+                    </div>
+                    <div className="star">
+                      {[1,2,3,4,5].map(s => <i key={s} className="fa-solid fa-star"></i>)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div dangerouslySetInnerHTML={{__html: `
                     <!-- Why Choose Us Section Start -->
                     <section class="why-choose-us-section-5 fix section-padding">
                         <div class="container">
