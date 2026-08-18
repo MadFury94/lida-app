@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { brand, contact, stats, services, caseStudies, partners } from '../store/site'
+import VideoBanner from '../components/VideoBanner'
 
 const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
 const marqueeItems = ['Growth Strategy', 'Brand Positioning', 'Strategic Marketing', 'Customer Acquisition', 'Corporate Communications', 'Content & Campaigns', 'Digital Experiences', 'Executive Positioning', 'Market Intelligence', 'Visibility & Trust', 'Media Planning']
@@ -249,17 +250,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="video-banner fix">
-            <img data-speed=".8" src="https://img.youtube.com/vi/dDpATH_E1yQ/maxresdefault.jpg" alt="Watch our video" />
-            <div className="video-circle">
-              <a href="https://www.youtube.com/watch?v=dDpATH_E1yQ" className="video-btn ripple video-popup">
-                <i className="fa-solid fa-play"></i>
-              </a>
-              <div className="text-circle">
-                <img src="/assets/img/home-1/text-circle.png" alt="" />
-              </div>
-            </div>
-          </div>
+          <VideoBanner />
           <p className="about-text">
             We Create Brands That Attract Clients &amp; Deliver Results{' '}
             <Link to="/about">Know more about us</Link>

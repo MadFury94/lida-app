@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { brand } from '../store/site'
+import VideoBanner from '../components/VideoBanner'
 
 
 export default function About() {
@@ -10,7 +11,8 @@ export default function About() {
   }, [])
 
   return (
-    <div dangerouslySetInnerHTML={{__html: `
+    <>
+      <div dangerouslySetInnerHTML={{__html: `
                     <!-- Breadcrumb Section Start -->
                     <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/inner-page/bread-line.png');">
                         <div class="light-bg">
@@ -38,23 +40,15 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- About Video Section Start -->
-                    <div class="about-video-banner-about-page fix wow fadeInUp" data-wow-delay=".7s">
-                        <img data-speed=".8" src="/assets/img/home-2/about-video-banner.jpg" alt="img">
-                        <div class="video-circle">
-                                <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
-                                    <i class="fa-solid fa-play"></i>
-                                </a>
-                                <div class="text-circle">
-                                    <img src="/assets/img/home-2/video-text.png" alt="img">
-                                </div>
-                        </div>
-                        <div class="incrase-box float-bob-y">
-                            <span>Business Increase</span>
-                            <p>3X</p>
-                        </div>
-                    </div>
+      `}} />
+
+      {/* ── VIDEO BANNER ─────────────────────────────────── */}
+      <VideoBanner
+        className="about-video-banner-about-page"
+        textCircle="/assets/img/home-2/video-text.png"
+      />
+
+      <div dangerouslySetInnerHTML={{__html: `
 
                     <!-- Work Process Section Start -->
                     <section class="work-process-section-3 fix section-padding">
@@ -535,5 +529,6 @@ export default function About() {
 
                     <!-- Footer Section Start -->
 `}} />
+    </>
   )
 }

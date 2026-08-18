@@ -59,6 +59,7 @@ export const contact = {
   phoneHref: 'tel:+2348074363918',
   address: 'Abuja, Nigeria',
   calendly: 'https://calendly.com/lidadigitalagency',
+  videoUrl: 'https://www.youtube.com/watch?v=dDpATH_E1yQ',
   social: {
     facebook: 'https://facebook.com/lida.nigeria',
     twitter: 'https://twitter.com/lida_nigeria',
