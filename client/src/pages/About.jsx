@@ -46,6 +46,7 @@ export default function About() {
       <VideoBanner
         className="about-video-banner-about-page"
         textCircle="/assets/img/home-2/video-text.png"
+        thumbnail="/assets/img/home-1/Lida%20Exec%20Team-59.jpeg"
       />
 
       <div dangerouslySetInnerHTML={{__html: `
@@ -135,7 +136,7 @@ export default function About() {
       `}} />
 
       {/* ── TESTIMONIALS ─────────────────────────────────── */}
-      <section className="testimonial-section-about section-padding tp-project-5-2-area bg-cover" style={{ backgroundImage: "url('/assets/img/inner-page/testimonial-bg2.jpg')" }}>
+      <section className="testimonial-section-about section-padding tp-project-5-2-area bg-cover" style={{ backgroundImage: "url('/assets/img/inner-page/testimonial-bg.jpeg')" }}>
         <div className="container">
           <div className="section-title text-center tp-project-5-2-title">
             <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
@@ -143,7 +144,7 @@ export default function About() {
             </span>
             <h2 className="wa_title_spilt_1">
               <span className="style-font">What Our Clients Say</span> About <br />
-              Working <span className="testi-iimg"><img className="img-custom-anim-left" src="/assets/img/home-1/client-info-2.png" alt="" /></span> <span className="style-color">With Lida.</span>
+              Working <span className="testi-iimg"><img className="img-custom-anim-left" src="/assets/img/home-1/Lida 100+ clients.png" alt="" /></span> <span className="style-color">With Lida.</span>
             </h2>
           </div>
           <div className="row justify-content-between">
@@ -192,10 +193,10 @@ export default function About() {
                             <div class="why-choose-us-wrapper-5">
                                 <div class="section-title">
                                     <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                        <img src="/assets/img/home-1/01.png" alt="img"> Why choose us
+                                        <img src="/assets/img/home-1/01.png" alt="img"> Why choose Lida.
                                     </span>
                                     <h2 class="rr_title_anim">
-                                        <span class="style-font">Positioning Global Brands </span> for Success in Africa. <br> Local Insight. Strategic Execution. <br> <span class="style-color">Measurable Impact.</span>
+                                        <span class="style-font">Strategy That Moves </span> the Business. <br> Creative That Moves <br> <span class="style-color">the Market.</span>
                                     </h2>
                                 </div>
                                 <div class="row g-4">
@@ -209,7 +210,7 @@ export default function About() {
                                             <p class="text wow fadeInUp" data-wow-delay=".3s">
                                                 We work with local and international businesses, investors, development organizations, and growth-focused enterprises to navigate market entry, strengthen brand positioning, improve stakeholder engagement, and develop communication strategies that support long-term business objectives.
                                             </p>
-                                            <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="contact.html">
+                                            <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="http://calendly.com/lida_nigeria">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                                 <span class="theme-btn">let’s talk</span>
                                                 <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>

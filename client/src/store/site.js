@@ -320,7 +320,7 @@ export const testimonials = [
   {
     slug: 'abdul-m',
     name: 'Abdul M.',
-    role: 'CEO, Reservoir Limited',
+    role: 'CEO, Reservoir Energy',
     quote: 'Working with Lida gave Reservoir a clearer approach to how we communicate our value and engage the market. Their team combines strategic thinking with practical execution, helping us sharpen our message, strengthen our visibility and position the business for stronger opportunities.',
   },
 ]
