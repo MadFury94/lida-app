@@ -95,7 +95,7 @@ export default function Header() {
 
                 <li className="has-dropdown nav-item">
                   <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
-                    About Us <i className="fas fa-chevron-down"></i>
+                    About <i className="fas fa-chevron-down"></i>
                   </a>
                   <ul className="sub-menu list-unstyled">
                     <li><Link to="/about">About Us</Link></li>
@@ -245,7 +245,7 @@ export default function Header() {
                 <ul className="list-unstyled">
                   <li><Link to="/">Home</Link></li>
                   <li className="sub-mobile-menu">
-                    <a href="#">About Us <i className="fas fa-chevron-down float-end"></i></a>
+                    <a href="#">About <i className="fas fa-chevron-down float-end"></i></a>
                     <ul className="list-unstyled">
                       <li><Link to="/about">About Us</Link></li>
                       <li><Link to="/team">Our Team</Link></li>

@@ -794,3 +794,18 @@
 }
 
 /* About video banner — let main.css handle sizing naturally */
+
+/* About counter boxes — equal height */
+.why-choose-us-section-5 .about-conter-items {
+    align-items: stretch !important;
+}
+
+.why-choose-us-section-5 .about-conter-items .counter-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.why-choose-us-section-5 .about-conter-items .counter-box p {
+    flex: 1;
+}
