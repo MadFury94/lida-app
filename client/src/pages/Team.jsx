@@ -18,7 +18,7 @@ export default function Team() {
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Our Creative  </span> Minds Behind <br> Our Bold Idea’s</h1>
+                                    <h1 class="text-white rr_title_anim"><span>The People  </span> Behind The Work<br> That Moves Business Forward.</h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
@@ -26,7 +26,7 @@ export default function Team() {
                                            12+ years of experience
                                         </li>
                                         <li>
-                                            (©2015 — 2026)
+                                            (©2022 — 2026)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
