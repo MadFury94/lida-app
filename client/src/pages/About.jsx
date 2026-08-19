@@ -202,13 +202,13 @@ export default function About() {
                                 <div class="row g-4">
                                     <div class="col-xl-5 col-lg-6">
                                         <div class="thumb wow fadeInUp" data-wow-delay=".3s">
-                                            <img src="/assets/img/inner-page/choose-us.jpg" alt="img">
+                                            <img src="/assets/img/inner-page/choose-us.jpeg" alt="img">
                                         </div>
                                     </div>
                                     <div class="col-xl-7 col-lg-6">
                                         <div class="choose-us-content">
                                             <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                                We work with local and international businesses, investors, development organizations, and growth-focused enterprises to navigate market entry, strengthen brand positioning, improve stakeholder engagement, and develop communication strategies that support long-term business objectives.
+                                                Lida combines the commercial thinking of a growth partner with the delivery strength of a brand, marketing and communications agency. We do not stop at recommendations. We shape the strategy, build the brand, create the content, develop the campaign and help you see what is working, so your business can earn attention, build trust and create real opportunities for growth.
                                             </p>
                                             <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="http://calendly.com/lida_nigeria">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
@@ -217,21 +217,21 @@ export default function About() {
                                             </a>
                                             <div class="about-conter-items">
                                             <div class="counter-box wow fadeInUp active" data-wow-delay=".3s">
-                                                <span class="sub-text">Corporate</span>
-                                                <h2><span class="count">80</span>+</h2>
+                                                <span class="sub-text">Growth Strategy</span>
+                                                <h2>01</h2>
                                                 <p>
-                                                    We provide innovative and reliable solutions.
+                                                    We start with your business goal, audience and market position, then build the right plan for growth.
                                                 </p>
                                             </div>
                                             <div class="counter-box wow fadeInUp" data-wow-delay=".5s">
-                                                <span class="sub-text">Business</span>
-                                                <h2><span class="count">100</span>%</h2>
+                                                <span class="sub-text">Creative &amp; Media Delivery</span>
+                                                <h2>02</h2>
                                                 <p>
-                                                    We provide innovative and reliable solutions.
+                                                    We bring the plan to life through branding, content, campaigns, media and digital experiences that move people to act.
                                                 </p>
                                             </div>
                                             <div class="about-vide-bg wow fadeInUp" data-wow-delay=".7s">
-                                                <img src="/assets/img/home-2/choose-us-small.jpg" alt="img">
+                                                <img src="/assets/img/home-1/Lida-about.jpeg" alt="img">
                                             </div>
                                         </div>
                                         </div>
@@ -241,229 +241,6 @@ export default function About() {
                         </div>
                     </section>
 
-                     <div class="sec-line-shape">
-                        <img src="/assets/img/home-1/line-shape.png" alt="img">
-                    </div>
-
-                    <!-- Team Section Start -->
-                    <section class="team-section-5 fix section-padding">
-                        <div class="container">
-                            <div class="section-title-area">
-                                <div class="section-title mb-0">
-                                    <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                        <img src="/assets/img/home-1/01.png" alt="img"> Our best teams
-                                    </span>
-                                    <h2 class="wa_title_spilt_1">
-                                        <span class="style-font">Our Creative</span> Minds <br> Behind Our Bold Ideas
-                                    </h2>
-                                </div>
-                                <div class="content wow fadeInUp" data-wow-delay=".3s">
-                                    <p>
-                                        See what media outlets are saying about our work and impact platforms that featured us.
-                                    </p>
-                                    <a href="team.html" class="news-btn">
-                                        <span class="text">
-                                            <span class="text-default">Join Our Team  <i class="fa-regular fa-arrow-up-right"></i></span>
-                                            <span class="text-hover">Join Our Team  <i class="fa-regular fa-arrow-up-right"></i></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row design-choose-item-wrap">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-1">
-                                        <img src="/assets/img/inner-page/team-1.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-1.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-2">
-                                        <img src="/assets/img/inner-page/team-2.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-2.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-1">
-                                        <img src="/assets/img/inner-page/team-3.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-3.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-2">
-                                        <img src="/assets/img/inner-page/team-4.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-4.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Marque Section Start -->
-                    <div class="marque-section">
-                        <div class="marquee">
-                            <div class="marquee-group">
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Growth
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Success
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Leadership
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Trust
-                                </div>
-                            </div>
-                            <div class="marquee-group">
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Growth
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Success
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Leadership
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Trust
-                                </div>
-                            </div>
-                            <div class="marquee-group">
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Growth
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Success
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Leadership
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Trust
-                                </div>
-                            </div>
-                            <div class="marquee-group">
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Growth
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Success
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Leadership
-                                </div>
-                                <div class="text-4">
-                                    <img src="/assets/img/home-3/star.png" alt="img"> Trust
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lets Deal Section Start -->
-                    <section class="lets-deal-section fix section-padding fix section-padding">
-                        <div class="container">
-                            <div class="lets-deal-wrapper">
-                                 <div class="section-title text-center mb-0">
-                                    <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                        <img src="/assets/img/home-1/01.png" alt="img"> Let’s make a deal
-                                    </span>
-                                    <h2 class="wa_title_spilt_1">
-                                        <span class="style-font">Let's Create The</span> Best Product <br> Experience For Your Next Project
-                                    </h2>
-                                </div>
-                                <a class="theme-btn-main style-2 mt-4 wow fadeInUp" data-wow-delay=".3s" href="contact.html">
-                                    <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
-                                    <span class="theme-btn">Get In Touch</span>
-                                    <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
 
                     <!-- Footer Section Start -->
 `}} />

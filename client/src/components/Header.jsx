@@ -93,8 +93,15 @@ export default function Header() {
                   <NavLink className={navCls} to="/">Home</NavLink>
                 </li>
 
-                <li className="nav-item">
-                  <NavLink className={navCls} to="/about">About Us</NavLink>
+                <li className="has-dropdown nav-item">
+                  <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
+                    About Us <i className="fas fa-chevron-down"></i>
+                  </a>
+                  <ul className="sub-menu list-unstyled">
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/team">Our Team</Link></li>
+                    <li><Link to="/careers">Careers</Link></li>
+                  </ul>
                 </li>
 
                 <li className="nav-item has-megamenu">
@@ -121,15 +128,8 @@ export default function Header() {
                   </div>
                 </li>
 
-                <li className="has-dropdown nav-item">
-                  <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
-                    Work <i className="fas fa-chevron-down"></i>
-                  </a>
-                  <ul className="sub-menu list-unstyled">
-                    <li><Link to="/work">Case Studies</Link></li>
-                    <li><Link to="/team">Our Team</Link></li>
-                    <li><Link to="/careers">Careers</Link></li>
-                  </ul>
+                <li className="nav-item">
+                  <NavLink className={navCls} to="/work">Projects</NavLink>
                 </li>
 
                 <li className="nav-item">
@@ -244,7 +244,14 @@ export default function Header() {
               <div className="menu-list">
                 <ul className="list-unstyled">
                   <li><Link to="/">Home</Link></li>
-                  <li><Link to="/about">About Us</Link></li>
+                  <li className="sub-mobile-menu">
+                    <a href="#">About Us <i className="fas fa-chevron-down float-end"></i></a>
+                    <ul className="list-unstyled">
+                      <li><Link to="/about">About Us</Link></li>
+                      <li><Link to="/team">Our Team</Link></li>
+                      <li><Link to="/careers">Careers</Link></li>
+                    </ul>
+                  </li>
                   <li className="sub-mobile-menu">
                     <a href="#">Services <i className="fas fa-chevron-down float-end"></i></a>
                     <ul className="list-unstyled">
@@ -254,14 +261,7 @@ export default function Header() {
                       ))}
                     </ul>
                   </li>
-                  <li className="sub-mobile-menu">
-                    <a href="#">Work <i className="fas fa-chevron-down float-end"></i></a>
-                    <ul className="list-unstyled">
-                      <li><Link to="/work">Case Studies</Link></li>
-                      <li><Link to="/team">Our Team</Link></li>
-                      <li><Link to="/careers">Careers</Link></li>
-                    </ul>
-                  </li>
+                  <li><Link to="/work">Projects</Link></li>
                   <li><Link to="/faq">FAQ</Link></li>
                   <li><Link to="/insights">Insights</Link></li>
                   <li><Link to="/contact">Contact</Link></li>

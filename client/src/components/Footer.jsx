@@ -35,7 +35,7 @@ export default function Footer() {
                 <ul className="gt-list-area">
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/about">About Us</Link></li>
-                  <li><Link to="/work">Case Studies</Link></li>
+                  <li><Link to="/work">Projects</Link></li>
                   <li><Link to="/team">Our Team</Link></li>
                   <li><Link to="/careers">Careers</Link></li>
                   <li><Link to="/faq">FAQ</Link></li>
