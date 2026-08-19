@@ -317,6 +317,12 @@ export const testimonials = [
     role: 'MD, Nuts & Bolts',
     quote: 'Our engagement with LIDA transformed the way our business is perceived. They helped us build a stronger brand identity, improve how we communicate our value, and position the business with greater credibility. Their strategic thinking and attention to detail made a measurable difference in how we present ourselves to customers and partners.',
   },
+  {
+    slug: 'abdul-m',
+    name: 'Abdul M.',
+    role: 'CEO, Reservoir Limited',
+    quote: 'Working with Lida gave Reservoir a clearer approach to how we communicate our value and engage the market. Their team combines strategic thinking with practical execution, helping us sharpen our message, strengthen our visibility and position the business for stronger opportunities.',
+  },
 ]
 
 export const faqs = [
