@@ -503,7 +503,7 @@ export default function Services() {
                     </section>
 
                     <!-- Faq Section Start -->
-                    <section class="faq-section-2 fix section-padding">
+                    <section id="faq" class="faq-section-2 fix section-padding">
                         <div class="container">
                             <div class="faq-wrapper-2">
                                 <div class="row g-4">

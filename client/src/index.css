@@ -809,3 +809,16 @@
 .why-choose-us-section-5 .about-conter-items .counter-box p {
     flex: 1;
 }
+
+/* Team cards — equal height images */
+.team-image-items-5 {
+    height: 520px;
+    overflow: hidden;
+}
+
+.team-image-items-5 > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}

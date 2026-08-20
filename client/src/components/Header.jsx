@@ -133,7 +133,7 @@ export default function Header() {
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className={navCls} to="/faq">FAQ</NavLink>
+                  <a className="nav-link" href="/services#faq">FAQ</a>
                 </li>
 
                 <li className="nav-item">
@@ -262,7 +262,7 @@ export default function Header() {
                     </ul>
                   </li>
                   <li><Link to="/work">Projects</Link></li>
-                  <li><Link to="/faq">FAQ</Link></li>
+                  <li><a href="/services#faq">FAQ</a></li>
                   <li><Link to="/insights">Insights</Link></li>
                   <li><Link to="/contact">Contact</Link></li>
                 </ul>
