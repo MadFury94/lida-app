@@ -38,7 +38,7 @@ export default function Careers() {
           <div className="page-heading mb-0">
             <div className="breadcrumb-sub-title">
               <h1 className="text-white">
-                <span>Do work that matters.</span> Build brands that move Africa forward.
+                <span>Bring Your Best Work.</span> Help Businesses Move Forward.
               </h1>
             </div>
             <div className="breadcrumb-items">
@@ -57,24 +57,25 @@ export default function Careers() {
           <div className="row g-5 align-items-center">
             <div className="col-lg-6">
               <div className="career-image">
-                <img src="/assets/img/inner-page/team-2.jpg" alt="The Lida Digital team collaborating" />
+                <img src="/assets/img/inner-page/Lida-Careers.jpeg" alt="The Lida Digital team collaborating" />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="section-title">
                 <span className="sub-title">
-                  <i className="fa-solid fa-circle-small"></i> Life at Lida
+                  <i className="fa-solid fa-circle" style={{color: 'var(--theme)'}}></i> Life at Lida
                 </span>
-                <h2>Curious minds. <span className="style-color">Serious impact.</span></h2>
+                <h2>Curious Minds. <span className="style-color">Work With Purpose.</span></h2>
               </div>
               <p className="career-lead">
-                We are building a multidisciplinary team that understands African markets,
-                thinks globally, and cares deeply about the quality of the work.
+                At Lida, you will work on ideas that help businesses move forward. We combine strategy,
+                creativity, marketing and communications to create work that earns attention, builds
+                trust and supports growth.
               </p>
               <div className="career-values">
-                <div><strong>Think clearly</strong><span>Insight before activity.</span></div>
-                <div><strong>Own the outcome</strong><span>Ideas are only valuable when they work.</span></div>
-                <div><strong>Grow together</strong><span>Direct feedback, shared learning, no ego.</span></div>
+                <div><strong>Think Clearly</strong><span>Understand the business, audience and goal before jumping into execution.</span></div>
+                <div><strong>Make It Matter</strong><span>Turn ideas into work that helps brands earn attention, trust and real business results.</span></div>
+                <div><strong>Grow Together</strong><span>Share feedback openly, keep learning and help the team do better work.</span></div>
               </div>
             </div>
           </div>
