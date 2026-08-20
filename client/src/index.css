@@ -822,3 +822,16 @@
     object-fit: cover;
     object-position: center top;
 }
+
+/* Team cards — fix stacking order so all cards display above each other correctly */
+.design-choose-item-wrap .col-lg-6 {
+    position: relative;
+    z-index: 1;
+}
+
+.design-choose-item-wrap .col-lg-6:nth-child(1) { z-index: 6; }
+.design-choose-item-wrap .col-lg-6:nth-child(2) { z-index: 5; }
+.design-choose-item-wrap .col-lg-6:nth-child(3) { z-index: 4; }
+.design-choose-item-wrap .col-lg-6:nth-child(4) { z-index: 3; }
+.design-choose-item-wrap .col-lg-6:nth-child(5) { z-index: 2; }
+.design-choose-item-wrap .col-lg-6:nth-child(6) { z-index: 1; }

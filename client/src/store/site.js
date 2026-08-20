@@ -297,6 +297,14 @@ export const team = [
     social: { linkedin: '#', twitter: '#' },
   },
   {
+    slug: 'brian-azukaeme',
+    name: 'Brian Azukaeme',
+    role: 'Technical Project Manager',
+    bio: 'Brian Azukaeme leads technical project delivery at Lida, ensuring client projects are executed with precision, on time, and to the highest standard across digital, brand, and campaign workstreams.',
+    image: '/assets/img/team/Lida Team- Brian.png',
+    social: { linkedin: '#', twitter: '#' },
+  },
+  {
     slug: 'joshua-ocheja',
     name: 'Joshua Ocheja',
     role: 'Lead Creative Designer',
@@ -312,14 +320,7 @@ export const team = [
     image: '/assets/img/team/Lida Team- Faith.jpg.jpeg',
     social: { linkedin: '#', twitter: '#' },
   },
-  {
-    slug: 'brian-Azukaeme',
-    name: 'Brian Azukaeme',
-    role: 'Technical Project Manager',
-    bio: 'Joshua Ocheja leads creative design at Lida, translating brand strategy into compelling visual identities, campaign assets, and digital experiences that communicate clearly and move audiences to act.',
-    image: '/assets/img/team/Lida Team- Brian.png',
-    social: { linkedin: '#', twitter: '#' },
-  },
+ 
 ]
 
 export const testimonials = [

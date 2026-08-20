@@ -21,7 +21,7 @@ export default function Team() {
           <div className="page-heading mb-0">
             <div className="breadcrumb-sub-title">
               <h1 className="text-white rr_title_anim">
-                <span>The People Behind</span> The Work That <br /> Moves Business Forward.
+                <span>The People Behind The Work</span> That Moves Business Forward.
               </h1>
             </div>
             <div className="breadcrumb-items">
@@ -103,17 +103,15 @@ export default function Team() {
                 <span className="style-font">Your Next Big Move</span> Needs the Right Team  <br />  Behind It.
               </h2>
             </div>
-            <a
+            <Link
               className="theme-btn-main style-2 mt-4 wow fadeInUp"
               data-wow-delay=".3s"
-              href={contact.calendly}
-              target="_blank"
-              rel="noreferrer"
+              to="/contact"
             >
               <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-              <span className="theme-btn">Schedule a Meeting</span>
+              <span className="theme-btn">Get In Touch</span>
               <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
