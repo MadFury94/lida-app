@@ -301,7 +301,7 @@ export const team = [
     name: 'Brian Azukaeme',
     role: 'Technical Project Manager',
     bio: 'Brian Azukaeme leads technical project delivery at Lida, ensuring client projects are executed with precision, on time, and to the highest standard across digital, brand, and campaign workstreams.',
-    image: '/assets/img/team/Lida Team- Brian.png',
+    image: '/assets/img/team/Lida Team- Brian.jpeg',
     social: { linkedin: '#', twitter: '#' },
   },
   {
