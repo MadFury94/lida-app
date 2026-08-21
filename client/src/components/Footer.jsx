@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="container">
           <div className="footer-bottom-wrapper" style={{ justifyContent: 'center' }}>
             <p className="wow fadeInUp text-center" data-wow-delay=".3s">
-              © {new Date().getFullYear()} <b>Lida Nigeria.</b> All rights reserved.
+              © {new Date().getFullYear()} <b>Solution Media Global Ltd.</b> All rights reserved.
             </p>
           </div>
         </div>
