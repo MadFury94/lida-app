@@ -111,10 +111,10 @@ export const services = [
   {
     slug: 'brand-market-positioning',
     number: '002.',
-    title: 'Brand & Market Positioning',
-    shortTitle: 'Brand Positioning',
+    title: 'Brand Strategy & Identity',
+    shortTitle: 'Brand Strategy & Identity',
     icon: 'fa-solid fa-bullseye',
-    summary: 'Building differentiated brands and clear market positions that help businesses earn trust, attract the right clients, and grow with purpose.',
+    summary: 'We build brands people understand, trust and remember, from naming and positioning to visual identity and brand guidelines.',
     detail: `We develop brand strategies and market positioning frameworks that create meaningful differentiation. From defining your core value proposition and messaging to building a complete identity system, we ensure your brand communicates clearly, earns credibility, and resonates with the people you want to reach.`,
     includes: ['Brand strategy & positioning', 'Value proposition development', 'Visual identity systems', 'Messaging & tone of voice', 'Brand guidelines & rollout'],
   },

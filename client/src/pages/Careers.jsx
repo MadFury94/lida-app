@@ -118,7 +118,7 @@ export default function Careers() {
             </div>
             <a
               className="theme-btn-main style-2"
-              href={`mailto:hello@lidadigital.com.ng?subject=${applicationSubject}`}
+              href={`mailto:careers@lidadigital.com.ng?subject=${applicationSubject}`}
             >
               <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
               <span className="theme-btn">Introduce Yourself</span>
