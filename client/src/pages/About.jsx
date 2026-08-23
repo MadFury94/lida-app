@@ -71,7 +71,7 @@ export default function About() {
                                             <p>
                                                Lida is a brand, marketing and communications agency based in Abuja, Nigeria. We help businesses, founders and leaders build stronger brands, reach the right people and create more opportunities for growth. Our work begins with understanding the challenge. From there, we combine strategy with creative thinking, content, campaigns, media and digital experiences to deliver work that is clear, relevant and built to move the business forward.
                                             </p>
-                                            <a class="theme-btn-main style-2 bg-white-style mt-3" href="https://calendly.com/lida_nigeria">
+                                            <a class="theme-btn-main style-2 bg-white-style mt-3" href="${contact.calendly}">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                                 <span class="theme-btn">Book a Growth Audit</span>
                                                 <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>
@@ -210,7 +210,7 @@ export default function About() {
                                             <p class="text wow fadeInUp" data-wow-delay=".3s">
                                                 Lida combines the commercial thinking of a growth partner with the delivery strength of a brand, marketing and communications agency. We do not stop at recommendations. We shape the strategy, build the brand, create the content, develop the campaign and help you see what is working, so your business can earn attention, build trust and create real opportunities for growth.
                                             </p>
-                                            <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="http://calendly.com/lida_nigeria">
+                                            <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="${contact.calendly}">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                                 <span class="theme-btn">let’s talk</span>
                                                 <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>

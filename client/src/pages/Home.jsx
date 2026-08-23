@@ -448,7 +448,7 @@ export default function Home() {
             <a
               className="theme-btn-main style-2 wow fadeInUp"
               data-wow-delay=".3s"
-              href="https://calendly.com/lida_nigeria"
+              href={contact.calendly}
               target="_blank"
               rel="noreferrer"
             >

@@ -54,12 +54,18 @@ export const aboutPage = {
 
 export const contact = {
   email: 'hello@lidadigital.com.ng',
+  emailCareers: 'careers@lidadigital.com.ng',
   emailAlt: 'lidadigital.ads@gmail.com',
   phone: '+234-807-436-3918',
   phoneHref: 'tel:+2348074363918',
   address: 'Abuja, Nigeria',
+  addressFull: 'Abuja, Federal Capital Territory, Nigeria',
+  officeHours: 'Mon – Fri, 9am – 6pm WAT',
   calendly: 'https://calendly.com/lidadigitalagency',
+  calendlyDisplay: 'calendly.com/lidadigitalagency',
+  mapsUrl: 'https://maps.google.com/?q=Abuja+Nigeria',
   videoUrl: 'https://www.youtube.com/watch?v=dDpATH_E1yQ',
+  mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126091.37643827453!2d7.3986087!3d9.0764785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0baf7da48d0d%3A0x99a8fe4168c50bc8!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1690000000000!5m2!1sen!2sng',
   social: {
     facebook: 'https://facebook.com/lida.nigeria',
     twitter: 'https://twitter.com/lida_nigeria',
@@ -487,3 +493,26 @@ The financial institutions that grow fastest in Nigeria are not always the ones 
   },
 ]
 
+
+export const careerPaths = [
+  {
+    number: '01',
+    title: 'Strategy & Consulting',
+    text: 'Help ambitious organizations turn local insight into clear positioning, practical plans, and measurable growth.',
+    skills: ['Brand strategy', 'Market research', 'Communications planning'],
+  },
+  {
+    number: '02',
+    title: 'Creative & Content',
+    text: 'Shape ideas into distinctive identities, campaigns, stories, and digital experiences that move audiences.',
+    skills: ['Design', 'Copywriting', 'Content production'],
+  },
+  {
+    number: '03',
+    title: 'Growth & Client Service',
+    text: 'Build trusted client relationships and connect strategy, execution, reporting, and commercial outcomes.',
+    skills: ['Account management', 'Digital marketing', 'Analytics'],
+  },
+]
+
+export const copyrightYear = '2022'

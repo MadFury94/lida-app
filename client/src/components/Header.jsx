@@ -201,7 +201,7 @@ export default function Header() {
             </div>
             <div className="contact-details">
               <span className="sub-info">Location</span>
-              <p>Abuja, Nigeria</p>
+              <p>{contact.address}</p>
             </div>
           </div>
           <div className="social-icon-list">
@@ -281,7 +281,7 @@ export default function Header() {
                 </div>
                 <div className="contact-details">
                   <span className="sub-info">Location</span>
-                  <p>Abuja, Nigeria</p>
+                  <p>{contact.address}</p>
                 </div>
               </div>
               <div className="social-icon-list">

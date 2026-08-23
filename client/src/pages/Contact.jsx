@@ -1,173 +1,271 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { brand, contact } from '../store/site'
 
+const SERVICES_OPTIONS = [
+  'Growth Strategy',
+  'Brand Strategy & Identity',
+  'Customer Acquisition & Performance Marketing',
+  'Customer Adoption & Experience',
+  'Reputation & Strategic Communications',
+  'Executive & Corporate Positioning',
+  'Content & Creative Production',
+  'Digital Presence & Experience',
+  'Events & Brand Experiences',
+  'Market Entry & Expansion',
+  'General Enquiry',
+]
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
+  const [status, setStatus] = useState(null) // null | 'sending' | 'success' | 'error'
+
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
-    if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
-    
   }, [])
 
+  const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', phone: '', service: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
-    <div dangerouslySetInnerHTML={{__html: `
-                    <!-- Breadcrumb Section Start -->
-                    <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/inner-page/bread-line.png');">
-                        <div class="light-bg">
-                            <img src="/assets/img/inner-page/light.png" alt="img">
-                        </div>
-                        <div class="container">
-                            <div class="page-heading mb-0">
-                                <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Get In Touch  </span> 
-                                        With Us For Creative Solutions And Expert Support
-                                    </h1>
-                                </div>
-                                <div class="breadcrumb-items">
-                                    <ul>
-                                        <li>
-                                           12+ years of experience
-                                        </li>
-                                        <li>
-                                            (©2015 — 2026)
-                                        </li>
-                                    </ul>
-                                    <h2 class="title wa_title_spilt_1">
-                                       Contact Us
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Section Start -->
-                    <section class="contact-section section-padding fix">
-                        <div class="container">
-                            <div class="contac-us-wrapper">
-                                <div class="row g-4">
-                                    <div class="col-xl-4 col-lg-6 col-md-6">
-                                        <div class="contact-us-card-item">
-                                            <div class="contact-image">
-                                                <img src="/assets/img/inner-page/contact-1.jpg" alt="img">
-                                            </div>
-                                            <div class="contact-content">
-                                                <h2>United State</h2>
-                                                <span>Phone number:</span>
-                                                <h3>
-                                                    <a href="tel:+13025550198">+1 302 555-0198</a>
-                                                </h3>
-                                                <span>Email address:</span>
-                                                <h3>
-                                                    <a href="mailto:hello.123@orixo.com">hello.123@orixo.com</a>
-                                                </h3>
-                                                <a href="contact.html" class="thems-btn w-100">Visit site <i class="fa-solid fa-arrow-up-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6">
-                                        <div class="contact-us-card-item">
-                                            <div class="contact-image">
-                                                <img src="/assets/img/inner-page/contact-2.jpg" alt="img">
-                                            </div>
-                                            <div class="contact-content">
-                                                <h2>United Kingdom</h2>
-                                                <span>Phone number:</span>
-                                                <h3>
-                                                    <a href="tel:+442079460958">+44 20 7946 0958</a>
-                                                </h3>
-                                                <span>Email address:</span>
-                                                <h3>
-                                                    <a href="mailto:hello.123@orixo.com">hello.456@orixo.com</a>
-                                                </h3>
-                                                <a href="contact.html" class="thems-btn w-100">Visit site <i class="fa-solid fa-arrow-up-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6">
-                                        <div class="contact-us-card-item">
-                                            <div class="contact-image">
-                                                <img src="/assets/img/inner-page/contact-3.jpg" alt="img">
-                                            </div>
-                                            <div class="contact-content">
-                                                <h2>Denmark</h2>
-                                                <span>Phone number:</span>
-                                                <h3>
-                                                    <a href="tel:+4566132455">+45 66 13 24 55</a>
-                                                </h3>
-                                                <span>Email address:</span>
-                                                <h3>
-                                                    <a href="mailto:hello.123@orixo.com">hello.789@orixo.com</a>
-                                                </h3>
-                                                <a href="contact.html" class="thems-btn w-100">Visit site <i class="fa-solid fa-arrow-up-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+    <>
+      {/* Breadcrumb */}
+      <div
+        className="breadcrumb-wrapper bg-cover"
+        style={{ backgroundImage: "url('/assets/img/inner-page/bread-line.png')" }}
+      >
+        <div className="light-bg">
+          <img src="/assets/img/inner-page/light.png" alt="" />
+        </div>
+        <div className="container">
+          <div className="page-heading mb-0">
+            <div className="breadcrumb-sub-title">
+              <h1 className="text-white rr_title_anim">
+                <span>Let's Start a Conversation</span> About Your Growth.
+              </h1>
+            </div>
+            <div className="breadcrumb-items">
+              <ul>
+                <li>{contact.address}</li>
+                <li>{contact.email}</li>
+              </ul>
+              <h2 className="title wa_title_spilt_1">Contact Us</h2>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                    <!-- Contact-Map Section Start -->
-                    <div class="contact-map-section section-padding fix pt-0">
-                        <div class="container">
-                            <div class="contact-map-wrapper">
-                                <div class="row g-4">
-                                    <div class="col-lg-6">
-                                        <div class="contact-map">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29332256.25226939!2d133.41701195!3d-26.1772288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sbd!4v1775899425045!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="contact-from-box">
-                                            <h2>Contact us</h2>
-                                            <form action="contact.php" id="contact-form" class="contact-form-box">
-                                                <div class="row g-4 align-items-center">
-                                                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                                                        <div class="form-clt">
-                                                            <input type="text" placeholder="Full name *">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                                                        <div class="form-clt">
-                                                            <input type="text" placeholder="Email address *">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                                                        <div class="form-clt">
-                                                            <input type="text" placeholder="Phone number *">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                                                        <div class="form-clt">
-                                                            <div class="form">
-                                                                <select class="single-select w-100">
-                                                                    <option>Chose a option</option>
-                                                                    <option>Digital Marketing</option>
-                                                                    <option>Software & IT Service</option>
-                                                                    <option>Finance & Investment</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
-                                                        <div class="form-clt">
-                                                            <textarea name="message" placeholder="Type your message"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
-                                                        <button type="submit" class="thems-btn w-100 wow fadeInUp" data-wow-delay=".5s">
-                                                            Send message <i class="fa-solid fa-arrow-up-right"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      {/* Contact info cards */}
+      <section className="contact-section section-padding fix">
+        <div className="container">
+          <div className="contac-us-wrapper">
+            <div className="row g-4 justify-content-center">
 
-                    <!-- Footer Section Start -->
-`}} />
+              <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                <div className="contact-us-card-item">
+                  <div className="contact-image">
+                    <img src="/assets/img/inner-page/contact-1.jpg" alt="Talk to us" />
+                  </div>
+                  <div className="contact-content">
+                    <h2>Talk to Us</h2>
+                    <span>Phone number:</span>
+                    <h3><a href={contact.phoneHref}>{contact.phone}</a></h3>
+                    <span>Email address:</span>
+                    <h3><a href={`mailto:${contact.email}`}>{contact.email}</a></h3>
+                    <a href={contact.calendly} target="_blank" rel="noreferrer" className="thems-btn w-100">
+                      Book a Call <i className="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                <div className="contact-us-card-item">
+                  <div className="contact-image">
+                    <img src="/assets/img/inner-page/contact-2.jpg" alt="Visit us" />
+                  </div>
+                  <div className="contact-content">
+                    <h2>Our Location</h2>
+                    <span>Address:</span>
+                    <h3>{contact.addressFull}</h3>
+                    <span>Office hours:</span>
+                    <h3>{contact.officeHours}</h3>
+                    <a
+                      href={contact.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="thems-btn w-100"
+                    >
+                      Get Directions <i className="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                <div className="contact-us-card-item">
+                  <div className="contact-image">
+                    <img src="/assets/img/inner-page/contact-3.jpg" alt="Schedule a meeting" />
+                  </div>
+                  <div className="contact-content">
+                    <h2>Schedule a Meeting</h2>
+                    <span>Book directly:</span>
+                    <h3>
+                      <a href={contact.calendly} target="_blank" rel="noreferrer">
+                        {contact.calendlyDisplay}
+                      </a>
+                    </h3>
+                    <span>General enquiries:</span>
+                    <h3><a href={`mailto:${contact.email}`}>{contact.email}</a></h3>
+                    <a
+                      href={contact.calendly}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="thems-btn w-100"
+                    >
+                      Schedule Now <i className="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map + Form */}
+      <div className="contact-map-section section-padding fix pt-0">
+        <div className="container">
+          <div className="contact-map-wrapper">
+            <div className="row g-4">
+              <div className="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                <div className="contact-map">
+                  <iframe
+                    src={contact.mapEmbed}
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Lida Digital location — Abuja, Nigeria"
+                  ></iframe>
+                </div>
+              </div>
+              <div className="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                <div className="contact-from-box">
+                  <h2>Send us a message</h2>
+                  <form className="contact-form-box" onSubmit={handleSubmit} noValidate>
+                    <div className="row g-4 align-items-center">
+                      <div className="col-lg-6 col-md-6">
+                        <div className="form-clt">
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder="Full name *"
+                            value={form.name}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-lg-6 col-md-6">
+                        <div className="form-clt">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Email address *"
+                            value={form.email}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="col-lg-6 col-md-6">
+                        <div className="form-clt">
+                          <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Phone number"
+                            value={form.phone}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-lg-6 col-md-6">
+                        <div className="form-clt">
+                          <select
+                            name="service"
+                            className="single-select w-100"
+                            value={form.service}
+                            onChange={handleChange}
+                          >
+                            <option value="">I'm interested in…</option>
+                            {SERVICES_OPTIONS.map(s => (
+                              <option key={s} value={s}>{s}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <div className="col-lg-12">
+                        <div className="form-clt">
+                          <textarea
+                            name="message"
+                            placeholder="Tell us about your project or challenge *"
+                            value={form.message}
+                            onChange={handleChange}
+                            required
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div className="col-lg-12">
+                        {status === 'success' && (
+                          <p className="form-success-msg" style={{ color: 'var(--theme)', marginBottom: '1rem' }}>
+                            Message sent. We'll be in touch shortly.
+                          </p>
+                        )}
+                        {status === 'error' && (
+                          <p className="form-error-msg" style={{ color: '#ff4444', marginBottom: '1rem' }}>
+                            Something went wrong. Please email us directly at{' '}
+                            <a href={`mailto:${contact.email}`}>{contact.email}</a>.
+                          </p>
+                        )}
+                        <button
+                          type="submit"
+                          className="thems-btn w-100"
+                          disabled={status === 'sending'}
+                        >
+                          {status === 'sending' ? 'Sending…' : 'Send message'}{' '}
+                          <i className="fa-solid fa-arrow-up-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }

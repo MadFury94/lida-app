@@ -1,0 +1,41 @@
+name = "lida-backend"
+main = "src/index.js"
+compatibility_date = "2026-08-22"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+# ── KV Namespace ─────────────────────────────────────────────
+# Stores contact form submissions AND admin content overrides.
+#
+# To create (run once):
+#   npx wrangler kv namespace create CONTACT_SUBMISSIONS
+#   npx wrangler kv namespace create CONTACT_SUBMISSIONS --preview
+#
+# Then replace the placeholder IDs below with the output IDs.
+[[kv_namespaces]]
+binding = "CONTACT_SUBMISSIONS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
+
+# ── Secrets (set via CLI, never in this file) ─────────────────
+# npx wrangler secret put ADMIN_API_KEY
+# npx wrangler secret put CONTACT_EMAIL_TO
+# npx wrangler secret put RESEND_API_KEY
+#
+# ADMIN_API_KEY      — shared secret for admin panel (X-Admin-Key header)
+# CONTACT_EMAIL_TO   — recipient address for contact form email alerts (e.g. hello@lidadigital.com.ng)
+# RESEND_API_KEY     — API key from resend.com (re_xxxxxxxx)
+
+# ── Environment variables ─────────────────────────────────────
+[vars]
+ENVIRONMENT = "production"
+ALLOWED_ORIGINS = "https://lida.ng,https://www.lida.ng,https://admin.lida.ng"
+
+# ── Local dev overrides ───────────────────────────────────────
+[env.dev]
+[env.dev.vars]
+ENVIRONMENT = "development"
+ALLOWED_ORIGINS = "http://localhost:5173,http://localhost:5174,http://localhost:3000"

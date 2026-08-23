@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
-import { insights } from '../store/site'
+import { insights, contact } from '../store/site'
 
 export default function InsightDetail() {
   const { slug } = useParams()
@@ -100,7 +100,7 @@ export default function InsightDetail() {
                   <h4>Ready to grow?</h4>
                   <p>Let's talk about your market position and how we can help you move forward.</p>
                   <a
-                    href="https://calendly.com/lida_nigeria"
+                    href={contact.calendly}
                     target="_blank"
                     rel="noreferrer"
                     className="theme-btn-main style-2 mt-3"

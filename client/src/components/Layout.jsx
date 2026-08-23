@@ -8,6 +8,12 @@ export default function Layout() {
   const location = useLocation()
 
   useEffect(() => {
+    // Scroll to top on every route change.
+    // Also reset GSAP ScrollSmoother position if it's active.
+    window.scrollTo(0, 0)
+    const smoothContent = document.getElementById('smooth-content')
+    if (smoothContent) smoothContent.style.transform = 'translateY(0px)'
+
     // The legacy template normally reveals the page from main.js. In React the
     // load event may have fired before that handler can find the mounted nodes,
     // so make visibility part of the layout lifecycle as well.

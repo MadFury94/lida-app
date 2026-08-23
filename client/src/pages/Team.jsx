@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { team, contact } from '../store/site'
+import { team, brand, copyrightYear } from '../store/site'
 
 export default function Team() {
   useEffect(() => {
@@ -26,8 +26,8 @@ export default function Team() {
             </div>
             <div className="breadcrumb-items">
               <ul>
-                <li>Lida Nigeria</li>
-                <li>(©2022 — 2026)</li>
+                <li>{brand.name}</li>
+                <li>(©{copyrightYear} — 2026)</li>
               </ul>
               <h2 className="title wa_title_spilt_1">Our team</h2>
             </div>

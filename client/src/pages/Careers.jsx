@@ -1,26 +1,5 @@
 import { Link } from 'react-router-dom'
-// Page copy is intentionally local while content editing is store-independent.
-
-const paths = [
-  {
-    number: '01',
-    title: 'Strategy & Consulting',
-    text: 'Help ambitious organizations turn local insight into clear positioning, practical plans, and measurable growth.',
-    skills: ['Brand strategy', 'Market research', 'Communications planning'],
-  },
-  {
-    number: '02',
-    title: 'Creative & Content',
-    text: 'Shape ideas into distinctive identities, campaigns, stories, and digital experiences that move audiences.',
-    skills: ['Design', 'Copywriting', 'Content production'],
-  },
-  {
-    number: '03',
-    title: 'Growth & Client Service',
-    text: 'Build trusted client relationships and connect strategy, execution, reporting, and commercial outcomes.',
-    skills: ['Account management', 'Digital marketing', 'Analytics'],
-  },
-]
+import { contact, careerPaths } from '../store/site'
 
 export default function Careers() {
   const applicationSubject = encodeURIComponent('Career interest — Lida Digital')
@@ -43,7 +22,7 @@ export default function Careers() {
             </div>
             <div className="breadcrumb-items">
               <ul>
-                <li>Abuja, Nigeria</li>
+                <li>{contact.address}</li>
                 <li>Hybrid collaboration</li>
               </ul>
               <h2 className="title">Careers</h2>
@@ -63,7 +42,7 @@ export default function Careers() {
             <div className="col-lg-6">
               <div className="section-title">
                 <span className="sub-title">
-                  <i className="fa-solid fa-circle" style={{color: 'var(--theme)'}}></i> Life at Lida
+                  <i className="fa-solid fa-circle" style={{ color: 'var(--theme)' }}></i> Life at Lida
                 </span>
                 <h2>Curious Minds. <span className="style-color">Work With Purpose.</span></h2>
               </div>
@@ -89,7 +68,7 @@ export default function Careers() {
             <h2>Find your place in the <span className="style-color">work.</span></h2>
           </div>
           <div className="row g-4 mt-4">
-            {paths.map(path => (
+            {careerPaths.map(path => (
               <div className="col-lg-4" key={path.number}>
                 <article className="career-card">
                   <span className="career-card-number">{path.number}</span>
@@ -110,7 +89,7 @@ export default function Careers() {
           <div className="career-apply-inner">
             <div>
               <span className="sub-title">Open application</span>
-              <h2>There are no advertised vacancies right now—but we always want to meet exceptional people.</h2>
+              <h2>There are no advertised vacancies right now, but we always want to meet exceptional people.</h2>
               <p>
                 Send your CV or portfolio with a short note about the problems you solve best.
                 We will keep strong applications in our talent network for future opportunities.
@@ -118,7 +97,7 @@ export default function Careers() {
             </div>
             <a
               className="theme-btn-main style-2"
-              href={`mailto:careers@lidadigital.com.ng?subject=${applicationSubject}`}
+              href={`mailto:${contact.emailCareers}?subject=${applicationSubject}`}
             >
               <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
               <span className="theme-btn">Introduce Yourself</span>

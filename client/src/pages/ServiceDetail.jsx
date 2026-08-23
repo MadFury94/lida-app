@@ -1,323 +1,284 @@
 import { useEffect } from 'react'
+import { Link, useParams, Navigate } from 'react-router-dom'
+import { services, contact, faqs } from '../store/site'
 
+// Pick the 4 most relevant FAQs for service detail pages
+const SERVICE_FAQS = faqs.slice(0, 4)
 
 export default function ServiceDetail() {
+  const { slug } = useParams()
+  const service = services.find(s => s.slug === slug)
+
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
-    if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
-    
-  }, [])
+    window.scrollTo(0, 0)
+  }, [slug])
+
+  if (!service) return <Navigate to="/services" replace />
+
+  // Adjacent services for prev/next navigation
+  const currentIndex = services.findIndex(s => s.slug === slug)
+  const prev = services[currentIndex - 1] || null
+  const next = services[currentIndex + 1] || null
+
+  // Other services for sidebar
+  const otherServices = services.filter(s => s.slug !== slug)
 
   return (
-    <div dangerouslySetInnerHTML={{__html: `                   <!-- Service Section Start -->
-                    <section class="services-details-section section-padding">
-                         <div class="light-bg">
-                            <img src="/assets/img/inner-page/light.png" alt="img">
-                        </div>
-                        <div class="bg-line">
-                            <img src="/assets/img/inner-page/bread-line.png" alt="img">
-                        </div>
-                        <div class="title-area">
-                            <div class="container">
-                                <h1 class="text-white rr_title_anim"><span>Web Development </span> And UX/UI Design Services
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="container container-1680">
-                            <div class="service-details-wrapper">
-                                <div class="row g-4">
-                                    <div class="details-top-item">
-                                        <div class="left-content">
-                                            <h2>
-                                                Design Solutions For <br> Every Brand
-                                            </h2>
-                                            <p>
-                                                Design is at the heart of everything we create. From the first spark of an idea to the final polished piece, our design approach blends creativity, strategy, and functionality to deliver experiences that resonate with for our creative audiences.
-                                            </p>
-                                        </div>
-                                        <ul class="details-list">
-                                            <li>
-                                                <i class="fa-solid fa-check"></i>
-                                                Strategy-Driven Creativity
-                                            </li>
-                                            <li>
-                                                <i class="fa-solid fa-check"></i>
-                                                User-Centered Design
-                                            </li>
-                                            <li>
-                                                <i class="fa-solid fa-check"></i>
-                                               Innovative Digital Solutions
-                                            </li>
-                                            <li>
-                                                <i class="fa-solid fa-check"></i>
-                                               Innovative Digital Solutions
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xl-12">
-                                        <div class="service-details-image">
-                                            <img data-speed=".8" src="/assets/img/inner-page/service-details1.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="service-concept-item">
-                                        <div class="number-list">
-                                            <span class="number">01</span>
-                                            <span class="number">02</span>
-                                            <span class="number">03</span>
-                                        </div>
-                                        <div class="row g-4">
-                                            <div class="col-lg-6 col-md-6">
-                                            <div class="service-count-left">
-                                                <h2>0<span class="count">3</span></h2>
-                                                <p>Our simple comprehensive design process</p>
-                                                <div class="details-thumb">
-                                                    <img src="/assets/img/inner-page/service-details-2.jpg" alt="img">
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <h2>
-                                                    From Concept To <br> Completion
-                                                </h2>
-                                                <div class="service-concept-box">
-                                                    <h3>Discover & research</h3>
-                                                    <p>
-                                                        We begin by understanding your brand, goals, and audience. Through in-depth research, competitor analysis.
-                                                    </p>
-                                                </div>
-                                                <div class="service-concept-box">
-                                                    <h3>Design & developmenth</h3>
-                                                    <p>
-                                                        We begin by understanding your brand, goals, and audience. Through in-depth research, competitor analysis.
-                                                    </p>
-                                                </div>
-                                                <div class="service-concept-box mb-0">
-                                                    <h3>Deliver & launch</h3>
-                                                    <p>
-                                                        We begin by understanding your brand, goals, and audience. Through in-depth research, competitor analysis.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+    <>
+      {/* ── HERO TITLE AREA ──────────────────────────────── */}
+      <section className="services-details-section section-padding">
+        <div className="light-bg">
+          <img src="/assets/img/inner-page/light.png" alt="" />
+        </div>
+        <div className="bg-line">
+          <img src="/assets/img/inner-page/bread-line.png" alt="" />
+        </div>
+        <div className="title-area">
+          <div className="container">
+            <div className="breadcrumb-items mb-3">
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/services">Services</Link></li>
+                <li>{service.shortTitle}</li>
+              </ul>
+            </div>
+            <h1 className="text-white rr_title_anim">
+              <span>{service.number}</span> {service.title}
+            </h1>
+          </div>
+        </div>
 
-                     <!-- Service-Visual-Section Start -->
-                    <section class="service-visual-section section-padding fix">
-                        <div class="container container-1680">
-                            <div class="section-title-4 mb-4">
-                                <h2>
-                                    TURNING CONCEP INTO <br> VISUAL STORIES
-                                </h2>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="service-visual-item">
-                                        <p>
-                                            Collaboration is key to our process. We work closely with clients, understanding their feedback and iterating rapidly to ensure the outcome aligns perfectly with their vision. Every design decision is deliberate, backed by research, creativity, and a deep understanding of human behavior. This approach allows us to craft solutions.
-                                        </p>
-                                        <div class="service-visual-image">
-                                            <img data-speed=".8" src="/assets/img/inner-page/service-details-3.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="service-visual-item">
-                                        <p>
-                                            Collaboration is key to our process. We work closely with clients, understanding their feedback and iterating rapidly to ensure the outcome aligns perfectly with their vision. Every design decision is deliberate, backed by research, creativity, and a deep understanding of human behavior. This approach allows us to craft solutions.
-                                        </p>
-                                        <div class="service-visual-image">
-                                            <img data-speed=".8" src="/assets/img/inner-page/service-details-4.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+        {/* ── CONTENT + SIDEBAR ──────────────────────────── */}
+        <div className="container container-1680 mt-5">
+          <div className="service-details-wrapper">
+            <div className="row g-5">
 
-                    <!-- Faq Section Start -->
-                    <section class="faq-section-5 section-padding section-bg fix">
-                        <div class="container container-1680">
-                           <div class="faq-wrapper-5">
-                             <div class="section-title-area align-items-start">
-                                <div class="section-title-4 mb-0">
-                                    <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                         READ COMMON QUESTIONS
-                                    </span>
-                                </div>
-                                <div class="section-title-4 mb-0">
-                                    <h2 class="title wa_title_spilt_1">
-                                        Quick Solution For Your Top <br> Questions.
-                                    </h2>
-                                </div>
-                            </div>
-                                 <div class="row g-4 align-items-end">
-                                <div class="col-lg-5">
-                                    <div class="faq-image-5">
-                                        <img src="/assets/img/inner-page/faq.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-lg-7">
-                                    <div class="grt-faq-content-1 mt-0">
-                                        <ul class="accordion-box style-4 style-5 wow fadeInUp" data-wow-delay=".3s">
-                                            <li class="accordion block active-block acc-bg-2">
-                                                <div class="acc-btn active">
-                                                  What services does your creative agency offer?
-                                                    <div class="icon fa-regular fa-plus"></div>
-                                                </div>
-                                                <div class="acc-content current">
-                                                    <div class="content">
-                                                        <div class="text">
-                                                           We offer a complete range of digital services including UI/UX design, website development, branding, product design, and digital marketing. Our team focuses on delivering visually appealing and performance-driven solutions that help brands grow and stand out in competitive markets.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="accordion block acc-bg-2">
-                                                <div class="acc-btn active">
-                                                    Do you offer custom website design?
-                                                    <div class="icon fa-regular fa-plus"></div>
-                                                </div>
-                                                <div class="acc-content">
-                                                    <div class="content">
-                                                        <div class="text">
-                                                           We offer a complete range of digital services including UI/UX design, website development, branding, product design, and digital marketing. Our team focuses on delivering visually appealing and performance-driven solutions that help brands grow and stand out in competitive markets.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="accordion block acc-bg-2">
-                                                <div class="acc-btn active">
-                                                   How long does a typical project take?
-                                                    <div class="icon fa-regular fa-plus"></div>
-                                                </div>
-                                                <div class="acc-content">
-                                                    <div class="content">
-                                                        <div class="text">
-                                                           We offer a complete range of digital services including UI/UX design, website development, branding, product design, and digital marketing. Our team focuses on delivering visually appealing and performance-driven solutions that help brands grow and stand out in competitive markets.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="accordion block acc-bg-2">
-                                                <div class="acc-btn active">
-                                                   Do you provide ThemeForest-ready templates?
-                                                    <div class="icon fa-regular fa-plus"></div>
-                                                </div>
-                                                <div class="acc-content">
-                                                    <div class="content">
-                                                        <div class="text">
-                                                           We offer a complete range of digital services including UI/UX design, website development, branding, product design, and digital marketing. Our team focuses on delivering visually appealing and performance-driven solutions that help brands grow and stand out in competitive markets.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="accordion block acc-bg-2">
-                                                <div class="acc-btn active">
-                                                    Is your design process client-focused?
-                                                    <div class="icon fa-regular fa-plus"></div>
-                                                </div>
-                                                <div class="acc-content">
-                                                    <div class="content">
-                                                        <div class="text">
-                                                           We offer a complete range of digital services including UI/UX design, website development, branding, product design, and digital marketing. Our team focuses on delivering visually appealing and performance-driven solutions that help brands grow and stand out in competitive markets.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </section>
+              {/* Main content */}
+              <div className="col-lg-8">
+                {/* Overview */}
+                <div className="details-top-item">
+                  <div className="left-content">
+                    <h2>{service.title}</h2>
+                    <p>{service.summary}</p>
+                  </div>
+                  <ul className="details-list">
+                    {service.includes.map(inc => (
+                      <li key={inc}>
+                        <i className="fa-solid fa-check"></i> {inc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                    <!-- Service Details Icon Section Start -->
-                    <section class="service-icon-details-section pb-0 fix section-padding">
-                        <div class="container container-1680">
-                            <div class="row g-4">
-                                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                                    <div class="details-icon-box-item">
-                                        <div class="icon">
-                                            <img src="/assets/img/inner-page/icon1.png" alt="img">
-                                        </div>
-                                        <div class="content">
-                                            <h2 class="title">Expertise</h2>
-                                            <p>
-                                                Our team is composed of experienced professionals in design, development, branding, and digital marketing.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                                    <div class="details-icon-box-item">
-                                        <div class="icon">
-                                            <img src="/assets/img/inner-page/icon2.png" alt="img">
-                                        </div>
-                                        <div class="content">
-                                            <h2 class="title">Tailored solutions</h2>
-                                            <p>
-                                                Our team is composed of experienced professionals in design, development, branding, and digital marketing.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                                    <div class="details-icon-box-item">
-                                        <div class="icon">
-                                            <img src="/assets/img/inner-page/icon3.png" alt="img">
-                                        </div>
-                                        <div class="content">
-                                            <h2 class="title">End-to-End service</h2>
-                                            <p>
-                                                Our team is composed of experienced professionals in design, development, branding, and digital marketing.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
-                                    <div class="details-icon-box-item">
-                                        <div class="icon">
-                                            <img src="/assets/img/inner-page/icon4.png" alt="img">
-                                        </div>
-                                        <div class="content">
-                                            <h2 class="title">Proven results</h2>
-                                            <p>
-                                                Our team is composed of experienced professionals in design, development, branding, and digital marketing.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                {/* Hero image */}
+                <div className="col-xl-12 mt-4">
+                  <div className="service-details-image">
+                    <img
+                      data-speed=".8"
+                      src="/assets/img/inner-page/service-details1.jpg"
+                      alt={service.title}
+                    />
+                  </div>
+                </div>
 
-                    <!-- Cta Section Start -->
-                    <section class="cta-section-3 section-padding pb-0 fix">
-                        <div class="container">
-                            <div class="cta-wrapper-3">
-                                <div class="section-title mb-0">
-                                    <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                        <img src="/assets/img/home-1/01.png" alt="img"> Let’s make a call
-                                    </span>
-                                    <h2 class="wa_title_spilt_1">
-                                        <span class="style-font">Let’s </span>  <span class="img-1"><img src="/assets/img/home-3/cta-image.jpg" alt=""></span> talk Now.
-                                    </h2>
-                                    <a class="theme-btn-main style-2 mt-4 wow fadeInUp" data-wow-delay=".3s" href="contact.html">
-                                        <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
-                                        <span class="theme-btn">Free call here!</span>
-                                        <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>
-                                    </a>
-                                </div>
-                            </div>
+                {/* Detail body */}
+                <div className="service-concept-item mt-5">
+                  <div className="row g-4">
+                    <div className="col-lg-6 col-md-6">
+                      <div className="service-count-left">
+                        <h2 style={{ fontSize: '3rem', fontWeight: 600 }}>
+                          {service.number}
+                        </h2>
+                        <p>Our approach to {service.shortTitle.toLowerCase()}</p>
+                        <div className="details-thumb mt-4">
+                          <img src="/assets/img/inner-page/service-details-2.jpg" alt="" />
                         </div>
-                    </section>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6">
+                      <h2>From Strategy<br />to Results</h2>
+                      {service.detail.split('. ').reduce((acc, sentence, i, arr) => {
+                        // Group every ~2 sentences into a concept box
+                        if (i % 2 === 0) {
+                          const pair = [sentence, arr[i + 1]].filter(Boolean).join('. ') + (arr[i + 1] ? '.' : '')
+                          acc.push(
+                            <div className="service-concept-box" key={i} style={i === arr.length - 1 || (i + 1) === arr.length - 1 ? { marginBottom: 0 } : {}}>
+                              <p>{pair}</p>
+                            </div>
+                          )
+                        }
+                        return acc
+                      }, [])}
+                    </div>
+                  </div>
+                </div>
 
-                    <!-- Footer Section Start -->
-`}} />
+                {/* Why choose Lida for this */}
+                <div className="service-icon-details-section mt-5 pb-0">
+                  <div className="row g-4">
+                    {[
+                      { icon: '/assets/img/inner-page/icon1.png', title: 'Strategy-led', body: 'Every engagement starts with a clear understanding of your business goal, audience and market position.' },
+                      { icon: '/assets/img/inner-page/icon2.png', title: 'Tailored to you', body: 'No standard packages. We build the right approach around your challenge and what the market requires.' },
+                      { icon: '/assets/img/inner-page/icon3.png', title: 'End-to-end delivery', body: 'We develop the strategy and execute it — from creative and content to campaigns and measurement.' },
+                      { icon: '/assets/img/inner-page/icon4.png', title: 'Measurable outcomes', body: 'We track what matters, report clearly and continuously improve the work based on real results.' },
+                    ].map(item => (
+                      <div className="col-xl-6 col-lg-6 col-md-6" key={item.title}>
+                        <div className="details-icon-box-item">
+                          <div className="icon">
+                            <img src={item.icon} alt={item.title} />
+                          </div>
+                          <div className="content">
+                            <h2 className="title">{item.title}</h2>
+                            <p>{item.body}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Prev / Next navigation */}
+                <div className="slider-button d-flex align-items-center justify-content-between mt-5">
+                  <div className="d-flex align-items-center gap-3">
+                    {prev ? (
+                      <>
+                        <Link to={`/services/${prev.slug}`} className="cmn-prev cmn-border d-center">
+                          <i className="fas fa-chevron-left"></i>
+                        </Link>
+                        <span className="previus-text text-capitalize">{prev.shortTitle}</span>
+                      </>
+                    ) : <span />}
+                  </div>
+                  <Link to="/services" className="icon-gird" title="All services">
+                    <i className="fa-solid fa-grid-2" style={{ fontSize: '1.4rem', color: 'var(--header)' }}></i>
+                  </Link>
+                  <div className="d-flex align-items-center gap-3">
+                    {next ? (
+                      <>
+                        <span className="previus-text text-capitalize">{next.shortTitle}</span>
+                        <Link to={`/services/${next.slug}`} className="cmn-next cmn-border d-center">
+                          <i className="fas fa-chevron-right"></i>
+                        </Link>
+                      </>
+                    ) : <span />}
+                  </div>
+                </div>
+              </div>
+
+              {/* Sidebar */}
+              <div className="col-lg-4">
+                {/* All services list */}
+                <div className="service-sidebar__block">
+                  <h4 className="service-sidebar__heading">Our Services</h4>
+                  <ul className="service-sidebar__list">
+                    {services.map(s => (
+                      <li key={s.slug} className={s.slug === slug ? 'active' : ''}>
+                        <Link to={`/services/${s.slug}`}>
+                          <i className={`${s.icon} me-2`}></i>
+                          {s.shortTitle}
+                          <i className="fa-regular fa-arrow-up-right ms-auto"></i>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA card */}
+                <div className="service-sidebar__block service-sidebar__cta mt-4">
+                  <h4>Ready to move forward?</h4>
+                  <p>Book a growth consultation and let's talk about how {service.shortTitle.toLowerCase()} can move your business forward.</p>
+                  <a
+                    href={contact.calendly}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="theme-btn-main style-2 mt-3"
+                  >
+                    <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
+                    <span className="theme-btn">Book a Meeting</span>
+                    <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
+                  </a>
+                  <Link to="/contact" className="thems-btn w-100 mt-3" style={{ display: 'block', textAlign: 'center' }}>
+                    Send us a message <i className="fa-solid fa-arrow-up-right"></i>
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────── */}
+      <section className="faq-section-5 section-padding section-bg fix">
+        <div className="container container-1680">
+          <div className="faq-wrapper-5">
+            <div className="section-title-area align-items-start">
+              <div className="section-title-4 mb-0">
+                <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
+                  Common questions
+                </span>
+              </div>
+              <div className="section-title-4 mb-0">
+                <h2 className="title wa_title_spilt_1">
+                  Quick answers to<br />what clients ask most.
+                </h2>
+              </div>
+            </div>
+            <div className="row g-4 align-items-end">
+              <div className="col-lg-5">
+                <div className="faq-image-5">
+                  <img src="/assets/img/inner-page/faq.jpg" alt="FAQ" />
+                </div>
+              </div>
+              <div className="col-lg-7">
+                <div className="grt-faq-content-1 mt-0">
+                  <ul className="accordion-box style-4 style-5 wow fadeInUp" data-wow-delay=".3s">
+                    {SERVICE_FAQS.map((faq, i) => (
+                      <li key={i} className={`accordion block acc-bg-2${i === 0 ? ' active-block' : ''}`}>
+                        <div className={`acc-btn${i === 0 ? ' active' : ''}`}>
+                          {faq.question}
+                          <div className="icon fa-regular fa-plus"></div>
+                        </div>
+                        <div className={`acc-content${i === 0 ? ' current' : ''}`}>
+                          <div className="content">
+                            <div className="text">{faq.answer}</div>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────── */}
+      <section
+        className="lets-talk-section fix hero-ptb image-distortion p-relative z-index-1 bg-cover"
+        style={{ backgroundImage: "url('/assets/img/bg-wrap-3.png')" }}
+      >
+        <div className="container">
+          <div className="lets-talk-content text-center">
+            <div className="as-partner-3-big-title">
+              <h2 className="title"><span>Let's</span> Talk Now</h2>
+            </div>
+            <a
+              className="theme-btn-main style-2 wow fadeInUp"
+              data-wow-delay=".3s"
+              href={contact.calendly}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
+              <span className="theme-btn">Schedule a Quick Meeting</span>
+              <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
