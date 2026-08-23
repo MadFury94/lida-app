@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom'
 import { services, stats, contact, brand, copyrightYear } from '../store/site'
 
 export default function Services() {
-  const [openService, setOpenService] = useState(null)
+  const [openService, setOpenService] = useState(0)
 
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
-    if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
   }, [])
 
   return (
     <>
-      {/* ── BREADCRUMB ───────────────────────────────────── */}
+      {/* ── BREADCRUMB — T5 gradient + T6 animation + T7 copy ── */}
       <div
-        className="breadcrumb-wrapper bg-cover"
+        className="breadcrumb-wrapper services-hero-gradient bg-cover"
         style={{ backgroundImage: "url('/assets/img/inner-page/bread-line.png')" }}
       >
         <div className="light-bg">
@@ -23,8 +22,9 @@ export default function Services() {
         <div className="container">
           <div className="page-heading">
             <div className="breadcrumb-sub-title">
+              {/* T6: rr_title_anim — T7: updated copy */}
               <h1 className="text-white rr_title_anim">
-                <span>Strategy. Branding. Marketing.</span> Services Built Around Your Growth.
+                <span>Brand, Marketing, and Creative Services</span> That Drive Business Growth.
               </h1>
             </div>
             <div className="breadcrumb-items">
@@ -32,13 +32,14 @@ export default function Services() {
                 <li>{brand.location}</li>
                 <li>(©{copyrightYear} — 2026)</li>
               </ul>
+              {/* T6: wa_title_spilt_1 on the h2 */}
               <h2 className="title wa_title_spilt_1">Our Services</h2>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── INTRO + STATS ────────────────────────────────── */}
+      {/* ── STATS — T4: number-only inside .count span, suffix outside ── */}
       <section className="about-section-2 fix section-padding pt-0">
         <div className="container">
           <div className="counter-wrapper section-padding pb-0">
@@ -49,9 +50,7 @@ export default function Services() {
                 data-wow-delay={`.${(i + 2) * 2}s`}
               >
                 <span className="text">{s.label}</span>
-                <h2>
-                  <span className="count">{s.value}</span>{s.suffix}
-                </h2>
+                <h2>{s.value}{s.suffix}</h2>
                 <p>{s.desc}</p>
               </div>
             ))}
@@ -72,7 +71,8 @@ export default function Services() {
                 <img src="/assets/img/home-1/01.png" alt="" /> What we do
               </span>
               <h2 className="wa_title_spilt_1">
-                <span className="style-font">More Than Services.</span> <br className="d-none d-lg-block" />
+                <span className="style-font">More Than Services.</span>{' '}
+                <br className="d-none d-lg-block" />
                 A Better Way <span className="style-color"> to Grow.</span>
               </h2>
             </div>
@@ -92,6 +92,7 @@ export default function Services() {
                 className={`service-list-wrap accordion block${openService === i ? ' active-block' : ''} wow fadeInUp`}
                 data-wow-delay={`.${(i + 2) * 2}s`}
               >
+                {/* Same pattern as Home — toggle on same click, fa-plus always, CSS handles active state */}
                 <div
                   className={`service-acc-btn${openService === i ? ' active' : ''}`}
                   onClick={() => setOpenService(openService === i ? null : i)}

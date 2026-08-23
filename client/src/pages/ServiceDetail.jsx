@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { services, contact, faqs } from '../store/site'
 
-// Pick the 4 most relevant FAQs for service detail pages
 const SERVICE_FAQS = faqs.slice(0, 4)
 
 export default function ServiceDetail() {
@@ -16,18 +15,14 @@ export default function ServiceDetail() {
 
   if (!service) return <Navigate to="/services" replace />
 
-  // Adjacent services for prev/next navigation
   const currentIndex = services.findIndex(s => s.slug === slug)
   const prev = services[currentIndex - 1] || null
   const next = services[currentIndex + 1] || null
 
-  // Other services for sidebar
-  const otherServices = services.filter(s => s.slug !== slug)
-
   return (
     <>
-      {/* ── HERO TITLE AREA ──────────────────────────────── */}
-      <section className="services-details-section section-padding">
+      {/* ── HERO — T1 full-width, T2 breadcrumb, T5 gradient ── */}
+      <section className="services-details-section section-padding services-hero-gradient">
         <div className="light-bg">
           <img src="/assets/img/inner-page/light.png" alt="" />
         </div>
@@ -36,6 +31,7 @@ export default function ServiceDetail() {
         </div>
         <div className="title-area">
           <div className="container">
+            {/* T2: breadcrumb trail above the h1, inside the blue hero */}
             <div className="breadcrumb-items mb-3">
               <ul>
                 <li><Link to="/">Home</Link></li>
@@ -49,162 +45,116 @@ export default function ServiceDetail() {
           </div>
         </div>
 
-        {/* ── CONTENT + SIDEBAR ──────────────────────────── */}
-        <div className="container container-1680 mt-5">
+        {/* T1: full-width — no col-lg-8 / col-lg-4 split */}
+        <div className="container mt-5">
           <div className="service-details-wrapper">
-            <div className="row g-5">
 
-              {/* Main content */}
-              <div className="col-lg-8">
-                {/* Overview */}
-                <div className="details-top-item">
-                  <div className="left-content">
-                    <h2>{service.title}</h2>
-                    <p>{service.summary}</p>
-                  </div>
-                  <ul className="details-list">
-                    {service.includes.map(inc => (
-                      <li key={inc}>
-                        <i className="fa-solid fa-check"></i> {inc}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Hero image */}
-                <div className="col-xl-12 mt-4">
-                  <div className="service-details-image">
-                    <img
-                      data-speed=".8"
-                      src="/assets/img/inner-page/service-details1.jpg"
-                      alt={service.title}
-                    />
-                  </div>
-                </div>
-
-                {/* Detail body */}
-                <div className="service-concept-item mt-5">
-                  <div className="row g-4">
-                    <div className="col-lg-6 col-md-6">
-                      <div className="service-count-left">
-                        <h2 style={{ fontSize: '3rem', fontWeight: 600 }}>
-                          {service.number}
-                        </h2>
-                        <p>Our approach to {service.shortTitle.toLowerCase()}</p>
-                        <div className="details-thumb mt-4">
-                          <img src="/assets/img/inner-page/service-details-2.jpg" alt="" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-md-6">
-                      <h2>From Strategy<br />to Results</h2>
-                      {service.detail.split('. ').reduce((acc, sentence, i, arr) => {
-                        // Group every ~2 sentences into a concept box
-                        if (i % 2 === 0) {
-                          const pair = [sentence, arr[i + 1]].filter(Boolean).join('. ') + (arr[i + 1] ? '.' : '')
-                          acc.push(
-                            <div className="service-concept-box" key={i} style={i === arr.length - 1 || (i + 1) === arr.length - 1 ? { marginBottom: 0 } : {}}>
-                              <p>{pair}</p>
-                            </div>
-                          )
-                        }
-                        return acc
-                      }, [])}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Why choose Lida for this */}
-                <div className="service-icon-details-section mt-5 pb-0">
-                  <div className="row g-4">
-                    {[
-                      { icon: '/assets/img/inner-page/icon1.png', title: 'Strategy-led', body: 'Every engagement starts with a clear understanding of your business goal, audience and market position.' },
-                      { icon: '/assets/img/inner-page/icon2.png', title: 'Tailored to you', body: 'No standard packages. We build the right approach around your challenge and what the market requires.' },
-                      { icon: '/assets/img/inner-page/icon3.png', title: 'End-to-end delivery', body: 'We develop the strategy and execute it — from creative and content to campaigns and measurement.' },
-                      { icon: '/assets/img/inner-page/icon4.png', title: 'Measurable outcomes', body: 'We track what matters, report clearly and continuously improve the work based on real results.' },
-                    ].map(item => (
-                      <div className="col-xl-6 col-lg-6 col-md-6" key={item.title}>
-                        <div className="details-icon-box-item">
-                          <div className="icon">
-                            <img src={item.icon} alt={item.title} />
-                          </div>
-                          <div className="content">
-                            <h2 className="title">{item.title}</h2>
-                            <p>{item.body}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Prev / Next navigation */}
-                <div className="slider-button d-flex align-items-center justify-content-between mt-5">
-                  <div className="d-flex align-items-center gap-3">
-                    {prev ? (
-                      <>
-                        <Link to={`/services/${prev.slug}`} className="cmn-prev cmn-border d-center">
-                          <i className="fas fa-chevron-left"></i>
-                        </Link>
-                        <span className="previus-text text-capitalize">{prev.shortTitle}</span>
-                      </>
-                    ) : <span />}
-                  </div>
-                  <Link to="/services" className="icon-gird" title="All services">
-                    <i className="fa-solid fa-grid-2" style={{ fontSize: '1.4rem', color: 'var(--header)' }}></i>
-                  </Link>
-                  <div className="d-flex align-items-center gap-3">
-                    {next ? (
-                      <>
-                        <span className="previus-text text-capitalize">{next.shortTitle}</span>
-                        <Link to={`/services/${next.slug}`} className="cmn-next cmn-border d-center">
-                          <i className="fas fa-chevron-right"></i>
-                        </Link>
-                      </>
-                    ) : <span />}
-                  </div>
-                </div>
+            {/* Overview */}
+            <div className="details-top-item">
+              <div className="left-content">
+                <h2>{service.title}</h2>
+                <p>{service.summary}</p>
               </div>
-
-              {/* Sidebar */}
-              <div className="col-lg-4">
-                {/* All services list */}
-                <div className="service-sidebar__block">
-                  <h4 className="service-sidebar__heading">Our Services</h4>
-                  <ul className="service-sidebar__list">
-                    {services.map(s => (
-                      <li key={s.slug} className={s.slug === slug ? 'active' : ''}>
-                        <Link to={`/services/${s.slug}`}>
-                          <i className={`${s.icon} me-2`}></i>
-                          {s.shortTitle}
-                          <i className="fa-regular fa-arrow-up-right ms-auto"></i>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CTA card */}
-                <div className="service-sidebar__block service-sidebar__cta mt-4">
-                  <h4>Ready to move forward?</h4>
-                  <p>Book a growth consultation and let's talk about how {service.shortTitle.toLowerCase()} can move your business forward.</p>
-                  <a
-                    href={contact.calendly}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="theme-btn-main style-2 mt-3"
-                  >
-                    <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-                    <span className="theme-btn">Book a Meeting</span>
-                    <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
-                  </a>
-                  <Link to="/contact" className="thems-btn w-100 mt-3" style={{ display: 'block', textAlign: 'center' }}>
-                    Send us a message <i className="fa-solid fa-arrow-up-right"></i>
-                  </Link>
-                </div>
-              </div>
-
+              <ul className="details-list">
+                {service.includes.map(inc => (
+                  <li key={inc}>
+                    <i className="fa-solid fa-check"></i> {inc}
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* Hero image */}
+            <div className="mt-4">
+              <div className="service-details-image">
+                <img
+                  data-speed=".8"
+                  src="/assets/img/inner-page/service-details1.jpg"
+                  alt={service.title}
+                />
+              </div>
+            </div>
+
+            {/* Detail body */}
+            <div className="service-concept-item mt-5">
+              <div className="row g-4">
+                <div className="col-lg-6 col-md-6">
+                  <div className="service-count-left">
+                    <h2 style={{ fontSize: '3rem', fontWeight: 600 }}>{service.number}</h2>
+                    <p>Our approach to {service.shortTitle.toLowerCase()}</p>
+                    <div className="details-thumb mt-4">
+                      <img src="/assets/img/inner-page/service-details-2.jpg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <h2>From Strategy<br />to Results</h2>
+                  {service.detail.split('. ').reduce((acc, sentence, i, arr) => {
+                    if (i % 2 === 0) {
+                      const pair = [sentence, arr[i + 1]].filter(Boolean).join('. ') + (arr[i + 1] ? '.' : '')
+                      acc.push(
+                        <div className="service-concept-box" key={i}>
+                          <p>{pair}</p>
+                        </div>
+                      )
+                    }
+                    return acc
+                  }, [])}
+                </div>
+              </div>
+            </div>
+
+            {/* Why Lida — 4 icon boxes, full width 4-col grid */}
+            <div className="service-icon-details-section mt-5 pb-0">
+              <div className="row g-4">
+                {[
+                  { icon: '/assets/img/inner-page/icon1.png', title: 'Strategy-led', body: 'Every engagement starts with a clear understanding of your business goal, audience and market position.' },
+                  { icon: '/assets/img/inner-page/icon2.png', title: 'Tailored to you', body: 'No standard packages. We build the right approach around your challenge and what the market requires.' },
+                  { icon: '/assets/img/inner-page/icon3.png', title: 'End-to-end delivery', body: 'We develop the strategy and execute it — from creative and content to campaigns and measurement.' },
+                  { icon: '/assets/img/inner-page/icon4.png', title: 'Measurable outcomes', body: 'We track what matters, report clearly and continuously improve the work based on real results.' },
+                ].map(item => (
+                  <div className="col-xl-3 col-lg-6 col-md-6" key={item.title}>
+                    <div className="details-icon-box-item">
+                      <div className="icon">
+                        <img src={item.icon} alt={item.title} />
+                      </div>
+                      <div className="content">
+                        <h2 className="title">{item.title}</h2>
+                        <p>{item.body}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Prev / Next */}
+            <div className="slider-button d-flex align-items-center justify-content-between mt-5">
+              <div className="d-flex align-items-center gap-3">
+                {prev ? (
+                  <>
+                    <Link to={`/services/${prev.slug}`} className="cmn-prev cmn-border d-center">
+                      <i className="fas fa-chevron-left"></i>
+                    </Link>
+                    <span className="previus-text text-capitalize">{prev.shortTitle}</span>
+                  </>
+                ) : <span />}
+              </div>
+              <Link to="/services" className="icon-gird" title="All services">
+                <i className="fa-solid fa-grid-2" style={{ fontSize: '1.4rem', color: 'var(--header)' }}></i>
+              </Link>
+              <div className="d-flex align-items-center gap-3">
+                {next ? (
+                  <>
+                    <span className="previus-text text-capitalize">{next.shortTitle}</span>
+                    <Link to={`/services/${next.slug}`} className="cmn-next cmn-border d-center">
+                      <i className="fas fa-chevron-right"></i>
+                    </Link>
+                  </>
+                ) : <span />}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
