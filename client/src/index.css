@@ -877,9 +877,9 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(ellipse at 50% 110%,
-            rgba(0, 0, 255, 0.55) 0%,
-            rgba(10, 10, 40, 0.9) 55%,
-            #0a0a14 100%);
+            rgba(0, 0, 255, 0.4) 0%,
+            rgba(10, 10, 40, 0.55) 55%,
+            rgba(10, 10, 20, 0.6) 100%);
     z-index: 0;
     pointer-events: none;
 }
@@ -888,4 +888,179 @@
 .services-hero-gradient>* {
     position: relative;
     z-index: 1;
+}
+
+/* Scale the h1 down so the longer services tagline fits cleanly on 2 lines */
+.services-hero-gradient .page-heading h1 {
+    font-size: 72px;
+    line-height: 1.05;
+}
+
+@media (max-width: 1399px) {
+    .services-hero-gradient .page-heading h1 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 991px) {
+    .services-hero-gradient .page-heading h1 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-hero-gradient .page-heading h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 470px) {
+    .services-hero-gradient .page-heading h1 {
+        font-size: 30px;
+    }
+}
+
+
+/* ── SERVICE DETAIL — CONCEPT SECTION ──────────────────── */
+/* Left column: meta label on top, image fills remaining height */
+.service-concept-left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-concept-meta {
+    margin-bottom: 16px;
+}
+
+.service-concept-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--theme);
+    line-height: 1;
+    margin-bottom: 4px;
+    font-family: "Urbanist", sans-serif;
+}
+
+.service-concept-meta p {
+    font-size: 14px;
+    color: var(--text);
+    margin: 0;
+}
+
+/* Image grows to fill whatever height the right column creates */
+.service-concept-img {
+    flex: 1;
+    min-height: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.service-concept-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Right column heading */
+.service-concept-heading {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--header);
+}
+
+@media (max-width: 1399px) {
+    .service-concept-heading {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 991px) {
+    .service-concept-heading {
+        font-size: 28px;
+    }
+
+    .service-concept-img {
+        min-height: 260px;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-concept-left {
+        margin-bottom: 32px;
+    }
+
+    .service-concept-img {
+        min-height: 220px;
+        flex: unset;
+        height: 220px;
+    }
+}
+
+
+/* ── SERVICE DETAIL — FAQ SECTION ──────────────────────── */
+.service-faq-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-faq-header {
+    margin-bottom: 8px;
+}
+
+.service-faq-header .sub-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+/* Cap the heading so long questions don't blow up at large sizes */
+.service-faq-heading {
+    font-size: 48px !important;
+    line-height: 1.15 !important;
+    font-weight: 700;
+    color: var(--header);
+    max-width: 780px;
+}
+
+@media (max-width: 1199px) {
+    .service-faq-heading {
+        font-size: 38px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-faq-heading {
+        font-size: 28px !important;
+    }
+}
+
+/* Left image fills full column height and stays in proportion */
+.service-faq-img {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    flex: 1;
+    min-height: 360px;
+}
+
+.service-faq-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .service-faq-img {
+        min-height: 260px;
+        flex: unset;
+        height: 260px;
+    }
 }

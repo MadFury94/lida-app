@@ -64,9 +64,9 @@ export const siteData = {
       title: 'Growth Strategy',
       shortTitle: 'Growth Strategy',
       icon: 'fa-solid fa-chart-line',
-      summary: 'Helping businesses identify what is holding growth back and developing clear, actionable strategies to move forward with confidence.',
+      summary: 'Helping businesses identify what is slowing growth and build clear, practical strategies to move forward with confidence.',
       detail: 'We work with ambitious businesses and leaders to understand their current position, identify the barriers to growth, and develop the strategic direction needed to move forward. Whether you are entering a new market, repositioning for a new audience, or trying to unlock the next stage of scale, we help you build the clarity and the plan required to act.',
-      includes: ['Growth audit & opportunity mapping', 'Strategic positioning framework', 'Market & audience analysis', 'Competitive landscape review', 'Growth roadmap development'],
+      includes: ['Growth audit and opportunity mapping', 'Market, audience and competitor analysis', 'Business and brand positioning', 'Commercial growth roadmap', 'Priority actions, metrics and reporting'],
     },
     {
       slug: 'brand-market-positioning',

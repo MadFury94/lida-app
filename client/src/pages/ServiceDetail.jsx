@@ -1,8 +1,67 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { services, contact, faqs } from '../store/site'
 
-const SERVICE_FAQS = faqs.slice(0, 4)
+const GLOBAL_FAQS = faqs.slice(0, 4)
+
+// Self-contained FAQ accordion — React state, no dependence on template JS
+function FaqSection({ serviceFaqs, faqsHeading, service }) {
+  const [openFaq, setOpenFaq] = useState(0)
+
+  return (
+    <section className="faq-section-5 section-padding section-bg fix">
+      <div className="container">
+        <div className="service-faq-wrapper">
+          {/* Eyebrow + heading stacked, full width */}
+          <div className="service-faq-header wow fadeInUp" data-wow-delay=".2s">
+            <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
+              <img src="/assets/img/home-1/01.png" alt="" /> Common questions
+            </span>
+            <h2 className="service-faq-heading wa_title_spilt_1">{faqsHeading}</h2>
+          </div>
+
+          <div className="row g-5 align-items-stretch mt-4">
+            {/* Left — image fills full column height */}
+            <div className="col-lg-5 d-flex">
+              <div className="service-faq-img wow fadeInUp" data-wow-delay=".3s">
+                <img
+                  src={service.faqImage || '/assets/img/inner-page/faq.jpg'}
+                  alt={service.title}
+                />
+              </div>
+            </div>
+
+            {/* Right — React-controlled accordion */}
+            <div className="col-lg-7 d-flex flex-column justify-content-center">
+              <ul className="accordion-box style-4 style-5">
+                {serviceFaqs.map((faq, i) => (
+                  <li
+                    key={i}
+                    className={`accordion block acc-bg-2${openFaq === i ? ' active-block' : ''}`}
+                  >
+                    <div
+                      className={`acc-btn${openFaq === i ? ' active' : ''}`}
+                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {faq.question}
+                      <div className="icon fa-regular fa-plus"></div>
+                    </div>
+                    <div className={`acc-content${openFaq === i ? ' current' : ''}`}>
+                      <div className="content">
+                        <div className="text">{faq.answer}</div>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function ServiceDetail() {
   const { slug } = useParams()
@@ -19,6 +78,10 @@ export default function ServiceDetail() {
   const prev = services[currentIndex - 1] || null
   const next = services[currentIndex + 1] || null
 
+  // Use per-service FAQs if defined, otherwise fall back to global
+  const serviceFaqs = service.faqs || GLOBAL_FAQS
+  const faqsHeading = service.faqsHeading || 'Quick answers to what clients ask most.'
+
   return (
     <>
       {/* ── HERO — T1 full-width, T2 breadcrumb, T5 gradient ── */}
@@ -31,14 +94,6 @@ export default function ServiceDetail() {
         </div>
         <div className="title-area">
           <div className="container">
-            {/* T2: breadcrumb trail above the h1, inside the blue hero */}
-            <div className="breadcrumb-items mb-3">
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/services">Services</Link></li>
-                <li>{service.shortTitle}</li>
-              </ul>
-            </div>
             <h1 className="text-white rr_title_anim">
               <span>{service.number}</span> {service.title}
             </h1>
@@ -64,42 +119,39 @@ export default function ServiceDetail() {
               </ul>
             </div>
 
-            {/* Hero image */}
+            {/* Hero image — use service-specific image if defined, fall back to generic */}
             <div className="mt-4">
               <div className="service-details-image">
                 <img
                   data-speed=".8"
-                  src="/assets/img/inner-page/service-details1.jpg"
+                  src={service.detailImage || '/assets/img/inner-page/service-details1.jpg'}
                   alt={service.title}
                 />
               </div>
             </div>
 
-            {/* Detail body */}
+            {/* Detail body — left image fills full height, right heading + body from site.js */}
             <div className="service-concept-item mt-5">
-              <div className="row g-4">
+              <div className="row g-4 align-items-stretch">
                 <div className="col-lg-6 col-md-6">
-                  <div className="service-count-left">
-                    <h2 style={{ fontSize: '3rem', fontWeight: 600 }}>{service.number}</h2>
-                    <p>Our approach to {service.shortTitle.toLowerCase()}</p>
-                    <div className="details-thumb mt-4">
-                      <img src="/assets/img/inner-page/service-details-2.jpg" alt="" />
+                  <div className="service-concept-left">
+                    <div className="service-concept-meta">
+                      <span className="service-concept-number">{service.number}</span>
+                      <p>Our approach to {service.shortTitle.toLowerCase()}</p>
+                    </div>
+                    <div className="service-concept-img">
+                      <img
+                        src={service.conceptImage || '/assets/img/inner-page/service-details-2.jpg'}
+                        alt={service.title}
+                      />
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6 col-md-6">
-                  <h2>From Strategy<br />to Results</h2>
-                  {service.detail.split('. ').reduce((acc, sentence, i, arr) => {
-                    if (i % 2 === 0) {
-                      const pair = [sentence, arr[i + 1]].filter(Boolean).join('. ') + (arr[i + 1] ? '.' : '')
-                      acc.push(
-                        <div className="service-concept-box" key={i}>
-                          <p>{pair}</p>
-                        </div>
-                      )
-                    }
-                    return acc
-                  }, [])}
+                <div className="col-lg-6 col-md-6 d-flex flex-column justify-content-center">
+                  <h2 className="service-concept-heading">{service.approachHeading}</h2>
+                  <div className="service-concept-box mt-4">
+                    <p>{service.approachBody}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -160,50 +212,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────── */}
-      <section className="faq-section-5 section-padding section-bg fix">
-        <div className="container container-1680">
-          <div className="faq-wrapper-5">
-            <div className="section-title-area align-items-start">
-              <div className="section-title-4 mb-0">
-                <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                  Common questions
-                </span>
-              </div>
-              <div className="section-title-4 mb-0">
-                <h2 className="title wa_title_spilt_1">
-                  Quick answers to<br />what clients ask most.
-                </h2>
-              </div>
-            </div>
-            <div className="row g-4 align-items-end">
-              <div className="col-lg-5">
-                <div className="faq-image-5">
-                  <img src="/assets/img/inner-page/faq.jpg" alt="FAQ" />
-                </div>
-              </div>
-              <div className="col-lg-7">
-                <div className="grt-faq-content-1 mt-0">
-                  <ul className="accordion-box style-4 style-5 wow fadeInUp" data-wow-delay=".3s">
-                    {SERVICE_FAQS.map((faq, i) => (
-                      <li key={i} className={`accordion block acc-bg-2${i === 0 ? ' active-block' : ''}`}>
-                        <div className={`acc-btn${i === 0 ? ' active' : ''}`}>
-                          {faq.question}
-                          <div className="icon fa-regular fa-plus"></div>
-                        </div>
-                        <div className={`acc-content${i === 0 ? ' current' : ''}`}>
-                          <div className="content">
-                            <div className="text">{faq.answer}</div>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FaqSection serviceFaqs={serviceFaqs} faqsHeading={faqsHeading} service={service} />
 
       {/* ── CTA ──────────────────────────────────────────── */}
       <section
