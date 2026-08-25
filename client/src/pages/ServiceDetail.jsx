@@ -10,51 +10,54 @@ function FaqSection({ serviceFaqs, faqsHeading, service }) {
 
   return (
     <section className="faq-section-5 section-padding section-bg fix">
-      <div className="container">
-        <div className="service-faq-wrapper">
-          {/* Eyebrow + heading stacked, full width */}
-          <div className="service-faq-header wow fadeInUp" data-wow-delay=".2s">
-            <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-              <img src="/assets/img/home-1/01.png" alt="" /> Common questions
-            </span>
-            <h2 className="service-faq-heading wa_title_spilt_1">{faqsHeading}</h2>
+      <div className="container container-1680">
+        <div className="faq-wrapper-5">
+          <div className="section-title-area service-faq-title-area">
+            <div className="section-title-4 mb-0">
+              <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
+                <img src="/assets/img/home-1/01.png" alt="" /> Common questions
+              </span>
+            </div>
+            <div className="section-title-4 mb-0">
+              <h2 className="title wa_title_spilt_1 service-faq-heading">
+                {faqsHeading}
+              </h2>
+            </div>
           </div>
-
-          <div className="row g-5 align-items-stretch mt-4">
-            {/* Left — image fills full column height */}
-            <div className="col-lg-5 d-flex">
-              <div className="service-faq-img wow fadeInUp" data-wow-delay=".3s">
+          <div className="row g-4 align-items-end mt-2">
+            <div className="col-lg-5">
+              <div className="faq-image-5">
                 <img
                   src={service.faqImage || '/assets/img/inner-page/faq.jpg'}
                   alt={service.title}
                 />
               </div>
             </div>
-
-            {/* Right — React-controlled accordion */}
-            <div className="col-lg-7 d-flex flex-column justify-content-center">
-              <ul className="accordion-box style-4 style-5">
-                {serviceFaqs.map((faq, i) => (
-                  <li
-                    key={i}
-                    className={`accordion block acc-bg-2${openFaq === i ? ' active-block' : ''}`}
-                  >
-                    <div
-                      className={`acc-btn${openFaq === i ? ' active' : ''}`}
-                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      style={{ cursor: 'pointer' }}
+            <div className="col-lg-7">
+              <div className="grt-faq-content-1 mt-0">
+                <ul className="accordion-box style-4 style-5 wow fadeInUp" data-wow-delay=".3s">
+                  {serviceFaqs.map((faq, i) => (
+                    <li
+                      key={i}
+                      className={`accordion block${openFaq === i ? ' active-block' : ''}`}
                     >
-                      {faq.question}
-                      <div className="icon fa-regular fa-plus"></div>
-                    </div>
-                    <div className={`acc-content${openFaq === i ? ' current' : ''}`}>
-                      <div className="content">
-                        <div className="text">{faq.answer}</div>
+                      <div
+                        className={`acc-btn${openFaq === i ? ' active' : ''}`}
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        {faq.question}
+                        <div className="icon fa-regular fa-plus"></div>
                       </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                      <div className={`acc-content${openFaq === i ? ' current' : ''}`}>
+                        <div className="content">
+                          <div className="text">{faq.answer}</div>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -160,15 +163,15 @@ export default function ServiceDetail() {
             <div className="service-icon-details-section mt-5 pb-0">
               <div className="row g-4">
                 {[
-                  { icon: '/assets/img/inner-page/icon1.png', title: 'Strategy-led', body: 'Every engagement starts with a clear understanding of your business goal, audience and market position.' },
-                  { icon: '/assets/img/inner-page/icon2.png', title: 'Tailored to you', body: 'No standard packages. We build the right approach around your challenge and what the market requires.' },
-                  { icon: '/assets/img/inner-page/icon3.png', title: 'End-to-end delivery', body: 'We develop the strategy and execute it — from creative and content to campaigns and measurement.' },
-                  { icon: '/assets/img/inner-page/icon4.png', title: 'Measurable outcomes', body: 'We track what matters, report clearly and continuously improve the work based on real results.' },
+                  { icon: 'fa-solid fa-chess', title: 'Strategy-led', body: 'Every engagement starts with a clear understanding of your business goal, audience and market position.' },
+                  { icon: 'fa-solid fa-sliders', title: 'Tailored to you', body: 'No standard packages. We build the right approach around your challenge and what the market requires.' },
+                  { icon: 'fa-solid fa-arrow-right-arrow-left', title: 'End-to-end delivery', body: 'We develop the strategy and execute it — from creative and content to campaigns and measurement.' },
+                  { icon: 'fa-solid fa-chart-line', title: 'Measurable outcomes', body: 'We track what matters, report clearly and continuously improve the work based on real results.' },
                 ].map(item => (
                   <div className="col-xl-3 col-lg-6 col-md-6" key={item.title}>
                     <div className="details-icon-box-item">
-                      <div className="icon">
-                        <img src={item.icon} alt={item.title} />
+                      <div className="icon service-icon-fa">
+                        <i className={item.icon}></i>
                       </div>
                       <div className="content">
                         <h2 className="title">{item.title}</h2>

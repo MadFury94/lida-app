@@ -1064,3 +1064,60 @@
         height: 260px;
     }
 }
+
+
+/* ── SERVICE DETAIL FAQ — fix section-title-area gap & heading size ── */
+/* The theme default gap is 420px which pushes the label off-screen at normal sizes */
+.service-faq-title-area.section-title-area {
+    gap: 60px !important;
+    align-items: flex-start;
+}
+
+@media (max-width: 1199px) {
+    .service-faq-title-area.section-title-area {
+        gap: 24px !important;
+        flex-direction: column;
+    }
+}
+
+/* Cap heading so long FAQ titles don't overflow */
+.service-faq-heading.title {
+    font-size: 48px !important;
+    line-height: 1.15 !important;
+}
+
+@media (max-width: 1399px) {
+    .service-faq-heading.title {
+        font-size: 40px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .service-faq-heading.title {
+        font-size: 32px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-faq-heading.title {
+        font-size: 26px !important;
+    }
+}
+
+/* ── SERVICE DETAIL — FA icon boxes (replaces salmon PNG icons) ── */
+.service-icon-fa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    background: rgba(0, 0, 255, 0.1);
+    margin-bottom: 8px;
+}
+
+.service-icon-fa i {
+    font-size: 26px;
+    color: var(--theme);
+    line-height: 1;
+}

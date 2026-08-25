@@ -89,7 +89,7 @@ export default function Careers() {
           <div className="career-apply-inner">
             <div>
               <span className="sub-title">Open application</span>
-              <h2>There are no advertised vacancies right now, but we always want to meet exceptional people.</h2>
+              <h2>The vacancies highlighted above are roles we have available right now, but we always want to meet exceptional people.</h2>
               <p>
                 Send your CV or portfolio with a short note about the problems you solve best.
                 We will keep strong applications in our talent network for future opportunities.
