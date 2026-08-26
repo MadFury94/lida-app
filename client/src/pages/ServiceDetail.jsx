@@ -12,21 +12,19 @@ function FaqSection({ serviceFaqs, faqsHeading, service }) {
     <section className="faq-section-5 section-padding section-bg fix">
       <div className="container container-1680">
         <div className="faq-wrapper-5">
-          <div className="section-title-area service-faq-title-area">
-            <div className="section-title-4 mb-0">
+          <div className="section-title-area">
+            <div className="section-title section-title-4 mb-0">
               <span className="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                <img src="/assets/img/home-1/01.png" alt="" /> Common questions
+                <img src="/assets/img/home-1/01.png" alt="" /> COMMON QUESTIONS
               </span>
             </div>
             <div className="section-title-4 mb-0">
-              <h2 className="title wa_title_spilt_1 service-faq-heading">
-                {faqsHeading}
-              </h2>
+              <h2 className="title wa_title_spilt_1">{faqsHeading}</h2>
             </div>
           </div>
           <div className="row g-4 align-items-end mt-2">
             <div className="col-lg-5">
-              <div className="faq-image-5">
+              <div className="faq-image">
                 <img
                   src={service.faqImage || '/assets/img/inner-page/faq.jpg'}
                   alt={service.title}
@@ -163,10 +161,10 @@ export default function ServiceDetail() {
             <div className="service-icon-details-section mt-5 pb-0">
               <div className="row g-4">
                 {[
-                  { icon: 'fa-solid fa-chess', title: 'Strategy-led', body: 'Every engagement starts with a clear understanding of your business goal, audience and market position.' },
-                  { icon: 'fa-solid fa-sliders', title: 'Tailored to you', body: 'No standard packages. We build the right approach around your challenge and what the market requires.' },
-                  { icon: 'fa-solid fa-arrow-right-arrow-left', title: 'End-to-end delivery', body: 'We develop the strategy and execute it — from creative and content to campaigns and measurement.' },
-                  { icon: 'fa-solid fa-chart-line', title: 'Measurable outcomes', body: 'We track what matters, report clearly and continuously improve the work based on real results.' },
+                  { icon: 'fa-solid fa-chess', title: 'Start with the real problem', body: 'We look beyond surface issues to identify what is truly limiting growth.' },
+                  { icon: 'fa-solid fa-sliders', title: 'Define clear priorities', body: 'We help you focus time, money and effort on the actions that matter most.' },
+                  { icon: 'fa-solid fa-arrow-right-arrow-left', title: 'Build a practical roadmap', body: 'You receive a clear plan for positioning, marketing, customer growth and execution.' },
+                  { icon: 'fa-solid fa-chart-line', title: 'Track what matters', body: 'We define useful measures that help you see progress and improve decisions.' },
                 ].map(item => (
                   <div className="col-xl-3 col-lg-6 col-md-6" key={item.title}>
                     <div className="details-icon-box-item">

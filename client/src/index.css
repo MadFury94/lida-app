@@ -1002,108 +1002,6 @@
 }
 
 
-/* ── SERVICE DETAIL — FAQ SECTION ──────────────────────── */
-.service-faq-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.service-faq-header {
-    margin-bottom: 8px;
-}
-
-.service-faq-header .sub-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-/* Cap the heading so long questions don't blow up at large sizes */
-.service-faq-heading {
-    font-size: 48px !important;
-    line-height: 1.15 !important;
-    font-weight: 700;
-    color: var(--header);
-    max-width: 780px;
-}
-
-@media (max-width: 1199px) {
-    .service-faq-heading {
-        font-size: 38px !important;
-    }
-}
-
-@media (max-width: 767px) {
-    .service-faq-heading {
-        font-size: 28px !important;
-    }
-}
-
-/* Left image fills full column height and stays in proportion */
-.service-faq-img {
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    flex: 1;
-    min-height: 360px;
-}
-
-.service-faq-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-}
-
-@media (max-width: 991px) {
-    .service-faq-img {
-        min-height: 260px;
-        flex: unset;
-        height: 260px;
-    }
-}
-
-
-/* ── SERVICE DETAIL FAQ — fix section-title-area gap & heading size ── */
-/* The theme default gap is 420px which pushes the label off-screen at normal sizes */
-.service-faq-title-area.section-title-area {
-    gap: 60px !important;
-    align-items: flex-start;
-}
-
-@media (max-width: 1199px) {
-    .service-faq-title-area.section-title-area {
-        gap: 24px !important;
-        flex-direction: column;
-    }
-}
-
-/* Cap heading so long FAQ titles don't overflow */
-.service-faq-heading.title {
-    font-size: 48px !important;
-    line-height: 1.15 !important;
-}
-
-@media (max-width: 1399px) {
-    .service-faq-heading.title {
-        font-size: 40px !important;
-    }
-}
-
-@media (max-width: 991px) {
-    .service-faq-heading.title {
-        font-size: 32px !important;
-    }
-}
-
-@media (max-width: 767px) {
-    .service-faq-heading.title {
-        font-size: 26px !important;
-    }
-}
-
 /* ── SERVICE DETAIL — FA icon boxes (replaces salmon PNG icons) ── */
 .service-icon-fa {
     display: flex;
@@ -1120,4 +1018,80 @@
     font-size: 26px;
     color: var(--theme);
     line-height: 1;
+}
+
+
+/* ── SERVICE DETAIL FAQ — label column width fix ────────── */
+/* Without a min-width the label column collapses at large gap sizes */
+.faq-wrapper-5 .section-title-area .section-title-4:first-child {
+    min-width: 180px;
+    flex-shrink: 0;
+}
+
+
+/* ── SERVICE DETAIL FAQ — spacing and image size corrections ── */
+/* Remove the large default bottom margin on section-title-area inside faq-wrapper-5 */
+.faq-wrapper-5 .section-title-area {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Tighten the gap between heading block and image/accordion row */
+.faq-wrapper-5 .row.g-4 {
+    margin-top: 20px !important;
+}
+
+/* Reduce image height — template preview is ~380px, not 750px */
+.faq-wrapper-5 .faq-image {
+    height: 380px !important;
+    margin-top: 0 !important;
+}
+
+@media (max-width: 1600px) {
+    .faq-wrapper-5 .faq-image {
+        height: 360px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .faq-wrapper-5 .faq-image {
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .faq-wrapper-5 .faq-image {
+        height: 260px !important;
+    }
+}
+
+
+/* Show full image without cropping — contain instead of cover */
+.faq-wrapper-5 .faq-image img {
+    object-fit: contain !important;
+    object-position: center bottom;
+}
+
+
+/* ── SERVICE DETAIL FAQ — pull image to left screen edge ── */
+/* overflow:hidden on .fix clips the section, so we remove it for this section only */
+.faq-section-5.fix {
+    overflow: visible !important;
+}
+
+/* Pull the col itself left past the container padding */
+.faq-wrapper-5 .row.g-4>.col-lg-5 {
+    padding-left: 0 !important;
+    margin-left: -0.75rem;
+}
+
+/* Pull the image further left past the container's own padding */
+.faq-wrapper-5 .faq-image {
+    border-radius: 0 16px 16px 0;
+    margin-left: -0.75rem;
+}
+
+/* Label aligns flush left */
+.faq-wrapper-5 .section-title-area {
+    padding-left: 0 !important;
 }
