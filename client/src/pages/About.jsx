@@ -1,5 +1,5 @@
 ﻿import { useEffect } from 'react'
-import { brand, testimonials } from '../store/site'
+import { brand, testimonials, contact } from '../store/site'
 import VideoBanner from '../components/VideoBanner'
 
 
