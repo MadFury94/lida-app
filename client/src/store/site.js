@@ -1,4 +1,4 @@
-// ============================================================
+﻿// ============================================================
 // LIDA DIGITAL — CENTRAL SITE DATA STORE
 // All content, colors, config live here.
 // Will be consumed by React components AND synced to
@@ -132,11 +132,24 @@ export const services = [
     title: 'Brand Strategy & Identity',
     shortTitle: 'Brand Strategy & Identity',
     icon: 'fa-solid fa-bullseye',
-    summary: 'We build brands people understand, trust and remember, from naming and positioning to visual identity and brand guidelines.',
-    approachHeading: 'Build a brand that earns trust and creates real market differentiation.',
-    approachBody: 'We develop brand strategies and positioning frameworks that give businesses a clear, credible identity in their market. From defining your value proposition and messaging to building a complete visual identity system, we ensure your brand communicates with confidence and resonates with the right people.',
+    summary: 'Build a brand people understand, remember and choose, from the right name and position to a complete visual identity.',
+    approachHeading: 'Build a brand people can recognise, understand and trust.',
+    approachBody: 'A strong brand is more than a logo. It is the name, story, position, message and visual system that help people understand why you matter. Lida helps businesses create brands that are clear, relevant and built to stand out in a competitive market.',
     detail: `We develop brand strategies and market positioning frameworks that create meaningful differentiation. From defining your core value proposition and messaging to building a complete identity system, we ensure your brand communicates clearly, earns credibility, and resonates with the people you want to reach.`,
-    includes: ['Brand strategy & positioning', 'Value proposition development', 'Visual identity systems', 'Messaging & tone of voice', 'Brand guidelines & rollout'],
+    includes: ['Brand naming and naming shortlist development', 'Brand strategy and market positioning', 'Value proposition and messaging', 'Visual identity design', 'Brand guidelines and launch support'],
+    whyCards: [
+      { icon: 'fa-solid fa-signature', title: 'Find the right name', body: 'We develop meaningful name directions that fit your business, audience and long-term ambition.' },
+      { icon: 'fa-solid fa-bullseye', title: 'Define your position', body: 'We clarify what your brand stands for, who it serves and why people should choose it.' },
+      { icon: 'fa-solid fa-paint-brush', title: 'Create a strong identity', body: 'We design a visual system that helps your brand look consistent, credible and memorable.' },
+      { icon: 'fa-solid fa-book-open', title: 'Equip your team', body: 'We provide guidelines and practical tools that make it easier to use the brand correctly.' },
+    ],
+    faqsHeading: 'Quick answers to common questions about brand strategy and identity.',
+    faqs: [
+      { question: 'Can Lida help us name our business or product?', answer: 'Yes. We support brand naming through research, naming directions, shortlist development and strategic alignment. Final trademark and legal clearance should be completed by an appropriate legal professional.' },
+      { question: 'Do we need a full rebrand?', answer: 'Not always. We begin by understanding the current brand and business challenge, then recommend whether you need a refresh, a repositioning or a complete rebrand.' },
+      { question: 'What does a brand identity include?', answer: 'A typical identity can include a logo system, colour palette, typography, supporting graphics, imagery direction, brand guidelines and selected launch assets.' },
+      { question: 'Can you support our brand launch?', answer: 'Yes. We can develop launch messaging, campaign creative, digital assets, content and communications to introduce the new brand properly.' },
+    ],
   },
   {
     slug: 'customer-acquisition',

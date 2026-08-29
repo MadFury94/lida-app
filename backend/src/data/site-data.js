@@ -74,7 +74,7 @@ export const siteData = {
       title: 'Brand Strategy & Identity',
       shortTitle: 'Brand Strategy & Identity',
       icon: 'fa-solid fa-bullseye',
-      summary: 'We build brands people understand, trust and remember, from naming and positioning to visual identity and brand guidelines.',
+      summary: 'Build a brand people understand, remember and choose, from the right name and position to a complete visual identity.',
       detail: 'We develop brand strategies and market positioning frameworks that create meaningful differentiation. From defining your core value proposition and messaging to building a complete identity system, we ensure your brand communicates clearly, earns credibility, and resonates with the people you want to reach.',
       includes: ['Brand strategy & positioning', 'Value proposition development', 'Visual identity systems', 'Messaging & tone of voice', 'Brand guidelines & rollout'],
     },

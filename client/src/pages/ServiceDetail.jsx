@@ -26,7 +26,7 @@ function FaqSection({ serviceFaqs, faqsHeading, service }) {
             <div className="col-lg-5">
               <div className="faq-image">
                 <img
-                  src={service.faqImage || '/assets/img/inner-page/faq.jpg'}
+                  src={service.faqImage || '/assets/img/inner-page/lidabrand3.jpeg'}
                   alt={service.title}
                 />
               </div>
@@ -125,7 +125,7 @@ export default function ServiceDetail() {
               <div className="service-details-image">
                 <img
                   data-speed=".8"
-                  src={service.detailImage || '/assets/img/inner-page/service-details1.jpg'}
+                  src={service.detailImage || '/assets/img/inner-page/lida-brand and Identity.jpeg'}
                   alt={service.title}
                 />
               </div>
@@ -142,7 +142,7 @@ export default function ServiceDetail() {
                     </div>
                     <div className="service-concept-img">
                       <img
-                        src={service.conceptImage || '/assets/img/inner-page/service-details-2.jpg'}
+                        src={service.conceptImage || '/assets/img/inner-page/lida-brand2.jpeg'}
                         alt={service.title}
                       />
                     </div>
@@ -160,12 +160,12 @@ export default function ServiceDetail() {
             {/* Why Lida — 4 icon boxes, full width 4-col grid */}
             <div className="service-icon-details-section mt-5 pb-0">
               <div className="row g-4">
-                {[
+                {(service.whyCards || [
                   { icon: 'fa-solid fa-chess', title: 'Start with the real problem', body: 'We look beyond surface issues to identify what is truly limiting growth.' },
                   { icon: 'fa-solid fa-sliders', title: 'Define clear priorities', body: 'We help you focus time, money and effort on the actions that matter most.' },
                   { icon: 'fa-solid fa-arrow-right-arrow-left', title: 'Build a practical roadmap', body: 'You receive a clear plan for positioning, marketing, customer growth and execution.' },
                   { icon: 'fa-solid fa-chart-line', title: 'Track what matters', body: 'We define useful measures that help you see progress and improve decisions.' },
-                ].map(item => (
+                ]).map(item => (
                   <div className="col-xl-3 col-lg-6 col-md-6" key={item.title}>
                     <div className="details-icon-box-item">
                       <div className="icon service-icon-fa">
