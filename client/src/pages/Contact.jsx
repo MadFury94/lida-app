@@ -6,7 +6,7 @@ const SERVICES_OPTIONS = [
   'Brand Strategy & Identity',
   'Customer Acquisition & Performance Marketing',
   'Customer Adoption',
-  'Reputation & Strategic Communications',
+  'Reputation & PR',
   'Executive & Corporate Positioning',
   'Content & Creative Production',
   'Digital Presence & Experience',

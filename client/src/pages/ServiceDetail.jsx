@@ -81,7 +81,7 @@ export default function ServiceDetail() {
 
   // Use per-service FAQs if defined, otherwise fall back to global
   const serviceFaqs = service.faqs || GLOBAL_FAQS
-  const faqsHeading = service.faqsHeading || 'Quick answers to common questions about customer acquisition.'
+  const faqsHeading = service.faqsHeading || 'Quick answers to what clients ask most.'
 
   return (
     <>

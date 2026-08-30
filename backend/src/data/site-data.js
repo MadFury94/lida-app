@@ -101,10 +101,10 @@ export const siteData = {
     {
       slug: 'reputation-communications',
       number: '005.',
-      title: 'Reputation & Strategic Communications',
+      title: 'Reputation & PR',
       shortTitle: 'Reputation & PR',
       icon: 'fa-solid fa-newspaper',
-      summary: 'Building and protecting brand reputation through strategic public relations, media engagement, and stakeholder communications.',
+      summary: 'Build trust, strengthen your public profile and respond clearly when your reputation matters most.',
       detail: 'We manage your public narrative with precision. Our communications approach builds proactive media relationships, positions your leadership as credible voices in your industry, and ensures your organization is prepared to communicate effectively across every situation.',
       includes: ['Media relations & pitching', 'Press release development', 'Crisis communications planning', 'Thought leadership strategy', 'Stakeholder communications'],
     },
