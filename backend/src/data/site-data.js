@@ -144,9 +144,9 @@ export const siteData = {
       title: 'Events & Brand Experiences',
       shortTitle: 'Events & Experiences',
       icon: 'fa-solid fa-calendar-star',
-      summary: 'Designing and executing brand experiences and events that create meaningful connections and leave lasting impressions.',
+      summary: 'Design brand events and experiences that bring people together, build trust and create memorable action.',
       detail: 'We plan and deliver events and brand experiences that go beyond logistics.',
-      includes: ['Event strategy & concept development', 'Corporate & launch event management', 'Experiential marketing activations', 'Brand experience design', 'Post-event communications & follow-up'],
+      includes: ['Event strategy and concept development', 'Audience and stakeholder experience design', 'Creative direction and event branding', 'Production and on-ground coordination', 'Content capture and post-event reporting'],
     },
     {
       slug: 'market-entry',
