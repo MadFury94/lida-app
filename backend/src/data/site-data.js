@@ -124,9 +124,9 @@ export const siteData = {
       title: 'Content & Creative Production',
       shortTitle: 'Content & Creative',
       icon: 'fa-solid fa-pen-nib',
-      summary: 'Creating compelling content and creative assets that communicate your brand clearly and engage the audiences that matter to your business.',
+      summary: 'Create content and creative assets that explain your value, hold attention and move people to act.',
       detail: 'We produce content and creative work that does more than look good — it builds credibility, communicates value, and supports commercial objectives.',
-      includes: ['Brand storytelling & copywriting', 'Photography & videography', 'Graphic design & brand assets', 'Social media content production', 'Presentations & pitch materials'],
+      includes: ['Content strategy and editorial planning', 'Social media content', 'Photography, video and motion content', 'Campaign creative and brand assets', 'Copywriting, design and production'],
     },
     {
       slug: 'digital-presence',
