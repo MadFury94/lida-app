@@ -111,10 +111,10 @@ export const siteData = {
     {
       slug: 'executive-corporate-positioning',
       number: '006.',
-      title: 'Executive & Corporate Positioning',
+      title: 'Executive Positioning',
       shortTitle: 'Executive Positioning',
       icon: 'fa-solid fa-user-tie',
-      summary: 'Strengthening the visibility, credibility, and influence of executives and organizations in their markets.',
+      summary: 'Help founders, executives and industry leaders build a credible public profile that opens meaningful opportunities.',
       detail: 'We help business leaders and organizations build the kind of market presence that opens doors, builds trust, and creates commercial opportunity.',
       includes: ['Executive profile development', 'Thought leadership content strategy', 'Speaking & media opportunity support', 'Corporate communications frameworks', 'Investor & stakeholder messaging'],
     },
