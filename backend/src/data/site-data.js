@@ -91,10 +91,10 @@ export const siteData = {
     {
       slug: 'customer-adoption',
       number: '004.',
-      title: 'Customer Adoption & Experience',
+      title: 'Customer Adoption',
       shortTitle: 'Customer Adoption',
       icon: 'fa-solid fa-handshake',
-      summary: 'Improving how businesses engage, retain, and grow their customer relationships through better experience and communication strategies.',
+      summary: 'Help customers understand your value, use your product or service confidently, return more often and recommend your business.',
       detail: 'Winning a customer is only the beginning. We help businesses develop the communication strategies, onboarding experiences, and engagement frameworks that turn new customers into loyal ones.',
       includes: ['Customer journey mapping', 'Onboarding communication design', 'Retention strategy development', 'Customer engagement frameworks', 'Loyalty & advocacy programs'],
     },

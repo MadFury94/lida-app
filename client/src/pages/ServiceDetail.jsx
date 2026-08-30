@@ -86,7 +86,7 @@ export default function ServiceDetail() {
   return (
     <>
       {/* ── HERO — T1 full-width, T2 breadcrumb, T5 gradient ── */}
-      <section className="services-details-section section-padding services-hero-gradient">
+      <section key={slug} className="services-details-section section-padding services-hero-gradient">
         <div className="light-bg">
           <img src="/assets/img/inner-page/light.png" alt="" />
         </div>
