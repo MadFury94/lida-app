@@ -134,9 +134,9 @@ export const siteData = {
       title: 'Digital Presence & Experience',
       shortTitle: 'Digital Presence',
       icon: 'fa-solid fa-mobile-screen',
-      summary: 'Building and managing digital presences that strengthen credibility, increase visibility, and drive meaningful audience engagement.',
+      summary: 'Build and manage a digital presence that helps customers find, understand and trust your brand online.',
       detail: 'We develop digital strategies and manage the channels that matter most for your business.',
-      includes: ['Website strategy & oversight', 'Social media strategy & management', 'Digital advertising campaigns', 'Search visibility & SEO strategy', 'Analytics & performance reporting'],
+      includes: ['Digital presence audit and improvement plan', 'Website and landing page strategy and development', 'Social media management', 'Digital content and community support', 'Search visibility and performance tracking'],
     },
     {
       slug: 'events-brand-experiences',
