@@ -81,12 +81,12 @@ export const siteData = {
     {
       slug: 'customer-acquisition',
       number: '003.',
-      title: 'Customer Acquisition & Performance Marketing',
+      title: 'Customer Acquisition',
       shortTitle: 'Customer Acquisition',
       icon: 'fa-solid fa-bullhorn',
-      summary: 'Driving targeted customer acquisition through performance-led marketing strategies that generate measurable results.',
+      summary: 'Attract the right customers, make your offer clearer and build campaigns that move people from interest to action.',
       detail: 'We design and execute integrated marketing campaigns focused on attracting and converting the right customers. From strategy and creative development to media planning, paid advertising, and performance tracking, every campaign is built around clear business goals and measurable outcomes.',
-      includes: ['Integrated campaign strategy', 'Paid media planning & buying', 'Creative development', 'Lead generation programs', 'Performance tracking & reporting'],
+      includes: ['Customer acquisition strategy', 'Audience targeting and channel selection', 'Campaign strategy and creative', 'Landing page and conversion support', 'Performance tracking and optimisation'],
     },
     {
       slug: 'customer-adoption',

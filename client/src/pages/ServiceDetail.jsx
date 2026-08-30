@@ -81,7 +81,7 @@ export default function ServiceDetail() {
 
   // Use per-service FAQs if defined, otherwise fall back to global
   const serviceFaqs = service.faqs || GLOBAL_FAQS
-  const faqsHeading = service.faqsHeading || 'Quick answers to what clients ask most.'
+  const faqsHeading = service.faqsHeading || 'Quick answers to common questions about customer acquisition.'
 
   return (
     <>
@@ -167,7 +167,7 @@ export default function ServiceDetail() {
                   { icon: 'fa-solid fa-chart-line', title: 'Track what matters', body: 'We define useful measures that help you see progress and improve decisions.' },
                 ]).map(item => (
                   <div className="col-xl-3 col-lg-6 col-md-6" key={item.title}>
-                    <div className="details-icon-box-item">
+                    <div className="details-icon-box-item h-100">
                       <div className="icon service-icon-fa">
                         <i className={item.icon}></i>
                       </div>
