@@ -23,18 +23,12 @@ export default function Work() {
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                           Strategy. Branding. Marketing.
-                                        </li>
-                                        <li>
-                                            Lida, Abuja, Nigeria
+                                           Selected Projects &amp; Case Study
                                         </li>
                                     </ul>
-                                    <div style="text-align:right;">
-                                        <p style="font-size:14px;letter-spacing:0.05em;color:rgba(255,255,255,0.6);margin-bottom:4px;font-style:italic;">Selected Projects &amp; Case Study</p>
-                                        <h2 class="title wa_title_spilt_1">
-                                            Our Works
-                                        </h2>
-                                    </div>
+                                    <h2 class="title wa_title_spilt_1">
+                                        Our Works
+                                    </h2>
                                 </div>
                             </div>
                         </div>
