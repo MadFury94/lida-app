@@ -366,6 +366,8 @@ export const services = [
     icon: 'fa-solid fa-globe-africa',
     seoTitle: 'Market Entry Strategy and Localisation in Nigeria | Lida',
     metaDescription: 'Lida helps local and international businesses enter Nigeria and new African markets with market insight, positioning and launch communication strategy.',
+    detailImage: '/assets/img/inner-page/Lida  - Market Entry and Expansion Support Services.jpeg',
+    conceptImage: '/assets/img/inner-page/Lida  - Market Entry and Expansion.jpeg',
     summary: 'Enter Nigeria and new markets with the local insight, positioning and launch plan needed to start well.',
     approachHeading: 'Enter new markets with less guesswork and more direction.',
     approachBody: 'Entering a new market requires more than launching a product or opening an office. You need to understand the people, competition, context and communication required to build trust. We help businesses develop the insight, positioning and launch direction needed to enter with greater confidence.',
