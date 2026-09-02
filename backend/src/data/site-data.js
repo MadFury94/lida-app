@@ -154,9 +154,9 @@ export const siteData = {
       title: 'Market Entry & Expansion',
       shortTitle: 'Market Entry',
       icon: 'fa-solid fa-globe-africa',
-      summary: 'Supporting businesses entering new markets with the strategic, communications, and brand foundations needed to establish credibility and grow.',
+      summary: 'Enter Nigeria and new markets with the local insight, positioning and launch plan needed to start well.',
       detail: 'We help businesses successfully enter and grow within new markets — whether expanding into Nigeria, establishing a presence across Africa, or reaching new audience segments.',
-      includes: ['Market entry strategy', 'Local audience & competitive analysis', 'Brand localization & adaptation', 'Stakeholder engagement planning', 'Launch communications & PR'],
+      includes: ['Market research and opportunity assessment', 'Local audience and cultural insight', 'Market entry positioning and messaging', 'Launch communication strategy', 'Stakeholder and partner engagement planning'],
     },
   ],
 

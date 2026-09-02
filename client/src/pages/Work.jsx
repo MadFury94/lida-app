@@ -16,22 +16,25 @@ export default function Work() {
                             <img src="/assets/img/inner-page/light.png" alt="img">
                         </div>
                         <div class="container">
-                            <div class="page-heading">
+                            <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Our Creative Works </span> That <br> Makes You Happy</h1>
+                                    <h1 class="text-white rr_title_anim"><span>Work Built To</span> <br> Move Businesses Forward.</h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                           12+ years of experience
+                                           Strategy. Branding. Marketing.
                                         </li>
                                         <li>
-                                            (©2015 — 2026)
+                                            Lida, Abuja, Nigeria
                                         </li>
                                     </ul>
-                                    <h2 class="title wa_title_spilt_1">
-                                        Our works
-                                    </h2>
+                                    <div style="text-align:right;">
+                                        <p style="font-size:14px;letter-spacing:0.05em;color:rgba(255,255,255,0.6);margin-bottom:4px;font-style:italic;">Selected Projects &amp; Case Study</p>
+                                        <h2 class="title wa_title_spilt_1">
+                                            Our Works
+                                        </h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -71,6 +71,20 @@ export default function ServiceDetail() {
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     window.scrollTo(0, 0)
+
+    // SEO: set page title and meta description per service
+    if (service.seoTitle) {
+      document.title = service.seoTitle
+    }
+    let metaDesc = document.querySelector('meta[name="description"]')
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta')
+      metaDesc.setAttribute('name', 'description')
+      document.head.appendChild(metaDesc)
+    }
+    if (service.metaDescription) {
+      metaDesc.setAttribute('content', service.metaDescription)
+    }
   }, [slug])
 
   if (!service) return <Navigate to="/services" replace />
