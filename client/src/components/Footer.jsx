@@ -17,7 +17,7 @@ export default function Footer() {
                   </Link>
                 </div>
                 <div className="footer-content">
-                  <p style={{marginBottom:'8px'}}>LIDA partners with ambitious organizations to solve growth challenges through commercial strategy, brand positioning, customer acquisition, strategic communications, AI enabled solutions, and measurable execution.</p>
+                  <p style={{marginBottom:'8px'}}>Solutions Media partners with ambitious organizations to solve growth challenges through commercial strategy, brand positioning, customer acquisition, strategic communications, AI enabled solutions, and measurable execution.</p>
                   <div className="social-icon d-flex align-items-center">
                     <a href={contact.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                     <a href={contact.social.twitter} target="_blank" rel="noreferrer" aria-label="Twitter/X"><i className="fab fa-twitter"></i></a>

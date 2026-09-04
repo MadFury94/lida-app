@@ -1,4 +1,4 @@
-﻿import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { brand, services, contact } from '../store/site'
 
@@ -80,10 +80,10 @@ export default function Header() {
         id="sticky-header"
       >
         <div className="header-main">
-          {/* â”€â”€ DESKTOP NAV â”€â”€ */}
+          {/* ── DESKTOP NAV ── */}
           <nav className="navbar p-0 navbar-expand-xl site-nav-desktop" style={{display:'flex'}}>
             <Link className="navbar-brand" to="/">
-              <img className="brand-logo" src={brand.logo} alt="Lida Digital" />
+              <img className="brand-logo" src={brand.logo} alt="Solutions Media" />
             </Link>
 
             <div style={{display:'flex', flex:1, alignItems:'center'}} id="navbarSupportedContent">
@@ -165,12 +165,12 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* â”€â”€ OFFCANVAS â”€â”€ */}
+        {/* ── OFFCANVAS ── */}
         <div className="offcanvas-overlay position-fixed top-0 start-0 w-100 h-100"></div>
         <div className="offcanvas-menu position-fixed">
           <div className="header-top d-flex align-items-center justify-content-between gap-4">
             <div className="logo">
-              <Link to="/"><img className="brand-logo" src={brand.logo} alt="Lida Digital" /></Link>
+              <Link to="/"><img className="brand-logo" src={brand.logo} alt="Solutions Media" /></Link>
             </div>
             <button className="offcasvas-close black-bg border-0 text-white d-flex align-items-center justify-content-center rounded-pill">
               <i className="fa-regular fa-xmark"></i>
@@ -215,13 +215,13 @@ export default function Header() {
           </div>
         </div>
 
-        {/* â”€â”€ MOBILE MENU â”€â”€ */}
+        {/* ── MOBILE MENU ── */}
         <div className="mobile-menu-area" style={{display: 'none'}} id="mobile-menu-area">
           <div className="container">
             <div className="mobile-topbar">
               <div className="d-flex justify-content-between align-items-center">
                 <div className="logo">
-                  <Link to="/"><img className="brand-logo" src={brand.logo} alt="Lida Digital" /></Link>
+                  <Link to="/"><img className="brand-logo" src={brand.logo} alt="Solutions Media" /></Link>
                 </div>
                 <div className="menu-search d-flex align-items-center gap-4">
                   <a href="#" className="main-header__search search-toggler">
@@ -237,7 +237,7 @@ export default function Header() {
           <div className="mobile-menu-overlay"></div>
           <div className="mobile-menu-main">
             <div className="logo">
-              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt="Lida Digital" /></Link>
+              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt="Solutions Media" /></Link>
             </div>
             <div className="close-mobile-menu"><i className="fas fa-times"></i></div>
             <div className="menu-body">

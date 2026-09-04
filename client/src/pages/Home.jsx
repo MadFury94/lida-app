@@ -128,7 +128,7 @@ export default function Home() {
 
                   <Link className="theme-btn-main style-2 bg-white-style wow fadeInUp" data-wow-delay=".5s" to="/about">
                     <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-                    <span className="theme-btn">Meet Lida</span>
+                    <span className="theme-btn">Meet Solutions Media</span>
                     <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
                   </Link>
                   <div className="about-counter-items">
@@ -284,7 +284,7 @@ export default function Home() {
           <div className="row">
             <div className="col-lg-5 col-md-5">
               <div className="text-items">
-                <p>A closer look at how Lida uses brand strategy, marketing and communications to help clients move forward.</p>
+                <p>A closer look at how Solutions Media uses brand strategy, marketing and communications to help clients move forward.</p>
                 <Link to="/work" className="news-btn">
                   <span className="text">
                     <span className="text-default">Explore our Work <i className="fa-regular fa-arrow-up-right"></i></span>

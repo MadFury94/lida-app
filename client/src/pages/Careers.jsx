@@ -23,7 +23,7 @@ const paths = [
 ]
 
 export default function Careers() {
-  const applicationSubject = encodeURIComponent('Career interest — Lida Digital')
+  const applicationSubject = encodeURIComponent('Career interest — Solutions Media')
 
   return (
     <>
@@ -63,7 +63,7 @@ export default function Careers() {
             <div className="col-lg-6">
               <div className="section-title">
                 <span className="sub-title">
-                  <i className="fa-solid fa-circle-small"></i> Life at Lida
+                  <i className="fa-solid fa-circle-small"></i> Life at Solutions Media
                 </span>
                 <h2>Curious minds. <span className="style-color">Serious impact.</span></h2>
               </div>
