@@ -1,5 +1,5 @@
 // ============================================================
-// SOLUTION MEDIA GLOBAL — CENTRAL SITE DATA STORE
+// SOLUTION MEDIA GLOBAL ï¿½ CENTRAL SITE DATA STORE
 // All content, colors, config live here.
 // ============================================================
 
@@ -64,7 +64,7 @@ export const contact = {
   },
 }
 
-// Design tokens — CSS source of truth is src/index.css :root variables.
+// Design tokens ï¿½ CSS source of truth is src/index.css :root variables.
 // Values here are JS references only (e.g. for dynamic inline styles,
 // Cloudflare Workers API, or any JS that needs color values).
 // If you change a color, update BOTH index.css :root AND here.
@@ -217,7 +217,7 @@ export const services = [
     summary: 'Build trust, strengthen your public profile and respond clearly when your reputation matters most.',
     approachHeading: 'Be known for the right reasons.',
     approachBody: 'Your reputation is shaped by what people hear, see, experience and say about your business. We help you define the right story, communicate it clearly and build credible visibility through strategic public relations, media engagement and reputation management.',
-    detail: `We manage your public narrative with precision. Our communications approach builds proactive media relationships, positions your leadership as credible voices in your industry, and ensures your organization is prepared to communicate effectively across every situation — from launches and milestones to sensitive reputational moments.`,
+    detail: `We manage your public narrative with precision. Our communications approach builds proactive media relationships, positions your leadership as credible voices in your industry, and ensures your organization is prepared to communicate effectively across every situation ï¿½ from launches and milestones to sensitive reputational moments.`,
     includes: ['Reputation audit and narrative development', 'PR strategy and media relations', 'Press releases, profiles and thought leadership', 'Crisis communication and response planning', 'Media monitoring and reporting'],
     whyCards: [
       { icon: 'fa-solid fa-comment-dots', title: 'Clarify your public message', body: 'We define the messages that should guide how your business communicates in public.' },
@@ -362,7 +362,7 @@ export const services = [
     summary: 'Enter Nigeria and new markets with the local insight, positioning and launch plan needed to start well.',
     approachHeading: 'Enter new markets with less guesswork and more direction.',
     approachBody: 'Entering a new market requires more than launching a product or opening an office. You need to understand the people, competition, context and communication required to build trust. We help businesses develop the insight, positioning and launch direction needed to enter with greater confidence.',
-    detail: `We help businesses successfully enter and grow within new markets — whether that is expanding into Nigeria, establishing a presence across Africa, or reaching new audience segments within existing markets. We combine local market insight, strategic positioning, stakeholder engagement, and communications execution to give your market entry the best possible foundation.`,
+    detail: `We help businesses successfully enter and grow within new markets ï¿½ whether that is expanding into Nigeria, establishing a presence across Africa, or reaching new audience segments within existing markets. We combine local market insight, strategic positioning, stakeholder engagement, and communications execution to give your market entry the best possible foundation.`,
     includes: ['Market research and opportunity assessment', 'Local audience and cultural insight', 'Market entry positioning and messaging', 'Launch communication strategy', 'Stakeholder and partner engagement planning'],
     whyCards: [
       { icon: 'fa-solid fa-map', title: 'Understand the local market', body: 'We help you assess customer behaviour, competition, market conditions and relevant opportunities.' },
@@ -388,7 +388,7 @@ export const caseStudies = [
     tags: ['Energy', 'Digital', 'Market Entry'],
     challenge: 'Introducing an internationally recognized energy solutions brand into the Nigerian market while building awareness, trust, and local relevance.',
     solution: 'Developed and managed Calpak Nigeria\'s digital presence, executed targeted advertising campaigns, and produced locally optimized marketing materials and events.',
-    impact: '25.9M campaign impressions. Sales grew from 50–100 units per month at campaign start, to 350+ units per month by Month 3.',
+    impact: '25.9M campaign impressions. Sales grew from 50ï¿½100 units per month at campaign start, to 350+ units per month by Month 3.',
     stats: [
       { label: 'Campaign Impressions', value: '25.9M' },
       { label: 'Sales Growth', value: '35x' },
@@ -421,7 +421,7 @@ export const caseStudies = [
     sector: 'Automotive',
     tags: ['Automotive', 'Repositioning', 'Premium Brand'],
     challenge: 'Move beyond the perception of a typical automotive workshop and establish a premium maintenance and vehicle care brand commanding greater trust and value.',
-    solution: 'Comprehensive brand repositioning — rebranding strategy, premium marketing materials, professional industrial photography, branded staff apparel, and customer-facing assets.',
+    solution: 'Comprehensive brand repositioning ï¿½ rebranding strategy, premium marketing materials, professional industrial photography, branded staff apparel, and customer-facing assets.',
     impact: 'Our engagement with Solutions Media transformed the way our business is perceived. They helped us build a stronger brand identity, improve how we communicate our value, and position the business with greater credibility. Their strategic thinking and attention to detail made a measurable difference in how we present ourselves to customers and partners.',
     clientName: 'M. Bari',
     clientRole: 'MD, Nuts & Bolts Automotive',
@@ -505,7 +505,7 @@ export const testimonials = [
     slug: 'client-2',
     name: 'Client',
     role: 'Director',
-    quote: 'The team at Solution Media brought clarity, creativity, and commercial thinking to our campaigns. They do not just deliver content — they deliver outcomes.',
+    quote: 'The team at Solution Media brought clarity, creativity, and commercial thinking to our campaigns. They do not just deliver content ï¿½ they deliver outcomes.',
   },
   {
     slug: 'client-3',
@@ -540,7 +540,7 @@ export const faqs = [
   },
   {
     question: 'Can you manage our social media end-to-end?',
-    answer: 'Yes. We handle everything from monthly content calendars and platform strategy to daily posting, community management, analytics reporting, and crisis response. We create all content — graphics, videos, and captions — tailored to your brand voice.',
+    answer: 'Yes. We handle everything from monthly content calendars and platform strategy to daily posting, community management, analytics reporting, and crisis response. We create all content ï¿½ graphics, videos, and captions ï¿½ tailored to your brand voice.',
   },
   {
     question: 'Do you work with political clients?',
@@ -552,7 +552,7 @@ export const faqs = [
   },
   {
     question: 'What makes Solution Media Global different?',
-    answer: 'We combine African context with global standards. Our integrated service delivery means reputation, content, SEO, social, and PR work as one cohesive system. We operate with a results-first philosophy — defining success by your KPIs — and provide transparent reporting with no hidden fees.',
+    answer: 'We combine African context with global standards. Our integrated service delivery means reputation, content, SEO, social, and PR work as one cohesive system. We operate with a results-first philosophy ï¿½ defining success by your KPIs ï¿½ and provide transparent reporting with no hidden fees.',
   },
 ]
 
@@ -607,8 +607,8 @@ export const insights = [
     category: 'Brand Strategy',
     date: 'July 2026',
     readTime: '5 min read',
-    excerpt: 'In a crowded, fast-moving market, the businesses that win are not always the most capable — they are the most clearly positioned. Here is why positioning is the foundation of every growth strategy.',
-    body: `Brand positioning is the process of defining how your business is perceived in the minds of your target audience relative to your competitors. In African markets — where consumer trust is hard-earned, word of mouth is powerful, and differentiation is often unclear — getting your positioning right is not a nice-to-have. It is the foundation.
+    excerpt: 'In a crowded, fast-moving market, the businesses that win are not always the most capable ï¿½ they are the most clearly positioned. Here is why positioning is the foundation of every growth strategy.',
+    body: `Brand positioning is the process of defining how your business is perceived in the minds of your target audience relative to your competitors. In African markets ï¿½ where consumer trust is hard-earned, word of mouth is powerful, and differentiation is often unclear ï¿½ getting your positioning right is not a nice-to-have. It is the foundation.
 
 Many businesses in Nigeria and across Africa compete on price because they have not yet defined what makes them worth paying for. They have great products and capable teams, but the market does not fully understand who they are, who they serve, or why they are the right choice.
 
@@ -626,11 +626,11 @@ The businesses that grow fastest are not always the cheapest or the most technic
     date: 'June 2026',
     readTime: '6 min read',
     excerpt: 'Nigeria is Africa\'s largest economy and one of the most dynamic consumer markets in the world. But many international brands stumble on entry. Here are the most common mistakes and how to avoid them.',
-    body: `Nigeria offers enormous opportunity — a population of over 200 million, a rapidly expanding middle class, and one of the most entrepreneurial cultures in the world. Yet many international brands that enter the market fail to gain traction, not because the opportunity is not there, but because they approach Nigeria the same way they approach every other market.
+    body: `Nigeria offers enormous opportunity ï¿½ a population of over 200 million, a rapidly expanding middle class, and one of the most entrepreneurial cultures in the world. Yet many international brands that enter the market fail to gain traction, not because the opportunity is not there, but because they approach Nigeria the same way they approach every other market.
 
 The most common mistake is assuming that a global brand identity, campaign, or product strategy will translate directly. Nigerian consumers are sophisticated. They respond to brands that understand their context, speak to their aspirations, and demonstrate genuine relevance to their lives and challenges.
 
-The second mistake is underinvesting in trust-building. In a market where institutional trust has historically been fragile, consumers look for social proof, community validation, and visible consistency before committing. A brand that shows up inconsistently — or launches without a clear local narrative — will struggle to build the credibility it needs to compete.
+The second mistake is underinvesting in trust-building. In a market where institutional trust has historically been fragile, consumers look for social proof, community vaSolutions Mediation, and visible consistency before committing. A brand that shows up inconsistently ï¿½ or launches without a clear local narrative ï¿½ will struggle to build the credibility it needs to compete.
 
 The third mistake is choosing the wrong local partners or none at all. Navigating Nigeria's business environment requires relationships, cultural intelligence, and an understanding of how decisions get made at every level of the market. International brands that try to enter remotely, without local strategic support, consistently underperform those that invest in genuine on-the-ground expertise.
 
@@ -646,13 +646,13 @@ Getting Nigeria right takes preparation, patience, and the right partners. When 
     date: 'May 2026',
     readTime: '5 min read',
     excerpt: 'In financial services, trust is the product. Before a customer deposits money, takes a loan, or recommends your institution, they need to believe you are credible, stable, and on their side. Communications is how you build that belief.',
-    body: `Financial services is one of the most trust-sensitive industries in Nigeria. Consumers have experienced institutional failures, fraud, and broken promises. They approach new financial products and institutions with genuine caution — and they have every reason to.
+    body: `Financial services is one of the most trust-sensitive industries in Nigeria. Consumers have experienced institutional failures, fraud, and broken promises. They approach new financial products and institutions with genuine caution ï¿½ and they have every reason to.
 
-For financial brands, this means that marketing alone is not enough. You can have the best product, the lowest fees, and the most convenient platform — and still fail to acquire customers at scale if the market does not trust you yet.
+For financial brands, this means that marketing alone is not enough. You can have the best product, the lowest fees, and the most convenient platform ï¿½ and still fail to acquire customers at scale if the market does not trust you yet.
 
-Trust in financial services is built through three things: consistency, transparency, and social proof. Consistency means showing up reliably across every touchpoint — your visual identity, your messaging, your customer service, your communications. Transparency means communicating clearly about what you offer, what it costs, and what customers can expect. Social proof means giving potential customers evidence that others have benefited — through testimonials, case studies, community presence, and earned media.
+Trust in financial services is built through three things: consistency, transparency, and social proof. Consistency means showing up reliably across every touchpoint ï¿½ your visual identity, your messaging, your customer service, your communications. Transparency means communicating clearly about what you offer, what it costs, and what customers can expect. Social proof means giving potential customers evidence that others have benefited ï¿½ through testimonials, case studies, community presence, and earned media.
 
-The financial institutions that grow fastest in Nigeria are not always the ones with the most features. They are the ones the market talks about positively, recommends to friends, and returns to. Communications strategy is the engine that builds that kind of reputation — deliberately, consistently, and at scale.`,
+The financial institutions that grow fastest in Nigeria are not always the ones with the most features. They are the ones the market talks about positively, recommends to friends, and returns to. Communications strategy is the engine that builds that kind of reputation ï¿½ deliberately, consistently, and at scale.`,
     image: '/assets/img/home-1/news-03.jpg',
     author: 'Fortune Ugwuala',
     authorRole: 'Lead, Operations & Growth',
