@@ -9,7 +9,7 @@
    - JS reference lives in src/store/site.js (keep in sync).
 ================================================================ */
 :root {
-    --theme: #0000FF;
+    --theme: #FF471C;
     /* Primary accent — CTAs, highlights */
     --body: #101010;
     /* Page background */
@@ -53,11 +53,151 @@
     }
 }
 
-/* Logo sizing — SVG needs explicit dimensions to render */
+/* Header height and padding adjustments */
+.header-section {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.header-section.sticky-menu {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.header-main {
+    min-height: auto !important;
+}
+
+.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: auto !important;
+}
+
+/* Logo sizing — PNG optimized for black backgrounds */
 .brand-logo {
-    max-width: 90px;
+    max-width: 160px;
     height: auto;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Override Bootstrap navbar-brand padding */
+.navbar-brand {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: visible !important;
+}
+
+/* Hero section improvements */
+.hero-1 .hero-content p.split-title {
+    color: var(--theme) !important;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.hero-1 .hero-content h1 {
+    font-size: clamp(45px, 8vw, 72px);
+    line-height: 0.95;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.hero-1 .hero-content h1 span {
+    color: var(--theme) !important;
+    font-style: italic;
+    font-family: 'Instrument Serif', serif;
+}
+
+.hero-1 .hero-subtext {
+    margin-bottom: 32px;
+    max-width: 520px;
+}
+
+.hero-1 .hero-subtext p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+/* Hero buttons - make them more prominent */
+.hero-button {
+    margin-top: 32px;
+    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hero-button .theme-btn-main {
+    padding: 18px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+.hero-button .theme-btn-main.bg-white-style {
+    background-color: var(--theme) !important;
+    border-color: var(--theme) !important;
+}
+
+.hero-button .theme-btn-main.bg-white-style .theme-btn {
+    color: white !important;
+}
+
+/* Hero list - improve service visibility */
+.hero-list ul:first-child {
+    color: var(--theme);
+    font-weight: 500;
+}
+
+.hero-list ul:first-child li {
+    opacity: 0.9;
+}
+
+/* Right side content improvements */
+.hero-right-items .text {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.hero-right-items .text b {
+    color: var(--theme);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.hero-stats .stat-item {
+    text-align: center;
+}
+
+.hero-stats .stat-item .number {
     display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--theme);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.hero-stats .stat-item .label {
+    display: block;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
 }
 
 /* Testimonials — keep section background dark, reduce light-bg glow */
@@ -82,6 +222,40 @@
         display: block;
         width: 100%;
         height: auto;
+    }
+
+    .hero-1 .hero-content h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .hero-1 .hero-subtext p {
+        font-size: 16px;
+    }
+
+    .hero-button {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-button .theme-btn-main {
+        padding: 14px 28px;
+        font-size: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .hero-stats .stat-item .number {
+        font-size: 28px;
+    }
+
+    .brand-logo {
+        max-width: 120px;
     }
 }
 
@@ -267,24 +441,24 @@
 
 /* Move hero content up so CTA buttons are visible on first load */
 .hero-1 {
-    padding-top: 150px !important;
+    padding-top: 140px !important;
 }
 
 @media (max-width: 1399px) {
-    .hero-1 {
-        padding-top: 130px !important;
-    }
-}
-
-@media (max-width: 991px) {
     .hero-1 {
         padding-top: 120px !important;
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .hero-1 {
         padding-top: 110px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-1 {
+        padding-top: 100px !important;
     }
 }
 

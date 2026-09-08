@@ -68,12 +68,16 @@ export default function Header() {
       <style>{`
         .site-nav-desktop { display: flex !important; }
         .site-nav-desktop .navbar-collapse { display: flex !important; flex: 1; align-items: center; }
-        .brand-logo { display: block; width: 164px; height: auto; }
-        .brand-logo--dark { filter: brightness(0); }
+        .brand-logo { 
+          display: block; 
+          max-width: 160px; 
+          width: auto;
+          height: auto; 
+        }
         .offcanvas-menu .brand-logo,
-        .mobile-menu-main .brand-logo { width: 150px; }
+        .mobile-menu-main .brand-logo { max-width: 140px; width: auto; }
         @media (max-width: 1199px) { .site-nav-desktop { display: none !important; } #mobile-menu-area { display: block !important; } }
-        @media (max-width: 575px) { .brand-logo { width: 138px; } }
+        @media (max-width: 575px) { .brand-logo { max-width: 120px; } }
       `}</style>
       <header
         className={`header-section ${isHome ? 'header-1' : 'header-3'}`}
@@ -237,7 +241,7 @@ export default function Header() {
           <div className="mobile-menu-overlay"></div>
           <div className="mobile-menu-main">
             <div className="logo">
-              <Link to="/"><img className="brand-logo brand-logo--dark" src={brand.logo} alt="Solutions Media" /></Link>
+              <Link to="/"><img className="brand-logo" src={brand.logo} alt="Solutions Media" /></Link>
             </div>
             <div className="close-mobile-menu"><i className="fas fa-times"></i></div>
             <div className="menu-body">

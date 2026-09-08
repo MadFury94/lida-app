@@ -25,7 +25,7 @@ Version: 1.0.0
   --body: #101010;
   --black: #000;
   --white: #fff;
-  --theme: #0000FF;
+  --theme: #FF471C;
   --header: #fff;
   --text: #B1B1B1;
   --border: #FCFCFC;
@@ -2017,7 +2017,8 @@ span {
 
 @media (max-width: 470px) {
   .mobile-menu-area .mobile-menu-main .logo img {
-    width: 130px;
+    max-width: 120px;
+    width: auto;
   }
 }
 

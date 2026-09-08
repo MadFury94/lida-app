@@ -4,20 +4,20 @@
 // ============================================================
 
 export const brand = {
-  name: 'Solution Media',
-  fullName: 'Solution Media Global Ltd.',
-  tagline: 'Building Reputations. Driving Results. Telling Your Story.',
-  subTagline: 'Digital Communications. Brand Solutions. Reputation Management.',
-  description: 'Building Reputations. Driving Results. Telling Your Story.',
-  descriptionLong: 'Solution Media Global Ltd is a 21st century New Media Limited Liability Company registered in Nigeria. We focus on driving results through effective and measurable media solutions that take brands beyond their present boundaries.',
-  descriptionLong2: 'We are a team of full-fledged Digital Media Narrators, Thinkers, and Strategists with one of the largest networks of Social Media Influencers across Africa, the Middle East, Europe, and North America. We partner with our clients to develop their marketing plans and set up winning strategies to generate and convert leads.',
-  descriptionTag: 'African Context. Global Standards. Measurable Results.',
+  name: 'Solutions Media',
+  fullName: 'Solutions Media Global Ltd.',
+  tagline: 'Strategic Marketing & Communications Consultancy',
+  subTagline: 'Businesses and Leaders',
+  description: 'Strategic marketing and communications consultancy helping organizations build visibility, credibility, and sustainable growth.',
+  descriptionLong: 'Solutions Media is a strategic marketing and communications consultancy helping ambitious businesses and leaders grow with confidence across Nigeria and emerging African markets.',
+  descriptionLong2: 'We combine local market insight, strategic positioning, stakeholder engagement and communications execution to help businesses establish credibility, reach the right people and create stronger market opportunities.',
+  descriptionTag: 'Local Insight. Strategic Execution. Measurable Impact.',
   location: 'Abuja, Nigeria',
   founded: '2015',
   website: 'www.solutionmediaglobal.com.ng',
-  logo: '/assets/img/logo/sm-logo.svg',
-  logoLight: '/assets/img/logo/sm-logo.svg',
-  logoDark: '/assets/img/logo/sm-logo.svg',
+  logo: '/assets/img/logo/solutions-media-logo-white.png',
+  logoLight: '/assets/img/logo/solutions-media-logo.png',
+  logoDark: '/assets/img/logo/solutions-media-logo-dark.png',
   favicon: '/assets/img/favicon.svg',
 }
 
@@ -70,7 +70,7 @@ export const contact = {
 // If you change a color, update BOTH index.css :root AND here.
 export const theme = {
   colors: {
-    accent:  '#0000FF',   // --theme
+    accent:  '#FF471C',   // --theme (Solutions Media orange)
     body:    '#101010',   // --body
     card:    '#272727',   // --bg
     heading: '#ffffff',   // --header
