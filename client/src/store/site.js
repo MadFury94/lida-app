@@ -566,17 +566,17 @@ export const industries = [
 ]
 
 export const partners = [
-  { name: 'Client 33', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-33.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-34.png' },
-  { name: 'Client 35', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-35.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-36.png' },
-  { name: 'Client 37', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-37.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-38.png' },
-  { name: 'Client 39', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-39.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-40.png' },
-  { name: 'Client 41', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-41.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-42.png' },
-  { name: 'Client 43', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-43.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-44.png' },
-  { name: 'Client 45', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-45.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-46.png' },
-  { name: 'Client 47', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-47.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-48.png' },
-  { name: 'Client 49', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-49.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-50.png' },
-  { name: 'Client 51', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-51.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-52.png' },
-  { name: 'Client 53', logo: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-53.png', logoHover: '/assets/img/home-1/Solutions Media Client Logos (Monochromatic)-54.png' },
+  { name: 'Client 33', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-33.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-34.png' },
+  { name: 'Client 35', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-35.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-36.png' },
+  { name: 'Client 37', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-37.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-38.png' },
+  { name: 'Client 39', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-39.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-40.png' },
+  { name: 'Client 41', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-41.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-42.png' },
+  { name: 'Client 43', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-43.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-44.png' },
+  { name: 'Client 45', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-45.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-46.png' },
+  { name: 'Client 47', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-47.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-48.png' },
+  { name: 'Client 49', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-49.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-50.png' },
+  { name: 'Client 51', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-51.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-52.png' },
+  { name: 'Client 53', logo: '/assets/img/home-1/Lida Client Logos (Monochromatic)-53.png', logoHover: '/assets/img/home-1/Lida Client Logos (Monochromatic)-54.png' },
 ]
 
 export const navLinks = [
