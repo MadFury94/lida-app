@@ -73,7 +73,7 @@ export default function ServiceDetail() {
     window.scrollTo(0, 0)
 
     // SEO: set page title and meta description per service
-    if (service.seoTitle) {
+    if (service?.seoTitle) {
       document.title = service.seoTitle
     }
     let metaDesc = document.querySelector('meta[name="description"]')
@@ -82,10 +82,10 @@ export default function ServiceDetail() {
       metaDesc.setAttribute('name', 'description')
       document.head.appendChild(metaDesc)
     }
-    if (service.metaDescription) {
+    if (service?.metaDescription) {
       metaDesc.setAttribute('content', service.metaDescription)
     }
-  }, [slug])
+  }, [slug, service])
 
   if (!service) return <Navigate to="/services" replace />
 
@@ -126,8 +126,8 @@ export default function ServiceDetail() {
                 <p>{service.summary}</p>
               </div>
               <ul className="details-list">
-                {service.includes.map(inc => (
-                  <li key={inc}>
+                {service.includes.map((inc, i) => (
+                  <li key={i}>
                     <i className="fa-solid fa-check"></i> {inc}
                   </li>
                 ))}
@@ -171,7 +171,7 @@ export default function ServiceDetail() {
               </div>
             </div>
 
-            {/* Why Lida — 4 icon boxes, full width 4-col grid */}
+            {/* Why Solutions Media — 4 icon boxes, full width 4-col grid */}
             <div className="service-icon-details-section mt-5 pb-0">
               <div className="row g-4">
                 {(service.whyCards || [
@@ -179,8 +179,8 @@ export default function ServiceDetail() {
                   { icon: 'fa-solid fa-sliders', title: 'Define clear priorities', body: 'We help you focus time, money and effort on the actions that matter most.' },
                   { icon: 'fa-solid fa-arrow-right-arrow-left', title: 'Build a practical roadmap', body: 'You receive a clear plan for positioning, marketing, customer growth and execution.' },
                   { icon: 'fa-solid fa-chart-line', title: 'Track what matters', body: 'We define useful measures that help you see progress and improve decisions.' },
-                ]).map(item => (
-                  <div className="col-xl-3 col-lg-6 col-md-6" key={item.title}>
+                ]).map((item, i) => (
+                  <div className="col-xl-3 col-lg-6 col-md-6" key={i}>
                     <div className="details-icon-box-item h-100">
                       <div className="icon service-icon-fa">
                         <i className={item.icon}></i>
