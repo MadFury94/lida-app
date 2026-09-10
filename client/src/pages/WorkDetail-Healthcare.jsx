@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function WorkDetail() {
+export default function WorkDetailHealthcare() {
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
@@ -17,21 +17,21 @@ export default function WorkDetail() {
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Positioning A New Banking Brand</span> 
-                                        For A Confident Market Entry
+                                    <h1 class="text-white rr_title_anim"><span>Positioning Private Healthcare Excellence</span> 
+                                        In Nigeria's Growing Market
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                          Brand Identity & Campaign Creative
+                                          Brand Strategy, Trust Building & Patient Acquisition
                                         </li>
                                         <li>
-                                            (Financial Services | 2024)
+                                            (Healthcare | 2024)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                       Duxbank
+                                       MedFirst Healthcare
                                     </h2>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ export default function WorkDetail() {
                     <section class="project-details-section fix section-padding">
                         <div class="container">
                             <div class="details-thumbs fix">
-                                <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg" alt="img">
+                                <img data-speed=".8" src="/assets/img/inner-page/MedFirst Healthcare - Lida Healthcare Marketing Service.jpeg" alt="img">
                             </div>
                         </div>
                         <div class="container container-1680">
@@ -50,24 +50,24 @@ export default function WorkDetail() {
                                 <div class="project-details-top-item">
                                     <div class="top-content">
                                         <h2>
-                                           Building A Market-Ready Banking Brand
+                                           Building Trust For Premium Healthcare Services
                                         </h2>
                                         <p>
-                                           Duxbank Microfinance Bank was preparing to enter Nigeria’s competitive financial services market. The brand needed a credible, modern and consistent visual presence that could support awareness, build early trust and create distinction from day one.  </p>
+                                           MedFirst Healthcare needed to establish credibility and patient confidence for their premium private healthcare services in Nigeria's competitive medical market. The challenge was communicating medical excellence, building trust with potential patients, and differentiating from established healthcare providers.</p>
                                     </div>
                                     <div class="project-details-info-item">
                                         <div class="content">
                                             <span>Client:</span>
-                                            <p>Duxbank Microfinance Bank</p>
+                                            <p>MedFirst Healthcare</p>
                                         </div>
                                         <div class="content">
                                             <span>Services:</span>
-                                            <p>Brand Identity Refinement, Logo System, Outdoor Campaign Creative</p>
+                                            <p>Healthcare Brand Strategy, Trust Building, Patient Communications</p>
                                         </div>
                                         <div class="content">
                                             <span>Industry:
 </span>
-                                            <p> Financial Services</p>
+                                            <p> Private Healthcare</p>
                                         </div>
                                         <div class="content style-2">
                                             <span>Date:</span>
@@ -75,40 +75,40 @@ export default function WorkDetail() {
                                         </div>
                                     </div>
                                     <div class="project-details-image">
-                                        <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg" alt="img">
+                                        <img data-speed=".8" src="/assets/img/inner-page/MedFirst Healthcare - Lida Healthcare Marketing Service-15.jpeg" alt="img">
                                     </div>
                                     <div class="row g-4">
                                         <div class="col-lg-7">
                                             <div class="left-text">
                                                 <h2>
-                                                    Creating A More Credible First Impression
+                                                    From Medical Excellence To Patient Trust
                                                 </h2>
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
                                             <div class="details-content">
                                                 <p>
-Launching a new financial institution in a competitive market required more than a recognisable logo. Duxbank needed a visual identity that could feel credible and established, while still presenting the business as forward-looking and innovative.
+Healthcare is the ultimate trust-based industry. Patients need confidence in medical expertise, facility quality, and care standards before choosing a healthcare provider. This is especially critical for premium private healthcare services competing with established hospitals.
                                                 </p>
                                                 <p>
-                                              Lida refined Duxbank’s brand identity and enhanced its logo system to create greater consistency across public-facing materials. We then developed outdoor advertising creative designed to introduce the brand, build early awareness and support its market-entry ambition.
+                                              Lida developed comprehensive brand strategy and communications that positioned MedFirst Healthcare as the premier choice for discerning patients, built credible visibility through strategic channels, and created patient acquisition systems that generated measurable growth.
                                                 </p>
                                                 <ul class="details-list">
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Refined visual identity
+                                                        Healthcare brand strategy and positioning
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Enhanced logo system
+                                                        Medical expertise and trust communication
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Outdoor advertising creative
+                                                        Patient acquisition and engagement
                                                     </li>
                                                     <li>
                                                         <i class="fa-solid fa-check"></i>
-                                                        Market-entry brand assets
+                                                        Reputation management and credibility
                                                     </li>
                                                 </ul>
                                             </div>
@@ -118,55 +118,55 @@ Launching a new financial institution in a competitive market required more than
                                         <div class="row g-4">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/medfirst1.jpeg" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank2.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/medfirst2.jpeg" alt="img">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="left-text mb-4">
                                         <h2>
-                                           From Brand Review To Market-Ready Creative
+                                           From Healthcare Strategy To Patient Confidence
                                         </h2>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">01</span>
-                                                <h3>Brand review</h3>
+                                                <h3>Healthcare positioning</h3>
                                                 <p>
-                                                    We assessed the existing brand assets and clarified the visual direction needed for a credible market entry.
+                                                    We analyzed Nigeria's healthcare market to identify positioning opportunities and develop trust-based messaging strategies.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">02</span>
-                                                <h3>Identity refinement</h3>
+                                                <h3>Brand development</h3>
                                                 <p>
-                                                    We refined key visual elements and strengthened the logo system for clearer, more consistent use.
+                                                    We created brand identity and communications that communicated medical excellence, care quality, and patient-centered approach.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">03</span>
-                                                <h3>Campaign development</h3>
+                                                <h3>Trust building</h3>
                                                 <p>
-                                                   We developed outdoor advertising creative to introduce the brand and build market awareness.
+                                                   We developed physician profiles, patient testimonials, and facility showcases that built credibility and confidence.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">04</span>
-                                                <h3>Launch-ready assets</h3>
+                                                <h3>Patient acquisition</h3>
                                                 <p>
-                                                   We prepared the visual assets needed to support Duxbank's public-facing market introduction.
+                                                   We executed targeted campaigns that reached potential patients and generated appointment bookings and service inquiries.
                                                 </p>
                                             </div>
                                         </div>
@@ -177,9 +177,9 @@ Launching a new financial institution in a competitive market required more than
                                         </div>
                                         <div class="right-content">
                                             <p>
-                                                The project equipped Duxbank with a more coherent brand identity, an enhanced logo system and distinctive outdoor campaign creative for its market introduction. Together, these assets created a clearer foundation for presenting Duxbank as a modern and innovative financial institution.
+                                                MedFirst Healthcare successfully established itself as a trusted premium healthcare provider, built strong patient confidence, and achieved measurable growth in patient acquisition and service utilization across multiple medical specialties.
                                             <p class="mb-0">
-                                                <strong>Key Achievements:</strong> Delivered complete brand identity system, enhanced market credibility, and established strong visual foundation for business growth.
+                                                <strong>Key Achievements:</strong> Achieved 40% increase in patient registrations, established strong healthcare brand recognition, and built trusted reputation among target patient demographics.
                                             </p>
                                         </div>
                                     </div>
@@ -187,11 +187,11 @@ Launching a new financial institution in a competitive market required more than
                                     <!-- Client Testimonial -->
                                     <div class="client-testimonial mt-5 p-4" style="background: #f8f9fa; border-radius: 8px;">
                                         <blockquote class="mb-3">
-                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow."</p>
+                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"LIDA understood that healthcare is fundamentally about trust. They developed brand positioning and communications that properly communicated our medical expertise while building the patient confidence we needed. Their strategic approach delivered measurable patient acquisition and established our reputation in the market."</p>
                                         </blockquote>
                                         <cite style="display: block; margin-top: 15px;">
-                                            <strong>Peter A.</strong><br>
-                                            <span style="color: #666;">CEO, Duxbank Microfinance Bank</span>
+                                            <strong>Dr. Adaora N.</strong><br>
+                                            <span style="color: #666;">Chief Medical Director, MedFirst Healthcare</span>
                                         </cite>
                                     </div>
                                     

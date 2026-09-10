@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function WorkDetail() {
+export default function WorkDetailCalpak() {
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
@@ -17,21 +17,21 @@ export default function WorkDetail() {
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Positioning A New Banking Brand</span> 
-                                        For A Confident Market Entry
+                                    <h1 class="text-white rr_title_anim"><span>Introducing International Energy Brand</span> 
+                                        To Nigerian Market
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                          Brand Identity & Campaign Creative
+                                          Digital Marketing & Market Entry Strategy
                                         </li>
                                         <li>
-                                            (Financial Services | 2024)
+                                            (Energy | 2024)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                       Duxbank
+                                       Calpak Nigeria
                                     </h2>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ export default function WorkDetail() {
                     <section class="project-details-section fix section-padding">
                         <div class="container">
                             <div class="details-thumbs fix">
-                                <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg" alt="img">
+                                <img data-speed=".8" src="/assets/img/inner-page/Calpak Nigeria - Lida Digital Marketing Campaign Service.jpeg" alt="img">
                             </div>
                         </div>
                         <div class="container container-1680">
@@ -50,24 +50,24 @@ export default function WorkDetail() {
                                 <div class="project-details-top-item">
                                     <div class="top-content">
                                         <h2>
-                                           Building A Market-Ready Banking Brand
+                                           Building Trust For Energy Solutions In Nigeria
                                         </h2>
                                         <p>
-                                           Duxbank Microfinance Bank was preparing to enter Nigeria’s competitive financial services market. The brand needed a credible, modern and consistent visual presence that could support awareness, build early trust and create distinction from day one.  </p>
+                                           Calpak Nigeria needed to establish credibility and awareness for their international energy solutions in Nigeria's competitive market. The challenge was building local trust for an international brand while generating measurable commercial results from the first campaign.</p>
                                     </div>
                                     <div class="project-details-info-item">
                                         <div class="content">
                                             <span>Client:</span>
-                                            <p>Duxbank Microfinance Bank</p>
+                                            <p>Calpak Nigeria</p>
                                         </div>
                                         <div class="content">
                                             <span>Services:</span>
-                                            <p>Brand Identity Refinement, Logo System, Outdoor Campaign Creative</p>
+                                            <p>Digital Marketing, Market Entry Strategy, Campaign Management</p>
                                         </div>
                                         <div class="content">
                                             <span>Industry:
 </span>
-                                            <p> Financial Services</p>
+                                            <p> Energy Solutions</p>
                                         </div>
                                         <div class="content style-2">
                                             <span>Date:</span>
@@ -75,40 +75,40 @@ export default function WorkDetail() {
                                         </div>
                                     </div>
                                     <div class="project-details-image">
-                                        <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg" alt="img">
+                                        <img data-speed=".8" src="/assets/img/inner-page/Calpak Nigeria - Lida Digital Marketing Campaign Service-15.jpeg" alt="img">
                                     </div>
                                     <div class="row g-4">
                                         <div class="col-lg-7">
                                             <div class="left-text">
                                                 <h2>
-                                                    Creating A More Credible First Impression
+                                                    From International Brand To Local Market Leader
                                                 </h2>
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
                                             <div class="details-content">
                                                 <p>
-Launching a new financial institution in a competitive market required more than a recognisable logo. Duxbank needed a visual identity that could feel credible and established, while still presenting the business as forward-looking and innovative.
+Introducing an established international energy brand to the Nigerian market required more than translation. It needed local understanding, trusted positioning, and campaigns that could build credibility while generating immediate commercial impact.
                                                 </p>
                                                 <p>
-                                              Lida refined Duxbank’s brand identity and enhanced its logo system to create greater consistency across public-facing materials. We then developed outdoor advertising creative designed to introduce the brand, build early awareness and support its market-entry ambition.
+                                              Lida developed Calpak Nigeria's market entry strategy, managed their complete digital presence, and executed targeted campaigns that reached decision-makers across key market segments. The result was rapid sales growth and strong market recognition.
                                                 </p>
                                                 <ul class="details-list">
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Refined visual identity
+                                                        Market research and positioning
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Enhanced logo system
+                                                        Multi-channel digital campaigns
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Outdoor advertising creative
+                                                        Local partnership development
                                                     </li>
                                                     <li>
                                                         <i class="fa-solid fa-check"></i>
-                                                        Market-entry brand assets
+                                                        Performance tracking and optimization
                                                     </li>
                                                 </ul>
                                             </div>
@@ -118,55 +118,55 @@ Launching a new financial institution in a competitive market required more than
                                         <div class="row g-4">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/calpak1.jpeg" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank2.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/calpak2.jpeg" alt="img">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="left-text mb-4">
                                         <h2>
-                                           From Brand Review To Market-Ready Creative
+                                           From Market Research To Commercial Success
                                         </h2>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">01</span>
-                                                <h3>Brand review</h3>
+                                                <h3>Market analysis</h3>
                                                 <p>
-                                                    We assessed the existing brand assets and clarified the visual direction needed for a credible market entry.
+                                                    We conducted comprehensive research to understand the Nigerian energy sector, identifying key opportunities and market positioning strategies.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">02</span>
-                                                <h3>Identity refinement</h3>
+                                                <h3>Campaign development</h3>
                                                 <p>
-                                                    We refined key visual elements and strengthened the logo system for clearer, more consistent use.
+                                                    We developed targeted campaigns focused on building trust, demonstrating value, and reaching decision-makers across key market segments.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">03</span>
-                                                <h3>Campaign development</h3>
+                                                <h3>Digital execution</h3>
                                                 <p>
-                                                   We developed outdoor advertising creative to introduce the brand and build market awareness.
+                                                   We launched multi-platform digital campaigns with localized messaging, strategic media placement, and performance optimization.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">04</span>
-                                                <h3>Launch-ready assets</h3>
+                                                <h3>Results tracking</h3>
                                                 <p>
-                                                   We prepared the visual assets needed to support Duxbank's public-facing market introduction.
+                                                   We implemented comprehensive tracking to measure brand awareness, engagement, and commercial impact across all campaign elements.
                                                 </p>
                                             </div>
                                         </div>
@@ -177,9 +177,9 @@ Launching a new financial institution in a competitive market required more than
                                         </div>
                                         <div class="right-content">
                                             <p>
-                                                The project equipped Duxbank with a more coherent brand identity, an enhanced logo system and distinctive outdoor campaign creative for its market introduction. Together, these assets created a clearer foundation for presenting Duxbank as a modern and innovative financial institution.
+                                                The campaign successfully established Calpak Nigeria as a credible energy solutions provider, achieving significant sales growth and market recognition within the first quarter of launch.
                                             <p class="mb-0">
-                                                <strong>Key Achievements:</strong> Delivered complete brand identity system, enhanced market credibility, and established strong visual foundation for business growth.
+                                                <strong>Key Achievements:</strong> Generated 25.9 million impressions, increased sales by 35x, and established strong brand presence in the Nigerian energy sector.
                                             </p>
                                         </div>
                                     </div>
@@ -187,11 +187,11 @@ Launching a new financial institution in a competitive market required more than
                                     <!-- Client Testimonial -->
                                     <div class="client-testimonial mt-5 p-4" style="background: #f8f9fa; border-radius: 8px;">
                                         <blockquote class="mb-3">
-                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow."</p>
+                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"LIDA's market entry strategy was precisely what we needed. They understood both our international standards and the local market dynamics. The campaign results exceeded our expectations, delivering measurable commercial impact while building the brand credibility we needed for long-term success."</p>
                                         </blockquote>
                                         <cite style="display: block; margin-top: 15px;">
-                                            <strong>Peter A.</strong><br>
-                                            <span style="color: #666;">CEO, Duxbank Microfinance Bank</span>
+                                            <strong>James M.</strong><br>
+                                            <span style="color: #666;">Managing Director, Calpak Nigeria</span>
                                         </cite>
                                     </div>
                                     

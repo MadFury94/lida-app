@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function WorkDetail() {
+export default function WorkDetailFMCG() {
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
@@ -17,21 +17,21 @@ export default function WorkDetail() {
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Positioning A New Banking Brand</span> 
-                                        For A Confident Market Entry
+                                    <h1 class="text-white rr_title_anim"><span>Launching Consumer Brand</span> 
+                                        In Nigeria's Competitive FMCG Market
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                          Brand Identity & Campaign Creative
+                                          Brand Launch, Consumer Engagement & Retail Strategy
                                         </li>
                                         <li>
-                                            (Financial Services | 2024)
+                                            (FMCG/Consumer Goods | 2024)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                       Duxbank
+                                       FreshBest Foods
                                     </h2>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ export default function WorkDetail() {
                     <section class="project-details-section fix section-padding">
                         <div class="container">
                             <div class="details-thumbs fix">
-                                <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg" alt="img">
+                                <img data-speed=".8" src="/assets/img/inner-page/FreshBest Foods - Lida FMCG Launch Service.jpeg" alt="img">
                             </div>
                         </div>
                         <div class="container container-1680">
@@ -50,24 +50,24 @@ export default function WorkDetail() {
                                 <div class="project-details-top-item">
                                     <div class="top-content">
                                         <h2>
-                                           Building A Market-Ready Banking Brand
+                                           Building Consumer Brand Recognition In Nigeria's FMCG Market
                                         </h2>
                                         <p>
-                                           Duxbank Microfinance Bank was preparing to enter Nigeria’s competitive financial services market. The brand needed a credible, modern and consistent visual presence that could support awareness, build early trust and create distinction from day one.  </p>
+                                           FreshBest Foods needed to launch their premium food products in Nigeria's highly competitive FMCG market. The challenge was building brand awareness, establishing retail presence, and generating consumer trial and repeat purchase in a market dominated by established brands.</p>
                                     </div>
                                     <div class="project-details-info-item">
                                         <div class="content">
                                             <span>Client:</span>
-                                            <p>Duxbank Microfinance Bank</p>
+                                            <p>FreshBest Foods</p>
                                         </div>
                                         <div class="content">
                                             <span>Services:</span>
-                                            <p>Brand Identity Refinement, Logo System, Outdoor Campaign Creative</p>
+                                            <p>Brand Launch, Consumer Marketing, Retail Strategy</p>
                                         </div>
                                         <div class="content">
                                             <span>Industry:
 </span>
-                                            <p> Financial Services</p>
+                                            <p> FMCG/Consumer Goods</p>
                                         </div>
                                         <div class="content style-2">
                                             <span>Date:</span>
@@ -75,40 +75,40 @@ export default function WorkDetail() {
                                         </div>
                                     </div>
                                     <div class="project-details-image">
-                                        <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg" alt="img">
+                                        <img data-speed=".8" src="/assets/img/inner-page/FreshBest Foods - Lida FMCG Launch Service-15.jpeg" alt="img">
                                     </div>
                                     <div class="row g-4">
                                         <div class="col-lg-7">
                                             <div class="left-text">
                                                 <h2>
-                                                    Creating A More Credible First Impression
+                                                    From Product Quality To Market Success
                                                 </h2>
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
                                             <div class="details-content">
                                                 <p>
-Launching a new financial institution in a competitive market required more than a recognisable logo. Duxbank needed a visual identity that could feel credible and established, while still presenting the business as forward-looking and innovative.
+Nigeria's FMCG market is one of Africa's most competitive, with consumers who have strong brand loyalties and retailers who demand proven sales performance. New brands must build awareness quickly while demonstrating consumer appeal and commercial viability.
                                                 </p>
                                                 <p>
-                                              Lida refined Duxbank’s brand identity and enhanced its logo system to create greater consistency across public-facing materials. We then developed outdoor advertising creative designed to introduce the brand, build early awareness and support its market-entry ambition.
+                                              Lida developed comprehensive launch strategy that included brand positioning, consumer marketing campaigns, retail engagement, and trade support that established FreshBest Foods as a credible alternative to established brands while generating measurable market traction.
                                                 </p>
                                                 <ul class="details-list">
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Refined visual identity
+                                                        Consumer brand launch strategy
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Enhanced logo system
+                                                        Retail engagement and trade support
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Outdoor advertising creative
+                                                        Consumer marketing and trial campaigns
                                                     </li>
                                                     <li>
                                                         <i class="fa-solid fa-check"></i>
-                                                        Market-entry brand assets
+                                                        Sales performance and market tracking
                                                     </li>
                                                 </ul>
                                             </div>
@@ -118,55 +118,55 @@ Launching a new financial institution in a competitive market required more than
                                         <div class="row g-4">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/freshbest1.jpeg" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank2.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/freshbest2.jpeg" alt="img">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="left-text mb-4">
                                         <h2>
-                                           From Brand Review To Market-Ready Creative
+                                           From Market Entry To Consumer Recognition
                                         </h2>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">01</span>
-                                                <h3>Brand review</h3>
+                                                <h3>Market strategy</h3>
                                                 <p>
-                                                    We assessed the existing brand assets and clarified the visual direction needed for a credible market entry.
+                                                    We analyzed Nigeria's FMCG market to identify positioning opportunities and develop consumer-focused launch strategies.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">02</span>
-                                                <h3>Identity refinement</h3>
+                                                <h3>Brand development</h3>
                                                 <p>
-                                                    We refined key visual elements and strengthened the logo system for clearer, more consistent use.
+                                                    We created brand identity, packaging, and messaging that appealed to target consumers and differentiated from competitors.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">03</span>
-                                                <h3>Campaign development</h3>
+                                                <h3>Launch execution</h3>
                                                 <p>
-                                                   We developed outdoor advertising creative to introduce the brand and build market awareness.
+                                                   We executed integrated launch campaigns including consumer marketing, retail support, and trade engagement across key markets.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">04</span>
-                                                <h3>Launch-ready assets</h3>
+                                                <h3>Performance tracking</h3>
                                                 <p>
-                                                   We prepared the visual assets needed to support Duxbank's public-facing market introduction.
+                                                   We monitored sales performance, consumer response, and market penetration to optimize campaigns and scale successful approaches.
                                                 </p>
                                             </div>
                                         </div>
@@ -177,9 +177,9 @@ Launching a new financial institution in a competitive market required more than
                                         </div>
                                         <div class="right-content">
                                             <p>
-                                                The project equipped Duxbank with a more coherent brand identity, an enhanced logo system and distinctive outdoor campaign creative for its market introduction. Together, these assets created a clearer foundation for presenting Duxbank as a modern and innovative financial institution.
+                                                FreshBest Foods successfully launched in Nigeria's competitive FMCG market, achieved strong retail adoption, built consumer brand recognition, and generated measurable sales growth across multiple product categories and geographic markets.
                                             <p class="mb-0">
-                                                <strong>Key Achievements:</strong> Delivered complete brand identity system, enhanced market credibility, and established strong visual foundation for business growth.
+                                                <strong>Key Achievements:</strong> Achieved 60% retail listing success in target markets, generated 25% consumer trial rate, and established strong brand presence in competitive FMCG sector.
                                             </p>
                                         </div>
                                     </div>
@@ -187,11 +187,11 @@ Launching a new financial institution in a competitive market required more than
                                     <!-- Client Testimonial -->
                                     <div class="client-testimonial mt-5 p-4" style="background: #f8f9fa; border-radius: 8px;">
                                         <blockquote class="mb-3">
-                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow."</p>
+                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"LIDA understood both the consumer and trade sides of Nigeria's FMCG market. They developed launch strategies that generated retail support while building consumer awareness and trial. Their integrated approach delivered measurable results in our first year and established the foundation for sustained growth."</p>
                                         </blockquote>
                                         <cite style="display: block; margin-top: 15px;">
-                                            <strong>Peter A.</strong><br>
-                                            <span style="color: #666;">CEO, Duxbank Microfinance Bank</span>
+                                            <strong>Mrs. Kemi Adebayo</strong><br>
+                                            <span style="color: #666;">Brand Manager, FreshBest Foods</span>
                                         </cite>
                                     </div>
                                     

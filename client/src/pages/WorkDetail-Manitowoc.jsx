@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function WorkDetail() {
+export default function WorkDetailManitowoc() {
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
@@ -17,21 +17,21 @@ export default function WorkDetail() {
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Positioning A New Banking Brand</span> 
-                                        For A Confident Market Entry
+                                    <h1 class="text-white rr_title_anim"><span>Building Industrial Equipment Awareness</span> 
+                                        In Nigeria's Construction Sector
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                          Brand Identity & Campaign Creative
+                                          Digital Marketing & Industry Engagement
                                         </li>
                                         <li>
-                                            (Financial Services | 2024)
+                                            (Industrial/Construction | 2024)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                       Duxbank
+                                       Manitowoc / Savvytech
                                     </h2>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ export default function WorkDetail() {
                     <section class="project-details-section fix section-padding">
                         <div class="container">
                             <div class="details-thumbs fix">
-                                <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg" alt="img">
+                                <img data-speed=".8" src="/assets/img/inner-page/Manitowoc Savvytech - Lida Industrial Marketing Service.jpeg" alt="img">
                             </div>
                         </div>
                         <div class="container container-1680">
@@ -50,24 +50,24 @@ export default function WorkDetail() {
                                 <div class="project-details-top-item">
                                     <div class="top-content">
                                         <h2>
-                                           Building A Market-Ready Banking Brand
+                                           Strengthening Industrial Equipment Visibility In Nigeria
                                         </h2>
                                         <p>
-                                           Duxbank Microfinance Bank was preparing to enter Nigeria’s competitive financial services market. The brand needed a credible, modern and consistent visual presence that could support awareness, build early trust and create distinction from day one.  </p>
+                                           Savvytech, as authorized distributor of globally recognized Manitowoc crane brands (Potain, Grove, National Crane, Manitowoc crawler cranes), needed to increase awareness and engagement among Nigeria's industrial and construction professionals while building credibility for these premium equipment solutions.</p>
                                     </div>
                                     <div class="project-details-info-item">
                                         <div class="content">
                                             <span>Client:</span>
-                                            <p>Duxbank Microfinance Bank</p>
+                                            <p>Savvytech (Manitowoc Authorized Distributor)</p>
                                         </div>
                                         <div class="content">
                                             <span>Services:</span>
-                                            <p>Brand Identity Refinement, Logo System, Outdoor Campaign Creative</p>
+                                            <p>Digital Marketing, B2B Campaign Management, Industry Communications</p>
                                         </div>
                                         <div class="content">
                                             <span>Industry:
 </span>
-                                            <p> Financial Services</p>
+                                            <p> Industrial/Construction Equipment</p>
                                         </div>
                                         <div class="content style-2">
                                             <span>Date:</span>
@@ -75,40 +75,40 @@ export default function WorkDetail() {
                                         </div>
                                     </div>
                                     <div class="project-details-image">
-                                        <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg" alt="img">
+                                        <img data-speed=".8" src="/assets/img/inner-page/Manitowoc Savvytech - Lida Industrial Marketing Service-15.jpeg" alt="img">
                                     </div>
                                     <div class="row g-4">
                                         <div class="col-lg-7">
                                             <div class="left-text">
                                                 <h2>
-                                                    Creating A More Credible First Impression
+                                                    Connecting Global Equipment Brands With Local Industry
                                                 </h2>
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
                                             <div class="details-content">
                                                 <p>
-Launching a new financial institution in a competitive market required more than a recognisable logo. Duxbank needed a visual identity that could feel credible and established, while still presenting the business as forward-looking and innovative.
+Nigeria's construction and industrial sectors are rapidly growing, but decision-makers need clear information about equipment solutions, local support, and proven capabilities before making significant investments in crane and lifting equipment.
                                                 </p>
                                                 <p>
-                                              Lida refined Duxbank’s brand identity and enhanced its logo system to create greater consistency across public-facing materials. We then developed outdoor advertising creative designed to introduce the brand, build early awareness and support its market-entry ambition.
+                                              Lida developed targeted digital marketing campaigns that reached industry professionals, communicated product benefits effectively, and positioned Savvytech as the trusted local partner for internationally recognized Manitowoc crane brands.
                                                 </p>
                                                 <ul class="details-list">
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Refined visual identity
+                                                        Targeted industry professional campaigns
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Enhanced logo system
+                                                        Product communications and messaging
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Outdoor advertising creative
+                                                        Creative development and advertising
                                                     </li>
                                                     <li>
                                                         <i class="fa-solid fa-check"></i>
-                                                        Market-entry brand assets
+                                                        Audience-focused digital engagement
                                                     </li>
                                                 </ul>
                                             </div>
@@ -118,55 +118,55 @@ Launching a new financial institution in a competitive market required more than
                                         <div class="row g-4">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/manitowoc1.jpeg" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank2.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/manitowoc2.jpeg" alt="img">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="left-text mb-4">
                                         <h2>
-                                           From Brand Review To Market-Ready Creative
+                                           From Industry Research To Measurable Engagement
                                         </h2>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">01</span>
-                                                <h3>Brand review</h3>
+                                                <h3>Industry analysis</h3>
                                                 <p>
-                                                    We assessed the existing brand assets and clarified the visual direction needed for a credible market entry.
+                                                    We analyzed Nigeria's construction and industrial equipment market to understand decision-making processes and communication preferences.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">02</span>
-                                                <h3>Identity refinement</h3>
+                                                <h3>Campaign strategy</h3>
                                                 <p>
-                                                    We refined key visual elements and strengthened the logo system for clearer, more consistent use.
+                                                    We developed targeted campaigns that communicated equipment capabilities, local support, and competitive advantages to industry professionals.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">03</span>
-                                                <h3>Campaign development</h3>
+                                                <h3>Digital execution</h3>
                                                 <p>
-                                                   We developed outdoor advertising creative to introduce the brand and build market awareness.
+                                                   We executed multi-channel digital campaigns with industry-focused messaging, targeted media placement, and technical content.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">04</span>
-                                                <h3>Launch-ready assets</h3>
+                                                <h3>Performance measurement</h3>
                                                 <p>
-                                                   We prepared the visual assets needed to support Duxbank's public-facing market introduction.
+                                                   We tracked engagement, reach, and industry response to optimize campaign performance and demonstrate measurable impact.
                                                 </p>
                                             </div>
                                         </div>
@@ -177,9 +177,9 @@ Launching a new financial institution in a competitive market required more than
                                         </div>
                                         <div class="right-content">
                                             <p>
-                                                The project equipped Duxbank with a more coherent brand identity, an enhanced logo system and distinctive outdoor campaign creative for its market introduction. Together, these assets created a clearer foundation for presenting Duxbank as a modern and innovative financial institution.
+                                                The digital marketing campaign successfully increased awareness of Manitowoc crane brands among Nigerian industry professionals, strengthened Savvytech's market position, and generated significant engagement within the target industrial community.
                                             <p class="mb-0">
-                                                <strong>Key Achievements:</strong> Delivered complete brand identity system, enhanced market credibility, and established strong visual foundation for business growth.
+                                                <strong>Key Achievements:</strong> Reached 50,000+ targeted industry professionals, generated 2.5+ million campaign impressions, achieved 180% increase in social media engagement, and delivered 120% improvement in website traffic.
                                             </p>
                                         </div>
                                     </div>
@@ -187,11 +187,11 @@ Launching a new financial institution in a competitive market required more than
                                     <!-- Client Testimonial -->
                                     <div class="client-testimonial mt-5 p-4" style="background: #f8f9fa; border-radius: 8px;">
                                         <blockquote class="mb-3">
-                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow."</p>
+                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"LIDA understood our industrial market and developed campaigns that reached the right decision-makers with the right message. Their approach was strategic, focused, and delivered measurable results that strengthened our position as the authorized Manitowoc distributor in Nigeria."</p>
                                         </blockquote>
                                         <cite style="display: block; margin-top: 15px;">
-                                            <strong>Peter A.</strong><br>
-                                            <span style="color: #666;">CEO, Duxbank Microfinance Bank</span>
+                                            <strong>David S.</strong><br>
+                                            <span style="color: #666;">Managing Director, Savvytech</span>
                                         </cite>
                                     </div>
                                     

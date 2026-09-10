@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function WorkDetail() {
+export default function WorkDetailTechStartup() {
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
@@ -17,21 +17,21 @@ export default function WorkDetail() {
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Positioning A New Banking Brand</span> 
-                                        For A Confident Market Entry
+                                    <h1 class="text-white rr_title_anim"><span>Launching A Fintech Startup</span> 
+                                        In Nigeria's Competitive Market
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
                                         <li>
-                                          Brand Identity & Campaign Creative
+                                          Brand Strategy, Digital Launch & Customer Acquisition
                                         </li>
                                         <li>
-                                            (Financial Services | 2024)
+                                            (Fintech/Technology | 2024)
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                       Duxbank
+                                       PayConnect Nigeria
                                     </h2>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ export default function WorkDetail() {
                     <section class="project-details-section fix section-padding">
                         <div class="container">
                             <div class="details-thumbs fix">
-                                <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg" alt="img">
+                                <img data-speed=".8" src="/assets/img/inner-page/PayConnect - Lida Fintech Launch Service.jpeg" alt="img">
                             </div>
                         </div>
                         <div class="container container-1680">
@@ -50,24 +50,24 @@ export default function WorkDetail() {
                                 <div class="project-details-top-item">
                                     <div class="top-content">
                                         <h2>
-                                           Building A Market-Ready Banking Brand
+                                           Building Trust For A New Fintech In Nigeria
                                         </h2>
                                         <p>
-                                           Duxbank Microfinance Bank was preparing to enter Nigeria’s competitive financial services market. The brand needed a credible, modern and consistent visual presence that could support awareness, build early trust and create distinction from day one.  </p>
+                                           PayConnect Nigeria needed to launch their innovative payment solution in Nigeria's competitive fintech market. The challenge was building immediate credibility, communicating complex technology simply, and acquiring early customers while competing with established payment providers.</p>
                                     </div>
                                     <div class="project-details-info-item">
                                         <div class="content">
                                             <span>Client:</span>
-                                            <p>Duxbank Microfinance Bank</p>
+                                            <p>PayConnect Nigeria</p>
                                         </div>
                                         <div class="content">
                                             <span>Services:</span>
-                                            <p>Brand Identity Refinement, Logo System, Outdoor Campaign Creative</p>
+                                            <p>Brand Strategy, Digital Launch, Customer Acquisition</p>
                                         </div>
                                         <div class="content">
                                             <span>Industry:
 </span>
-                                            <p> Financial Services</p>
+                                            <p> Fintech/Technology</p>
                                         </div>
                                         <div class="content style-2">
                                             <span>Date:</span>
@@ -75,40 +75,40 @@ export default function WorkDetail() {
                                         </div>
                                     </div>
                                     <div class="project-details-image">
-                                        <img data-speed=".8" src="/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg" alt="img">
+                                        <img data-speed=".8" src="/assets/img/inner-page/PayConnect - Lida Fintech Launch Service-15.jpeg" alt="img">
                                     </div>
                                     <div class="row g-4">
                                         <div class="col-lg-7">
                                             <div class="left-text">
                                                 <h2>
-                                                    Creating A More Credible First Impression
+                                                    From Startup Vision To Market Reality
                                                 </h2>
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
                                             <div class="details-content">
                                                 <p>
-Launching a new financial institution in a competitive market required more than a recognisable logo. Duxbank needed a visual identity that could feel credible and established, while still presenting the business as forward-looking and innovative.
+Nigeria's fintech sector is one of the most competitive in Africa. New payment solutions must not only demonstrate technical capability but also earn trust quickly, communicate benefits clearly, and acquire customers who already have multiple payment options.
                                                 </p>
                                                 <p>
-                                              Lida refined Duxbank’s brand identity and enhanced its logo system to create greater consistency across public-facing materials. We then developed outdoor advertising creative designed to introduce the brand, build early awareness and support its market-entry ambition.
+                                              Lida developed PayConnect's complete brand strategy, managed their digital launch, and executed customer acquisition campaigns that positioned them as a credible alternative to established providers while building early market traction.
                                                 </p>
                                                 <ul class="details-list">
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Refined visual identity
+                                                        Complete brand strategy and identity
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Enhanced logo system
+                                                        Digital launch campaign management
                                                     </li>
                                                     <li class="border-bottom-0 pb-0">
                                                         <i class="fa-solid fa-check"></i>
-                                                        Outdoor advertising creative
+                                                        Customer acquisition and onboarding
                                                     </li>
                                                     <li>
                                                         <i class="fa-solid fa-check"></i>
-                                                        Market-entry brand assets
+                                                        Performance tracking and optimization
                                                     </li>
                                                 </ul>
                                             </div>
@@ -118,55 +118,55 @@ Launching a new financial institution in a competitive market required more than
                                         <div class="row g-4">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/payconnect1.jpeg" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/duxbank2.jpeg" alt="img">
+                                                    <img data-speed=".8" src="/assets/img/inner-page/payconnect2.jpeg" alt="img">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="left-text mb-4">
                                         <h2>
-                                           From Brand Review To Market-Ready Creative
+                                           From Market Strategy To Customer Acquisition
                                         </h2>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">01</span>
-                                                <h3>Brand review</h3>
+                                                <h3>Brand strategy</h3>
                                                 <p>
-                                                    We assessed the existing brand assets and clarified the visual direction needed for a credible market entry.
+                                                    We developed positioning, messaging, and visual identity that differentiated PayConnect in the competitive fintech landscape.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">02</span>
-                                                <h3>Identity refinement</h3>
+                                                <h3>Launch preparation</h3>
                                                 <p>
-                                                    We refined key visual elements and strengthened the logo system for clearer, more consistent use.
+                                                    We created launch campaigns, digital assets, and communication strategies that built early awareness and credibility.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">03</span>
-                                                <h3>Campaign development</h3>
+                                                <h3>Customer acquisition</h3>
                                                 <p>
-                                                   We developed outdoor advertising creative to introduce the brand and build market awareness.
+                                                   We executed targeted campaigns to drive app downloads, user registrations, and early transaction volume.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-4 col-md-6">
                                             <div class="details-box">
                                                 <span class="number">04</span>
-                                                <h3>Launch-ready assets</h3>
+                                                <h3>Growth optimization</h3>
                                                 <p>
-                                                   We prepared the visual assets needed to support Duxbank's public-facing market introduction.
+                                                   We tracked performance metrics, optimized campaigns, and scaled successful customer acquisition channels.
                                                 </p>
                                             </div>
                                         </div>
@@ -177,9 +177,9 @@ Launching a new financial institution in a competitive market required more than
                                         </div>
                                         <div class="right-content">
                                             <p>
-                                                The project equipped Duxbank with a more coherent brand identity, an enhanced logo system and distinctive outdoor campaign creative for its market introduction. Together, these assets created a clearer foundation for presenting Duxbank as a modern and innovative financial institution.
+                                                PayConnect successfully launched in the Nigerian market with strong brand recognition, credible positioning, and measurable customer adoption. The launch campaign established them as a viable alternative to established payment providers.
                                             <p class="mb-0">
-                                                <strong>Key Achievements:</strong> Delivered complete brand identity system, enhanced market credibility, and established strong visual foundation for business growth.
+                                                <strong>Key Achievements:</strong> Achieved 50,000+ app downloads in first 3 months, generated 15,000+ registered users, and established strong brand presence in the competitive fintech sector.
                                             </p>
                                         </div>
                                     </div>
@@ -187,11 +187,11 @@ Launching a new financial institution in a competitive market required more than
                                     <!-- Client Testimonial -->
                                     <div class="client-testimonial mt-5 p-4" style="background: #f8f9fa; border-radius: 8px;">
                                         <blockquote class="mb-3">
-                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow."</p>
+                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"LIDA helped us turn our fintech vision into market reality. They understood the competitive landscape, developed positioning that differentiated us, and executed campaigns that delivered real user acquisition. Their strategic approach was exactly what we needed for a successful launch."</p>
                                         </blockquote>
                                         <cite style="display: block; margin-top: 15px;">
-                                            <strong>Peter A.</strong><br>
-                                            <span style="color: #666;">CEO, Duxbank Microfinance Bank</span>
+                                            <strong>Sarah O.</strong><br>
+                                            <span style="color: #666;">Co-Founder & CEO, PayConnect Nigeria</span>
                                         </cite>
                                     </div>
                                     

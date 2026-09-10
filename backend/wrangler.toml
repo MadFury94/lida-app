@@ -1,6 +1,6 @@
 name = "lida-backend"
 main = "src/index.js"
-compatibility_date = "2026-08-22"
+compatibility_date = "2024-06-16"
 compatibility_flags = ["nodejs_compat"]
 
 [observability]
@@ -20,22 +20,53 @@ binding = "CONTACT_SUBMISSIONS"
 id = "REPLACE_WITH_KV_NAMESPACE_ID"
 preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
 
+# ── R2 Bucket for Media Storage ──────────────────────────────
+# For admin media uploads (images, documents, assets)
+#
+# To create (run once):
+#   npx wrangler r2 bucket create lida-media
+#
+[[r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "lida-media"
+
 # ── Secrets (set via CLI, never in this file) ─────────────────
 # npx wrangler secret put ADMIN_API_KEY
 # npx wrangler secret put CONTACT_EMAIL_TO
 # npx wrangler secret put RESEND_API_KEY
+# npx wrangler secret put JWT_SECRET
+# npx wrangler secret put ADMIN_USERNAME
+# npx wrangler secret put ADMIN_PASSWORD_HASH
 #
-# ADMIN_API_KEY      — shared secret for admin panel (X-Admin-Key header)
-# CONTACT_EMAIL_TO   — recipient address for contact form email alerts (e.g. hello@lidadigital.com.ng)
-# RESEND_API_KEY     — API key from resend.com (re_xxxxxxxx)
+# ADMIN_API_KEY       — shared secret for admin panel (X-Admin-Key header)
+# CONTACT_EMAIL_TO    — recipient address for contact form email alerts (e.g. hello@lidadigital.com.ng)
+# RESEND_API_KEY      — API key from resend.com (re_xxxxxxxx)
+# JWT_SECRET          — secret for JWT token signing (generate: openssl rand -base64 32)
+# ADMIN_USERNAME      — admin login username
+# ADMIN_PASSWORD_HASH — bcrypt hash of admin password (generate online or via bcrypt)
 
 # ── Environment variables ─────────────────────────────────────
 [vars]
 ENVIRONMENT = "production"
 ALLOWED_ORIGINS = "https://lida.ng,https://www.lida.ng,https://admin.lida.ng"
+JWT_EXPIRY = "24h"
+MAX_UPLOAD_SIZE = "10485760"  # 10MB in bytes
+ALLOWED_FILE_TYPES = "image/jpeg,image/png,image/webp,image/gif,application/pdf"
 
 # ── Local dev overrides ───────────────────────────────────────
 [env.dev]
 [env.dev.vars]
 ENVIRONMENT = "development"
 ALLOWED_ORIGINS = "http://localhost:5173,http://localhost:5174,http://localhost:3000"
+JWT_EXPIRY = "24h"
+MAX_UPLOAD_SIZE = "10485760"
+ALLOWED_FILE_TYPES = "image/jpeg,image/png,image/webp,image/gif,application/pdf"
+
+[[env.dev.kv_namespaces]]
+binding = "CONTACT_SUBMISSIONS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
+
+[[env.dev.r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "lida-media"

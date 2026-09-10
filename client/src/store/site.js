@@ -395,6 +395,7 @@ export const caseStudies = [
     client: 'Calpak Nigeria',
     sector: 'Energy',
     tags: ['Energy', 'Digital', 'Market Entry'],
+    year: '2024',
     challenge: 'Introducing an internationally recognized energy solutions brand into the Nigerian market while building awareness, trust, and local relevance.',
     solution: 'Developed and managed Calpak Nigeria\'s digital presence, executed targeted advertising campaigns, and produced locally optimized marketing materials and events.',
     impact: '25.9M campaign impressions. Sales grew from 50–100 units per month at campaign start, to 350+ units per month by Month 3.',
@@ -405,12 +406,66 @@ export const caseStudies = [
     ],
     image: '/assets/img/home-1/project-01.jpg',
     thumb: '/assets/img/home-1/projecr-01.jpg',
+    // Detailed project information
+    detailImages: {
+      hero: '/assets/img/inner-page/calpak-hero.jpg',
+      main: '/assets/img/inner-page/calpak-main.jpg',
+      gallery: [
+        '/assets/img/inner-page/calpak-gallery-1.jpg',
+        '/assets/img/inner-page/calpak-gallery-2.jpg'
+      ]
+    },
+    projectInfo: {
+      client: 'Calpak Nigeria',
+      services: 'Digital Marketing, Brand Positioning',
+      platform: 'Multi-channel Campaign',
+      date: 'Q2 2024'
+    },
+    detailDescription: {
+      title: 'Energy market expansion strategy',
+      subtitle: 'Building trust and awareness for international energy brand in Nigerian market',
+      content: `This comprehensive market entry campaign focused on establishing Calpak Nigeria as a trusted energy solutions provider in the competitive Nigerian market. Through strategic digital marketing, local partnerships, and targeted communications, we built brand awareness while generating measurable commercial results.`,
+      features: [
+        'Market research and positioning strategy',
+        'Multi-channel digital campaigns',
+        'Local partnership development',
+        'Performance tracking and optimization'
+      ]
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Market Analysis',
+        description: 'We conducted comprehensive research to understand the Nigerian energy sector, identifying key opportunities and market positioning strategies.'
+      },
+      {
+        step: '02',
+        title: 'Campaign Development',
+        description: 'Developed targeted campaigns focused on building trust, demonstrating value, and reaching decision-makers across key market segments.'
+      },
+      {
+        step: '03',
+        title: 'Digital Execution',
+        description: 'Launched multi-platform digital campaigns with localized messaging, strategic media placement, and performance optimization.'
+      },
+      {
+        step: '04',
+        title: 'Results Tracking',
+        description: 'Implemented comprehensive tracking to measure brand awareness, engagement, and commercial impact across all campaign elements.'
+      }
+    ],
+    finalResult: {
+      title: 'Market Entry Success',
+      description: 'The campaign successfully established Calpak Nigeria as a credible energy solutions provider, achieving significant sales growth and market recognition within the first quarter of launch.',
+      keyAchievements: 'Generated 25.9 million impressions, increased sales by 35x, and established strong brand presence in the Nigerian energy sector.'
+    }
   },
   {
     slug: 'duxbank',
     client: 'Duxbank Microfinance Bank',
     sector: 'Financial Services',
     tags: ['Finance', 'Branding', 'Identity'],
+    year: '2024',
     challenge: 'Launching a new financial institution in a highly competitive market while establishing credibility and differentiation from day one.',
     solution: 'Refined the bank\'s brand identity, enhanced its logo system, and developed high-impact outdoor campaign creatives for market introduction and long-term positioning.',
     impact: 'Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow.',
@@ -423,12 +478,66 @@ export const caseStudies = [
     ],
     image: '/assets/img/home-1/project-02.jpg',
     thumb: '/assets/img/home-1/projecr-02.jpg',
+    // Detailed project information
+    detailImages: {
+      hero: '/assets/img/inner-page/duxbank-hero.jpg',
+      main: '/assets/img/inner-page/duxbank-main.jpg',
+      gallery: [
+        '/assets/img/inner-page/duxbank-gallery-1.jpg',
+        '/assets/img/inner-page/duxbank-gallery-2.jpg'
+      ]
+    },
+    projectInfo: {
+      client: 'Duxbank Microfinance Bank',
+      services: 'Brand Identity, Visual Design',
+      platform: 'Complete Brand System',
+      date: 'Q1 2024'
+    },
+    detailDescription: {
+      title: 'Positioning A New Banking Brand',
+      subtitle: 'For A Confident Market Entry',
+      content: `This comprehensive brand identity project focused on establishing Duxbank as a credible and modern financial institution. From logo refinement to complete visual system development, every element was designed to communicate trust, professionalism, and accessibility in the competitive Nigerian financial services market.`,
+      features: [
+        'Modern logo and visual identity',
+        'Comprehensive brand guidelines',
+        'Marketing collateral design',
+        'Brand implementation support'
+      ]
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Brand Discovery',
+        description: 'We worked closely with the Duxbank team to understand their vision, values, and positioning in the competitive financial services landscape.'
+      },
+      {
+        step: '02',
+        title: 'Identity Development',
+        description: 'Created a modern, professional visual identity that communicates trust and accessibility while standing out in the financial sector.'
+      },
+      {
+        step: '03',
+        title: 'System Design',
+        description: 'Developed comprehensive brand guidelines and marketing materials to ensure consistent application across all touchpoints.'
+      },
+      {
+        step: '04',
+        title: 'Implementation Support',
+        description: 'Provided launch support and brand implementation guidance to ensure successful market introduction and brand adoption.'
+      }
+    ],
+    finalResult: {
+      title: 'Credible Financial Brand',
+      description: 'The new brand identity successfully positioned Duxbank as a modern, trustworthy financial institution, providing a strong foundation for market growth and customer acquisition.',
+      keyAchievements: 'Delivered complete brand identity system, enhanced market credibility, and established strong visual foundation for business growth.'
+    }
   },
   {
     slug: 'nuts-and-bolts',
     client: 'Nuts & Bolts Automotive',
     sector: 'Automotive',
     tags: ['Automotive', 'Repositioning', 'Premium Brand'],
+    year: '2024',
     challenge: 'Move beyond the perception of a typical automotive workshop and establish a premium maintenance and vehicle care brand commanding greater trust and value.',
     solution: 'Comprehensive brand repositioning — rebranding strategy, premium marketing materials, professional industrial photography, branded staff apparel, and customer-facing assets.',
     impact: 'Our engagement with LIDA transformed the way our business is perceived. They helped us build a stronger brand identity, improve how we communicate our value, and position the business with greater credibility. Their strategic thinking and attention to detail made a measurable difference in how we present ourselves to customers and partners.',
@@ -441,12 +550,66 @@ export const caseStudies = [
     ],
     image: '/assets/img/home-1/project-03.jpg',
     thumb: '/assets/img/home-1/projecr-03.jpg',
+    // Detailed project information
+    detailImages: {
+      hero: '/assets/img/inner-page/nuts-bolts-hero.jpg',
+      main: '/assets/img/inner-page/nuts-bolts-main.jpg',
+      gallery: [
+        '/assets/img/inner-page/nuts-bolts-gallery-1.jpg',
+        '/assets/img/inner-page/nuts-bolts-gallery-2.jpg'
+      ]
+    },
+    projectInfo: {
+      client: 'Nuts & Bolts Automotive',
+      services: 'Brand Repositioning, Photography',
+      platform: 'Complete Brand Transformation',
+      date: 'Q3 2024'
+    },
+    detailDescription: {
+      title: 'Automotive brand repositioning',
+      subtitle: 'Transforming workshop perception into premium automotive service brand',
+      content: `This comprehensive repositioning project elevated Nuts & Bolts Automotive from a typical workshop to a premium automotive service provider. Through strategic branding, professional photography, and premium marketing materials, we repositioned the business to command greater trust and value in the competitive automotive service market.`,
+      features: [
+        'Premium brand repositioning strategy',
+        'Professional industrial photography',
+        'High-quality marketing materials',
+        'Staff branding and uniforms'
+      ]
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Market Positioning',
+        description: 'Analyzed the automotive service market to identify premium positioning opportunities and differentiation strategies.'
+      },
+      {
+        step: '02',
+        title: 'Brand Transformation',
+        description: 'Developed new brand identity and messaging that communicates premium service quality and professional expertise.'
+      },
+      {
+        step: '03',
+        title: 'Visual Assets',
+        description: 'Created professional photography and marketing materials that showcase the quality and professionalism of the service.'
+      },
+      {
+        step: '04',
+        title: 'Implementation',
+        description: 'Implemented the new brand across all touchpoints including signage, uniforms, and customer communication materials.'
+      }
+    ],
+    finalResult: {
+      title: 'Premium Service Brand',
+      description: 'The repositioning successfully transformed Nuts & Bolts Automotive into a premium service provider, enhancing customer perception and enabling the business to command higher value for their services.',
+      keyAchievements: 'Achieved premium positioning, improved customer perception, and established professional brand presence in the automotive service sector.'
+    }
   },
   {
     slug: 'manitowoc-savvytech',
     client: 'Savvytech / Manitowoc',
     sector: 'Industrial B2B',
     tags: ['B2B', 'Industrial', 'Market Visibility'],
+    year: '2024',
     challenge: 'Increase awareness and engagement for globally recognized crane brands within Nigeria\'s industrial and construction sectors.',
     solution: 'Targeted digital marketing campaigns, product communications, creative development, and audience-focused advertising reaching specialized B2B decision makers.',
     impact: '50,000+ targeted industry professionals reached, 2.5M+ campaign impressions, 180% growth in social media engagement and 120% improvement in website traffic.',
@@ -457,6 +620,59 @@ export const caseStudies = [
     ],
     image: '/assets/img/home-1/project-04.jpg',
     thumb: '/assets/img/home-1/projecr-04.jpg',
+    // Detailed project information
+    detailImages: {
+      hero: '/assets/img/inner-page/manitowoc-hero.jpg',
+      main: '/assets/img/inner-page/manitowoc-main.jpg',
+      gallery: [
+        '/assets/img/inner-page/manitowoc-gallery-1.jpg',
+        '/assets/img/inner-page/manitowoc-gallery-2.jpg'
+      ]
+    },
+    projectInfo: {
+      client: 'Savvytech / Manitowoc',
+      services: 'B2B Marketing, Digital Campaigns',
+      platform: 'Multi-channel B2B Campaign',
+      date: 'Q4 2024'
+    },
+    detailDescription: {
+      title: 'Industrial B2B marketing campaign',
+      subtitle: 'Building awareness for global crane brands in Nigerian industrial sector',
+      content: `This strategic B2B marketing campaign focused on increasing visibility and engagement for Manitowoc\'s crane brands among Nigerian industrial and construction professionals. Through targeted digital campaigns and specialized content, we successfully reached decision-makers and generated significant engagement growth.`,
+      features: [
+        'B2B audience targeting strategy',
+        'Industrial content development',
+        'Multi-platform campaign execution',
+        'Performance tracking and optimization'
+      ]
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Audience Research',
+        description: 'Conducted in-depth research to identify key industrial decision-makers and understand their information consumption patterns.'
+      },
+      {
+        step: '02',
+        title: 'Content Strategy',
+        description: 'Developed specialized content that demonstrates product capabilities and addresses specific industrial sector needs.'
+      },
+      {
+        step: '03',
+        title: 'Campaign Execution',
+        description: 'Launched targeted campaigns across LinkedIn, industry publications, and specialized platforms to reach qualified prospects.'
+      },
+      {
+        step: '04',
+        title: 'Performance Analysis',
+        description: 'Tracked engagement metrics, lead quality, and campaign performance to optimize results and demonstrate ROI.'
+      }
+    ],
+    finalResult: {
+      title: 'B2B Marketing Success',
+      description: 'The campaign successfully increased brand awareness among target industrial professionals, generated significant engagement growth, and established Manitowoc as a recognized player in the Nigerian market.',
+      keyAchievements: 'Reached 50,000+ professionals, achieved 2.5M+ impressions, and delivered 180% social engagement growth with 120% website traffic improvement.'
+    }
   },
 ]
 
