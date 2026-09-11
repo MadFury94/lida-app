@@ -53,7 +53,7 @@ export const aboutPage = {
 }
 
 export const contact = {
-  email: 'hello@lidadigital.com.ng',
+  email: 'Projects@lidadigital.com.ng',
   emailCareers: 'careers@lidadigital.com.ng',
   emailAlt: 'lidadigital.ads@gmail.com',
   phone: '+234-807-436-3918',

@@ -2,6 +2,9 @@ import { useEffect } from 'react'
 
 export default function WorkDetail() {
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0)
+    
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     
@@ -183,17 +186,7 @@ Launching a new financial institution in a competitive market required more than
                                             </p>
                                         </div>
                                     </div>
-                                    
-                                    <!-- Client Testimonial -->
-                                    <div class="client-testimonial mt-5 p-4" style="background: #f8f9fa; border-radius: 8px;">
-                                        <blockquote class="mb-3">
-                                            <p style="font-style: italic; font-size: 18px; line-height: 1.6; margin: 0;">"Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow."</p>
-                                        </blockquote>
-                                        <cite style="display: block; margin-top: 15px;">
-                                            <strong>Peter A.</strong><br>
-                                            <span style="color: #666;">CEO, Duxbank Microfinance Bank</span>
-                                        </cite>
-                                    </div>
+
                                     
                                     <div class="slider-button d-flex align-items-center justify-content-between">
                                             <div class="d-flex align-items-center gap-xxl-4 gap-3 gap-2">
