@@ -13,10 +13,12 @@ import NotFound from './pages/NotFound'
 import Careers from './pages/Careers'
 import Insights from './pages/Insights'
 import InsightDetail from './pages/InsightDetail'
+import { SiteContentProvider } from './store/SiteContent'
+import TeamDetail from './pages/TeamDetail'
 
 export default function App() {
   return (
-    <Routes>
+    <SiteContentProvider><Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
@@ -25,6 +27,7 @@ export default function App() {
         <Route path="work" element={<Work />} />
         <Route path="work/:slug" element={<WorkDetail />} />
         <Route path="team" element={<Team />} />
+        <Route path="team/:slug" element={<TeamDetail />} />
         <Route path="faq" element={<FAQ />} />
         <Route path="contact" element={<Contact />} />
         <Route path="careers" element={<Careers />} />
@@ -32,6 +35,6 @@ export default function App() {
         <Route path="insights/:slug" element={<InsightDetail />} />
         <Route path="*" element={<NotFound />} />
       </Route>
-    </Routes>
+    </Routes></SiteContentProvider>
   )
 }

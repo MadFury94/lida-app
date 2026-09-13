@@ -1,11 +1,8 @@
+import { API_BASE } from '../lib/api'
 import { createContext, useContext, useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
 
 const AuthContext = createContext(null)
-
-const API_BASE = import.meta.env.DEV 
-  ? 'http://127.0.0.1:8787' 
-  : 'https://lida-backend.your-subdomain.workers.dev'
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)

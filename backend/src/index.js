@@ -14,6 +14,7 @@
 // ============================================================
 
 import { siteData } from './data/site-data.js'
+import { handleContent, publicContent } from './content.js'
 
 // ── Helpers ──────────────────────────────────────────────────
 
@@ -270,7 +271,7 @@ async function handleAdminMediaList(request, env) {
       size: obj.size,
       type: getContentType(obj.key),
       uploadedAt: obj.uploaded,
-      url: `/api/admin/media/file/${obj.key}`
+      url: `${new URL(request.url).origin}/api/media/${encodeURIComponent(obj.key)}`
     })) || []
 
     return json({ files })
@@ -330,7 +331,7 @@ async function handleAdminMediaUpload(request, env) {
       size: file.size,
       type: file.type,
       uploadedAt: new Date().toISOString(),
-      url: `/api/admin/media/file/${filename}`
+      url: `${new URL(request.url).origin}/api/media/${encodeURIComponent(filename)}`
     }
 
     return json({ file: fileData }, 201)
@@ -520,12 +521,15 @@ async function handleContact(request, env) {
 
 /**
  * Return a read-only snapshot of all site data.
- * The client currently reads from site.js directly; this endpoint will be the
- * source of truth once the admin panel can write to KV/D1.
+ * Editable collections are read from D1 and include published records only.
  */
 async function handleSiteData(request, env) {
-  // In future: read from KV / D1, fall back to bundled defaults.
-  return json(siteData)
+  try {
+    return json({ ...siteData, ...await publicContent(env) }, 200, { 'Cache-Control': 'no-store' })
+  } catch (error) {
+    console.error('Public content unavailable', error.message)
+    return json({ error: 'Site content is temporarily unavailable.' }, 503, { 'Cache-Control': 'no-store' })
+  }
 }
 
 // ── Admin: list submissions ───────────────────────────────────
@@ -619,7 +623,7 @@ async function handleAdminContentUpdate(request, env) {
   }
 
   const { section, data } = body
-  const allowed = ['brand', 'contact', 'services', 'caseStudies', 'team', 'testimonials', 'faqs', 'stats', 'insights', 'careerPaths', 'industries', 'partners']
+  const allowed = ['brand', 'contact', 'testimonials', 'faqs', 'stats', 'careerPaths', 'industries', 'partners']
 
   if (!section || !allowed.includes(section)) {
     return json({ error: `Invalid section. Must be one of: ${allowed.join(', ')}.` }, 422)
@@ -664,7 +668,7 @@ export default {
       return res
     }
 
-    if (method === 'POST' && path === '/api/admin/verify') {
+    if ((method === 'POST' || method === 'GET') && path === '/api/admin/verify') {
       const res = await handleAdminVerify(request, env)
       Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
       return res
@@ -691,7 +695,7 @@ export default {
     }
 
     // Media file serving
-    const mediaFileMatch = path.match(/^\/api\/admin\/media\/file\/(.+)$/)
+    const mediaFileMatch = path.match(/^\/api\/(?:admin\/media\/file|media)\/(.+)$/)
     if (mediaFileMatch && method === 'GET') {
       const filename = decodeURIComponent(mediaFileMatch[1])
       console.log('Media file request for:', filename)
@@ -714,6 +718,13 @@ export default {
       const payload = await verifyJWT(request, env)
       if (!payload) {
         const res = json({ error: 'Unauthorized. Please login.' }, 401)
+        Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+        return res
+      }
+
+      const contentMatch = path.match(/^\/api\/admin\/content\/([a-z]+)(?:\/([a-zA-Z0-9-]+))?$/)
+      if (contentMatch) {
+        const res = await handleContent(request, env, contentMatch[1], contentMatch[2])
         Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
         return res
       }

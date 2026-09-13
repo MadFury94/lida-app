@@ -1,8 +1,10 @@
+import NotFound from './NotFound'
 import { useEffect, useState } from 'react'
-import { Link, useParams, Navigate } from 'react-router-dom'
-import { services, contact, faqs } from '../store/site'
+import { Link, useParams } from 'react-router-dom'
+import { contact } from '../store/site'
+import { useSiteContent } from '../store/SiteContent'
 
-const GLOBAL_FAQS = faqs.slice(0, 4)
+
 
 // Self-contained FAQ accordion — React state, no dependence on template JS
 function FaqSection({ serviceFaqs, faqsHeading, service }) {
@@ -65,6 +67,7 @@ function FaqSection({ serviceFaqs, faqsHeading, service }) {
 }
 
 export default function ServiceDetail() {
+  const { services } = useSiteContent()
   const { slug } = useParams()
   const service = services.find(s => s.slug === slug)
 
@@ -73,6 +76,7 @@ export default function ServiceDetail() {
     window.scrollTo(0, 0)
 
     // SEO: set page title and meta description per service
+    if (!service) return
     if (service.seoTitle) {
       document.title = service.seoTitle
     }
@@ -85,16 +89,16 @@ export default function ServiceDetail() {
     if (service.metaDescription) {
       metaDesc.setAttribute('content', service.metaDescription)
     }
-  }, [slug])
+  }, [slug, service])
 
-  if (!service) return <Navigate to="/services" replace />
+  if (!service) return <NotFound />
 
   const currentIndex = services.findIndex(s => s.slug === slug)
   const prev = services[currentIndex - 1] || null
   const next = services[currentIndex + 1] || null
 
-  // Use per-service FAQs if defined, otherwise fall back to global
-  const serviceFaqs = service.faqs || GLOBAL_FAQS
+  // FAQs are edited with this service in the admin.
+  const serviceFaqs = service.faqs || []
   const faqsHeading = service.faqsHeading || 'Quick answers to what clients ask most.'
 
   return (
@@ -174,12 +178,7 @@ export default function ServiceDetail() {
             {/* Why Lida — 4 icon boxes, full width 4-col grid */}
             <div className="service-icon-details-section mt-5 pb-0">
               <div className="row g-4">
-                {(service.whyCards || [
-                  { icon: 'fa-solid fa-chess', title: 'Start with the real problem', body: 'We look beyond surface issues to identify what is truly limiting growth.' },
-                  { icon: 'fa-solid fa-sliders', title: 'Define clear priorities', body: 'We help you focus time, money and effort on the actions that matter most.' },
-                  { icon: 'fa-solid fa-arrow-right-arrow-left', title: 'Build a practical roadmap', body: 'You receive a clear plan for positioning, marketing, customer growth and execution.' },
-                  { icon: 'fa-solid fa-chart-line', title: 'Track what matters', body: 'We define useful measures that help you see progress and improve decisions.' },
-                ]).map(item => (
+                {(service.whyCards || []).map(item => (
                   <div className="col-xl-3 col-lg-6 col-md-6" key={item.title}>
                     <div className="details-icon-box-item h-100">
                       <div className="icon service-icon-fa">

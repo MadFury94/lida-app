@@ -12,8 +12,8 @@ export default function Login() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       </div>
     )
   }
@@ -44,43 +44,44 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="max-w-md w-full space-y-8 p-8">
         {/* Logo/Header */}
         <div className="text-center">
-          <div className="mx-auto h-16 w-16 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
+          <div className="mx-auto h-16 w-16 bg-primary rounded-xl flex items-center justify-center mb-4">
             <Shield className="h-8 w-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white">Lida Admin</h1>
-          <p className="mt-2 text-gray-400">Secure administration panel</p>
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Lida Admin</h1>
+          <p className="mt-2 text-muted-foreground">Sign in to your administration workspace</p>
         </div>
 
         {/* Login Form */}
-        <div className="bg-gray-800 rounded-xl shadow-2xl p-8 border border-gray-700">
+        <div className="bg-card rounded-xl shadow-sm p-8 border border-border">
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
-              <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
-                <p className="text-red-400 text-sm text-center">{error}</p>
+              <div role="alert" className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
+                <p className="text-destructive text-sm text-center">{error}</p>
               </div>
             )}
 
             {/* Username Field */}
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="username" className="block text-sm font-medium text-muted-foreground mb-2">
                 Username
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-gray-500" />
+                  <User className="h-5 w-5 text-muted-foreground" />
                 </div>
                 <input
                   type="text"
+                  autoComplete="username"
                   name="username"
                   id="username"
                   required
                   value={formData.username}
                   onChange={handleChange}
-                  className="block w-full pl-10 pr-3 py-3 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                  className="block w-full pl-10 pr-3 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                   placeholder="Enter your username"
                 />
               </div>
@@ -88,27 +89,29 @@ export default function Login() {
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-muted-foreground mb-2">
                 Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-500" />
+                  <Lock className="h-5 w-5 text-muted-foreground" />
                 </div>
                 <input
                   type={showPassword ? 'text' : 'password'}
+                  autoComplete="current-password"
                   name="password"
                   id="password"
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="block w-full pl-10 pr-12 py-3 border border-gray-600 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                  className="block w-full pl-10 pr-12 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-300 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
@@ -119,7 +122,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center">
@@ -135,8 +138,8 @@ export default function Login() {
 
         {/* Security Notice */}
         <div className="text-center">
-          <p className="text-xs text-gray-500">
-            This is a secure area. All activity is logged and monitored.
+          <p className="text-xs text-muted-foreground">
+            Use your administrator credentials to access this workspace.
           </p>
         </div>
       </div>

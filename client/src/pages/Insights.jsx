@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { insights } from '../store/site'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function Insights() {
+  const { insights } = useSiteContent()
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [])
@@ -39,6 +40,7 @@ export default function Insights() {
       <section className="news-section-5 fix section-padding">
         <div className="container">
           <div className="row g-4">
+            {insights.length === 0 && <p role="status" className="py-5 text-center">New insights are coming soon.</p>}
             {insights.map((post, i) => (
               <div
                 key={post.slug}

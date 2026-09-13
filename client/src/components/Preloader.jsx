@@ -1,4 +1,14 @@
+import { useEffect, useState } from 'react'
+
 export default function Preloader() {
+  const [done, setDone] = useState(false)
+  useEffect(() => {
+    // Content arrives after window.load, so the template's load handler may
+    // have already run. React owns this final reveal once the content mounts.
+    const timer = window.setTimeout(() => setDone(true), 300)
+    return () => window.clearTimeout(timer)
+  }, [])
+  if (done) return null
   return (
     <div id="preloader">
       <div className="bracket tl"></div>

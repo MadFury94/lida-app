@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { brand, contact, stats, services, caseStudies, partners, testimonials } from '../store/site'
+import { brand, contact, stats, partners, testimonials } from '../store/site'
+import { useSiteContent } from '../store/SiteContent'
 import VideoBanner from '../components/VideoBanner'
 
 const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
-const marqueeItems = ['Growth Strategy', 'Brand Positioning', 'Strategic Marketing', 'Customer Acquisition', 'Corporate Communications', 'Content & Campaigns', 'Digital Experiences', 'Executive Positioning', 'Market Intelligence', 'Visibility & Trust', 'Media Planning']
+
 
 export default function Home() {
+  const { services, caseStudies } = useSiteContent()
+  const marqueeItems = services.map(service => service.shortTitle || service.title)
   const [openService, setOpenService] = useState(0)
   const [openFaq, setOpenFaq] = useState(0)
 
@@ -283,7 +286,7 @@ export default function Home() {
                   </span>
                 </Link>
               </div>
-              <div className="project-box-items style-max-width">
+              {caseStudies[0] && (<div className="project-box-items style-max-width">
                 <div className="thumb tp-clip-anim p-relative">
                   <img src={caseStudies[0].image} alt={caseStudies[0].client} className="tp-anim-img" data-animate="true" />
                 </div>
@@ -291,10 +294,10 @@ export default function Home() {
                   <h3 className="title"><Link to={`/work/${caseStudies[0].slug}`}>{caseStudies[0].client}</Link></h3>
                   <ul>{caseStudies[0].tags.map(t => <li key={t}><Link to="/work">{t}</Link></li>)}</ul>
                 </div>
-              </div>
+              </div>)}
             </div>
             <div className="col-lg-7 col-md-7">
-              <div className="project-box-items">
+              {caseStudies[1] && (<div className="project-box-items">
                 <div className="thumb tp-clip-anim p-relative">
                   <img src={caseStudies[1].image} alt={caseStudies[1].client} className="tp-anim-img" data-animate="true" />
                 </div>
@@ -302,12 +305,12 @@ export default function Home() {
                   <h3 className="title"><Link to={`/work/${caseStudies[1].slug}`}>{caseStudies[1].client}</Link></h3>
                   <ul>{caseStudies[1].tags.map(t => <li key={t}><Link to="/work">{t}</Link></li>)}</ul>
                 </div>
-              </div>
+              </div>)}
             </div>
           </div>
           <div className="row">
             <div className="col-lg-7 col-md-7">
-              <div className="project-box-items style-height-one">
+              {caseStudies[2] && (<div className="project-box-items style-height-one">
                 <div className="thumb tp-clip-anim p-relative">
                   <img src={caseStudies[2].image} alt={caseStudies[2].client} className="tp-anim-img" data-animate="true" />
                 </div>
@@ -315,10 +318,10 @@ export default function Home() {
                   <h3 className="title"><Link to={`/work/${caseStudies[2].slug}`}>{caseStudies[2].client}</Link></h3>
                   <ul>{caseStudies[2].tags.map(t => <li key={t}><Link to="/work">{t}</Link></li>)}</ul>
                 </div>
-              </div>
+              </div>)}
             </div>
             <div className="col-lg-5 col-md-5">
-              <div className="project-box-items style-max-width style-left-auto style-height-two">
+              {caseStudies[3] && (<div className="project-box-items style-max-width style-left-auto style-height-two">
                 <div className="thumb tp-clip-anim p-relative">
                   <img src={caseStudies[3].image} alt={caseStudies[3].client} className="tp-anim-img" data-animate="true" />
                 </div>
@@ -326,7 +329,7 @@ export default function Home() {
                   <h3 className="title"><Link to={`/work/${caseStudies[3].slug}`}>{caseStudies[3].client}</Link></h3>
                   <ul>{caseStudies[3].tags.map(t => <li key={t}><Link to="/work">{t}</Link></li>)}</ul>
                 </div>
-              </div>
+              </div>)}
             </div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { caseStudies } from '../store/site.js'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function Work() {
+  const { caseStudies } = useSiteContent()
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
@@ -42,6 +43,7 @@ export default function Work() {
       <section className="project-section-5 fix section-padding pt-0">
         <div className="container container-1680">
           <div className="row">
+            {caseStudies.length === 0 && <p role="status" className="py-5 text-center">New projects are coming soon.</p>}
             {/* Left Column */}
             <div className="col-xl-6 col-lg-6 col-md-6">
               {leftColumnProjects.map((project, index) => (

@@ -1,5 +1,7 @@
+import Cookies from 'js-cookie'
+import { API_BASE } from '../lib/api'
 import { useState, useEffect } from 'react'
-import { Upload, Search, Trash2, Download, Eye, Filter, Grid, List } from 'lucide-react'
+import { Upload, Search, Trash2, Eye, Grid, List } from 'lucide-react'
 
 export default function MediaLibrary() {
   const [files, setFiles] = useState([])
@@ -9,20 +11,13 @@ export default function MediaLibrary() {
   const [viewMode, setViewMode] = useState('grid')
   const [filterType, setFilterType] = useState('all')
 
-  const API_BASE = import.meta.env.DEV 
-    ? 'http://127.0.0.1:8787' 
-    : 'https://lida-backend.your-subdomain.workers.dev'
-
   useEffect(() => {
     loadFiles()
   }, [])
 
   const loadFiles = async () => {
     try {
-      const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('admin-token='))
-        ?.split('=')[1]
+      const token = Cookies.get('admin-token')
 
       const response = await fetch(`${API_BASE}/api/admin/media`, {
         headers: {
@@ -53,10 +48,7 @@ export default function MediaLibrary() {
         const formData = new FormData()
         formData.append('file', file)
 
-        const token = document.cookie
-          .split('; ')
-          .find(row => row.startsWith('admin-token='))
-          ?.split('=')[1]
+        const token = Cookies.get('admin-token')
 
         if (!token) {
           alert('Authentication token not found. Please login again.')
@@ -99,10 +91,7 @@ export default function MediaLibrary() {
     if (!confirm(`Are you sure you want to delete "${fileName}"?`)) return
 
     try {
-      const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('admin-token='))
-        ?.split('=')[1]
+      const token = Cookies.get('admin-token')
 
       const response = await fetch(`${API_BASE}/api/admin/media/${fileId}`, {
         method: 'DELETE',
@@ -134,8 +123,8 @@ export default function MediaLibrary() {
       return <img src={file.url} alt={file.name} className="w-full h-32 object-cover rounded" />
     }
     return (
-      <div className="w-full h-32 bg-gray-200 rounded flex items-center justify-center">
-        <span className="text-gray-500 text-xs text-center">{file.type}</span>
+      <div className="w-full h-32 bg-muted rounded flex items-center justify-center">
+        <span className="text-muted-foreground text-xs text-center">{file.type}</span>
       </div>
     )
   }
@@ -151,7 +140,7 @@ export default function MediaLibrary() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       </div>
     )
   }
@@ -161,8 +150,8 @@ export default function MediaLibrary() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Media Library</h1>
-          <p className="text-gray-600">Manage your uploaded files and media assets</p>
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Media Library</h1>
+          <p className="text-muted-foreground">Manage your uploaded files and media assets</p>
         </div>
         
         <div className="flex items-center space-x-4">
@@ -177,7 +166,7 @@ export default function MediaLibrary() {
           />
           <label
             htmlFor="file-upload"
-            className="inline-flex items-center px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 cursor-pointer disabled:opacity-50"
+            className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 cursor-pointer disabled:opacity-50"
           >
             <Upload className="h-4 w-4 mr-2" />
             {uploading ? 'Uploading...' : 'Upload Files'}
@@ -186,23 +175,25 @@ export default function MediaLibrary() {
       </div>
 
       {/* Filters and Search */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0 bg-white p-4 rounded-lg shadow">
-        <div className="flex items-center space-x-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0 bg-card p-4 rounded-xl border shadow-sm">
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="text"
+              aria-label="Search files"
               placeholder="Search files..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full pl-10 pr-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
             />
           </div>
           
           <select
+            aria-label="Filter file type"
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
           >
             <option value="all">All Files</option>
             <option value="image">Images</option>
@@ -212,14 +203,16 @@ export default function MediaLibrary() {
         
         <div className="flex items-center space-x-2">
           <button
+            aria-label="Grid view" aria-pressed={viewMode === 'grid'}
             onClick={() => setViewMode('grid')}
-            className={`p-2 rounded ${viewMode === 'grid' ? 'bg-orange-100 text-orange-600' : 'text-gray-400 hover:text-gray-600'}`}
+            className={`p-2 rounded ${viewMode === 'grid' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground'}`}
           >
             <Grid className="h-4 w-4" />
           </button>
           <button
+            aria-label="List view" aria-pressed={viewMode === 'list'}
             onClick={() => setViewMode('list')}
-            className={`p-2 rounded ${viewMode === 'list' ? 'bg-orange-100 text-orange-600' : 'text-gray-400 hover:text-gray-600'}`}
+            className={`p-2 rounded ${viewMode === 'list' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground'}`}
           >
             <List className="h-4 w-4" />
           </button>
@@ -228,32 +221,34 @@ export default function MediaLibrary() {
 
       {/* Files Grid/List */}
       {filteredFiles.length === 0 ? (
-        <div className="text-center py-12 bg-white rounded-lg shadow">
-          <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-600">No files found</p>
-          <p className="text-gray-400 text-sm">Upload some files to get started</p>
+        <div className="text-center py-12 bg-card rounded-xl border shadow-sm">
+          <Upload className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+          <p className="text-muted-foreground">No files found</p>
+          <p className="text-muted-foreground text-sm">Upload some files to get started</p>
         </div>
       ) : viewMode === 'grid' ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredFiles.map((file) => (
-            <div key={file.id} className="bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+            <div key={file.id} className="bg-card rounded-xl border shadow-sm hover:shadow-md transition-shadow">
               <div className="p-4">
                 {getFileIcon(file)}
                 <div className="mt-3">
-                  <p className="font-medium text-gray-900 truncate" title={file.name}>
+                  <p className="font-medium text-foreground truncate" title={file.name}>
                     {file.name}
                   </p>
-                  <p className="text-sm text-gray-500">{formatFileSize(file.size)}</p>
+                  <p className="text-sm text-muted-foreground">{formatFileSize(file.size)}</p>
                 </div>
                 <div className="mt-3 flex space-x-2">
                   <button
-                    onClick={() => window.open(file.url, '_blank')}
-                    className="flex-1 px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+                    aria-label={`View ${file.name}`}
+                    onClick={() => window.open(file.url, '_blank', 'noopener,noreferrer')}
+                    className="flex-1 px-3 py-1 text-sm bg-muted text-foreground rounded hover:bg-muted"
                   >
                     <Eye className="h-3 w-3 inline mr-1" />
                     View
                   </button>
                   <button
+                    aria-label={`Delete ${file.name}`}
                     onClick={() => handleDelete(file.id, file.name)}
                     className="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200"
                   >
@@ -265,51 +260,53 @@ export default function MediaLibrary() {
           ))}
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow overflow-hidden">
+        <div className="bg-card rounded-xl border shadow-sm overflow-x-auto">
           <table className="min-w-full">
-            <thead className="bg-gray-50">
+            <thead className="bg-muted/40">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Size</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Uploaded</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Name</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Type</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Size</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Uploaded</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-border">
               {filteredFiles.map((file) => (
-                <tr key={file.id} className="hover:bg-gray-50">
+                <tr key={file.id} className="hover:bg-muted/40">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="flex-shrink-0 h-8 w-8">
                         {file.type.startsWith('image/') ? (
                           <img src={file.url} alt={file.name} className="h-8 w-8 object-cover rounded" />
                         ) : (
-                          <div className="h-8 w-8 bg-gray-200 rounded flex items-center justify-center">
-                            <span className="text-xs text-gray-500">DOC</span>
+                          <div className="h-8 w-8 bg-muted rounded flex items-center justify-center">
+                            <span className="text-xs text-muted-foreground">DOC</span>
                           </div>
                         )}
                       </div>
                       <div className="ml-3">
-                        <p className="text-sm font-medium text-gray-900">{file.name}</p>
+                        <p className="text-sm font-medium text-foreground">{file.name}</p>
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{file.type}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatFileSize(file.size)}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">{file.type}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">{formatFileSize(file.size)}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
                     {new Date(file.uploadedAt).toLocaleDateString()}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
                     <div className="flex space-x-2">
                       <button
-                        onClick={() => window.open(file.url, '_blank')}
+                        aria-label={`View ${file.name}`}
+                    onClick={() => window.open(file.url, '_blank', 'noopener,noreferrer')}
                         className="text-blue-600 hover:text-blue-900"
                       >
                         <Eye className="h-4 w-4" />
                       </button>
                       <button
-                        onClick={() => handleDelete(file.id, file.name)}
+                        aria-label={`Delete ${file.name}`}
+                    onClick={() => handleDelete(file.id, file.name)}
                         className="text-red-600 hover:text-red-900"
                       >
                         <Trash2 className="h-4 w-4" />

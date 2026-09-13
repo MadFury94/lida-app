@@ -6,9 +6,10 @@
     "scripts": {
         "dev": "wrangler dev --env dev",
         "deploy": "wrangler deploy",
-        "types": "wrangler types"
+        "types": "wrangler types",
+        "db:migrate": "wrangler d1 migrations apply CONTENT_DB --local --env dev"
     },
     "devDependencies": {
-        "wrangler": "^3.120.0"
+        "wrangler": "^4.131.1"
     }
 }

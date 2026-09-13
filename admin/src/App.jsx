@@ -8,6 +8,7 @@ import Users from './pages/Users'
 import MediaLibrary from './pages/MediaLibrary'
 import Settings from './pages/Settings'
 import NotFound from './pages/NotFound'
+import ContentManager from './pages/ContentManager'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="media" element={<MediaLibrary />} />
           <Route path="users" element={<Users />} />
           <Route path="settings" element={<Settings />} />
+          {['team', 'projects', 'services', 'blogs'].map(kind => <Route key={kind} path={kind} element={<ContentManager key={kind} kind={kind} />} />)}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

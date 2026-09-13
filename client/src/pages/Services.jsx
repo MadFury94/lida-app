@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { services, stats, contact, brand, copyrightYear } from '../store/site'
+import { stats, contact, brand, copyrightYear } from '../store/site'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function Services() {
+  const { services } = useSiteContent()
   const [openService, setOpenService] = useState(0)
 
   useEffect(() => {
@@ -86,6 +88,7 @@ export default function Services() {
           </div>
 
           <div className="service-box-style">
+            {services.length === 0 && <p role="status" className="py-5 text-center">Service updates are coming soon.</p>}
             {services.map((s, i) => (
               <div
                 key={s.slug}

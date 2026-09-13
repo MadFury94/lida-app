@@ -1,7 +1,9 @@
 ﻿import { Link } from 'react-router-dom'
-import { brand, services, contact } from '../store/site'
+import { brand, contact } from '../store/site'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function Footer() {
+  const { services } = useSiteContent()
   return (
     <footer className="footer-section">
       <div className="container">

@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { team, brand, copyrightYear } from '../store/site'
+import { brand, copyrightYear } from '../store/site'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function Team() {
+  const { team } = useSiteContent()
   useEffect(() => {
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [])
@@ -39,6 +41,7 @@ export default function Team() {
       <section className="team-section-5 fix section-padding">
         <div className="container">
           <div className="row g-4 design-choose-item-wrap">
+            {team.length === 0 && <p role="status" className="py-5 text-center">Team updates are coming soon.</p>}
             {team.map((member, i) => (
               <div key={member.slug} className="col-lg-6 col-md-6">
                 <div className={`team-image-items-5 ${i % 2 === 0 ? 'design-choose-item-1' : 'design-choose-item-2'} mt-0 wow fadeInUp`} data-wow-delay={`.${(i + 2) * 2}s`}>
@@ -53,12 +56,12 @@ export default function Team() {
                     </div>
                     <div className="left-items">
                       <div className="social-icon d-flex align-items-center">
-                        {member.social.linkedin !== '#' && (
+                        {member.social.linkedin && member.social.linkedin !== '#' && (
                           <a href={member.social.linkedin} target="_blank" rel="noreferrer">
                             <i className="fab fa-linkedin-in"></i>
                           </a>
                         )}
-                        {member.social.twitter !== '#' && (
+                        {member.social.twitter && member.social.twitter !== '#' && (
                           <a href={member.social.twitter} target="_blank" rel="noreferrer">
                             <i className="fab fa-twitter"></i>
                           </a>

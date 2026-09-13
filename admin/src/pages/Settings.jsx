@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+import { API_BASE } from '../lib/api'
 import { useState } from 'react'
 import { Save, Key, Shield, Database, Globe, AlertTriangle } from 'lucide-react'
 
@@ -27,14 +29,7 @@ export default function Settings() {
     setMessage({ type: '', text: '' })
 
     try {
-      const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('admin-token='))
-        ?.split('=')[1]
-
-      const API_BASE = import.meta.env.DEV 
-        ? 'http://localhost:8787' 
-        : 'https://lida-backend.your-subdomain.workers.dev'
+      const token = Cookies.get('admin-token')
 
       const response = await fetch(`${API_BASE}/api/admin/settings`, {
         method: 'PUT',
@@ -62,8 +57,8 @@ export default function Settings() {
     <div className="max-w-4xl space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-        <p className="text-gray-600">Configure your admin panel and system preferences</p>
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
+        <p className="text-muted-foreground">Configure your admin panel and system preferences</p>
       </div>
 
       {message.text && (
@@ -77,117 +72,123 @@ export default function Settings() {
       )}
 
       {/* File Upload Settings */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-card rounded-xl shadow-sm border border-border p-6">
         <div className="flex items-center mb-4">
-          <Database className="h-5 w-5 text-orange-500 mr-3" />
-          <h2 className="text-lg font-semibold text-gray-900">File Upload Settings</h2>
+          <Database className="h-5 w-5 text-primary mr-3" />
+          <h2 className="text-lg font-semibold text-foreground">File Upload Settings</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-foreground mb-2">
               Maximum Upload Size (MB)
             </label>
             <input
               type="number"
+              aria-label="Maximum upload size (MB)"
               name="maxUploadSize"
               value={settings.maxUploadSize}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
               min="1"
               max="100"
             />
-            <p className="text-sm text-gray-500 mt-1">Maximum file size in megabytes</p>
+            <p className="text-sm text-muted-foreground mt-1">Maximum file size in megabytes</p>
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-foreground mb-2">
               Allowed File Types
             </label>
             <textarea
+              aria-label="Allowed file types"
               name="allowedFileTypes"
               value={settings.allowedFileTypes}
               onChange={handleChange}
               rows="3"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
               placeholder="image/jpeg,image/png,application/pdf"
             />
-            <p className="text-sm text-gray-500 mt-1">Comma-separated MIME types</p>
+            <p className="text-sm text-muted-foreground mt-1">Comma-separated MIME types</p>
           </div>
         </div>
       </div>
 
       {/* Security Settings */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-card rounded-xl shadow-sm border border-border p-6">
         <div className="flex items-center mb-4">
           <Shield className="h-5 w-5 text-blue-500 mr-3" />
-          <h2 className="text-lg font-semibold text-gray-900">Security Settings</h2>
+          <h2 className="text-lg font-semibold text-foreground">Security Settings</h2>
         </div>
         
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <label className="text-sm font-medium text-gray-700">Require Authentication</label>
-              <p className="text-sm text-gray-500">Force login for all admin operations</p>
+              <label className="text-sm font-medium text-foreground">Require Authentication</label>
+              <p className="text-sm text-muted-foreground">Force login for all admin operations</p>
             </div>
             <input
               type="checkbox"
+              aria-label="Require authentication"
               name="requireAuth"
               checked={settings.requireAuth}
               onChange={handleChange}
-              className="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"
+              className="h-4 w-4 text-primary focus:ring-ring border-input rounded"
             />
           </div>
           
           <div className="flex items-center justify-between">
             <div>
-              <label className="text-sm font-medium text-gray-700">Log Activity</label>
-              <p className="text-sm text-gray-500">Record all admin actions for security</p>
+              <label className="text-sm font-medium text-foreground">Log Activity</label>
+              <p className="text-sm text-muted-foreground">Record all admin actions for security</p>
             </div>
             <input
               type="checkbox"
+              aria-label="Log activity"
               name="logActivity"
               checked={settings.logActivity}
               onChange={handleChange}
-              className="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"
+              className="h-4 w-4 text-primary focus:ring-ring border-input rounded"
             />
           </div>
         </div>
       </div>
 
       {/* Maintenance Settings */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-card rounded-xl shadow-sm border border-border p-6">
         <div className="flex items-center mb-4">
           <Globe className="h-5 w-5 text-green-500 mr-3" />
-          <h2 className="text-lg font-semibold text-gray-900">Maintenance Settings</h2>
+          <h2 className="text-lg font-semibold text-foreground">Maintenance Settings</h2>
         </div>
         
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <label className="text-sm font-medium text-gray-700">Auto Cleanup</label>
-              <p className="text-sm text-gray-500">Automatically delete old files</p>
+              <label className="text-sm font-medium text-foreground">Auto Cleanup</label>
+              <p className="text-sm text-muted-foreground">Automatically delete old files</p>
             </div>
             <input
               type="checkbox"
+              aria-label="Auto cleanup"
               name="autoCleanup"
               checked={settings.autoCleanup}
               onChange={handleChange}
-              className="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"
+              className="h-4 w-4 text-primary focus:ring-ring border-input rounded"
             />
           </div>
           
           {settings.autoCleanup && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-foreground mb-2">
                 Cleanup After (Days)
               </label>
               <input
                 type="number"
-                name="cleanupDays"
+                aria-label="Cleanup after (days)"
+              name="cleanupDays"
                 value={settings.cleanupDays}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
                 min="1"
                 max="365"
               />
@@ -197,32 +198,32 @@ export default function Settings() {
       </div>
 
       {/* System Information */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-card rounded-xl shadow-sm border border-border p-6">
         <div className="flex items-center mb-4">
           <Key className="h-5 w-5 text-purple-500 mr-3" />
-          <h2 className="text-lg font-semibold text-gray-900">System Information</h2>
+          <h2 className="text-lg font-semibold text-foreground">System Information</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-sm font-medium text-gray-700 mb-2">Environment</h3>
-            <p className="text-sm text-gray-600">{import.meta.env.DEV ? 'Development' : 'Production'}</p>
+            <h3 className="text-sm font-medium text-foreground mb-2">Environment</h3>
+            <p className="text-sm text-muted-foreground">{import.meta.env.DEV ? 'Development' : 'Production'}</p>
           </div>
           
           <div>
-            <h3 className="text-sm font-medium text-gray-700 mb-2">Version</h3>
-            <p className="text-sm text-gray-600">Admin Panel v1.0.0</p>
+            <h3 className="text-sm font-medium text-foreground mb-2">Version</h3>
+            <p className="text-sm text-muted-foreground">Admin Panel v1.0.0</p>
           </div>
           
           <div>
-            <h3 className="text-sm font-medium text-gray-700 mb-2">API Endpoint</h3>
-            <p className="text-sm text-gray-600 font-mono">
+            <h3 className="text-sm font-medium text-foreground mb-2">API Endpoint</h3>
+            <p className="text-sm text-muted-foreground font-mono">
               {import.meta.env.DEV ? 'localhost:8787' : 'lida-backend.workers.dev'}
             </p>
           </div>
           
           <div>
-            <h3 className="text-sm font-medium text-gray-700 mb-2">Security</h3>
+            <h3 className="text-sm font-medium text-foreground mb-2">Security</h3>
             <p className="text-sm text-green-600">✓ JWT Authentication Active</p>
           </div>
         </div>
@@ -256,7 +257,7 @@ export default function Settings() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 transition-colors"
+          className="flex items-center px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 disabled:opacity-50 transition-colors"
         >
           <Save className="h-4 w-4 mr-2" />
           {saving ? 'Saving...' : 'Save Settings'}

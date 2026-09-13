@@ -61,3 +61,7 @@ fix_paths.py
 # ── Cloudflare / Wrangler ──────────────────────────────────────
 .wrangler/
 worker-configuration.d.ts
+
+# Admin browser test artifacts
+admin/test-results/
+admin/playwright-report/

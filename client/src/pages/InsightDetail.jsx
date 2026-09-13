@@ -1,8 +1,11 @@
+import NotFound from './NotFound'
 import { useEffect } from 'react'
-import { Link, useParams, Navigate } from 'react-router-dom'
-import { insights, contact } from '../store/site'
+import { Link, useParams } from 'react-router-dom'
+import { contact } from '../store/site'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function InsightDetail() {
+  const { insights } = useSiteContent()
   const { slug } = useParams()
   const post = insights.find(p => p.slug === slug)
 
@@ -11,7 +14,7 @@ export default function InsightDetail() {
     window.scrollTo(0, 0)
   }, [slug])
 
-  if (!post) return <Navigate to="/insights" replace />
+  if (!post) return <NotFound />
 
   const others = insights.filter(p => p.slug !== slug).slice(0, 2)
 
