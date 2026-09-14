@@ -1,0 +1,14 @@
+name = "lida-backend"
+main = "src/index.js"
+compatibility_date = "2024-06-16"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "lida-media"
+preview_bucket_name = "lida-media"
+
+[[ai]]
+binding = "AI"
+
+[env.dev]
+vars = { ENVIRONMENT = "development" }

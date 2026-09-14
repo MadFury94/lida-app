@@ -1,0 +1,23 @@
+{
+    "name": "lida-digital",
+    "version": "1.0.0",
+    "description": "Lida Digital Website with AI Image Generation",
+    "scripts": {
+        "generate-images": "node scripts/generate-missing-images.js",
+        "dev:client": "cd client && npm run dev",
+        "dev:admin": "cd admin && npm run dev",
+        "dev:backend": "cd backend && npm run dev",
+        "build:client": "cd client && npm run build",
+        "build:admin": "cd admin && npm run build"
+    },
+    "keywords": [
+        "lida",
+        "digital",
+        "agency",
+        "website",
+        "ai",
+        "images"
+    ],
+    "author": "Lida Digital",
+    "license": "MIT"
+}
