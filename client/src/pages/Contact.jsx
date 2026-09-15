@@ -80,72 +80,80 @@ export default function Contact() {
       <section className="contact-section section-padding fix">
         <div className="container">
           <div className="contac-us-wrapper">
-            <div className="row g-4 justify-content-center">
+            <div className="row g-4 justify-content-center" style={{ alignItems: 'stretch' }}>
 
               <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                <div className="contact-us-card-item">
+                <div className="contact-us-card-item" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <div className="contact-image">
-                    <img src="/assets/img/inner-page/contact-1.jpg" alt="Talk to us" />
+                    <img src="/assets/img/inner-page/cont1.png" alt="Talk to us" />
                   </div>
-                  <div className="contact-content">
+                  <div className="contact-content" style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                     <h2>Talk to Us</h2>
                     <span>Phone number:</span>
                     <h3><a href={contact.phoneHref}>{contact.phone}</a></h3>
-                    <span>Email address:</span>
+                    <span>Projects & Collaboration:</span>
                     <h3><a href={`mailto:${contact.email}`}>{contact.email}</a></h3>
-                    <a href={contact.calendly} target="_blank" rel="noreferrer" className="thems-btn w-100">
-                      Book a Call <i className="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                    <span>General enquiries:</span>
+                    <h3><a href="mailto:hello@lidadigital.com.ng">hello@lidadigital.com.ng</a></h3>
+                    <div style={{ marginTop: 'auto' }}>
+                      <a href={contact.calendly} target="_blank" rel="noreferrer" className="thems-btn w-100">
+                        Book a Call <i className="fa-solid fa-arrow-up-right"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                <div className="contact-us-card-item">
+                <div className="contact-us-card-item" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <div className="contact-image">
-                    <img src="/assets/img/inner-page/contact-2.jpg" alt="Visit us" />
+                    <img src="/assets/img/inner-page/cont2.png" alt="Visit us" />
                   </div>
-                  <div className="contact-content">
+                  <div className="contact-content" style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                     <h2>Our Location</h2>
                     <span>Address:</span>
                     <h3>{contact.addressFull}</h3>
                     <span>Office hours:</span>
                     <h3>{contact.officeHours}</h3>
-                    <a
-                      href={contact.mapsUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="thems-btn w-100"
-                    >
-                      Get Directions <i className="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                    <div style={{ marginTop: 'auto' }}>
+                      <a
+                        href={contact.mapsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="thems-btn w-100"
+                      >
+                        Get Directions <i className="fa-solid fa-arrow-up-right"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                <div className="contact-us-card-item">
+                <div className="contact-us-card-item" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <div className="contact-image">
-                    <img src="/assets/img/inner-page/contact-3.jpg" alt="Schedule a meeting" />
+                    <img src="/assets/img/inner-page/cont3.png" alt="Schedule a meeting" />
                   </div>
-                  <div className="contact-content">
+                  <div className="contact-content" style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                     <h2>Schedule a Meeting</h2>
-                    <span>Book directly:</span>
+                    <span>Projects & Collaboration:</span>
                     <h3>
                       <a href={contact.calendly} target="_blank" rel="noreferrer">
                         {contact.calendlyDisplay}
                       </a>
                     </h3>
                     <span>General enquiries:</span>
-                    <h3><a href={`mailto:${contact.email}`}>{contact.email}</a></h3>
-                    <a
-                      href={contact.calendly}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="thems-btn w-100"
-                    >
-                      Schedule Now <i className="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                    <h3><a href="mailto:hello@lidadigital.com.ng">hello@lidadigital.com.ng</a></h3>
+                    <div style={{ marginTop: 'auto' }}>
+                      <a
+                        href={contact.calendly}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="thems-btn w-100"
+                      >
+                        Schedule Now <i className="fa-solid fa-arrow-up-right"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
