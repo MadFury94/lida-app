@@ -7,7 +7,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "CONTENT_DB"
 database_name = "lida-content"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "8f324a3e-45cc-4e9c-9e18-a44b8d4ee517"
 migrations_dir = "migrations"
 
 [observability]
@@ -24,8 +24,8 @@ head_sampling_rate = 1
 # Then replace the placeholder IDs below with the output IDs.
 [[kv_namespaces]]
 binding = "CONTACT_SUBMISSIONS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
+id = "fe714b8c616d4ce4902f273d7a8af799"
+preview_id = "87b4215ea5a44b2bb0315b5a704eb119"
 
 # ── R2 Bucket for Media Storage ──────────────────────────────
 # For admin media uploads (images, documents, assets)
@@ -77,8 +77,8 @@ ALLOWED_FILE_TYPES = "image/jpeg,image/png,image/webp,image/gif,application/pdf"
 
 [[env.dev.kv_namespaces]]
 binding = "CONTACT_SUBMISSIONS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
+id = "fe714b8c616d4ce4902f273d7a8af799"
+preview_id = "87b4215ea5a44b2bb0315b5a704eb119"
 
 [[env.dev.r2_buckets]]
 binding = "MEDIA_BUCKET"
