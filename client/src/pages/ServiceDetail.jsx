@@ -1,3 +1,4 @@
+import { DetailSkeleton } from '../components/ContentBoundary'
 import NotFound from './NotFound'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -67,7 +68,7 @@ function FaqSection({ serviceFaqs, faqsHeading, service }) {
 }
 
 export default function ServiceDetail() {
-  const { services } = useSiteContent()
+  const { services, loading, unavailable } = useSiteContent()
   const { slug } = useParams()
   const service = services.find(s => s.slug === slug)
 
@@ -91,6 +92,7 @@ export default function ServiceDetail() {
     }
   }, [slug, service])
 
+  if (loading || unavailable) return <DetailSkeleton />
   if (!service) return <NotFound />
 
   const currentIndex = services.findIndex(s => s.slug === slug)

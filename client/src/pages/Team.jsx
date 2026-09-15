@@ -1,3 +1,4 @@
+import ContentBoundary from '../components/ContentBoundary'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { brand, copyrightYear } from '../store/site'
@@ -40,7 +41,8 @@ export default function Team() {
       {/* ── TEAM GRID ────────────────────────────────────── */}
       <section className="team-section-5 fix section-padding">
         <div className="container">
-          <div className="row g-4 design-choose-item-wrap">
+          <ContentBoundary variant="portraits" count={4} label="our team">
+<div className="row g-4 design-choose-item-wrap">
             {team.length === 0 && <p role="status" className="py-5 text-center">Team updates are coming soon.</p>}
             {team.map((member, i) => (
               <div key={member.slug} className="col-lg-6 col-md-6">
@@ -76,6 +78,7 @@ export default function Team() {
               </div>
             ))}
           </div>
+</ContentBoundary>
         </div>
       </section>
 

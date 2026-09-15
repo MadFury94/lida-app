@@ -1,4 +1,5 @@
-﻿import { Link, NavLink, useLocation } from 'react-router-dom'
+import ContentBoundary from './ContentBoundary'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { brand, contact } from '../store/site'
 import { useSiteContent } from '../store/SiteContent'
@@ -112,7 +113,7 @@ export default function Header() {
                   </a>
                   <div className="services-mega-menu">
                     <div className="mega-menu-inner">
-                      <div className="mega-menu-grid">
+                      <ContentBoundary variant="links" count={6} label="our services"><div className="mega-menu-grid">
                         {services.map(s => (
                           <Link key={s.slug} to={`/services/${s.slug}`} className="mega-menu-item">
                             <span className="mega-num">{s.number}</span>
@@ -121,6 +122,7 @@ export default function Header() {
                           </Link>
                         ))}
                       </div>
+                      </ContentBoundary>
                       <div className="mega-menu-footer">
                         <Link to="/services" className="mega-all-link">
                           View All Services <i className="fa-regular fa-arrow-up-right"></i>

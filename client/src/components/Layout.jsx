@@ -2,10 +2,11 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
-import Preloader from './Preloader'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function Layout() {
   const location = useLocation()
+  const { loading } = useSiteContent()
 
   useEffect(() => {
     // Scroll to top on every route change.
@@ -14,6 +15,9 @@ export default function Layout() {
     const smoothContent = document.getElementById('smooth-content')
     if (smoothContent) smoothContent.style.transform = 'translateY(0px)'
 
+  }, [location.pathname])
+
+  useEffect(() => {
     // The legacy template normally reveals the page from main.js. In React the
     // load event may have fired before that handler can find the mounted nodes,
     // so make visibility part of the layout lifecycle as well.
@@ -150,12 +154,11 @@ export default function Layout() {
       offcanvasClose && (offcanvasClose.onclick = null)
       offcanvasOverlay && (offcanvasOverlay.onclick = null)
     }
-  }, [location.pathname])
+  }, [location.pathname, loading])
 
   return (
     <div className="page-wrapper">
-      <Preloader />
-      <div id="page">
+      <div id="page" className="visible">
         <div className="global-header">
           <Header />
         </div>

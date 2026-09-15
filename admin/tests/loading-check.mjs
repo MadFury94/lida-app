@@ -1,0 +1,51 @@
+import { chromium } from '@playwright/test'
+import assert from 'node:assert/strict'
+const baseURL = process.env.SITE_URL || 'http://127.0.0.1:3001'
+const browser = await chromium.launch({ channel: 'msedge', headless: true })
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+  const errors = []
+  page.on('pageerror', e => errors.push(e.message))
+  let release
+  const gate = new Promise(resolve => { release = resolve })
+  await page.route('**/api/site-data', async route => { await gate; await route.continue() })
+  await page.goto(`${baseURL}/team`, { waitUntil: 'domcontentloaded' })
+  await page.locator('.content-skeleton--portraits').waitFor()
+  assert(await page.locator('header').first().isVisible())
+  await page.locator('.breadcrumb-items h2').waitFor({ state: 'visible' })
+  assert.equal(await page.locator('#preloader').count(), 0)
+  await page.locator('.content-skeleton--portraits').scrollIntoViewIfNeeded()
+  await page.setViewportSize({ width: 390, height: 844 })
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
+  release()
+  await page.locator('.content-skeleton--portraits').waitFor({ state: 'detached' })
+  assert(await page.locator('.team-image-items-5').count() > 0)
+  await page.unroute('**/api/site-data')
+  await page.route('**/api/site-data', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' }))
+  await page.goto(`${baseURL}/team`)
+  await page.locator('main .content-unavailable').waitFor()
+  assert(await page.locator('.breadcrumb-items h2').isVisible())
+  await page.unroute('**/api/site-data')
+  await page.locator('main').getByRole('button', { name: 'Try again' }).click()
+  await page.locator('main .content-unavailable').waitFor({ state: 'detached' })
+  await page.locator('.team-image-items-5').first().waitFor()
+  // A later failed refresh must preserve the loaded page.
+  await page.route('**/api/site-data', route => route.fulfill({ status: 503, body: '{}' }))
+  await page.evaluate(() => window.dispatchEvent(new Event('focus')))
+  await page.waitForTimeout(500)
+  assert(await page.locator('.team-image-items-5').count() > 0)
+  await page.goto(`${baseURL}/contact`)
+  await page.locator('form.contact-form-box').scrollIntoViewIfNeeded()
+  await page.locator('form.contact-form-box').waitFor({ state: 'visible' })
+  await page.unroute('**/api/site-data')
+  let releaseDetail
+  const detailGate = new Promise(resolve => { releaseDetail = resolve })
+  await page.route('**/api/site-data', async route => { await detailGate; await route.continue() })
+  await page.goto(`${baseURL}/team/nonexistent`, { waitUntil: 'domcontentloaded' })
+  await page.locator('.content-skeleton--detail').waitFor()
+  assert.equal(await page.locator('main').getByText('404', { exact: true }).count(), 0)
+  releaseDetail()
+  await page.locator('.content-skeleton--detail').waitFor({ state: 'detached' })
+  assert.deepEqual(errors, [])
+  console.log('PASS: immediate shell, desktop/mobile skeletons, loaded content, error/retry, refresh retention, contact form, pending detail, no browser errors')
+} finally { await browser.close() }

@@ -1,3 +1,4 @@
+import ContentBoundary from '../components/ContentBoundary'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { stats, contact, brand, copyrightYear } from '../store/site'
@@ -87,7 +88,8 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="service-box-style">
+          <ContentBoundary variant="services" count={4} label="our services">
+<div className="service-box-style">
             {services.length === 0 && <p role="status" className="py-5 text-center">Service updates are coming soon.</p>}
             {services.map((s, i) => (
               <div
@@ -134,6 +136,7 @@ export default function Services() {
               </div>
             ))}
           </div>
+</ContentBoundary>
         </div>
       </section>
 

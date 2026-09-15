@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const Context = createContext(null)
+const EMPTY_CONTENT = { services: [], caseStudies: [], team: [], insights: [] }
 const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 
 export function SiteContentProvider({ children }) {
@@ -36,8 +37,12 @@ export function SiteContentProvider({ children }) {
     const timer = window.setInterval(() => { if (!document.hidden) refresh() }, 60000)
     return () => { controller?.abort(); window.removeEventListener('focus', onFocus); window.clearInterval(timer) }
   }, [attempt, location.pathname])
-  if (error || !data) return <div className="container section-padding" style={{ minHeight: '70vh', display: 'grid', placeContent: 'center', textAlign: 'center' }}><h1>{error ? 'Content unavailable' : 'Loading…'}</h1><p role={error ? 'alert' : 'status'}>{error || 'Preparing the latest content from Lida.'}</p>{error && <button className="theme-btn" onClick={() => { setError(''); setAttempt(value => value + 1) }}>Try again</button>}</div>
-  return <Context.Provider value={data}>{children}</Context.Provider>
+  return <Context.Provider value={{
+    ...(data || EMPTY_CONTENT),
+    loading: !data && !error,
+    unavailable: !data && Boolean(error),
+    retry: () => { setError(''); setAttempt(value => value + 1) },
+  }}>{children}</Context.Provider>
 }
 
 export function useSiteContent() {

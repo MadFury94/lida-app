@@ -1,3 +1,4 @@
+import ContentBoundary from '../components/ContentBoundary'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { brand, contact, stats, partners, testimonials } from '../store/site'
@@ -26,7 +27,7 @@ export default function Home() {
       // Destroy existing instance if any
       const existingSwiper = document.querySelector('.brand-slider').swiper
       if (existingSwiper) existingSwiper.destroy(true, true)
-      
+
       // Create new Swiper instance
       new window.Swiper('.brand-slider', {
         spaceBetween: 24,
@@ -218,7 +219,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="service-box-style">
+          <ContentBoundary variant="services" count={4} label="our services">
+<div className="service-box-style">
             {services.map((s, i) => (
               <div
                 className={`service-list-wrap accordion block${openService === i ? ' active-block' : ''} wow fadeInUp`}
@@ -260,6 +262,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+</ContentBoundary>
         </div>
       </section>
 
@@ -306,7 +309,9 @@ export default function Home() {
           </div>
         </div>
         <div className="project-wrapper">
-          <div className="row">
+<ContentBoundary variant="projects" count={4} label="featured projects">
+
+<div className="row">
             <div className="col-lg-5 col-md-5">
               <div className="text-items">
                 <p>A closer look at how Lida uses brand strategy, marketing and communications to help clients move forward.</p>
@@ -339,6 +344,7 @@ export default function Home() {
               </div>)}
             </div>
           </div>
+
           <div className="row">
             <div className="col-lg-7 col-md-7">
               {caseStudies[2] && (<div className="project-box-items style-height-one">
@@ -363,7 +369,8 @@ export default function Home() {
               </div>)}
             </div>
           </div>
-        </div>
+        </ContentBoundary>
+</div>
       </section>
 
       {/* ── FAQ / PROCESS ────────────────────────────────── */}

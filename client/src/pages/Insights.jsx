@@ -1,3 +1,4 @@
+import ContentBoundary from '../components/ContentBoundary'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSiteContent } from '../store/SiteContent'
@@ -39,7 +40,8 @@ export default function Insights() {
       {/* ── NEWS GRID ────────────────────────────────────── */}
       <section className="news-section-5 fix section-padding">
         <div className="container">
-          <div className="row g-4">
+          <ContentBoundary label="our insights">
+<div className="row g-4">
             {insights.length === 0 && <p role="status" className="py-5 text-center">New insights are coming soon.</p>}
             {insights.map((post, i) => (
               <div
@@ -77,6 +79,7 @@ export default function Insights() {
               </div>
             ))}
           </div>
+</ContentBoundary>
         </div>
       </section>
     </>

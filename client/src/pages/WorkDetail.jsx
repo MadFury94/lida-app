@@ -1,16 +1,18 @@
-﻿import { useEffect } from 'react'
+import { DetailSkeleton } from '../components/ContentBoundary'
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useSiteContent } from '../store/SiteContent'
 import NotFound from './NotFound'
 
 export default function WorkDetail() {
   const { slug } = useParams()
-  const { caseStudies } = useSiteContent()
+  const { caseStudies, loading, unavailable } = useSiteContent()
   const project = caseStudies.find(item => item.slug === slug)
   useEffect(() => {
     window.scrollTo(0, 0)
     if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [slug])
+  if (loading || unavailable) return <DetailSkeleton />
   if (!project) return <NotFound />
   const story = project.detailDescription
   const photos = project.detailImages

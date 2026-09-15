@@ -1,3 +1,4 @@
+import ContentBoundary from '../components/ContentBoundary'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSiteContent } from '../store/SiteContent'
@@ -42,11 +43,12 @@ export default function Work() {
       {/* Project Section Start */}
       <section className="project-section-5 fix section-padding pt-0">
         <div className="container container-1680">
-          <div className="row">
+          <ContentBoundary variant="projects" count={4} label="our projects">
+<div className="row">
             {caseStudies.length === 0 && <p role="status" className="py-5 text-center">New projects are coming soon.</p>}
             {/* Left Column */}
             <div className="col-xl-6 col-lg-6 col-md-6">
-              {leftColumnProjects.map((project, index) => (
+              {leftColumnProjects.map(project => (
                 <div key={project.slug} className="project-box-items-5">
                   <div className="thumb">
                     <img src={project.thumb} alt={project.client} />
@@ -74,7 +76,7 @@ export default function Work() {
             
             {/* Right Column */}
             <div className="col-xl-6 col-lg-6 col-md-6">
-              {rightColumnProjects.map((project, index) => (
+              {rightColumnProjects.map(project => (
                 <div key={project.slug} className="project-box-items-5 style-auto">
                   <div className="thumb">
                     <img src={project.thumb} alt={project.client} />
@@ -100,6 +102,7 @@ export default function Work() {
               ))}
             </div>
           </div>
+</ContentBoundary>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
-﻿import { Link } from 'react-router-dom'
+import ContentBoundary from './ContentBoundary'
+import { Link } from 'react-router-dom'
 import { brand, contact } from '../store/site'
 import { useSiteContent } from '../store/SiteContent'
 
@@ -51,13 +52,13 @@ export default function Footer() {
             <div className="col-xl-3 ps-lg-0 col-lg-4 col-md-6 col-sm-6 col-6 wow fadeInUp" data-wow-delay=".6s">
               <div className="footer-widget-items">
                 <div className="widget-head"><span>Our services</span></div>
-                <ul className="gt-list-area">
+                <ContentBoundary variant="links" count={5} label="our services"><ul className="gt-list-area">
                   {services.map(s => (
                     <li key={s.slug}>
                       <Link to={`/services/${s.slug}`}>{s.shortTitle}</Link>
                     </li>
                   ))}
-                </ul>
+                </ul></ContentBoundary>
               </div>
             </div>
 
