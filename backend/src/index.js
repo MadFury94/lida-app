@@ -424,6 +424,8 @@ async function handleContact(request, env) {
     return json({ error: 'Invalid JSON body.' }, 400)
   }
 
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return json({ error: 'Invalid form data.' }, 422)
+
   const name    = sanitise(body.name)
   const email   = sanitise(body.email)
   const phone   = sanitise(body.phone || '')
@@ -432,8 +434,13 @@ async function handleContact(request, env) {
 
   // Basic validation
   if (!name)                         return json({ error: 'Name is required.' }, 422)
-  if (!email || !email.includes('@')) return json({ error: 'Valid email is required.' }, 422)
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'Valid email is required.' }, 422)
   if (!message)                       return json({ error: 'Message is required.' }, 422)
+
+  if (!env.RESEND_API_KEY || !env.CONTACT_EMAIL_TO || !env.CONTACT_EMAIL_FROM) {
+    console.error('Contact email configuration is missing')
+    return json({ error: 'Email is temporarily unavailable. Please contact us directly.' }, 503)
+  }
 
   const id        = crypto.randomUUID()
   const timestamp = new Date().toISOString()
@@ -481,7 +488,7 @@ async function handleContact(request, env) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Lida Digital <noreply@lida.ng>',
+          from: env.CONTACT_EMAIL_FROM,
           to: [env.CONTACT_EMAIL_TO],
           reply_to: email,
           subject: `New enquiry from ${name} — Lida Digital`,
@@ -505,12 +512,14 @@ async function handleContact(request, env) {
       })
 
       if (!resendRes.ok) {
-        const err = await resendRes.text()
-        console.error('Resend API error:', resendRes.status, err)
+        console.error('Resend API error:', resendRes.status)
+        return json({ error: 'Email could not be sent. Please contact us directly.' }, 502)
       }
+      const sent = await resendRes.json()
+      if (!sent.id) throw new Error('Resend did not return an email ID')
     } catch (err) {
-      // Don't fail the request if email send fails — submission is already saved
-      console.error('Email send failed:', err)
+      console.error('Email send failed:', err.name)
+      return json({ error: 'Email could not be sent. Please contact us directly.' }, 502)
     }
   }
 

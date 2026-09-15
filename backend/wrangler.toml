@@ -39,14 +39,12 @@ bucket_name = "lida-media"
 
 # ── Secrets (set via CLI, never in this file) ─────────────────
 # npx wrangler secret put ADMIN_API_KEY
-# npx wrangler secret put CONTACT_EMAIL_TO
 # npx wrangler secret put RESEND_API_KEY
 # npx wrangler secret put JWT_SECRET
 # npx wrangler secret put ADMIN_USERNAME
 # npx wrangler secret put ADMIN_PASSWORD_HASH
 #
 # ADMIN_API_KEY       — shared secret for admin panel (X-Admin-Key header)
-# CONTACT_EMAIL_TO    — recipient address for contact form email alerts (e.g. hello@lidadigital.com.ng)
 # RESEND_API_KEY      — API key from resend.com (re_xxxxxxxx)
 # JWT_SECRET          — secret for JWT token signing (generate: openssl rand -base64 32)
 # ADMIN_USERNAME      — admin login username
@@ -54,6 +52,8 @@ bucket_name = "lida-media"
 
 # ── Environment variables ─────────────────────────────────────
 [vars]
+CONTACT_EMAIL_TO = "Projects@lidadigital.com.ng"
+CONTACT_EMAIL_FROM = "Lida Digital <noreply@lida.ng>"
 ENVIRONMENT = "production"
 ALLOWED_ORIGINS = "https://lida.ng,https://www.lida.ng,https://admin.lida.ng,https://lida-app.pages.dev"
 JWT_EXPIRY = "24h"
@@ -69,6 +69,8 @@ database_id = "00000000-0000-0000-0000-000000000000"
 migrations_dir = "migrations"
 
 [env.dev.vars]
+CONTACT_EMAIL_TO = "Projects@lidadigital.com.ng"
+CONTACT_EMAIL_FROM = "Lida Digital <noreply@lida.ng>"
 ENVIRONMENT = "development"
 ALLOWED_ORIGINS = "http://localhost:5173,http://localhost:5174,http://localhost:3000"
 JWT_EXPIRY = "24h"

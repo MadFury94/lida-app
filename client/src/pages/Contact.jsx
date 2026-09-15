@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
-import { brand, contact } from '../store/site'
+import { contact } from '../store/site'
+
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 
 const SERVICES_OPTIONS = [
   'Growth Strategy',
@@ -29,12 +31,13 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      if (res.ok) {
+      const result = await res.json()
+      if (res.ok && result.success === true) {
         setStatus('success')
         setForm({ name: '', email: '', phone: '', service: '', message: '' })
       } else {
@@ -174,7 +177,7 @@ export default function Contact() {
               <div className="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                 <div className="contact-from-box">
                   <h2>Send us a message</h2>
-                  <form className="contact-form-box" onSubmit={handleSubmit} noValidate>
+                  <form className="contact-form-box" onSubmit={handleSubmit}>
                     <div className="row g-4 align-items-center">
                       <div className="col-lg-6 col-md-6">
                         <div className="form-clt">

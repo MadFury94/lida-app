@@ -41,3 +41,22 @@ Validation returns 422; duplicate slugs or conflicting versions return 409. Auth
 ## Verification
 
 Run `npm run test:content` from `admin` for end-to-end tests using a real local Worker, D1 and R2 plus both Vite apps. The test server applies migrations to an isolated database in `.wrangler/content-tests`, uses a local-only test signing key, and never connects to remote resources. Tests verify public publishing, edits, drafts, deletion, validation, conflicts, media upload, empty lists and API failures. Microsoft Edge must be installed for the checked-in browser configuration.
+
+## Contact email delivery
+
+Contact form notifications go to `Projects@lidadigital.com.ng`, configured by
+`CONTACT_EMAIL_TO` in `wrangler.toml`. `CONTACT_EMAIL_FROM` uses
+`Lida Digital <noreply@lida.ng>`; verify `lida.ng` in Resend
+before sending. Replies go to the visitor's email address.
+
+For local development, put `RESEND_API_KEY` in `backend/.dev.vars` and restart
+the Worker. A frontend `.env` variable named `RESEND` is not read by the Worker.
+For production, set the Worker secret with `npx wrangler secret put RESEND_API_KEY`
+from `backend`, then deploy the Worker with `npm run deploy`.
+Set the frontend production build variable `VITE_API_BASE_URL` to
+`https://lida-backend.onochieazukaeme.workers.dev`, then rebuild/redeploy the client.
+
+The endpoint returns success only after Resend accepts the email. Missing email
+configuration returns 503; provider/network failures return 502. Submissions may
+already be saved in the admin inbox when email sending fails. Resend acceptance
+is not proof of inbox delivery; check its delivery events for bounces or delivery.
