@@ -47,7 +47,7 @@ export default function Contact() {
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="/assets/img/inner-page/contact-1.jpg" alt="img">
+                                                <img src="/assets/img/inner-page/cont1.png" alt="img">
                                             </div>
                                             <div class="contact-content">
                                                 <h2>United State</h2>
@@ -66,7 +66,7 @@ export default function Contact() {
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="/assets/img/inner-page/contact-2.jpg" alt="img">
+                                                <img src="/assets/img/inner-page/cont2.png" alt="img">
                                             </div>
                                             <div class="contact-content">
                                                 <h2>United Kingdom</h2>
@@ -85,7 +85,7 @@ export default function Contact() {
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="/assets/img/inner-page/contact-3.jpg" alt="img">
+                                                <img src="/assets/img/inner-page/cont3.png" alt="img">
                                             </div>
                                             <div class="contact-content">
                                                 <h2>Denmark</h2>
