@@ -20,6 +20,37 @@ export default function Home() {
     if (typeof window.WOW !== 'undefined') {
       new window.WOW({ live: false }).init()
     }
+
+    // Initialize Swiper for brand slider after React content loads
+    if (window.Swiper && document.querySelector('.brand-slider')) {
+      // Destroy existing instance if any
+      const existingSwiper = document.querySelector('.brand-slider').swiper
+      if (existingSwiper) existingSwiper.destroy(true, true)
+      
+      // Create new Swiper instance
+      new window.Swiper('.brand-slider', {
+        spaceBetween: 24,
+        speed: 1300,
+        loop: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.array-next',
+          prevEl: '.array-prev',
+        },
+        breakpoints: {
+          1399: { slidesPerView: 8 },
+          1199: { slidesPerView: 5 },
+          991: { slidesPerView: 4 },
+          767: { slidesPerView: 3 },
+          575: { slidesPerView: 2 },
+          400: { slidesPerView: 2 },
+          0: { slidesPerView: 1 },
+        },
+      })
+    }
   }, [])
 
   return (
