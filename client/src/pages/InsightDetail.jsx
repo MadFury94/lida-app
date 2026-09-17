@@ -7,8 +7,6 @@ export default function InsightDetail() {
   const post = insights.find(p => p.slug === slug)
 
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
-    window.scrollTo(0, 0)
   }, [slug])
 
   if (!post) return <Navigate to="/insights" replace />

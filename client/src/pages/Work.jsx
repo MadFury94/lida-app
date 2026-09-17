@@ -1,179 +1,81 @@
 import { useEffect } from 'react'
-
+import { Link } from 'react-router-dom'
+import { useSiteContent } from '../store/SiteContent'
 
 export default function Work() {
+  const { caseStudies } = useSiteContent()
+
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
-    
+    if (typeof window.WOW !== 'undefined') {
+      new window.WOW({ live: false }).init()
+    }
   }, [])
 
   return (
-    <div dangerouslySetInnerHTML={{__html: `
-                    <!-- Breadcrumb Section Start -->
-                    <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/inner-page/bread-line.png');">
-                        <div class="light-bg">
-                            <img src="/assets/img/inner-page/light.png" alt="img">
-                        </div>
-                        <div class="container">
-                            <div class="page-heading">
-                                <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Our Creative Works </span> That <br> Makes You Happy</h1>
-                                </div>
-                                <div class="breadcrumb-items">
-                                    <ul>
-                                        <li>
-                                           12+ years of experience
-                                        </li>
-                                        <li>
-                                            (©2015 — 2026)
-                                        </li>
-                                    </ul>
-                                    <h2 class="title wa_title_spilt_1">
-                                        Our works
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Projetct Section Start -->
-                    <section class="project-section-5 fix section-padding pt-0">
-                      <div class="container container-1680">
-                         <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="project-box-items-5">
-                                    <div class="thumb">
-                                        <img src="/assets/img/home-1/projecr-01.jpg" alt="img">
-                                        <img src="/assets/img/home-1/projecr-01.jpg" alt="img">
-                                        <a href="project-details.html" class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-up-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="content-items">
-                                        <div class="content">
-                                            <h2 class="title">
-                                                <a href="project-details.html">Market Expansion</a>
-                                            </h2>
-                                            <div class="tag-items">
-                                                <a href="project.html">Consulting</a>
-                                                <a href="project.html">Business</a>
-                                            </div>
-                                        </div>
-                                        <span class="year-text">[ 2026 ]</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-items-5">
-                                    <div class="thumb">
-                                        <img src="/assets/img/home-1/projecr-03.jpg" alt="img">
-                                        <img src="/assets/img/home-1/projecr-03.jpg" alt="img">
-                                        <a href="project-details.html" class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-up-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="content-items">
-                                        <div class="content">
-                                            <h2 class="title">
-                                                <a href="project-details.html">Product Innovatio</a>
-                                            </h2>
-                                            <div class="tag-items">
-                                                <a href="project.html">Consulting</a>
-                                                <a href="project.html">Business</a>
-                                            </div>
-                                        </div>
-                                        <span class="year-text">[ 2026 ]</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-items-5">
-                                    <div class="thumb">
-                                        <img src="/assets/img/home-1/projecr-02.jpg" alt="img">
-                                        <img src="/assets/img/home-1/projecr-02.jpg" alt="img">
-                                        <a href="project-details.html" class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-up-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="content-items">
-                                        <div class="content">
-                                            <h2 class="title">
-                                                <a href="project-details.html">Market Expansion</a>
-                                            </h2>
-                                            <div class="tag-items">
-                                                <a href="project.html">Consulting</a>
-                                                <a href="project.html">Business</a>
-                                            </div>
-                                        </div>
-                                        <span class="year-text">[ 2026 ]</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="project-box-items-5 style-auto">
-                                    <div class="thumb">
-                                        <img src="/assets/img/home-1/projecr-02.jpg" alt="img">
-                                        <img src="/assets/img/home-1/projecr-02.jpg" alt="img">
-                                        <a href="project-details.html" class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-up-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="content-items">
-                                        <div class="content">
-                                            <h2 class="title">
-                                                <a href="project-details.html">Creative Campaign</a>
-                                            </h2>
-                                            <div class="tag-items">
-                                                <a href="project.html">Consulting</a>
-                                                <a href="project.html">Business</a>
-                                            </div>
-                                        </div>
-                                        <span class="year-text">[ 2026 ]</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-items-5 style-auto">
-                                    <div class="thumb">
-                                        <img src="/assets/img/home-1/projecr-04.jpg" alt="img">
-                                        <img src="/assets/img/home-1/projecr-04.jpg" alt="img">
-                                        <a href="project-details.html" class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-up-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="content-items">
-                                        <div class="content">
-                                            <h2 class="title">
-                                                <a href="project-details.html">Brand Strategy </a>
-                                            </h2>
-                                            <div class="tag-items">
-                                                <a href="project.html">Consulting</a>
-                                                <a href="project.html">Business</a>
-                                            </div>
-                                        </div>
-                                        <span class="year-text">[ 2026 ]</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-items-5 style-auto">
-                                    <div class="thumb">
-                                        <img src="/assets/img/home-1/projecr-03.jpg" alt="img">
-                                        <img src="/assets/img/home-1/projecr-03.jpg" alt="img">
-                                        <a href="project-details.html" class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-up-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="content-items">
-                                        <div class="content">
-                                            <h2 class="title">
-                                                <a href="project-details.html">Product Innovatio</a>
-                                            </h2>
-                                            <div class="tag-items">
-                                                <a href="project.html">Consulting</a>
-                                                <a href="project.html">Business</a>
-                                            </div>
-                                        </div>
-                                        <span class="year-text">[ 2026 ]</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <>
+      {/* Breadcrumb Section */}
+      <div
+        className="breadcrumb-wrapper bg-cover"
+        style={{ backgroundImage: "url('/assets/img/inner-page/bread-line.png')" }}
+      >
+        <div className="light-bg">
+          <img src="/assets/img/inner-page/light.png" alt="" />
+        </div>
+        <div className="container">
+          <div className="page-heading">
+            <div className="breadcrumb-sub-title">
+              <h1 className="text-white rr_title_anim">
+                <span>Our Creative Works</span> That <br /> Makes You Happy
+              </h1>
+            </div>
+            <div className="breadcrumb-items">
+              <ul>
+                <li>12+ years of experience</li>
+                <li>(©2015 — 2026)</li>
+              </ul>
+              <h2 className="title wa_title_spilt_1">Our Works</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Project Section */}
+      <section className="project-section-5 fix section-padding pt-0">
+        <div className="container container-1680">
+          <div className="row">
+            {caseStudies.map((project, index) => (
+              <div 
+                key={project.slug} 
+                className={`col-xl-6 col-lg-6 col-md-6 wow fadeInUp`} 
+                data-wow-delay={`${0.2 * (index + 1)}s`}
+              >
+                <div className="project-box-items-5">
+                  <div className="thumb">
+                    <img src={project.image || '/assets/img/inner-page/project-details.jpg'} alt={project.client} />
+                    <img src={project.image || '/assets/img/inner-page/project-details.jpg'} alt={project.client} />
+                    <Link to={`/work/${project.slug}`} className="arrow-icon">
+                      <i className="fa-solid fa-arrow-up-right"></i>
+                    </Link>
+                  </div>
+                  <div className="content-items">
+                    <div className="content">
+                      <h2 className="title">
+                        <Link to={`/work/${project.slug}`}>{project.client}</Link>
+                      </h2>
+                      <div className="tag-items">
+                        {project.tags && project.tags.slice(0, 2).map((tag, i) => (
+                          <Link key={i} to="/work">{tag}</Link>
+                        ))}
                       </div>
-                    </section>
+                    </div>
+                    <span className="year-text">[ {project.year || '2026'} ]</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
                     <!-- Powerful Feature Section Start -->
                     <section class="powerful-feature-section section-bg fix section-padding">

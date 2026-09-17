@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 
 export default function Contact() {
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     
   }, [])

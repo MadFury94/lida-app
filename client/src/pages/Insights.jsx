@@ -4,7 +4,6 @@ import { insights } from '../store/site'
 
 export default function Insights() {
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [])
 
   return (

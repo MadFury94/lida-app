@@ -1,3 +1,4 @@
+import usePageLifecycle from '../hooks/usePageLifecycle'
 import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Header from './Header'
@@ -6,6 +7,7 @@ import Preloader from './Preloader'
 
 export default function Layout() {
   const location = useLocation()
+  usePageLifecycle()
 
   useEffect(() => {
     // The legacy template normally reveals the page from main.js. In React the
@@ -17,10 +19,6 @@ export default function Layout() {
     // Re-init all template JS on every page mount/change
     if (typeof window.$ === 'undefined') return undefined
 
-    // WOW animations
-    if (typeof window.WOW !== 'undefined') {
-      new window.WOW({ live: false }).init()
-    }
 
     // Sticky header scroll
     const onScroll = () => {
@@ -149,13 +147,13 @@ export default function Layout() {
   return (
     <div className="page-wrapper">
       <Preloader />
-      <div id="page">
+      <div id="page" className="visible">
         <div className="global-header">
           <Header />
         </div>
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            <main>
+            <main key={location.pathname}>
               <Outlet />
             </main>
             <div className="global-footer">

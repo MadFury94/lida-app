@@ -412,8 +412,8 @@ export const caseStudies = [
       { label: 'Deliverable', value: 'Full Identity' },
       { label: 'Market', value: 'Nigeria' },
     ],
-    image: '/assets/img/home-1/project-02.jpg',
-    thumb: '/assets/img/home-1/projecr-02.jpg',
+    image: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg',
+    thumb: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg',
   },
   {
     slug: 'nuts-and-bolts',
