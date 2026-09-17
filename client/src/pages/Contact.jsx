@@ -22,7 +22,6 @@ export default function Contact() {
   const [status, setStatus] = useState(null) // null | 'sending' | 'success' | 'error'
 
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [])
 
   const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))

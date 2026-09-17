@@ -18,9 +18,6 @@ export default function Home() {
     if (window.$ && window.$.fn.counterUp) {
       window.$('.count').counterUp({ delay: 10, time: 1000 })
     }
-    if (typeof window.WOW !== 'undefined') {
-      new window.WOW({ live: false }).init()
-    }
 
     // Initialize Swiper for brand slider after React content loads
     if (window.Swiper && document.querySelector('.brand-slider')) {

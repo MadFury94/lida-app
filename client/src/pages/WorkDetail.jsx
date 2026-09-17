@@ -9,8 +9,6 @@ export default function WorkDetail() {
   const { caseStudies, loading, unavailable } = useSiteContent()
   const project = caseStudies.find(item => item.slug === slug)
   useEffect(() => {
-    window.scrollTo(0, 0)
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [slug])
   if (loading || unavailable) return <DetailSkeleton />
   if (!project) return <NotFound />

@@ -1140,5 +1140,15 @@
   .skeleton-surface::after { animation: none; transform: none; }
 }
 
-/* Template scroll effects must never hide React content while data is pending. */
-.page-wrapper .wow { visibility: visible !important; }
+
+
+/* Only used when animation setup fails; normal animation values are untouched. */
+.animation-fallback .wow,
+.animation-fallback .char,
+.animation-fallback .split-line,
+.animation-fallback .tp-anim-img {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+}

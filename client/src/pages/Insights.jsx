@@ -6,7 +6,6 @@ import { useSiteContent } from '../store/SiteContent'
 export default function Insights() {
   const { insights } = useSiteContent()
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [])
 
   return (

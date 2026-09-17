@@ -5,7 +5,6 @@ import VideoBanner from '../components/VideoBanner'
 
 export default function About() {
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     
   }, [])

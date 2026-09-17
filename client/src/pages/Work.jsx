@@ -6,7 +6,6 @@ import { useSiteContent } from '../store/SiteContent'
 export default function Work() {
   const { caseStudies } = useSiteContent()
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
   }, [])
 

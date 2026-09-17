@@ -7,7 +7,6 @@ import { useSiteContent } from '../store/SiteContent'
 export default function Team() {
   const { team } = useSiteContent()
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [])
 
   return (

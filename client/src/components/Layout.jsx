@@ -1,3 +1,4 @@
+import usePageLifecycle from '../hooks/usePageLifecycle'
 import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Header from './Header'
@@ -7,15 +8,7 @@ import { useSiteContent } from '../store/SiteContent'
 export default function Layout() {
   const location = useLocation()
   const { loading } = useSiteContent()
-
-  useEffect(() => {
-    // Scroll to top on every route change.
-    // Also reset GSAP ScrollSmoother position if it's active.
-    window.scrollTo(0, 0)
-    const smoothContent = document.getElementById('smooth-content')
-    if (smoothContent) smoothContent.style.transform = 'translateY(0px)'
-
-  }, [location.pathname])
+  usePageLifecycle(!loading)
 
   useEffect(() => {
     // The legacy template normally reveals the page from main.js. In React the
@@ -27,10 +20,6 @@ export default function Layout() {
     // Re-init all template JS on every page mount/change
     if (typeof window.$ === 'undefined') return undefined
 
-    // WOW animations
-    if (typeof window.WOW !== 'undefined') {
-      new window.WOW({ live: false }).init()
-    }
 
     // Sticky header scroll
     const onScroll = () => {
@@ -164,7 +153,7 @@ export default function Layout() {
         </div>
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            <main>
+            <main key={location.pathname}>
               <Outlet />
             </main>
             <div className="global-footer">

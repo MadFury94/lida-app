@@ -9,7 +9,6 @@ export default function Services() {
   const [openService, setOpenService] = useState(0)
 
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
   }, [])
 
   return (

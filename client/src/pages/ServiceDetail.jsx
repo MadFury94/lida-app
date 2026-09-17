@@ -73,8 +73,6 @@ export default function ServiceDetail() {
   const service = services.find(s => s.slug === slug)
 
   useEffect(() => {
-    if (typeof window.WOW !== 'undefined') new window.WOW({ live: false }).init()
-    window.scrollTo(0, 0)
 
     // SEO: set page title and meta description per service
     if (!service) return
