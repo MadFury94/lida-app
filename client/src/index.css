@@ -1362,3 +1362,32 @@
     transform: none !important;
     clip-path: none !important;
 }
+
+/* Project detail copy follows the template's regular Urbanist treatment.
+   Keep it explicit so inherited decorative italic styles cannot affect the
+   descriptive text beside each heading. */
+.project-details-section .project-details-top-item .top-content p,
+.project-details-section .project-details-top-item .project-details-info-item .content p,
+.project-details-section .project-details-top-item .left-text p,
+.project-details-section .project-details-top-item .details-content p,
+.project-details-section .project-details-top-item .details-content .details-list li,
+.project-details-section .project-details-top-item .details-box p,
+.project-details-section .project-details-top-item .details-bottom-content .right-content p {
+    font-family: "Urbanist", sans-serif;
+    font-style: normal;
+}
+
+/* Project detail hero titles are plain heading text. The template styles the
+   breadcrumb span as decorative italic serif text, which is not appropriate
+   for the project story title. */
+.breadcrumb-wrapper .page-heading h1 span.hero-title-normal {
+    font-family: "Urbanist", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.breadcrumb-wrapper .page-heading h1 span.hero-title-emphasis {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+}

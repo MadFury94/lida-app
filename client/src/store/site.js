@@ -253,7 +253,7 @@ export const caseStudies = [
     image: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg',
     thumb: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg',
     detailDescription: {
-      title: 'Duxbank Microfinance Bank',
+      title: 'Positioning A New Banking Brand For A Confident Market Entry',
       subtitle: 'Building credibility and differentiation for a new financial institution',
       content: 'Duxbank Microfinance Bank required a comprehensive brand identity and market positioning strategy to establish credibility and differentiation in Nigeria\'s competitive financial services market.',
       features: [
@@ -266,8 +266,8 @@ export const caseStudies = [
       ]
     },
     detailImages: {
-      hero: '/assets/img/home-1/project-02.jpg',
-      main: '/assets/img/home-1/project-02.jpg',
+      hero: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service.jpeg',
+      main: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg',
       gallery: []
     },
     projectInfo: {

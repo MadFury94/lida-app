@@ -24,15 +24,17 @@ export default function Work() {
           <div className="page-heading mb-0">
             <div className="breadcrumb-sub-title">
               <h1 className="text-white rr_title_anim">
-                <span>Work Built To</span> <br /> Move Businesses Forward.
+                <span>Our Creative Works</span> That
+                Makes You Happy
               </h1>
             </div>
             <div className="breadcrumb-items">
               <ul>
-                <li>Selected Projects &amp; Case Study</li>
+                <li>12+ years of experience</li>
+                <li>(©2015 — 2026)</li>
               </ul>
               <h2 className="title wa_title_spilt_1">
-                Our Works
+                Our works
               </h2>
             </div>
           </div>

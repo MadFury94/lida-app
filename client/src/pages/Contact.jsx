@@ -61,13 +61,15 @@ export default function Contact() {
           <div className="page-heading mb-0">
             <div className="breadcrumb-sub-title">
               <h1 className="text-white rr_title_anim">
-                <span>Let's Start a Conversation</span> About Your Growth.
+                <span>Get In Touch</span> With Us For
+                Creative Solutions And
+                Expert Support
               </h1>
             </div>
             <div className="breadcrumb-items">
               <ul>
-                <li>{contact.address}</li>
-                <li>{contact.email}</li>
+                <li>12+ years of experience</li>
+                <li>(©2015 — 2026)</li>
               </ul>
               <h2 className="title wa_title_spilt_1">Contact Us</h2>
             </div>
