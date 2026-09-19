@@ -60,8 +60,8 @@ export const contact = {
   address: '50, Ebitu Ukiwe Street, Jabi, Abuja, Nigeria',
   addressFull: '50, Ebitu Ukiwe Street, Jabi, Abuja, Federal Capital Territory, Nigeria',
   officeHours: 'Mon – Fri, 9am – 6pm WAT',
-  calendly: 'https://calendly.com/lidadigitalagency',
-  calendlyDisplay: 'calendly.com/lidadigitalagency',
+  calendly: 'https://calendly.com/lida_nigeria',
+  calendlyDisplay: 'calendly.com/lida_nigeria',
   mapsUrl: 'https://maps.google.com/?q=50+Ebitu+Ukiwe+Street+Jabi+Abuja+Nigeria',
   videoUrl: 'https://www.youtube.com/watch?v=dDpATH_E1yQ',
   mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.4687636040394!2d7.431988814770926!3d9.072594993445607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0a856d9b1f17%3A0x4c3a7e4b2b1c9d8e!2s50%20Ebitu%20Ukiwe%20St%2C%20Jabi%2C%20Abuja!5e0!3m2!1sen!2sng!4v1690000000000!5m2!1sen!2sng',
@@ -250,8 +250,59 @@ export const caseStudies = [
       { label: 'Deliverable', value: 'Full Identity' },
       { label: 'Market', value: 'Nigeria' },
     ],
-    image: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg',
-    thumb: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg',
+    image: '/assets/img/home-1/project-02.jpg',
+    thumb: '/assets/img/home-1/project-02.jpg',
+    detailDescription: {
+      title: 'Duxbank Microfinance Bank',
+      subtitle: 'Building credibility and differentiation for a new financial institution',
+      content: 'Duxbank Microfinance Bank required a comprehensive brand identity and market positioning strategy to establish credibility and differentiation in Nigeria\'s competitive financial services market.',
+      features: [
+        'Complete brand identity development',
+        'Logo system enhancement and refinement',
+        'High-impact outdoor campaign creatives',
+        'Market introduction positioning',
+        'Long-term brand positioning strategy',
+        'Financial sector compliance considerations'
+      ]
+    },
+    detailImages: {
+      hero: '/assets/img/home-1/project-02.jpg',
+      main: '/assets/img/home-1/project-02.jpg',
+      gallery: []
+    },
+    projectInfo: {
+      client: 'Duxbank Microfinance Bank',
+      services: 'Brand Identity, Logo Design, Campaign Creative, Market Positioning',
+      platform: 'Print, Digital, Outdoor Advertising',
+      date: '2024'
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Market Research',
+        description: 'Analyzed Nigeria\'s competitive financial services landscape and regulatory requirements.'
+      },
+      {
+        step: '02',
+        title: 'Brand Strategy',
+        description: 'Developed positioning strategy to establish credibility and differentiation from day one.'
+      },
+      {
+        step: '03',
+        title: 'Identity Design',
+        description: 'Created comprehensive brand identity system including logo refinement and visual guidelines.'
+      },
+      {
+        step: '04',
+        title: 'Campaign Launch',
+        description: 'Executed high-impact outdoor and digital campaigns for successful market introduction.'
+      }
+    ],
+    finalResult: {
+      title: 'Successful Financial Brand Launch',
+      description: 'Successfully launched Duxbank with a strong, credible brand identity that differentiates them in Nigeria\'s competitive microfinance sector.',
+      keyAchievements: 'Established market credibility from launch, created distinctive brand positioning, and built foundation for long-term growth in financial services.'
+    }
   },
   {
     slug: 'calpak-nigeria',
@@ -267,8 +318,58 @@ export const caseStudies = [
       { label: 'Sales Growth', value: '35x' },
       { label: 'Market', value: 'Nigeria' },
     ],
-    image: '/assets/img/inner-page/project-details.jpg',
-    thumb: '/assets/img/inner-page/project-details.jpg',
+    image: '/assets/img/inner-page/calpak.jpeg',
+    thumb: '/assets/img/inner-page/calpak.jpeg',
+    detailDescription: {
+      title: 'Calpak Nigeria Market Entry',
+      subtitle: 'Strategic market entry and brand positioning for international energy solutions',
+      content: 'Calpak Nigeria required a comprehensive approach to introducing their internationally recognized energy solutions brand to the Nigerian market. Our strategy focused on building local awareness, establishing trust, and creating market relevance through targeted digital campaigns and localized marketing materials.',
+      features: [
+        'Digital presence development and management',
+        'Targeted advertising campaigns',
+        'Locally optimized marketing materials',
+        'Brand awareness and trust building initiatives',
+        'Market-specific content strategy'
+      ]
+    },
+    detailImages: {
+      hero: '/assets/img/inner-page/calpak.jpeg',
+      main: '/assets/img/inner-page/calpak.jpeg',
+      gallery: []
+    },
+    projectInfo: {
+      client: 'Calpak Nigeria',
+      services: 'Digital Marketing, Brand Positioning, Market Entry Strategy',
+      platform: 'Digital Campaigns, Social Media, Website',
+      date: '2023'
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Market Research',
+        description: 'Conducted comprehensive analysis of the Nigerian energy sector and consumer behavior patterns.'
+      },
+      {
+        step: '02',
+        title: 'Digital Strategy',
+        description: 'Developed targeted digital marketing campaigns focusing on key decision makers and end users.'
+      },
+      {
+        step: '03',
+        title: 'Content Localization',
+        description: 'Created locally relevant marketing materials that resonated with Nigerian market preferences.'
+      },
+      {
+        step: '04',
+        title: 'Campaign Execution',
+        description: 'Implemented multi-channel campaigns with continuous optimization based on performance data.'
+      }
+    ],
+    finalResult: {
+      title: 'Remarkable Growth Results',
+      description: 'The strategic approach delivered exceptional results, with Calpak Nigeria achieving significant market penetration and sales growth within the first quarter of operations.',
+      keyAchievements: 'Successfully established Calpak as a trusted energy solutions provider in Nigeria, with measurable impact on both brand recognition and sales performance.'
+    }
   },
   {
     slug: 'nuts-and-bolts',
@@ -286,12 +387,63 @@ export const caseStudies = [
       { label: 'Type', value: 'Repositioning' },
       { label: 'Market', value: 'Abuja' },
     ],
-    image: '/assets/img/inner-page/project-details-2.jpg',
-    thumb: '/assets/img/inner-page/project-details-2.jpg',
+    image: '/assets/img/inner-page/nuts.jpeg',
+    thumb: '/assets/img/inner-page/nuts.jpeg',
+    detailDescription: {
+      title: 'Nuts & Bolts Automotive Repositioning',
+      subtitle: 'Transforming a workshop into a premium automotive care brand',
+      content: 'Nuts & Bolts Automotive needed to move beyond the typical workshop perception and establish themselves as a premium maintenance and vehicle care brand. Our comprehensive repositioning strategy elevated their market presence and customer perception.',
+      features: [
+        'Complete brand repositioning strategy',
+        'Premium marketing materials design',
+        'Professional industrial photography',
+        'Branded staff apparel and uniforms',
+        'Customer-facing assets and signage',
+        'Enhanced service communication'
+      ]
+    },
+    detailImages: {
+      hero: '/assets/img/inner-page/nuts.jpeg',
+      main: '/assets/img/inner-page/nuts.jpeg',
+      gallery: []
+    },
+    projectInfo: {
+      client: 'Nuts & Bolts Automotive',
+      services: 'Brand Repositioning, Visual Identity, Photography, Marketing Materials',
+      platform: 'Print, Digital, Physical Branding',
+      date: '2023'
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Brand Audit',
+        description: 'Analyzed current market perception and identified opportunities for premium positioning.'
+      },
+      {
+        step: '02',
+        title: 'Repositioning Strategy',
+        description: 'Developed comprehensive strategy to elevate brand perception from workshop to premium service center.'
+      },
+      {
+        step: '03',
+        title: 'Visual Identity',
+        description: 'Created premium visual identity system including logo, colors, typography, and brand applications.'
+      },
+      {
+        step: '04',
+        title: 'Implementation',
+        description: 'Executed brand rollout across all touchpoints including signage, uniforms, and customer materials.'
+      }
+    ],
+    finalResult: {
+      title: 'Premium Brand Transformation',
+      description: 'Successfully transformed Nuts & Bolts from a typical automotive workshop into a premium vehicle care brand that commands higher value and customer trust.',
+      keyAchievements: 'Enhanced professional image, improved customer perception, stronger market positioning, and increased service value proposition.'
+    }
   },
   {
-    slug: 'savvytech-manitowoc',
-    client: 'Savvytech / Manitowoc',
+    slug: 'growthill-africa',
+    client: 'Growthill Africa',
     sector: 'Industrial B2B',
     tags: ['B2B', 'Industrial', 'Digital Marketing'],
     challenge: 'Increase awareness and engagement for globally recognized crane brands within Nigeria\'s industrial and construction sectors.',
@@ -303,8 +455,59 @@ export const caseStudies = [
       { label: 'Impressions', value: '2.5M+' },
       { label: 'Social Growth', value: '+180%' },
     ],
-    image: '/assets/img/inner-page/project-details-3.jpg',
-    thumb: '/assets/img/inner-page/project-details-3.jpg',
+    image: '/assets/img/inner-page/growthhill.jpeg',
+    thumb: '/assets/img/inner-page/growthhill.jpeg',
+    detailDescription: {
+      title: 'Growthill Africa B2B Digital Strategy',
+      subtitle: 'Connecting industrial brands with Nigeria\'s construction and infrastructure sectors',
+      content: 'Growthill Africa needed to establish strong market presence and engagement within Nigeria\'s competitive industrial and construction sectors. Our targeted approach focused on reaching key decision makers and building brand authority in specialized B2B markets.',
+      features: [
+        'Targeted industry professional outreach',
+        'B2B digital marketing campaigns',
+        'Product communication strategies',
+        'Creative development for industrial audiences',
+        'Performance tracking and optimization',
+        'Social media engagement growth'
+      ]
+    },
+    detailImages: {
+      hero: '/assets/img/inner-page/growthhill.jpeg',
+      main: '/assets/img/inner-page/growthhill.jpeg',
+      gallery: []
+    },
+    projectInfo: {
+      client: 'Growthill Africa',
+      services: 'B2B Digital Marketing, Content Strategy, Creative Development, Social Media',
+      platform: 'LinkedIn, Digital Campaigns, Industry Publications',
+      date: '2024'
+    },
+    methodology: [
+      {
+        step: '01',
+        title: 'Market Analysis',
+        description: 'Researched Nigeria\'s industrial and construction sectors to identify key decision makers and communication channels.'
+      },
+      {
+        step: '02',
+        title: 'Audience Targeting',
+        description: 'Developed precise targeting strategies to reach industry professionals and construction sector leaders.'
+      },
+      {
+        step: '03',
+        title: 'Content Development',
+        description: 'Created industry-specific content and creative materials that resonated with B2B audiences.'
+      },
+      {
+        step: '04',
+        title: 'Campaign Optimization',
+        description: 'Continuously monitored and optimized campaigns based on engagement metrics and lead quality.'
+      }
+    ],
+    finalResult: {
+      title: 'Outstanding B2B Growth Results',
+      description: 'Achieved exceptional engagement and reach within Nigeria\'s industrial sector, establishing Growthill Africa as a recognized brand among key industry professionals.',
+      keyAchievements: 'Successfully connected with over 50,000 industry professionals, generated 2.5M+ campaign impressions, and achieved 180% growth in social media engagement within the target B2B market.'
+    }
   },
 ]
 

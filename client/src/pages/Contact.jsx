@@ -90,13 +90,13 @@ export default function Contact() {
                     <h2>Talk to Us</h2>
                     <span>Phone number:</span>
                     <h3><a href={contact.phoneHref}>{contact.phone}</a></h3>
-                    <span>Projects & Collaboration:</span>
+                    <span>Book A Discovery Call:</span>
                     <h3><a href={`mailto:${contact.email}`}>{contact.email}</a></h3>
                     <span>General enquiries:</span>
                     <h3><a href="mailto:hello@lidadigital.com.ng">hello@lidadigital.com.ng</a></h3>
                     <div style={{ marginTop: 'auto' }}>
-                      <a href={contact.calendly} target="_blank" rel="noreferrer" className="thems-btn w-100">
-                        Book a Call <i className="fa-solid fa-arrow-up-right"></i>
+                      <a href={contact.phoneHref} className="thems-btn w-100">
+                        Contact us <i className="fa-solid fa-arrow-up-right"></i>
                       </a>
                     </div>
                   </div>
@@ -135,7 +135,7 @@ export default function Contact() {
                   </div>
                   <div className="contact-content" style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                     <h2>Schedule a Meeting</h2>
-                    <span>Projects & Collaboration:</span>
+                    <span>Book A Discovery Call:</span>
                     <h3>
                       <a href={contact.calendly} target="_blank" rel="noreferrer">
                         {contact.calendlyDisplay}
@@ -150,7 +150,7 @@ export default function Contact() {
                         rel="noreferrer"
                         className="thems-btn w-100"
                       >
-                        Schedule Now <i className="fa-solid fa-arrow-up-right"></i>
+                        Schedule a meeting <i className="fa-solid fa-arrow-up-right"></i>
                       </a>
                     </div>
                   </div>
