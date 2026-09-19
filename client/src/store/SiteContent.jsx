@@ -20,6 +20,21 @@ export function SiteContentProvider({ children }) {
       controller = new AbortController()
       const signal = controller.signal
       
+      // Use fallback data only when explicitly requested. Production must load
+      // published content so admin-selected media is used on the public site.
+      const contentSource = import.meta.env.VITE_CONTENT_SOURCE || 'admin'
+      if (contentSource === 'fallback') {
+        const fallbackData = {
+          services: [],
+          caseStudies: mergeCaseStudies([]),
+          team: [],
+          insights: []
+        }
+        setData(fallbackData)
+        setError('')
+        return
+      }
+      
       try {
         const response = await fetch(`${API_BASE}/api/site-data`, { signal, cache: 'no-store' })
         if (!response.ok) throw new Error('Content unavailable')

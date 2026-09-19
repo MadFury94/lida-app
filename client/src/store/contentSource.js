@@ -9,10 +9,12 @@ export function mergeCaseStudies(adminProjects) {
     return fallbackCaseStudies
   }
 
-  const bySlug = new Map(adminProjects.map(project => [project.slug, project]))
-  const merged = fallbackCaseStudies.map(project => ({ ...project, ...(bySlug.get(project.slug) || {}) }))
-  const existing = new Set(fallbackCaseStudies.map(project => project.slug))
-  return [...merged, ...adminProjects.filter(project => project?.slug && !existing.has(project.slug))]
+  // Published admin records are authoritative. Keep fallback fields only for
+  // older records that do not yet contain every optional detail field.
+  const fallbackBySlug = new Map(fallbackCaseStudies.map(project => [project.slug, project]))
+  return adminProjects
+    .filter(project => project?.slug)
+    .map(project => ({ ...(fallbackBySlug.get(project.slug) || {}), ...project }))
 }
 
 export { fallbackCaseStudies }
