@@ -21,7 +21,7 @@ export const brand = {
   logo: '/assets/img/logo/lida-logo.svg',
   logoLight: '/assets/img/logo/lida-logo.svg',
   logoDark: '/assets/img/logo/lida-logo.svg',
-  favicon: '/assets/img/favicon.svg',
+  favicon: '/assets/img/logo/Lida Favicon.png',
 }
 
 export const aboutPage = {
@@ -230,6 +230,81 @@ export const careerPaths = [
     title: 'Growth & Client Service',
     text: 'Build trusted client relationships and connect strategy, execution, reporting, and commercial outcomes.',
     skills: ['Account management', 'Digital marketing', 'Analytics'],
+  },
+]
+
+export const caseStudies = [
+  {
+    slug: 'duxbank',
+    client: 'Duxbank Microfinance Bank',
+    sector: 'Financial Services',
+    tags: ['Finance', 'Branding', 'Identity'],
+    challenge: 'Launching a new financial institution in a highly competitive market while establishing credibility and differentiation from day one.',
+    solution: 'Refined the bank\'s brand identity, enhanced its logo system, and developed high-impact outdoor campaign creatives for market introduction and long-term positioning.',
+    impact: 'Working with LIDA has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned.',
+    clientName: 'Peter A.',
+    clientRole: 'CEO, Duxbank Microfinance Bank',
+    year: '2024',
+    stats: [
+      { label: 'Sector', value: 'Fintech' },
+      { label: 'Deliverable', value: 'Full Identity' },
+      { label: 'Market', value: 'Nigeria' },
+    ],
+    image: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg',
+    thumb: '/assets/img/inner-page/Duxbank - Lida Nigeria Brand Identity design and AD campaign Service-15.jpeg',
+  },
+  {
+    slug: 'calpak-nigeria',
+    client: 'Calpak Nigeria',
+    sector: 'Energy',
+    tags: ['Energy', 'Digital', 'Market Entry'],
+    challenge: 'Introducing an internationally recognized energy solutions brand into the Nigerian market while building awareness, trust, and local relevance.',
+    solution: 'Developed and managed Calpak Nigeria\'s digital presence, executed targeted advertising campaigns, and produced locally optimized marketing materials.',
+    impact: '25.9M campaign impressions. Sales grew from 50–100 units per month to 350+ units per month by Month 3.',
+    year: '2023',
+    stats: [
+      { label: 'Campaign Impressions', value: '25.9M' },
+      { label: 'Sales Growth', value: '35x' },
+      { label: 'Market', value: 'Nigeria' },
+    ],
+    image: '/assets/img/inner-page/project-details.jpg',
+    thumb: '/assets/img/inner-page/project-details.jpg',
+  },
+  {
+    slug: 'nuts-and-bolts',
+    client: 'Nuts & Bolts Automotive',
+    sector: 'Automotive',
+    tags: ['Automotive', 'Repositioning', 'Premium'],
+    challenge: 'Move beyond the perception of a typical automotive workshop and establish a premium maintenance and vehicle care brand.',
+    solution: 'Comprehensive brand repositioning — rebranding strategy, premium marketing materials, professional photography, and customer-facing assets.',
+    impact: 'Transformed business perception with stronger brand identity, improved value communication, and enhanced credibility.',
+    clientName: 'M. Bari',
+    clientRole: 'MD, Nuts & Bolts Automotive',
+    year: '2023',
+    stats: [
+      { label: 'Sector', value: 'Automotive' },
+      { label: 'Type', value: 'Repositioning' },
+      { label: 'Market', value: 'Abuja' },
+    ],
+    image: '/assets/img/inner-page/project-details-2.jpg',
+    thumb: '/assets/img/inner-page/project-details-2.jpg',
+  },
+  {
+    slug: 'savvytech-manitowoc',
+    client: 'Savvytech / Manitowoc',
+    sector: 'Industrial B2B',
+    tags: ['B2B', 'Industrial', 'Digital Marketing'],
+    challenge: 'Increase awareness and engagement for globally recognized crane brands within Nigeria\'s industrial and construction sectors.',
+    solution: 'Targeted digital marketing campaigns, product communications, creative development, and audience-focused advertising.',
+    impact: '50,000+ industry professionals reached, 2.5M+ campaign impressions, 180% growth in social engagement.',
+    year: '2024',
+    stats: [
+      { label: 'Professionals Reached', value: '50K+' },
+      { label: 'Impressions', value: '2.5M+' },
+      { label: 'Social Growth', value: '+180%' },
+    ],
+    image: '/assets/img/inner-page/project-details-3.jpg',
+    thumb: '/assets/img/inner-page/project-details-3.jpg',
   },
 ]
 
