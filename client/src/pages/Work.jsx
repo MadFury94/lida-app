@@ -2,6 +2,7 @@ import ContentBoundary from '../components/ContentBoundary'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSiteContent } from '../store/SiteContent'
+import { Helmet } from 'react-helmet-async'
 
 export default function Work() {
   const { caseStudies } = useSiteContent()
@@ -15,6 +16,11 @@ export default function Work() {
 
   return (
     <>
+      <Helmet>
+        <title>Lida Nigeria | Projects and Case Studies | Strategy, Creative and Growth</title>
+        <meta name="description" content="Explore Lida Digital's portfolio of successful projects and case studies across strategy, creative, and growth initiatives in Nigeria and Africa." />
+      </Helmet>
+
       {/* Breadcrumb Section Start */}
       <div className="breadcrumb-wrapper bg-cover" style={{backgroundImage: "url('/assets/img/inner-page/bread-line.png')"}}>
         <div className="light-bg">
@@ -24,17 +30,16 @@ export default function Work() {
           <div className="page-heading mb-0">
             <div className="breadcrumb-sub-title">
               <h1 className="text-white rr_title_anim">
-                <span>Our Creative Works</span> That
-                Makes You Happy
+                <span style={{ fontStyle: 'italic' }}>More Than Beautiful Work</span>{' '}
+                <strong>Built to Move Businesses Forward.</strong>
               </h1>
             </div>
             <div className="breadcrumb-items">
               <ul>
-                <li>12+ years of experience</li>
-                <li>(©2015 — 2026)</li>
+                <li>Strategy. Creative. Growth.</li>
               </ul>
               <h2 className="title wa_title_spilt_1">
-                Our works
+                Projects and Case Studies
               </h2>
             </div>
           </div>
