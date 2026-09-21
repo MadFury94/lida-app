@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { Lock, User, Eye, EyeOff, Shield } from 'lucide-react'
+import { Lock, User, Eye, EyeOff } from 'lucide-react'
 
 export default function Login() {
   const { login, isAuthenticated, loading } = useAuth()
@@ -48,8 +48,8 @@ export default function Login() {
       <div className="max-w-md w-full space-y-8 p-8">
         {/* Logo/Header */}
         <div className="text-center">
-          <div className="mx-auto h-16 w-16 bg-primary rounded-xl flex items-center justify-center mb-4">
-            <Shield className="h-8 w-8 text-white" />
+          <div className="mx-auto h-16 w-32 rounded-xl bg-primary p-3 shadow-sm flex items-center justify-center mb-4">
+            <img src="https://lida.ng/assets/img/logo/Lida%20Favicon.png" alt="Lida" className="max-h-full max-w-full" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-foreground">Lida Admin</h1>
           <p className="mt-2 text-muted-foreground">Sign in to your administration workspace</p>
@@ -146,3 +146,5 @@ export default function Login() {
     </div>
   )
 }
+
+

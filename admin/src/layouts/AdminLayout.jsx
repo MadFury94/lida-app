@@ -4,7 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import * as Dropdown from '@radix-ui/react-dropdown-menu'
 import { useAuth } from '../contexts/AuthContext'
 import { Button } from '../components/ui/button'
-import { LayoutDashboard, Images, Users, Settings, PanelLeft, Search, Moon, Sun, LogOut, ChevronsUpDown, Command, X, ArrowUpRight, BriefcaseBusiness, Layers, Newspaper, UsersRound } from 'lucide-react'
+import { LayoutDashboard, Images, Users, Settings, PanelLeft, Search, Moon, Sun, LogOut, ChevronsUpDown, X, ArrowUpRight, BriefcaseBusiness, Layers, Newspaper, UsersRound } from 'lucide-react'
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, group: 'General' },
@@ -45,7 +45,7 @@ export default function AdminLayout() {
   }
   const sidebar = (compact = false) => <>
     <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="flex h-16 items-center gap-3 px-4" aria-label="Lida Admin home">
-      <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground"><Command className="size-5" /></span>
+      <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary p-1"><img src="https://lida.ng/assets/img/logo/Lida%20Favicon.png" alt="" className="max-h-full max-w-full" /></span>
       {!compact && <div className="leading-tight"><span className="font-semibold">Lida Admin</span><p className="mt-1 text-xs text-muted-foreground">Administration workspace</p></div>}
     </Link>
     <nav aria-label="Main navigation" className="flex-1 space-y-6 overflow-y-auto px-2 py-4">
@@ -95,3 +95,5 @@ export default function AdminLayout() {
     </div>
   </div>
 }
+
+
