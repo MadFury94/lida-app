@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 
-export const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+const DEFAULT_PRODUCTION_API = 'https://lida-backend.onochieazukaeme.workers.dev'
+export const API_BASE = (import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? DEFAULT_PRODUCTION_API : '')).replace(/\/$/, '')
 export const SITE_BASE = (import.meta.env.VITE_SITE_URL || (import.meta.env.DEV ? 'http://localhost:3000' : 'https://lida.ng')).replace(/\/$/, '')
 
 export async function adminApi(path, options = {}) {
