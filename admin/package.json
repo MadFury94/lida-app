@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "vite --port 5174 --host",
         "build": "vite build",
+        "deploy": "npm run build && npx wrangler pages deploy dist --project-name lida-admin",
         "lint": "eslint .",
         "preview": "vite preview --port 5174",
         "test:content": "playwright test --config playwright.content.config.js"
