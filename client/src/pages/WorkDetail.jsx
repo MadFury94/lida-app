@@ -1,13 +1,21 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { DetailSkeleton } from '../components/ContentBoundary'
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useSiteContent } from '../store/SiteContent'
 import NotFound from './NotFound'
 
+const seoTitles = {
+  'calpak-nigeria': 'Calpak Nigeria Case Study | Energy Market Entry Strategy | Lida',
+  'nuts-and-bolts': 'Nuts & Bolts Case Study | Automotive Brand Repositioning | Lida',
+  'growthill-africa': 'Growthill Africa Case Study | B2B Digital Strategy | Lida',
+}
+
 export default function WorkDetail() {
   const { slug } = useParams()
   const { caseStudies, loading, unavailable } = useSiteContent()
   const project = caseStudies.find(item => item.slug === slug)
+  usePageTitle(project && !loading && !unavailable ? seoTitles[slug] : undefined)
   useEffect(() => {}, [slug])
   if (loading || unavailable) return <DetailSkeleton />
   if (!project) return <NotFound />

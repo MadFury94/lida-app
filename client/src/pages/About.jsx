@@ -1,9 +1,11 @@
-﻿import { useEffect } from 'react'
+import usePageTitle from '../hooks/usePageTitle'
+import { useEffect } from 'react'
 import { brand, testimonials, contact } from '../store/site'
 import VideoBanner from '../components/VideoBanner'
 
 
 export default function About() {
+  usePageTitle('About Lida | Growth Strategy, Branding and Marketing Partner')
   useEffect(() => {
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     

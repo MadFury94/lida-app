@@ -1,3 +1,4 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useState, useEffect } from 'react'
 import { contact } from '../store/site'
 
@@ -18,6 +19,7 @@ const SERVICES_OPTIONS = [
 ]
 
 export default function Contact() {
+  usePageTitle('Contact Lida | Book a Growth Audit in Abuja, Nigeria')
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
   const [status, setStatus] = useState(null) // null | 'sending' | 'success' | 'error'
 

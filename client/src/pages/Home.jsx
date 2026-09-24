@@ -1,3 +1,4 @@
+import usePageTitle from '../hooks/usePageTitle'
 import ContentBoundary from '../components/ContentBoundary'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -9,6 +10,7 @@ const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v178
 
 
 export default function Home() {
+  usePageTitle('Lida | Growth Strategy, Branding and Marketing Agency in Nigeria')
   const { services, caseStudies } = useSiteContent()
   console.log('DEBUG: caseStudies in Home:', caseStudies)
   console.log('DEBUG: First case study image:', caseStudies[0]?.image)

@@ -1,9 +1,11 @@
+import usePageTitle from '../hooks/usePageTitle'
 import ContentBoundary from '../components/ContentBoundary'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSiteContent } from '../store/SiteContent'
 
 export default function Insights() {
+  usePageTitle('Lida Insights | Growth Strategy, Branding and Marketing')
   const { insights } = useSiteContent()
   useEffect(() => {
   }, [])
