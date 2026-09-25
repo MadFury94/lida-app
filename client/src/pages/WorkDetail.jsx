@@ -1,7 +1,18 @@
+import usePageTitle from '../hooks/usePageTitle'
+import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 
 
+const seoTitles = {
+  'calpak-nigeria': 'Calpak Nigeria Case Study | Energy Market Entry Strategy | Solutions Media',
+  'nuts-and-bolts': 'Nuts & Bolts Case Study | Automotive Brand Repositioning | Solutions Media',
+  'duxbank': 'Duxbank Case Study | Financial Brand Identity and Market Entry | Solutions Media',
+  'manitowoc-savvytech': 'Savvytech / Manitowoc Case Study | B2B Digital Strategy | Solutions Media',
+}
+
 export default function WorkDetail() {
+  const { slug } = useParams()
+  usePageTitle(seoTitles[slug] || 'Project Case Study | Solutions Media')
   useEffect(() => {
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     

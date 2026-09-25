@@ -1,3 +1,4 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { brand, contact, stats, services, caseStudies, partners } from '../store/site'
@@ -6,6 +7,7 @@ const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v178
 const marqueeItems = ['Growth Strategy', 'Brand Positioning', 'Strategic Marketing', 'Customer Acquisition', 'Corporate Communications', 'Content & Campaigns', 'Digital Experiences', 'Executive Positioning', 'Market Intelligence', 'Visibility & Trust', 'Media Planning']
 
 export default function Home() {
+  usePageTitle('Solutions Media | Growth Strategy, Branding and Marketing Agency in Nigeria')
   const [openService, setOpenService] = useState(0)
   const [openFaq, setOpenFaq] = useState(0)
 

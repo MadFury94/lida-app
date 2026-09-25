@@ -1,7 +1,9 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 
 
 export default function Contact() {
+  usePageTitle('Contact Solutions Media | Book a Growth Audit in Abuja, Nigeria')
   useEffect(() => {
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     

@@ -1,8 +1,10 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { insights } from '../store/site'
 
 export default function Insights() {
+  usePageTitle('Solutions Media Insights | Growth Strategy, Branding and Marketing')
   useEffect(() => {
   }, [])
 

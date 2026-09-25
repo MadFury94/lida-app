@@ -1,7 +1,9 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 
 
 export default function FAQ() {
+  usePageTitle('Frequently Asked Questions | Solutions Media')
   useEffect(() => {
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     

@@ -1,3 +1,4 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { insights } from '../store/site'
@@ -5,6 +6,7 @@ import { insights } from '../store/site'
 export default function InsightDetail() {
   const { slug } = useParams()
   const post = insights.find(p => p.slug === slug)
+  usePageTitle(post ? `${post.title} | Solutions Media` : undefined)
 
   useEffect(() => {
   }, [slug])

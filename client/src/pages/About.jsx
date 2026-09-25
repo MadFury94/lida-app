@@ -1,8 +1,10 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 import { brand } from '../store/site'
 
 
 export default function About() {
+  usePageTitle('About Solutions Media | Growth Strategy, Branding and Marketing Partner')
   useEffect(() => {
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     

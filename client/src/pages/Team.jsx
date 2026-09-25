@@ -1,7 +1,9 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 
 
 export default function Team() {
+  usePageTitle('Meet Our Team | Solutions Media')
   useEffect(() => {
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
     

@@ -1,3 +1,4 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { Link } from 'react-router-dom'
 // Page copy is intentionally local while content editing is store-independent.
 
@@ -23,6 +24,7 @@ const paths = [
 ]
 
 export default function Careers() {
+  usePageTitle('Careers | Solutions Media')
   const applicationSubject = encodeURIComponent('Career interest — Solutions Media')
 
   return (

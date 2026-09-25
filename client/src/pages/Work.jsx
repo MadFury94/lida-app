@@ -1,8 +1,10 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSiteContent } from '../store/SiteContent'
 
 export default function Work() {
+  usePageTitle('Projects and Case Studies | Solutions Media')
   const { caseStudies } = useSiteContent()
 
   useEffect(() => {

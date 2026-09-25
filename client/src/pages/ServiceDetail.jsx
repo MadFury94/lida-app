@@ -1,3 +1,4 @@
+import usePageTitle from '../hooks/usePageTitle'
 import { useEffect, useState } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { services, contact, faqs } from '../store/site'
@@ -67,13 +68,11 @@ function FaqSection({ serviceFaqs, faqsHeading, service }) {
 export default function ServiceDetail() {
   const { slug } = useParams()
   const service = services.find(s => s.slug === slug)
+  usePageTitle(service?.seoTitle)
 
   useEffect(() => {
 
-    // SEO: set page title and meta description per service
-    if (service?.seoTitle) {
-      document.title = service.seoTitle
-    }
+    // SEO: set meta description per service
     let metaDesc = document.querySelector('meta[name="description"]')
     if (!metaDesc) {
       metaDesc = document.createElement('meta')
