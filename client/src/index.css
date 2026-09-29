@@ -55,13 +55,13 @@
 
 /* Header height and padding adjustments */
 .header-section {
-    padding-top: 15px !important;
-    padding-bottom: 15px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
 }
 
 .header-section.sticky-menu {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
 }
 
 .header-main {
@@ -90,6 +90,21 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     overflow: visible !important;
+    margin-bottom: 0 !important;
+    line-height: 1 !important;
+}
+
+/* Ensure logo has no extra spacing */
+.navbar-brand img {
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+
+/* Remove any container padding affecting navbar */
+.header-section .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 /* Hero section improvements */
@@ -1125,6 +1140,7 @@
         font-size: 35px;
     }
 }
+
 /* Only used when animation setup fails; normal animation values are untouched. */
 .animation-fallback .wow,
 .animation-fallback .char,

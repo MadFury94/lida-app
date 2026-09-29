@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { brand, contact, stats, services, caseStudies, partners } from '../store/site'
 
-const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_0.56/v1785225527/ChatGPT_Image_Jul_28_2026_08_32_53_AM_2_wk2ehi.png'
+const HERO_BALL = 'https://res.cloudinary.com/dqwfjxn8g/image/upload/w_800/v1790654153/hero-circle_randhl.png'
 const marqueeItems = ['Growth Strategy', 'Brand Positioning', 'Strategic Marketing', 'Customer Acquisition', 'Corporate Communications', 'Content & Campaigns', 'Digital Experiences', 'Executive Positioning', 'Market Intelligence', 'Visibility & Trust', 'Media Planning']
 
 export default function Home() {
@@ -24,51 +24,40 @@ export default function Home() {
         <div className="hero-line">
           <img src="/assets/img/home-1/hero-line.png" alt="" />
         </div>
-        <div className="row g-4 align-items-end">
+        <div className="row g-4 align-items-center">
           <div className="col-xl-8">
             <div className="hero-content">
-              <p className="split-title">STRATEGIC MARKETING & COMMUNICATIONS</p>
+              <p className="split-title">YOUR GROWTH PARTNER</p>
               <h1 className="split-title">
-                Helping <span>Ambitious Businesses</span><br />
-                Build Visibility, Credibility<br />
-                and Sustainable Growth.
+                We Help <span>{brand.subTagline}</span>
+                You Earn Trust, Win<br />Customers, and Grow.
               </h1>
-              <div className="hero-subtext">
-                <p>Solutions Media combines local market insight, strategic positioning and communications execution to help businesses establish credibility, reach the right people and create stronger market opportunities.</p>
-              </div>
               <div className="hero-button wow fadeInUp" data-wow-delay=".3s">
                 <Link className="theme-btn-main style-2 bg-white-style" to="/contact">
                   <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-                  <span className="theme-btn">Let's Talk Growth</span>
+                  <span className="theme-btn">Let's Talk</span>
                   <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
                 </Link>
                 <Link className="theme-btn-main style-2 border-style" to="/work">
                   <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-                  <span className="theme-btn">View Case Studies</span>
+                  <span className="theme-btn">View Work</span>
                   <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
                 </Link>
               </div>
             </div>
           </div>
           <div className="col-xl-4">
-            <div className="hero-right-items">
+            <div className="hero-right-items" style={{ marginTop: '2rem' }}>
               <div className="hero-small-slider wow fadeInUp" data-wow-delay=".3s">
-                <div className="small-thumb"><img src="/assets/img/home-1/client-info.png" alt="Growth Strategy" /></div>
-                <div className="small-thumb active"><img src="/assets/img/home-1/client-info-2.png" alt="Strategic Communications" /></div>
-                <div className="small-thumb"><img src="/assets/img/home-1/hero-small-1.jpg" alt="Market Positioning" /></div>
+                <div className="small-thumb"><img src="/assets/img/home-1/solutionmedia-expert.png" alt="" /></div>
+                <div className="small-thumb active"><img src="/assets/img/home-1/solutionmedia-expert2.jpg" alt="" /></div>
+                <div className="small-thumb"><img src="/assets/img/home-1/solutionexpert3.jpg" alt="" /></div>
               </div>
               <p className="text wow fadeInUp" data-wow-delay=".5s">
-                <b>{brand.name}</b> — Strategic marketing and communications consultancy helping organizations build visibility, credibility, and sustainable growth across Nigeria and emerging African markets.
+                <b>{brand.name}</b> — {brand.description}
               </p>
-              <div className="hero-stats wow fadeInUp" data-wow-delay=".7s">
-                <div className="stat-item">
-                  <span className="number">100+</span>
-                  <span className="label">Clients Served</span>
-                </div>
-                <div className="stat-item">
-                  <span className="number">98%</span>
-                  <span className="label">Client Retention</span>
-                </div>
+              <div className="sign wow fadeInUp" data-wow-delay=".7s">
+                <img src="/assets/img/home-1/sign.png" alt="" />
               </div>
             </div>
           </div>
