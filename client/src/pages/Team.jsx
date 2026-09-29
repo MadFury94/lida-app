@@ -19,7 +19,7 @@ export default function Team() {
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Our Creative  </span> Minds Behind <br> Our Bold Idea’s</h1>
+                                    <h1 class="text-white rr_title_anim"><span>The People Behind The Work</span> That Moves Business Forward.</h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
@@ -31,7 +31,7 @@ export default function Team() {
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                        Our teams
+                                        Our Team
                                     </h2>
                                 </div>
                             </div>

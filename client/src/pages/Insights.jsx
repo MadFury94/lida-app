@@ -22,7 +22,7 @@ export default function Insights() {
           <div className="page-heading mb-0">
             <div className="breadcrumb-sub-title">
               <h1 className="text-white rr_title_anim">
-                <span>From the Solutions Media Team</span>
+                <span>Insights &amp; Perspectives</span> From the Solutions Media Team
               </h1>
             </div>
             <div className="breadcrumb-items">

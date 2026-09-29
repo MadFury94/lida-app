@@ -12,14 +12,14 @@ export default function Services() {
   return (
     <div dangerouslySetInnerHTML={{__html: `
                     <!-- Breadcrumb Section Start -->
-                    <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/inner-page/bread-line.png');">
+                    <div class="breadcrumb-wrapper services-hero-gradient bg-cover" style="background-image: url('/assets/img/inner-page/bread-line.png');">
                         <div class="light-bg">
                             <img src="/assets/img/inner-page/light.png" alt="img">
                         </div>
                         <div class="container">
                             <div class="page-heading">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Our Creative Services </span> That Deliver Innovation Results
+                                    <h1 class="text-white rr_title_anim"><span>Brand, Marketing, and Creative Services</span> That Drive Business Growth.
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
@@ -32,7 +32,7 @@ export default function Services() {
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
-                                        Our service
+                                        Our Services
                                     </h2>
                                 </div>
                             </div>

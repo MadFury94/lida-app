@@ -29,8 +29,8 @@ export default function Home() {
             <div className="hero-content">
               <p className="split-title">YOUR GROWTH PARTNER</p>
               <h1 className="split-title">
-                We Help <span>{brand.subTagline}</span>
-                You Earn Trust, Win<br />Customers, and Grow.
+                We Help <span>{brand.subTagline}</span>{' '}
+                You Earn Trust, Win <br />Customers, and Grow.
               </h1>
               <div className="hero-button wow fadeInUp" data-wow-delay=".3s">
                 <Link className="theme-btn-main style-2 bg-white-style" to="/contact">

@@ -1,7 +1,7 @@
 import usePageTitle from '../hooks/usePageTitle'
-import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-
+import { Link, useParams } from 'react-router-dom'
+import { caseStudies } from '../store/site'
+import NotFound from './NotFound'
 
 const seoTitles = {
   'calpak-nigeria': 'Calpak Nigeria Case Study | Energy Market Entry Strategy | Solutions Media',
@@ -12,216 +12,67 @@ const seoTitles = {
 
 export default function WorkDetail() {
   const { slug } = useParams()
-  usePageTitle(seoTitles[slug] || 'Project Case Study | Solutions Media')
-  useEffect(() => {
-    if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
-    
-  }, [])
+  const project = caseStudies.find(item => item.slug === slug)
+  usePageTitle(project ? (seoTitles[slug] || `${project.client} Case Study | Solutions Media`) : undefined)
+
+  if (!project) return <NotFound />
+
+  const index = caseStudies.indexOf(project)
+  const previous = caseStudies[index - 1]
+  const next = caseStudies[index + 1]
 
   return (
-    <div dangerouslySetInnerHTML={{__html: `
-                    <!-- Breadcrumb Section Start -->
-                    <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/inner-page/bread-line.png');">
-                        <div class="light-bg">
-                            <img src="/assets/img/inner-page/light.png" alt="img">
-                        </div>
-                        <div class="container">
-                            <div class="page-heading mb-0">
-                                <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Tasked With Revamping  </span> 
-                                        The Branding Design
-                                    </h1>
-                                </div>
-                                <div class="breadcrumb-items">
-                                    <ul>
-                                        <li>
-                                           12+ years of experience
-                                        </li>
-                                        <li>
-                                            (©2015 — 2026)
-                                        </li>
-                                    </ul>
-                                    <h2 class="title wa_title_spilt_1">
-                                       Overview
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project Section Start -->
-                    <section class="project-details-section fix section-padding">
-                        <div class="container">
-                            <div class="details-thumbs fix">
-                                <img data-speed=".8" src="/assets/img/inner-page/project-details-4.jpg" alt="img">
-                            </div>
-                        </div>
-                        <div class="container container-1680">
-                            <div class="project-details-wrapper">
-                                <div class="project-details-top-item">
-                                    <div class="top-content">
-                                        <h2>
-                                            Mobile app <br> design
-                                        </h2>
-                                        <p>
-                                            This mobile app design project focuses on creating a seamless, user-centric experience that balances visual clarity with functional simplicity that helps users.
-                                        </p>
-                                    </div>
-                                    <div class="project-details-info-item">
-                                        <div class="content">
-                                            <span>Client:</span>
-                                            <p>NovaTech Solutions</p>
-                                        </div>
-                                        <div class="content">
-                                            <span>Services:</span>
-                                            <p>UI/UX design</p>
-                                        </div>
-                                        <div class="content">
-                                            <span>Platform:</span>
-                                            <p>iOS & android</p>
-                                        </div>
-                                        <div class="content style-2">
-                                            <span>Date:</span>
-                                            <p>December 2026</p>
-                                        </div>
-                                    </div>
-                                    <div class="project-details-image">
-                                        <img data-speed=".8" src="/assets/img/inner-page/project-details.jpg" alt="img">
-                                    </div>
-                                    <div class="row g-4">
-                                        <div class="col-lg-7">
-                                            <div class="left-text">
-                                                <h2>
-                                                    Designing a Seamless Mobile Experience for Users
-                                                </h2>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="details-content">
-                                                <p>
-                                                    This mobile app design project was created to deliver an seamless and for engaging digital experience throughs thoughtful user-centered design. The focus was on the transforming complex functionality a simple intuitive interface that feel natural and effortless for users. Every screen was carefully designed to guide use clear through the app while maintaining visual and brand alignment.
-                                                </p>
-                                                <p>
-                                                    This mobile app designed project was created to deliver for seamless and engaging digital experience through thoughtful user centered design. The focus design was transforming complex functionality into a simple.
-                                                </p>
-                                                <ul class="details-list">
-                                                    <li class="border-bottom-0 pb-0">
-                                                        <i class="fa-solid fa-check"></i>
-                                                        Intuitive user experience
-                                                    </li>
-                                                    <li class="border-bottom-0 pb-0">
-                                                        <i class="fa-solid fa-check"></i>
-                                                        Clean and modern UI design
-                                                    </li>
-                                                    <li class="border-bottom-0 pb-0">
-                                                        <i class="fa-solid fa-check"></i>
-                                                        Consistent design system
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa-solid fa-check"></i>
-                                                        Smooth navigation flow
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="details-image-item">
-                                        <div class="row g-4">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/project-details-2.jpg" alt="img">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="thumb">
-                                                    <img data-speed=".8" src="/assets/img/inner-page/project-details-3.jpg" alt="img">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="left-text mb-4">
-                                        <h2>
-                                            From Research to <br> Final Design.
-                                        </h2>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-3 col-lg-4 col-md-6">
-                                            <div class="details-box">
-                                                <span class="number">01</span>
-                                                <h3>Research insights</h3>
-                                                <p>
-                                                    We begin by understanding user needs, behaviors, and pain points through research and analysis.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-4 col-md-6">
-                                            <div class="details-box">
-                                                <span class="number">02</span>
-                                                <h3>Experience mapping</h3>
-                                                <p>
-                                                    Clear user flows are created to map how users move through the app. This step focuses on simplifying.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-4 col-md-6">
-                                            <div class="details-box">
-                                                <span class="number">03</span>
-                                                <h3>Interface design</h3>
-                                                <p>
-                                                   The visual interface brings the product to life with clean layouts, strong hierarchy, and consistent design.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-4 col-md-6">
-                                            <div class="details-box">
-                                                <span class="number">04</span>
-                                                <h3>Design testing</h3>
-                                                <p>
-                                                   The visual interface brings the product to life with clean layouts, strong hierarchy, and consistent design.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="details-bottom-content">
-                                        <div class="left-text">
-                                            <h2>Final Result</h2>
-                                        </div>
-                                        <div class="right-content">
-                                            <p>
-                                                The final mobile app design delivers a modern, responsive, and visually appealing interface that enhances user engagement and improves overall usability. The design is flexible, scalable, and ready for development implementation. This mobile app design project was created to deliver an seamless.
-                                            </p>
-                                            <p class="mb-0">
-                                                The final mobile app design delivers a modern, responsive, and visually appealing interface that enhances user engagement and improves.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="slider-button d-flex align-items-center justify-content-between">
-                                            <div class="d-flex align-items-center gap-xxl-4 gap-3 gap-2">
-                                                <button class="cmn-prev cmn-border d-center">
-                                                <i class="fas fa-chevron-left"></i>
-                                                </button>
-                                                <span class="previus-text text-capitalize">
-                                                Preview
-                                                </span>
-                                            </div>
-                                            <div class="icon-gird">
-                                                <img src="/assets/img/inner-page/icon/grid.svg" alt="img">
-                                            </div>
-                                            <div class="d-flex align-items-center gap-xxl-4 gap-3 gap-2">
-                                                <span class="previus-text text-capitalize">
-                                                Next
-                                                </span>
-                                                <button class="cmn-next cmn-border d-center">
-                                                <i class="fas fa-chevron-right"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Footer Section Start -->
-`}} />
+    <>
+      <div className="breadcrumb-wrapper bg-cover" style={{ backgroundImage: "url('/assets/img/inner-page/bread-line.png')" }}>
+        <div className="light-bg"><img src="/assets/img/inner-page/light.png" alt="" /></div>
+        <div className="container">
+          <div className="page-heading mb-0">
+            <div className="breadcrumb-sub-title">
+              <h1 className="text-white rr_title_anim"><span>{project.client}</span> Case Study</h1>
+            </div>
+            <div className="breadcrumb-items">
+              <ul><li>{project.sector}</li><li>Solutions Media</li></ul>
+              <h2 className="title wa_title_spilt_1">Our Work</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section className="project-details-section fix section-padding">
+        <div className="container">
+          <div className="details-thumbs fix"><img src={project.image} alt={project.client} /></div>
+        </div>
+        <div className="container container-1680">
+          <div className="project-details-wrapper">
+            <div className="project-details-top-item">
+              <div className="top-content"><h2>{project.client}</h2><p>{project.challenge}</p></div>
+              <div className="project-details-info-item">
+                <div className="content"><span>Client:</span><p>{project.client}</p></div>
+                <div className="content"><span>Industry:</span><p>{project.sector}</p></div>
+                <div className="content"><span>Focus:</span><p>{project.tags.join(', ')}</p></div>
+              </div>
+              <div className="row g-4">
+                <div className="col-lg-7"><div className="left-text"><h2>The challenge</h2><p>{project.challenge}</p></div></div>
+                <div className="col-lg-5"><div className="details-content"><h2>Our solution</h2><p>{project.solution}</p></div></div>
+              </div>
+              <div className="details-bottom-content">
+                <div className="left-text"><h2>{project.clientName ? 'Client perspective' : 'The results'}</h2></div>
+                <div className="right-content">
+                  <p>{project.impact}</p>
+                  {project.clientName && <p>{project.clientName} ? {project.clientRole}</p>}
+                </div>
+              </div>
+              <div className="row g-4">
+                {project.stats.map(stat => <div className="col-md-4" key={stat.label}><div className="details-box"><h3>{stat.value}</h3><p>{stat.label}</p></div></div>)}
+              </div>
+              <div className="slider-button d-flex flex-wrap gap-3 align-items-center justify-content-between">
+                {previous ? <Link to={`/work/${previous.slug}`}>? {previous.client}</Link> : <span />}
+                <Link to="/work">All projects</Link>
+                {next ? <Link to={`/work/${next.slug}`}>{next.client} ?</Link> : <Link to="/contact">Get in touch ?</Link>}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

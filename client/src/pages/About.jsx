@@ -1,6 +1,6 @@
-import usePageTitle from '../hooks/usePageTitle'
+﻿import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
-import { brand } from '../store/site'
+import { brand, contact } from '../store/site'
 
 
 export default function About() {
@@ -20,7 +20,7 @@ export default function About() {
                         <div class="container">
                             <div class="page-heading">
                                 <div class="breadcrumb-sub-title">
-                                    <h1 class="text-white rr_title_anim"><span>Empowering</span> Your Business With Smart         Solutions
+                                    <h1 class="text-white rr_title_anim"><span>Helping Businesses and Leaders</span> Grow With Clarity.
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
@@ -42,19 +42,16 @@ export default function About() {
                     
                     <!-- About Video Section Start -->
                     <div class="about-video-banner-about-page fix wow fadeInUp" data-wow-delay=".7s">
-                        <img data-speed=".8" src="/assets/img/home-2/about-video-banner.jpg" alt="img">
+                        <img src="/assets/img/home-2/about-hero.png" alt="Professionals collaborating on a marketing strategy">
                         <div class="video-circle">
-                                <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
+                                <a href="${contact.videoUrl}" class="video-btn ripple video-popup">
                                     <i class="fa-solid fa-play"></i>
                                 </a>
                                 <div class="text-circle">
                                     <img src="/assets/img/home-2/video-text.png" alt="img">
                                 </div>
                         </div>
-                        <div class="incrase-box float-bob-y">
-                            <span>Business Increase</span>
-                            <p>3X</p>
-                        </div>
+
                     </div>
 
                     <!-- Work Process Section Start -->
@@ -63,7 +60,7 @@ export default function About() {
                             <div class="about-wrapper-2 about-page-style-3">
                                 <div class="section-title-area">
                                     <div class="about-info wow fadeInUp" data-wow-delay=".3s">
-                                        <img src="/assets/img/home-2/about-info.png" alt="img">
+                                        <img src="/assets/img/home-2/about-info.png" alt="img" width="151" height="59" style="width: 151.2px; height: 58.8px; object-fit: contain;">
                                         <p>
                                             <b>150+ </b>
                                             satisfied clients
@@ -160,7 +157,7 @@ export default function About() {
                                 </span>
                                 <h2 class="wa_title_spilt_1">
                                     <span class="style-font">Our Valued Clients Trust Us</span> To <br>
-                                    Innovative <span class="testi-iimg"><img class="img-custom-anim-left" src="/assets/img/home-1/client-info-2.png" alt="img"></span> <span class="style-color">Solutions And <br> Outstanding Results.</span>
+                                    Innovative <span class="testi-iimg"><img class="img-custom-anim-left" src="/assets/img/home-2/about-info.png" alt="img" width="151" height="59" style="width: 151.2px; height: 58.8px; object-fit: contain; vertical-align: middle;"></span> <span class="style-color">Solutions And <br> Outstanding Results.</span>
                                 </h2>
                             </div>
                             <div class="row justify-content-between">
@@ -271,7 +268,7 @@ export default function About() {
                                 <div class="row g-4">
                                     <div class="col-xl-5 col-lg-6">
                                         <div class="thumb wow fadeInUp" data-wow-delay=".3s">
-                                            <img src="/assets/img/inner-page/choose-us.jpg" alt="img">
+                                            <img src="/assets/img/inner-page/choose-us.jpeg" alt="img">
                                         </div>
                                     </div>
                                     <div class="col-xl-7 col-lg-6">

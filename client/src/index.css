@@ -107,114 +107,6 @@
     padding-bottom: 0 !important;
 }
 
-/* Hero section improvements */
-.hero-1 .hero-content p.split-title {
-    color: var(--theme) !important;
-    font-weight: 600;
-    font-size: 16px;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-    margin-top: 20px;
-}
-
-.hero-1 .hero-content h1 {
-    font-size: clamp(45px, 8vw, 72px);
-    line-height: 0.95;
-    font-weight: 700;
-    margin-bottom: 24px;
-}
-
-.hero-1 .hero-content h1 span {
-    color: var(--theme) !important;
-    font-style: italic;
-    font-family: 'Instrument Serif', serif;
-}
-
-.hero-1 .hero-subtext {
-    margin-bottom: 32px;
-    max-width: 520px;
-}
-
-.hero-1 .hero-subtext p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-}
-
-/* Hero buttons - make them more prominent */
-.hero-button {
-    margin-top: 32px;
-    gap: 16px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.hero-button .theme-btn-main {
-    padding: 18px 36px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 50px;
-}
-
-.hero-button .theme-btn-main.bg-white-style {
-    background-color: var(--theme) !important;
-    border-color: var(--theme) !important;
-}
-
-.hero-button .theme-btn-main.bg-white-style .theme-btn {
-    color: white !important;
-}
-
-/* Hero list - improve service visibility */
-.hero-list ul:first-child {
-    color: var(--theme);
-    font-weight: 500;
-}
-
-.hero-list ul:first-child li {
-    opacity: 0.9;
-}
-
-/* Right side content improvements */
-.hero-right-items .text {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-}
-
-.hero-right-items .text b {
-    color: var(--theme);
-}
-
-.hero-stats {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-
-.hero-stats .stat-item {
-    text-align: center;
-}
-
-.hero-stats .stat-item .number {
-    display: block;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--theme);
-    line-height: 1;
-    margin-bottom: 4px;
-}
-
-.hero-stats .stat-item .label {
-    display: block;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 500;
-}
-
 /* Testimonials — keep section background dark, reduce light-bg glow */
 .testimonial-section {
     background-color: var(--body) !important;
@@ -237,36 +129,6 @@
         display: block;
         width: 100%;
         height: auto;
-    }
-
-    .hero-1 .hero-content h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
-
-    .hero-1 .hero-subtext p {
-        font-size: 16px;
-    }
-
-    .hero-button {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .hero-button .theme-btn-main {
-        padding: 14px 28px;
-        font-size: 15px;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .hero-stats {
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .hero-stats .stat-item .number {
-        font-size: 28px;
     }
 
     .brand-logo {
@@ -973,7 +835,8 @@
 
 /* Custom Solutions Media Service Detail Styles */
 .services-hero-gradient {
-    background: linear-gradient(135deg, var(--body) 0%, #1a1a2e 100%);
+    position: relative;
+    isolation: isolate;
 }
 
 .service-concept-left {
@@ -1150,4 +1013,88 @@
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
+}
+/* Inner-page typography keeps Orixo's serif/sans contrast while allowing
+   longer page names to wrap independently of the metadata. */
+.breadcrumb-wrapper .page-heading h1 {
+    font-size: clamp(40px, 6.4vw, 100px);
+    line-height: 1.1;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+.breadcrumb-wrapper .page-heading .breadcrumb-items {
+    gap: 24px 48px;
+}
+
+.breadcrumb-wrapper .page-heading .breadcrumb-items ul {
+    flex: 0 1 30%;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-bottom: 12px;
+}
+
+.breadcrumb-wrapper .page-heading .breadcrumb-items .title {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: clamp(48px, 7.5vw, 120px);
+    text-align: right;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+.services-hero-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 100%, rgba(255, 71, 28, .2), transparent 70%);
+}
+
+.breadcrumb-wrapper.services-hero-gradient .page-heading h1,
+.services-details-section .title-area h1 {
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+@media (max-width: 1199px) {
+    .breadcrumb-wrapper .page-heading .breadcrumb-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .breadcrumb-wrapper .page-heading .breadcrumb-items ul {
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    .breadcrumb-wrapper .page-heading .breadcrumb-items .title {
+        flex: auto;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Keep the banner's composition intact at every viewport width. */
+.about-video-banner-about-page {
+    height: auto;
+}
+
+.about-video-banner-about-page > img {
+    display: block;
+    height: auto;
+}
+
+/* The inherited raster decorations are blue; match the orange brand. */
+.breadcrumb-wrapper {
+    background-color: var(--body);
+    background-blend-mode: luminosity;
+}
+
+.breadcrumb-wrapper .light-bg img,
+.services-details-section .light-bg img {
+    filter: hue-rotate(135deg);
 }
