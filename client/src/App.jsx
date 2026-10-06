@@ -7,6 +7,7 @@ import ServiceDetail from './pages/ServiceDetail'
 import Work from './pages/Work'
 import WorkDetail from './pages/WorkDetail'
 import Team from './pages/Team'
+import TeamDetail from './pages/TeamDetail'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import NotFound from './pages/NotFound'
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="work" element={<Work />} />
         <Route path="work/:slug" element={<WorkDetail />} />
         <Route path="team" element={<Team />} />
+        <Route path="team/:slug" element={<TeamDetail />} />
         <Route path="faq" element={<FAQ />} />
         <Route path="contact" element={<Contact />} />
         <Route path="careers" element={<Careers />} />

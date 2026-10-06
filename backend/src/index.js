@@ -1,0 +1,730 @@
+// ============================================================
+// SOLUTIONS MEDIA — Cloudflare Workers Backend
+// Routes:
+//   POST /api/contact             — public contact form
+//   GET  /api/site-data           — full site.js data snapshot (public read)
+//   POST /api/admin/login         — admin JWT login
+//   POST /api/admin/verify        — verify JWT token
+//   GET  /api/admin/dashboard     — dashboard stats (requires JWT)
+//   GET  /api/admin/media         — list media files (requires JWT)
+//   POST /api/admin/media/upload  — upload media file (requires JWT)
+//   DELETE /api/admin/media/:id   — delete media file (requires JWT)
+//   GET  /api/admin/*             — admin reads  (requires JWT)
+//   POST /api/admin/*             — admin writes (requires JWT)
+// ============================================================
+
+import * as siteData from '../../client/src/store/site.js'
+import { JWT, verifyPassword } from './auth.js'
+import { handleSettings, uploadSettings } from './settings.js'
+import { handleContent, publicContent } from './content.js'
+
+// ── Helpers ──────────────────────────────────────────────────
+
+/**
+ * Build a JSON response with correct headers.
+ */
+function json(data, status = 200, extraHeaders = {}) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+      ...extraHeaders,
+    },
+  })
+}
+
+/**
+ * Apply CORS headers for allowed origins.
+ * Returns null if origin is not allowed (for non-preflight requests we still
+ * serve the response but strip CORS headers — browser will block it).
+ */
+function corsHeaders(request, env) {
+  const origin = request.headers.get('Origin') || ''
+  const allowed = (env.ALLOWED_ORIGINS || '').split(',').map(o => o.trim())
+  // In development allow localhost on any port
+  const isDev = env.ENVIRONMENT === 'development'
+  const isAllowed = isDev
+    ? /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin) || allowed.includes(origin)
+    : allowed.includes(origin)
+
+  if (!isAllowed) return {}
+  return {
+    'Access-Control-Allow-Origin': isDev ? origin : (allowed.includes(origin) ? origin : allowed[0]),
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Admin-Key',
+    'Access-Control-Allow-Credentials': 'true',
+    'Vary': 'Origin',
+    'Access-Control-Max-Age': '86400',
+  }
+}
+
+/**
+ * Handle CORS preflight.
+ */
+function handleOptions(request, env) {
+  const headers = corsHeaders(request, env)
+  return new Response(null, { 
+    status: 204, 
+    headers: {
+      ...headers,
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Admin-Key',
+      'Access-Control-Max-Age': '86400'
+    }
+  })
+}
+
+/**
+ * Verify JWT token from Authorization header
+ */
+async function verifyJWT(request, env) {
+  const authHeader = request.headers.get('Authorization')
+  if (!authHeader || !authHeader.startsWith('Bearer ')) return null
+  
+  const token = authHeader.substring(7)
+  return await JWT.verify(token, env.JWT_SECRET)
+}
+
+/**
+ * Simple input sanitiser — strips HTML tags.
+ */
+function sanitise(str) {
+  if (typeof str !== 'string') return ''
+  return str.replace(/<[^>]*>/g, '').trim().slice(0, 2000)
+}
+
+// ── Admin Authentication ──────────────────────────────────────
+
+/**
+ * Handle admin login with JWT token generation
+ */
+async function handleAdminLogin(request, env) {
+  let body
+  try {
+    body = await request.json()
+  } catch {
+    return json({ error: 'Invalid JSON body.' }, 400)
+  }
+
+  if (!env.JWT_SECRET || !env.ADMIN_USERNAME || !env.ADMIN_PASSWORD_HASH) return json({ error: 'Admin sign-in is not configured.' }, 503)
+  if (!body || typeof body !== 'object') return json({ error: 'Invalid login.' }, 422)
+  const { username, password } = body
+
+  if (!username || !password) {
+    return json({ error: 'Username and password are required.' }, 422)
+  }
+
+  // Verify credentials
+  const isValidUser = username === env.ADMIN_USERNAME
+  const isValidPassword = await verifyPassword(password, env.ADMIN_PASSWORD_HASH)
+
+  if (!isValidUser || !isValidPassword) {
+    return json({ error: 'Invalid credentials.' }, 401)
+  }
+
+  // Generate JWT token
+  const payload = {
+    username: env.ADMIN_USERNAME,
+    role: 'admin',
+    iat: Math.floor(Date.now() / 1000),
+    exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60) // 24 hours
+  }
+
+  const token = await JWT.sign(payload, env.JWT_SECRET)
+
+  return json({
+    success: true,
+    token,
+    user: {
+      username: env.ADMIN_USERNAME,
+      role: 'admin'
+    }
+  })
+}
+
+/**
+ * Verify JWT token endpoint
+ */
+async function handleAdminVerify(request, env) {
+  const payload = await verifyJWT(request, env)
+  
+  if (!payload) {
+    return json({ error: 'Invalid or expired token.' }, 401)
+  }
+
+  return json({
+    valid: true,
+    user: {
+      username: payload.username,
+      role: payload.role
+    }
+  })
+}
+
+/**
+ * Dashboard statistics endpoint
+ */
+async function handleAdminDashboard(request, env) {
+  const payload = await verifyJWT(request, env)
+  if (!payload) return json({ error: 'Unauthorized.' }, 401)
+
+  if (!env.MEDIA_BUCKET || !env.CONTENT_DB) return json({ error: 'Storage is not configured.' }, 503)
+  const stats = { totalFiles: 0, totalSize: 0, recentUploads: 0, systemHealth: 'good' }
+  let cursor
+  do {
+    const page = await env.MEDIA_BUCKET.list({ cursor })
+    for (const file of page.objects) {
+      stats.totalFiles++
+      stats.totalSize += file.size
+      if (new Date(file.uploaded).getTime() > Date.now() - 7 * 86400000) stats.recentUploads++
+    }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  await env.CONTENT_DB.prepare('SELECT COUNT(*) AS count FROM content').first()
+
+  return json({ stats })
+}
+
+/**
+ * List media files from R2 bucket
+ */
+async function handleAdminMediaList(request, env) {
+  const payload = await verifyJWT(request, env)
+  if (!payload) return json({ error: 'Unauthorized.' }, 401)
+
+  if (!env.MEDIA_BUCKET) {
+    return json({ error: 'R2 bucket not configured.' }, 503)
+  }
+
+  try {
+    const objects = { objects: [] }
+    let cursor
+    do {
+      const page = await env.MEDIA_BUCKET.list({ cursor })
+      objects.objects.push(...page.objects)
+      cursor = page.truncated ? page.cursor : undefined
+    } while (cursor)
+    const files = objects.objects?.map(obj => ({
+      id: obj.key,
+      name: obj.key,
+      size: obj.size,
+      type: getContentType(obj.key),
+      uploadedAt: obj.uploaded,
+      url: `${new URL(request.url).origin}/api/media/${encodeURIComponent(obj.key)}`
+    })) || []
+
+    return json({ files })
+  } catch (error) {
+    return json({ error: 'Failed to list files.' }, 500)
+  }
+}
+
+/**
+ * Upload media file to R2 bucket
+ */
+async function handleAdminMediaUpload(request, env) {
+  const payload = await verifyJWT(request, env)
+  if (!payload) return json({ error: 'Unauthorized.' }, 401)
+
+  if (!env.MEDIA_BUCKET) {
+    return json({ error: 'R2 bucket not configured.' }, 503)
+  }
+
+  try {
+    const formData = await request.formData()
+    const file = formData.get('file')
+
+    if (!file || !file.name) {
+      return json({ error: 'No file provided.' }, 422)
+    }
+
+    // Validate file size (10MB default)
+    const settings = await uploadSettings(env)
+    const maxSize = Number(settings.maxUploadSize) * 1024 * 1024
+    if (file.size > maxSize) {
+      return json({ error: `File size exceeds ${Math.round(maxSize/1024/1024)}MB limit.` }, 422)
+    }
+
+    // Validate file type
+    const allowedTypes = settings.allowedFileTypes.split(',')
+    if (!allowedTypes.includes(file.type)) {
+      return json({ error: `File type ${file.type} not allowed. Allowed: ${allowedTypes.join(', ')}` }, 422)
+    }
+
+    // Generate unique filename
+    const timestamp = Date.now()
+    const cleanName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
+    const filename = `${timestamp}-${crypto.randomUUID()}-${cleanName}`
+
+    // Upload to R2
+    await env.MEDIA_BUCKET.put(filename, file.stream(), {
+      httpMetadata: {
+        contentType: file.type,
+        contentDisposition: `inline; filename="${cleanName}"`
+      }
+    })
+
+    const fileData = {
+      id: filename,
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      uploadedAt: new Date().toISOString(),
+      url: `${new URL(request.url).origin}/api/media/${encodeURIComponent(filename)}`
+    }
+
+    return json({ file: fileData }, 201)
+  } catch (error) {
+    console.error('Upload error:', error)
+    return json({ error: 'Upload failed: ' + error.message }, 500)
+  }
+}
+
+/**
+ * Delete media file from R2 bucket
+ */
+async function handleAdminMediaDelete(request, env, fileId) {
+  const payload = await verifyJWT(request, env)
+  if (!payload) return json({ error: 'Unauthorized.' }, 401)
+
+  if (!env.MEDIA_BUCKET) {
+    return json({ error: 'R2 bucket not configured.' }, 503)
+  }
+
+  try {
+    await env.MEDIA_BUCKET.delete(fileId)
+    return json({ success: true })
+  } catch (error) {
+    return json({ error: 'Delete failed.' }, 500)
+  }
+}
+
+/**
+ * Serve media file from R2 bucket
+ */
+async function handleAdminMediaFile(request, env, filename) {
+  if (!env.MEDIA_BUCKET) {
+    return json({ error: 'R2 bucket not configured.' }, 503)
+  }
+
+  try {
+    console.log('Attempting to serve file:', filename)
+    const object = await env.MEDIA_BUCKET.get(filename)
+    
+    if (!object) {
+      console.log('File not found in R2:', filename)
+      return json({ error: 'File not found.' }, 404)
+    }
+
+    const contentType = object.httpMetadata?.contentType || getContentType(filename)
+    console.log('Serving file with content type:', contentType)
+
+    return new Response(object.body, {
+      headers: {
+        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=3600',
+        'X-Content-Type-Options': 'nosniff',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+  } catch (error) {
+    console.error('Failed to retrieve file:', error)
+    return json({ error: 'Failed to retrieve file: ' + error.message }, 500)
+  }
+}
+
+/**
+ * Get content type from filename
+ */
+function getContentType(filename) {
+  const ext = filename.split('.').pop()?.toLowerCase()
+  const types = {
+    jpg: 'image/jpeg',
+    jpeg: 'image/jpeg',
+    png: 'image/png',
+    gif: 'image/gif',
+    webp: 'image/webp',
+    pdf: 'application/pdf',
+    svg: 'image/svg+xml'
+  }
+  return types[ext] || 'application/octet-stream'
+}
+
+// ── Contact form ─────────────────────────────────────────────
+
+/**
+ * Validate and store a contact form submission.
+ * Body: { name, email, phone?, service?, message }
+ */
+async function handleContact(request, env) {
+  let body
+  try {
+    body = await request.json()
+  } catch {
+    return json({ error: 'Invalid JSON body.' }, 400)
+  }
+
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return json({ error: 'Invalid form data.' }, 422)
+
+  const name    = sanitise(body.name)
+  const email   = sanitise(body.email)
+  const phone   = sanitise(body.phone || '')
+  const service = sanitise(body.service || '')
+  const message = sanitise(body.message)
+
+  // Basic validation
+  if (!name)                         return json({ error: 'Name is required.' }, 422)
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'Valid email is required.' }, 422)
+  if (!message)                       return json({ error: 'Message is required.' }, 422)
+
+  if (!env.RESEND_API_KEY || !env.CONTACT_EMAIL_TO || !env.CONTACT_EMAIL_FROM) {
+    console.error('Contact email configuration is missing')
+    return json({ error: 'Email is temporarily unavailable. Please contact us directly.' }, 503)
+  }
+
+  const id        = crypto.randomUUID()
+  const timestamp = new Date().toISOString()
+
+  const submission = { id, timestamp, name, email, phone, service, message, read: false }
+
+  // Persist to KV (key = submission::{id}, TTL 1 year)
+  if (env.CONTACT_SUBMISSIONS) {
+    await env.CONTACT_SUBMISSIONS.put(
+      `submission::${id}`,
+      JSON.stringify(submission),
+      { expirationTtl: 60 * 60 * 24 * 365 }
+    )
+    // Also keep an ordered index list (last 500)
+    const indexRaw = await env.CONTACT_SUBMISSIONS.get('index::submissions')
+    const index    = indexRaw ? JSON.parse(indexRaw) : []
+    index.unshift({ id, timestamp, name, email, service, read: false })
+    if (index.length > 500) index.splice(500)
+    await env.CONTACT_SUBMISSIONS.put('index::submissions', JSON.stringify(index))
+  }
+
+  // Send email notification via Resend API
+  // Requires RESEND_API_KEY secret set via: wrangler secret put RESEND_API_KEY
+  if (env.RESEND_API_KEY && env.CONTACT_EMAIL_TO) {
+    try {
+      const emailBody = [
+        `New contact form submission`,
+        ``,
+        `Name:    ${name}`,
+        `Email:   ${email}`,
+        `Phone:   ${phone || '—'}`,
+        `Service: ${service || '—'}`,
+        ``,
+        `Message:`,
+        message,
+        ``,
+        `ID: ${id}`,
+        `Time: ${timestamp}`,
+      ].join('\n')
+
+      const resendRes = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: env.CONTACT_EMAIL_FROM,
+          to: [env.CONTACT_EMAIL_TO],
+          reply_to: email,
+          subject: `New enquiry from ${name} — Solutions Media`,
+          text: emailBody,
+          html: `
+            <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
+              <h2 style="margin-bottom:16px">New enquiry — Solutions Media</h2>
+              <table style="width:100%;border-collapse:collapse">
+                <tr><td style="padding:8px 0;color:#666;width:100px">Name</td><td style="padding:8px 0"><strong>${name}</strong></td></tr>
+                <tr><td style="padding:8px 0;color:#666">Email</td><td style="padding:8px 0"><a href="mailto:${email}">${email}</a></td></tr>
+                <tr><td style="padding:8px 0;color:#666">Phone</td><td style="padding:8px 0">${phone || '—'}</td></tr>
+                <tr><td style="padding:8px 0;color:#666">Service</td><td style="padding:8px 0">${service || '—'}</td></tr>
+              </table>
+              <hr style="margin:16px 0;border:none;border-top:1px solid #eee">
+              <p style="color:#666;margin-bottom:8px">Message:</p>
+              <p style="white-space:pre-wrap;background:#f9f9f9;padding:16px;border-radius:6px;margin:0">${message}</p>
+              <p style="color:#999;font-size:12px;margin-top:24px">ID: ${id} · ${timestamp}</p>
+            </div>
+          `,
+        }),
+      })
+
+      if (!resendRes.ok) {
+        console.error('Resend API error:', resendRes.status)
+        return json({ error: 'Email could not be sent. Please contact us directly.' }, 502)
+      }
+      const sent = await resendRes.json()
+      if (!sent.id) throw new Error('Resend did not return an email ID')
+    } catch (err) {
+      console.error('Email send failed:', err.name)
+      return json({ error: 'Email could not be sent. Please contact us directly.' }, 502)
+    }
+  }
+
+  return json({ success: true, id }, 201)
+}
+
+// ── Site data ─────────────────────────────────────────────────
+
+/**
+ * Return a read-only snapshot of all site data.
+ * Editable collections are read from D1 and include published records only.
+ */
+async function handleSiteData(request, env) {
+  try {
+    return json({ ...siteData, ...await publicContent(env) }, 200, { 'Cache-Control': 'no-store' })
+  } catch (error) {
+    console.error('Public content unavailable', error.message)
+    return json({ error: 'Site content is temporarily unavailable.' }, 503, { 'Cache-Control': 'no-store' })
+  }
+}
+
+// ── Admin: list submissions ───────────────────────────────────
+
+async function handleAdminSubmissions(request, env) {
+  if (!env.CONTACT_SUBMISSIONS) {
+    return json({ error: 'KV binding not configured.' }, 503)
+  }
+
+  const url    = new URL(request.url)
+  const limit  = Math.min(parseInt(url.searchParams.get('limit') || '50', 10), 200)
+  const unread = url.searchParams.get('unread') === 'true'
+
+  const indexRaw = await env.CONTACT_SUBMISSIONS.get('index::submissions')
+  let index      = indexRaw ? JSON.parse(indexRaw) : []
+
+  if (unread) index = index.filter(s => !s.read)
+  const page = index.slice(0, limit)
+
+  return json({ total: index.length, submissions: page })
+}
+
+// ── Admin: get single submission ──────────────────────────────
+
+async function handleAdminSubmission(request, env, id) {
+  if (!env.CONTACT_SUBMISSIONS) {
+    return json({ error: 'KV binding not configured.' }, 503)
+  }
+
+  const raw = await env.CONTACT_SUBMISSIONS.get(`submission::${id}`)
+  if (!raw) return json({ error: 'Not found.' }, 404)
+
+  const submission = JSON.parse(raw)
+
+  // Mark as read
+  if (!submission.read) {
+    submission.read = true
+    await env.CONTACT_SUBMISSIONS.put(`submission::${id}`, JSON.stringify(submission))
+
+    // Update index entry
+    const indexRaw = await env.CONTACT_SUBMISSIONS.get('index::submissions')
+    if (indexRaw) {
+      const index = JSON.parse(indexRaw)
+      const entry = index.find(s => s.id === id)
+      if (entry) {
+        entry.read = true
+        await env.CONTACT_SUBMISSIONS.put('index::submissions', JSON.stringify(index))
+      }
+    }
+  }
+
+  return json(submission)
+}
+
+// ── Admin: delete submission ──────────────────────────────────
+
+async function handleAdminDeleteSubmission(request, env, id) {
+  if (!env.CONTACT_SUBMISSIONS) {
+    return json({ error: 'KV binding not configured.' }, 503)
+  }
+
+  await env.CONTACT_SUBMISSIONS.delete(`submission::${id}`)
+
+  // Remove from index
+  const indexRaw = await env.CONTACT_SUBMISSIONS.get('index::submissions')
+  if (indexRaw) {
+    const index    = JSON.parse(indexRaw).filter(s => s.id !== id)
+    await env.CONTACT_SUBMISSIONS.put('index::submissions', JSON.stringify(index))
+  }
+
+  return json({ success: true })
+}
+
+// ── Admin: update site content ────────────────────────────────
+
+/**
+ * Write a content update to KV so the site-data endpoint can serve it.
+ * Body: { section: 'brand' | 'services' | ..., data: {...} }
+ * The client will eventually call GET /api/site-data instead of site.js.
+ */
+async function handleAdminContentUpdate(request, env) {
+  if (!env.CONTACT_SUBMISSIONS) {
+    return json({ error: 'KV binding not configured.' }, 503)
+  }
+
+  let body
+  try {
+    body = await request.json()
+  } catch {
+    return json({ error: 'Invalid JSON body.' }, 400)
+  }
+
+  const { section, data } = body
+  const allowed = ['brand', 'contact', 'testimonials', 'faqs', 'stats', 'careerPaths', 'industries', 'partners']
+
+  if (!section || !allowed.includes(section)) {
+    return json({ error: `Invalid section. Must be one of: ${allowed.join(', ')}.` }, 422)
+  }
+  if (!data) return json({ error: 'data field is required.' }, 422)
+
+  await env.CONTACT_SUBMISSIONS.put(`content::${section}`, JSON.stringify(data))
+  return json({ success: true, section })
+}
+
+// ── Router ────────────────────────────────────────────────────
+
+export default {
+  async fetch(request, env, ctx) {
+    const url    = new URL(request.url)
+    const path   = url.pathname
+    const method = request.method
+    const cors   = corsHeaders(request, env)
+
+    console.log(`${method} ${path}`)
+
+    // Preflight
+    if (method === 'OPTIONS') return handleOptions(request, env)
+
+    // ── Public routes ──
+    if (method === 'POST' && path === '/api/contact') {
+      const res = await handleContact(request, env)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    if (method === 'GET' && path === '/api/site-data') {
+      const res = await handleSiteData(request, env)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    // ── Admin Authentication Routes ──
+    if (method === 'POST' && path === '/api/admin/login') {
+      const res = await handleAdminLogin(request, env)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    if ((method === 'POST' || method === 'GET') && path === '/api/admin/verify') {
+      const res = await handleAdminVerify(request, env)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    // ── Admin Dashboard ──
+    if (method === 'GET' && path === '/api/admin/dashboard') {
+      const res = await handleAdminDashboard(request, env)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    // ── Admin Media Routes ──
+    if (method === 'GET' && path === '/api/admin/media') {
+      const res = await handleAdminMediaList(request, env)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    if (method === 'POST' && path === '/api/admin/media/upload') {
+      const res = await handleAdminMediaUpload(request, env)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    // Media file serving
+    const mediaFileMatch = path.match(/^\/api\/(?:admin\/media\/file|media)\/(.+)$/)
+    if (mediaFileMatch && method === 'GET') {
+      const filename = decodeURIComponent(mediaFileMatch[1])
+      console.log('Media file request for:', filename)
+      const res = await handleAdminMediaFile(request, env, filename)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    // Media file deletion
+    const mediaDeleteMatch = path.match(/^\/api\/admin\/media\/(.+)$/)
+    if (mediaDeleteMatch && method === 'DELETE') {
+      const fileId = decodeURIComponent(mediaDeleteMatch[1])
+      const res = await handleAdminMediaDelete(request, env, fileId)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    // ── Admin routes (JWT protected) ──
+    if (path.startsWith('/api/admin')) {
+      const payload = await verifyJWT(request, env)
+      if (!payload) {
+        const res = json({ error: 'Unauthorized. Please login.' }, 401)
+        Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+        return res
+      }
+
+      if (path === '/api/admin/settings') {
+        const res = await handleSettings(request, env)
+        Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+        return res
+      }
+
+      const contentMatch = path.match(/^\/api\/admin\/content\/([a-z]+)(?:\/([a-zA-Z0-9-]+))?$/)
+      if (contentMatch) {
+        const res = await handleContent(request, env, contentMatch[1], contentMatch[2])
+        Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+        return res
+      }
+
+      // List submissions
+      if (method === 'GET' && path === '/api/admin/submissions') {
+        const res = await handleAdminSubmissions(request, env)
+        Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+        return res
+      }
+
+      // Single submission
+      const submissionMatch = path.match(/^\/api\/admin\/submissions\/([a-f0-9-]+)$/)
+      if (submissionMatch) {
+        const id = submissionMatch[1]
+        if (method === 'GET') {
+          const res = await handleAdminSubmission(request, env, id)
+          Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+          return res
+        }
+        if (method === 'DELETE') {
+          const res = await handleAdminDeleteSubmission(request, env, id)
+          Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+          return res
+        }
+      }
+
+      // Content updates
+      if (method === 'POST' && path === '/api/admin/content') {
+        const res = await handleAdminContentUpdate(request, env)
+        Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+        return res
+      }
+
+      const res = json({ error: 'Admin route not found.' }, 404)
+      Object.entries(cors).forEach(([k, v]) => res.headers.set(k, v))
+      return res
+    }
+
+    // ── Health check ──
+    if (path === '/api/health') {
+      return json({ status: 'ok', env: env.ENVIRONMENT || 'unknown' })
+    }
+
+    return json({ error: 'Not found.' }, 404)
+  },
+}

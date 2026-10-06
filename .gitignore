@@ -61,3 +61,10 @@ fix_paths.py
 # ── Cloudflare / Wrangler ──────────────────────────────────────
 .wrangler/
 worker-configuration.d.ts
+
+.dev.vars.*
+!backend/.dev.vars.example
+admin/playwright-report/
+admin/test-results/
+
+admin/test-output/

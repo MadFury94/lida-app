@@ -1,6 +1,8 @@
 ﻿import usePageTitle from '../hooks/usePageTitle'
 import { useEffect } from 'react'
 import { brand, contact } from '../store/site'
+import { Link } from 'react-router-dom'
+import TeamGrid from '../components/TeamGrid'
 
 
 export default function About() {
@@ -11,6 +13,7 @@ export default function About() {
   }, [])
 
   return (
+    <>
     <div dangerouslySetInnerHTML={{__html: `
                     <!-- Breadcrumb Section Start -->
                     <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/inner-page/bread-line.png');">
@@ -167,12 +170,12 @@ export default function About() {
                                             <img src="/assets/img/home-1/quote.png" alt="img">
                                         </div>
                                         <h3>
-                                            “From the outset, we provid expectations and regular updates our progress. You’ll receive comprehensive reports outline. From the outset, we pro expectations and regular updates our progress.
+                                            “Working with Solutions Media has been a strategic investment in our growth. Beyond developing a brand identity that reflects our vision, their team brought clarity, structure, and commercial insight to how our business is positioned. Their ability to combine strategy with execution has strengthened our confidence as we continue to grow.
                                         </h3>
                                         <div class="client-info-item">
                                         <div class="client-info">
-                                                <h4>Robert Allison</h4>
-                                                <span>Sales manager</span>
+                                                <h4>Peter A.</h4>
+                                                <span>CEO, Duxbank Microfinance Bank</span>
                                         </div>
                                         <div class="star">
                                                 <i class="fa-solid fa-star"></i>
@@ -188,12 +191,12 @@ export default function About() {
                                             <img src="/assets/img/home-1/quote.png" alt="img">
                                         </div>
                                         <h3>
-                                            “From the outset, we provid expectations and regular updates our progress. You’ll receive comprehensive reports outline. From the outset, we pro expectations and regular updates our progress.
+                                            “Our engagement with Solutions Media transformed the way our business is perceived. They helped us build a stronger brand identity, improve how we communicate our value, and position the business with greater credibility. Their strategic thinking and attention to detail made a measurable difference in how we present ourselves to customers and partners.
                                         </h3>
                                         <div class="client-info-item">
                                         <div class="client-info">
-                                                <h4>Robert Allison</h4>
-                                                <span>Sales manager</span>
+                                                <h4>M. Bari</h4>
+                                                <span>MD, Nuts &amp; Bolts Automotive</span>
                                         </div>
                                         <div class="star">
                                                 <i class="fa-solid fa-star"></i>
@@ -205,7 +208,7 @@ export default function About() {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="col-xl-4 col-lg-6 col-md-6" style="display:none">
                                     <div class="testimonial-box-style-5 style-2 bg-cover" style="background-image: url('/assets/img/home-1/process-shape.png');">
                                         <div class="quote-icon">
                                             <img src="/assets/img/home-1/quote.png" alt="img">
@@ -297,7 +300,7 @@ export default function About() {
                                                 </p>
                                             </div>
                                             <div class="about-vide-bg wow fadeInUp" data-wow-delay=".7s">
-                                                <img src="/assets/img/home-2/choose-us-small.jpg" alt="img">
+                                                <img src="/solutions (1).png" alt="img">
                                             </div>
                                         </div>
                                         </div>
@@ -311,143 +314,20 @@ export default function About() {
                         <img src="/assets/img/home-1/line-shape.png" alt="img">
                     </div>
 
-                    <!-- Team Section Start -->
-                    <section class="team-section-5 fix section-padding">
-                        <div class="container">
-                            <div class="section-title-area">
-                                <div class="section-title mb-0">
-                                    <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                        <img src="/assets/img/home-1/01.png" alt="img"> Our best teams
-                                    </span>
-                                    <h2 class="wa_title_spilt_1">
-                                        <span class="style-font">Our Creative</span> Minds <br> Behind Our Bold Ideas
-                                    </h2>
-                                </div>
-                                <div class="content wow fadeInUp" data-wow-delay=".3s">
-                                    <p>
-                                        See what media outlets are saying about our work and impact platforms that featured us.
-                                    </p>
-                                    <a href="team.html" class="news-btn">
-                                        <span class="text">
-                                            <span class="text-default">Join Our Team  <i class="fa-regular fa-arrow-up-right"></i></span>
-                                            <span class="text-hover">Join Our Team  <i class="fa-regular fa-arrow-up-right"></i></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row design-choose-item-wrap">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-1">
-                                        <img src="/assets/img/inner-page/team-1.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-1.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-2">
-                                        <img src="/assets/img/inner-page/team-2.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-2.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-1">
-                                        <img src="/assets/img/inner-page/team-3.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-3.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-2">
-                                        <img src="/assets/img/inner-page/team-4.jpg" alt="img">
-                                        <img src="/assets/img/inner-page/team-4.jpg" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
+`}} />
+    <section className="team-section-5 fix section-padding">
+      <div className="container">
+        <div className="section-title-area">
+          <div className="section-title mb-0">
+            <span className="sub-title"><img src="/assets/img/home-1/01.png" alt="" /> Our team</span>
+            <h2><span className="style-font">Our Creative</span> Minds <br /> Behind Our Bold Ideas</h2>
+          </div>
+          <Link to="/team" className="news-btn">Meet Our Team <i className="fa-regular fa-arrow-up-right" /></Link>
+        </div>
+        <TeamGrid />
+      </div>
+    </section>
+    <div dangerouslySetInnerHTML={{__html: `
                     <!-- Marque Section Start -->
                     <div class="marque-section">
                         <div class="marquee">
@@ -533,5 +413,6 @@ export default function About() {
 
                     <!-- Footer Section Start -->
 `}} />
+    </>
   )
 }

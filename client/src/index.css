@@ -1,6 +1,55 @@
 @import "tailwindcss/theme" layer(theme);
 @import "tailwindcss/utilities" layer(utilities);
 
+/* Team identity stays visible on touch screens and when a portrait is missing. */
+.team-profile-card {
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--bg);
+    height: 100%;
+}
+.team-portrait {
+    display: block;
+    width: 100%;
+    aspect-ratio: 690 / 590;
+    object-fit: cover;
+    border-radius: 16px;
+}
+.team-profile-card .team-portrait { border-radius: 0; }
+.team-portrait-placeholder {
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 30% 20%, #663124, #252525 70%);
+    color: #fff;
+    font-size: clamp(64px, 10vw, 120px);
+    font-weight: 600;
+    letter-spacing: -.04em;
+}
+.team-profile-card .team-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px;
+}
+.team-profile-card .content { min-width: 0; }
+.team-profile-card .content p { margin-bottom: 8px; color: var(--text); }
+.team-profile-card .title { font-size: clamp(22px, 3vw, 30px); }
+.team-profile-card .title a { color: var(--white); }
+.team-profile-card .left-items, .team-profile-card .social-icon { display: flex; gap: 12px; align-items: center; }
+.team-profile-card .left-items { flex-wrap: wrap; justify-content: flex-end; }
+.team-profile-card .icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--theme);
+    color: var(--white);
+    flex-shrink: 0;
+}
+.team-profile-card a:focus-visible { outline: 2px solid var(--theme); outline-offset: 4px; }
+
 /* ================================================================
    LIDA DIGITAL — SINGLE SOURCE OF TRUTH FOR COLORS & FONTS
    Change values here and the entire site updates.

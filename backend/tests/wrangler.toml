@@ -1,0 +1,25 @@
+# Isolated, local-only content integration test configuration.
+name = "solutions-media-content-test"
+main = "../src/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ADMIN_USERNAME = "content-editor"
+ADMIN_PASSWORD_HASH = "pbkdf2-sha256$100000$WKTPR8PDTbI0suFvi4lMoQ$2F37V-jb87DlmP3iQGX_BsKlG-Pb32ISU0xmKaqNmwM"
+ENVIRONMENT = "development"
+JWT_SECRET = "local-content-integration-test-only"
+ALLOWED_ORIGINS = "http://127.0.0.1:5194,http://127.0.0.1:3004"
+
+[[d1_databases]]
+binding = "CONTENT_DB"
+database_name = "solutions-media-content-test"
+database_id = "11111111-1111-1111-1111-111111111111"
+migrations_dir = "../migrations"
+
+[[r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "solutions-media-media-test"
+
+
+# Credentials only for the isolated local tests.

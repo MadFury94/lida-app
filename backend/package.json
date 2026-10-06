@@ -1,13 +1,17 @@
 {
-    "name": "lida-backend",
-    "version": "1.0.0",
-    "description": "Lida Digital backend with AI image generation",
-    "main": "src/index.js",
-    "scripts": {
-        "dev": "wrangler dev",
-        "deploy": "wrangler deploy"
-    },
-    "dependencies": {
-        "@cloudflare/ai": "^1.0.0"
-    }
+  "name": "solutions-media-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --env dev --persist-to .wrangler/solutions-media",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "db:migrate": "wrangler d1 migrations apply CONTENT_DB --local --env dev --persist-to .wrangler/solutions-media",
+    "setup:local": "node scripts/setup-local.mjs",
+    "test": "node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.145.0"
+  }
 }

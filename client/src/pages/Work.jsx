@@ -1,12 +1,14 @@
+import { useSiteContent } from '../store/useSiteContent'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { caseStudies } from '../store/site'
+
 
 export default function Work() {
+  const { caseStudies } = useSiteContent()
   
   useEffect(() => {
     // Set page title
-    document.title = 'Lida Nigeria | Projects and Case Studies | Strategy, Creative and Growth'
+    document.title = 'Solutions Media | Projects and Case Studies | Strategy, Creative and Growth'
     
     if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
   }, [])

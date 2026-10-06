@@ -3,7 +3,7 @@ import { useLocation, useNavigationType } from 'react-router-dom'
 
 const STORAGE_KEY = 'site-scroll-positions'
 
-export default function usePageLifecycle() {
+export default function usePageLifecycle(ready = true) {
   const location = useLocation()
   const navigation = useNavigationType()
   const positions = useRef(new Map())
@@ -17,7 +17,7 @@ export default function usePageLifecycle() {
 
   useLayoutEffect(() => {
     const root = document.getElementById('smooth-content')
-    if (!root) return undefined
+    if (!root || !ready) return undefined
     let timer; let restoreTimer; let disposed = false
     const saved = navigation === 'POP' ? (positions.current.get(location.key) || 0) : 0
     const smoother = window.ScrollSmoother?.get?.()
@@ -54,5 +54,5 @@ export default function usePageLifecycle() {
       wow?.stop()
       root.removeEventListener('load', refresh, true); root.removeEventListener('error', refresh, true); window.removeEventListener('resize', refresh); window.removeEventListener('scroll', record); window.removeEventListener('pagehide', persist); document.removeEventListener('click', beforeClick, true)
     }
-  }, [location.key, location.pathname, location.hash, navigation])
+  }, [location.key, location.pathname, location.hash, navigation, ready])
 }

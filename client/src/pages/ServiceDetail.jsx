@@ -1,7 +1,9 @@
+import { useSiteContent } from '../store/useSiteContent'
+import NotFound from './NotFound'
 import usePageTitle from '../hooks/usePageTitle'
 import { useEffect, useState } from 'react'
-import { Link, useParams, Navigate } from 'react-router-dom'
-import { services, contact, faqs } from '../store/site'
+import { Link, useParams } from 'react-router-dom'
+import { contact, faqs } from '../store/site'
 
 const GLOBAL_FAQS = faqs.slice(0, 4)
 
@@ -66,6 +68,7 @@ function FaqSection({ serviceFaqs, faqsHeading, service }) {
 }
 
 export default function ServiceDetail() {
+  const { services } = useSiteContent()
   const { slug } = useParams()
   const service = services.find(s => s.slug === slug)
   usePageTitle(service?.seoTitle)
@@ -84,7 +87,7 @@ export default function ServiceDetail() {
     }
   }, [slug, service])
 
-  if (!service) return <Navigate to="/services" replace />
+  if (!service) return <NotFound />
 
   const currentIndex = services.findIndex(s => s.slug === slug)
   const prev = services[currentIndex - 1] || null

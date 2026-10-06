@@ -4,10 +4,13 @@ import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Preloader from './Preloader'
+import ContentBoundary from './ContentBoundary'
+import { useSiteContent } from '../store/useSiteContent'
 
 export default function Layout() {
   const location = useLocation()
-  usePageLifecycle()
+  const { loading, unavailable } = useSiteContent()
+  usePageLifecycle(!loading && !unavailable)
 
   useEffect(() => {
     // The legacy template normally reveals the page from main.js. In React the
@@ -112,21 +115,8 @@ export default function Layout() {
       }
     })
 
-    // Service accordion
-    document.querySelectorAll('.service-list-wrap .service-acc-btn').forEach(btn => {
-      btn.onclick = () => {
-        const wrap = btn.closest('.service-list-wrap')
-        const allWraps = wrap.closest('.service-box-style')?.querySelectorAll('.service-list-wrap') || []
-        allWraps.forEach(w => {
-          w.classList.remove('active-block')
-          w.querySelector('.service-acc-content')?.classList.remove('current')
-          w.querySelector('.service-acc-btn')?.classList.remove('active')
-        })
-        wrap.classList.add('active-block')
-        wrap.querySelector('.service-acc-content')?.classList.add('current')
-        btn.classList.add('active')
-      }
-    })
+    // Home and Services accordions are controlled by React state.
+    window.$('.service-box-style').off('click', '.service-acc-btn')
 
     // Counter up
     if (window.$ && window.$.fn.counterUp) {
@@ -142,7 +132,7 @@ export default function Layout() {
       offcanvasClose && (offcanvasClose.onclick = null)
       offcanvasOverlay && (offcanvasOverlay.onclick = null)
     }
-  }, [location.pathname])
+  }, [location.pathname, loading, unavailable])
 
   return (
     <div className="page-wrapper">
@@ -154,7 +144,7 @@ export default function Layout() {
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <main key={location.pathname}>
-              <Outlet />
+              <ContentBoundary><Outlet /></ContentBoundary>
             </main>
             <div className="global-footer">
               <Footer />

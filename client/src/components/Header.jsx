@@ -1,8 +1,10 @@
+import { useSiteContent } from '../store/useSiteContent'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { brand, services, contact } from '../store/site'
+import { brand, contact } from '../store/site'
 
 export default function Header() {
+  const { services } = useSiteContent()
   const location = useLocation()
   const isHome = location.pathname === '/'
 
