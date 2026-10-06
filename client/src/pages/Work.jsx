@@ -1,4 +1,5 @@
 import { useSiteContent } from '../store/useSiteContent'
+import { faqs } from '../store/site'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -152,71 +153,13 @@ export default function Work() {
               </div>
               <div className="col-xl-8 col-lg-8">
                 <ul className="accordion-box wow fadeInUp" data-wow-delay=".3s">
-                  <li className="accordion block active-block">
-                    <div className="acc-btn active">
-                      1. What type of projects does Lida work on?
+                  {faqs.slice(0, 5).map((item, index) => <li className={`accordion block${index === 0 ? ' active-block' : ''}`} key={item.question}>
+                    <div className={`acc-btn${index === 0 ? ' active' : ''}`}>
+                      {index + 1}. {item.question}
                       <div className="icon fa-regular fa-plus"></div>
                     </div>
-                    <div className="acc-content current">
-                      <div className="content">
-                        <div className="text">
-                          We work on brand strategy, market positioning, customer acquisition campaigns, brand identity design, and digital marketing projects across multiple industries including finance, energy, automotive, and B2B industrial sectors.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="accordion block">
-                    <div className="acc-btn">
-                      2. How do you measure project success?
-                      <div className="icon fa-regular fa-plus"></div>
-                    </div>
-                    <div className="acc-content">
-                      <div className="content">
-                        <div className="text">
-                          We measure success through specific metrics aligned with your business goals - whether that's sales growth, market awareness, lead generation, brand recognition, or customer acquisition. Every project includes clear performance indicators.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="accordion block">
-                    <div className="acc-btn">
-                      3. What industries do you have experience with?
-                      <div className="icon fa-regular fa-plus"></div>
-                    </div>
-                    <div className="acc-content">
-                      <div className="content">
-                        <div className="text">
-                          Our portfolio spans financial services, energy, automotive, industrial B2B, construction, technology, and professional services. We understand the unique challenges and opportunities across different sectors.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="accordion block">
-                    <div className="acc-btn">
-                      4. Do you work with businesses outside Nigeria?
-                      <div className="icon fa-regular fa-plus"></div>
-                    </div>
-                    <div className="acc-content">
-                      <div className="content">
-                        <div className="text">
-                          Yes, we work with international businesses entering African markets and local businesses expanding their reach. Our expertise in African markets makes us valuable partners for global organizations.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="accordion block">
-                    <div className="acc-btn">
-                      5. What is your typical project timeline?
-                      <div className="icon fa-regular fa-plus"></div>
-                    </div>
-                    <div className="acc-content">
-                      <div className="content">
-                        <div className="text">
-                          Project timelines vary based on scope and complexity. Brand identity projects typically take 6-8 weeks, while comprehensive campaigns can run 3-6 months. We always agree clear milestones and deliverables upfront.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+                    <div className={`acc-content${index === 0 ? ' current' : ''}`}><div className="content"><div className="text">{item.answer}</div></div></div>
+                  </li>)}
                 </ul>
               </div>
             </div>
