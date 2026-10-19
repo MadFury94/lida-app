@@ -1,0 +1,12 @@
+/* Content fitting only: animation and transition rules come from Orixo. */
+.sm-home-3 .sm-hero-description { max-width: 470px; color: var(--white); }
+.sm-home-3 .service-box-items-3 h3 { overflow-wrap: anywhere; }
+.sm-home-3 .work-process-wrapper-3 { gap: 30px; }
+.sm-home-3 .work-process-items-3 { flex: 1; min-width: 0; }
+.sm-home-3 .project-box-items-3 .thumb img { object-fit: cover; }
+.sm-home-3 .project-box-items-3 .content > span { display: block; max-width: 90%; }
+.sm-home-3 .gt-team-one-image img { object-fit: cover; }
+.sm-home-3 .hero-info-items { gap: 24px; }
+@media (max-width: 767px) {
+  .sm-home-3 .hero-info-items { flex-wrap: wrap; }
+}

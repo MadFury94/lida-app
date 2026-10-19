@@ -23,81 +23,7 @@ export default function Layout() {
     if (typeof window.$ === 'undefined') return undefined
 
 
-    // Sticky header scroll
-    const onScroll = () => {
-      const h = document.getElementById('sticky-header')
-      if (h) h.classList.toggle('sticky-menu', window.scrollY > 100)
-    }
-    window.addEventListener('scroll', onScroll)
-    onScroll()
-
-    // Mobile menu bars toggle
-    const bars = document.querySelector('.bars')
-    const mobileMain = document.querySelector('.mobile-menu-main')
-    const mobileOverlay = document.querySelector('.mobile-menu-overlay')
-    const closeMobile = document.querySelector('.close-mobile-menu')
-
-    if (bars && mobileMain) {
-      bars.onclick = () => {
-        mobileMain.classList.add('mobile-menu-open')
-        mobileOverlay?.classList.add('active')
-      }
-    }
-    if (closeMobile && mobileMain) {
-      closeMobile.onclick = () => {
-        mobileMain.classList.remove('mobile-menu-open')
-        mobileOverlay?.classList.remove('active')
-      }
-    }
-    if (mobileOverlay && mobileMain) {
-      mobileOverlay.onclick = () => {
-        mobileMain.classList.remove('mobile-menu-open')
-        mobileOverlay.classList.remove('active')
-      }
-    }
-
-    // Offcanvas sidebar
-    const offcanvasBtn = document.querySelector('.offcanvas-btn')
-    const offcanvasMenu = document.querySelector('.offcanvas-menu')
-    const offcanvasOverlay = document.querySelector('.offcanvas-overlay')
-    const offcanvasClose = document.querySelector('.offcasvas-close')
-
-    if (offcanvasBtn && offcanvasMenu) {
-      offcanvasBtn.onclick = () => {
-        offcanvasMenu.classList.add('active')
-        offcanvasOverlay?.classList.add('active')
-      }
-    }
-    if (offcanvasClose && offcanvasMenu) {
-      offcanvasClose.onclick = () => {
-        offcanvasMenu.classList.remove('active')
-        offcanvasOverlay?.classList.remove('active')
-      }
-    }
-    if (offcanvasOverlay && offcanvasMenu) {
-      offcanvasOverlay.onclick = () => {
-        offcanvasMenu.classList.remove('active')
-        offcanvasOverlay.classList.remove('active')
-      }
-    }
-
-    // Search popup
-    const searchTogglers = document.querySelectorAll('.search-toggler')
-    const searchPopup = document.querySelector('.search-popup')
-    searchTogglers.forEach(btn => {
-      btn.onclick = (e) => {
-        e.preventDefault()
-        searchPopup?.classList.toggle('active')
-      }
-    })
-
-    // Sub-menu mobile accordion
-    document.querySelectorAll('.sub-mobile-menu > a').forEach(link => {
-      link.onclick = (e) => {
-        e.preventDefault()
-        link.parentElement.classList.toggle('open')
-      }
-    })
+    // Header owns its navigation and panel handlers.
 
     // FAQ / service accordion
     document.querySelectorAll('.accordion .acc-btn').forEach(btn => {
@@ -120,18 +46,10 @@ export default function Layout() {
 
     // Counter up
     if (window.$ && window.$.fn.counterUp) {
-      window.$('.count').counterUp({ delay: 10, time: 1000 })
+      window.$('.count').counterUp(location.pathname === '/' ? { delay: 15, time: 4000 } : { delay: 10, time: 1000 })
     }
 
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      bars && (bars.onclick = null)
-      closeMobile && (closeMobile.onclick = null)
-      mobileOverlay && (mobileOverlay.onclick = null)
-      offcanvasBtn && (offcanvasBtn.onclick = null)
-      offcanvasClose && (offcanvasClose.onclick = null)
-      offcanvasOverlay && (offcanvasOverlay.onclick = null)
-    }
+
   }, [location.pathname, loading, unavailable])
 
   return (

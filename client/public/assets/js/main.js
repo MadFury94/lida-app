@@ -937,7 +937,8 @@
               // ðŸ”¥ cleanup on breakpoint change
               return () => {
               splits.forEach(split => split.revert());
-              ScrollTrigger.getAll().forEach(st => st.kill());
+              // matchMedia reverts its own triggers. Do not kill the smoother
+              // or other sections when crossing this typography breakpoint.
               };
 
           });
@@ -1654,7 +1655,6 @@
 
   
   })(jQuery); // End jQuery
-
 
 
 

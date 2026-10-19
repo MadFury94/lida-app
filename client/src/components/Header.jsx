@@ -2,183 +2,189 @@ import { useSiteContent } from '../store/useSiteContent'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { brand, contact } from '../store/site'
+import './Header.css'
+
+function BrandLogo() {
+  return <span className={`site-logo${brand.logo === '/Solution Media Gradient Logo.png' ? ' site-logo-padded' : ''}`}><img className="brand-logo" src={brand.logo} alt="Solutions Media" /></span>
+}
 
 export default function Header() {
   const { services } = useSiteContent()
   const location = useLocation()
-  const isHome = location.pathname === '/'
 
   useEffect(() => {
-    const $ = window.$
-    if (!$) return
-
-    // Sticky header
-    const onScroll = () => {
-      const h = document.getElementById('sticky-header')
-      if (h) h.classList.toggle('sticky-menu', window.scrollY > 100)
+    const header = document.getElementById('sticky-header')
+    const mobile = header.querySelector('.mobile-menu-main')
+    const overlay = header.querySelector('.mobile-menu-overlay')
+    const toggle = header.querySelector('.bars')
+    const close = header.querySelector('.close-mobile-menu')
+    const mobileLinks = [...header.querySelectorAll('.sub-mobile-menu > a')]
+    const onScroll = () => header.classList.toggle('sticky-menu', window.scrollY >= 120)
+    const closeMenus = () => {
+      header.querySelectorAll('.mobile-menu-main, .mobile-menu-overlay, .offcanvas-menu, .offcanvas-overlay').forEach(el => el.classList.remove('active', 'mobile-menu-open'))
+      toggle.setAttribute('aria-expanded', 'false')
+      document.body.classList.remove('no-scroll')
     }
-    window.addEventListener('scroll', onScroll)
-
-    // Offcanvas
-    const offBtn     = document.querySelector('.offcanvas-btn')
-    const offMenu    = document.querySelector('.offcanvas-menu')
-    const offOverlay = document.querySelector('.offcanvas-overlay')
-    const offClose   = document.querySelector('.offcasvas-close')
-    const openOff  = () => { offMenu?.classList.add('active');    offOverlay?.classList.add('active') }
-    const closeOff = () => { offMenu?.classList.remove('active'); offOverlay?.classList.remove('active') }
-    offBtn?.addEventListener('click', openOff)
-    offClose?.addEventListener('click', closeOff)
-    offOverlay?.addEventListener('click', closeOff)
-
-    // Mobile menu
-    const bars       = document.querySelector('.bars')
-    const mobileMain = document.querySelector('.mobile-menu-main')
-    const mobileOver = document.querySelector('.mobile-menu-overlay')
-    const mobileClose = document.querySelector('.close-mobile-menu')
-    const openMob  = () => { mobileMain?.classList.add('active');    mobileOver?.classList.add('active') }
-    const closeMob = () => { mobileMain?.classList.remove('active'); mobileOver?.classList.remove('active') }
-    bars?.addEventListener('click', openMob)
-    mobileClose?.addEventListener('click', closeMob)
-    mobileOver?.addEventListener('click', closeMob)
-
-    // Mobile sub-menu accordion
-    document.querySelectorAll('.sub-mobile-menu > a').forEach(a => {
-      a.addEventListener('click', e => { e.preventDefault(); a.closest('li').classList.toggle('open') })
-    })
-
-    // Search popup
-    const searchPopup = document.querySelector('.search-popup')
-    document.querySelectorAll('.search-toggler').forEach(btn => {
-      btn.addEventListener('click', e => { e.preventDefault(); searchPopup?.classList.toggle('active') })
-    })
-
+    const openMobile = () => {
+      mobile.classList.add('active')
+      overlay.classList.add('active')
+      toggle.setAttribute('aria-expanded', 'true')
+      document.body.classList.add('no-scroll')
+    }
+    const onKey = event => {
+      if (event.key !== 'Escape') return
+      const wasMobileOpen = mobile.classList.contains('active')
+      const wasPanelOpen = header.querySelector('.offcanvas-menu').classList.contains('active')
+      closeMenus()
+      if (wasMobileOpen) toggle.focus()
+      else if (wasPanelOpen) header.querySelector('.offcanvas-btn').focus()
+    }
+    const onLink = event => {
+      const link = event.target.closest('a[href]')
+      if (link && !link.getAttribute('href').startsWith('#')) closeMenus()
+    }
+    const onSubmenu = event => {
+      event.preventDefault()
+      event.stopPropagation()
+      const link = event.currentTarget
+      const submenu = link.nextElementSibling
+      const opening = link.getAttribute('aria-expanded') !== 'true'
+      link.setAttribute('aria-expanded', String(opening))
+      if (window.$) window.$(submenu).stop(true, true)[opening ? 'slideDown' : 'slideUp'](250)
+      else submenu.style.display = opening ? 'block' : 'none'
+    }
+    // React owns header interactions. Remove template handlers on these buttons
+    // so opening/closing or expanding a submenu runs exactly once.
+    window.$?.(header).find('.bars, .close-mobile-menu, .mobile-menu-overlay, .offcanvas-btn, .offcanvas-overlay, .offcasvas-close').off('click')
+    closeMenus()
+    onScroll()
+    toggle.addEventListener('click', openMobile)
+    close.addEventListener('click', closeMenus)
+    overlay.addEventListener('click', closeMenus)
+    header.addEventListener('click', onLink)
+    mobileLinks.forEach(link => link.addEventListener('click', onSubmenu))
+    window.addEventListener('scroll', onScroll, { passive: true })
+    document.addEventListener('keydown', onKey)
+    const onResize = () => { if (window.innerWidth >= 1200) closeMenus() }
+    window.addEventListener('resize', onResize)
     return () => {
+      closeMenus()
+      toggle.removeEventListener('click', openMobile)
+      close.removeEventListener('click', closeMenus)
+      overlay.removeEventListener('click', closeMenus)
+      header.removeEventListener('click', onLink)
+      mobileLinks.forEach(link => link.removeEventListener('click', onSubmenu))
       window.removeEventListener('scroll', onScroll)
-      offBtn?.removeEventListener('click', openOff)
-      offClose?.removeEventListener('click', closeOff)
-      offOverlay?.removeEventListener('click', closeOff)
-      bars?.removeEventListener('click', openMob)
-      mobileClose?.removeEventListener('click', closeMob)
-      mobileOver?.removeEventListener('click', closeMob)
+      window.removeEventListener('resize', onResize)
+      document.removeEventListener('keydown', onKey)
     }
   }, [location.pathname])
 
   const navCls = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`
+  const closeOffcanvas = () => {
+    document.querySelector('.offcanvas-menu')?.classList.remove('active')
+    document.querySelector('.offcanvas-overlay')?.classList.remove('active')
+    document.body.classList.remove('no-scroll')
+  }
+  const openOffcanvas = () => {
+    document.querySelector('.offcanvas-menu')?.classList.add('active')
+    document.querySelector('.offcanvas-overlay')?.classList.add('active')
+    document.body.classList.add('no-scroll')
+  }
 
   return (
     <>
-      <style>{`
-        .site-nav-desktop { display: flex !important; }
-        .site-nav-desktop .navbar-collapse { display: flex !important; flex: 1; align-items: center; }
-        .brand-logo { 
-          display: block; 
-          max-width: 160px; 
-          width: auto;
-          height: auto; 
-        }
-        .offcanvas-menu .brand-logo,
-        .mobile-menu-main .brand-logo { max-width: 140px; width: auto; }
-        @media (max-width: 1199px) { .site-nav-desktop { display: none !important; } #mobile-menu-area { display: block !important; } }
-        @media (max-width: 575px) { .brand-logo { max-width: 120px; } }
-      `}</style>
-      <header
-        className={`header-section ${isHome ? 'header-1' : 'header-3'}`}
-        id="sticky-header"
-      >
+      <header className="header-section header-3 solution-header" id="sticky-header">
         <div className="header-main">
+
           {/* ── DESKTOP NAV ── */}
-          <nav className="navbar p-0 navbar-expand-xl site-nav-desktop" style={{display:'flex'}}>
+          <nav className="navbar navbar-expand-xl p-0 site-header-nav" aria-label="Main navigation">
+
             <Link className="navbar-brand" to="/">
-              <img className="brand-logo" src={brand.logo} alt="Solutions Media" />
+              <BrandLogo />
             </Link>
 
-            <div style={{display:'flex', flex:1, alignItems:'center'}} id="navbarSupportedContent">
-              <ul className="navbar-nav mx-auto mb-lg-0">
+            <ul className="navbar-nav nav-links">
 
-                <li className="nav-item">
-                  <NavLink className={navCls} to="/">Home</NavLink>
-                </li>
+              <li className="nav-item">
+                <NavLink className={navCls} to="/">Home</NavLink>
+              </li>
 
-                <li className="nav-item">
-                  <NavLink className={navCls} to="/about">About Us</NavLink>
-                </li>
+              <li className="nav-item">
+                <NavLink className={navCls} to="/about">About Us</NavLink>
+              </li>
 
-                <li className="nav-item has-megamenu">
-                  <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
-                    Services <i className="fas fa-chevron-down"></i>
-                  </a>
-                  <div className="services-mega-menu">
-                    <div className="mega-menu-inner">
-                      <div className="mega-menu-grid">
-                        {services.map(s => (
-                          <Link key={s.slug} to={`/services/${s.slug}`} className="mega-menu-item">
-                            <span className="mega-num">{s.number}</span>
-                            <span className="mega-title">{s.shortTitle}</span>
-                            <span className="mega-desc">{s.summary}</span>
-                          </Link>
-                        ))}
-                      </div>
-                      <div className="mega-menu-footer">
-                        <Link to="/services" className="mega-all-link">
-                          View All Services <i className="fa-regular fa-arrow-up-right"></i>
+              <li className="nav-item has-megamenu">
+                <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
+                  Services <i className="fas fa-chevron-down"></i>
+                </a>
+                <div className="services-mega-menu">
+                  <div className="mega-menu-inner">
+                    <div className="mega-menu-grid">
+                      {services.map(s => (
+                        <Link key={s.slug} to={`/services/${s.slug}`} className="mega-menu-item">
+                          <span className="mega-num">{s.number}</span>
+                          <span className="mega-title">{s.shortTitle}</span>
+                          <span className="mega-desc">{s.summary}</span>
                         </Link>
-                      </div>
+                      ))}
+                    </div>
+                    <div className="mega-menu-footer">
+                      <Link to="/services" className="mega-all-link">
+                        View All Services <i className="fa-regular fa-arrow-up-right"></i>
+                      </Link>
                     </div>
                   </div>
-                </li>
-
-                <li className="has-dropdown nav-item">
-                  <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
-                    Work <i className="fas fa-chevron-down"></i>
-                  </a>
-                  <ul className="sub-menu list-unstyled">
-                    <li><Link to="/work">Case Studies</Link></li>
-                    <li><Link to="/team">Our Team</Link></li>
-                    <li><Link to="/careers">Careers</Link></li>
-                  </ul>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink className={navCls} to="/faq">FAQ</NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink className={navCls} to="/insights">Insights</NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink className={navCls} to="/contact">Contact</NavLink>
-                </li>
-
-              </ul>
-
-              <div className={isHome ? 'menu-right-info' : 'header-right'}>
-                <a href="#" className="main-header__search search-toggler">
-                  <i className="fa-regular fa-magnifying-glass"></i>
-                </a>
-                {!isHome && (
-                  <Link className="theme-btn-main style-2 bg-white-style" to="/contact">
-                    <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
-                    <span className="theme-btn">Let's Talk</span>
-                    <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
-                  </Link>
-                )}
-                <div className="sidebar__toggle offcanvas-btn">
-                  <span></span><span></span><span></span>
                 </div>
-              </div>
+              </li>
+
+              <li className="has-dropdown nav-item">
+                <a className="nav-link" href="#" onClick={e => e.preventDefault()}>
+                  Work <i className="fas fa-chevron-down"></i>
+                </a>
+                <ul className="sub-menu list-unstyled">
+                  <li><Link to="/work">Case Studies</Link></li>
+                  <li><Link to="/team">Our Team</Link></li>
+                  <li><Link to="/careers">Careers</Link></li>
+                </ul>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className={navCls} to="/faq">FAQ</NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className={navCls} to="/insights">Insights</NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className={navCls} to="/contact">Contact</NavLink>
+              </li>
+
+            </ul>
+
+            <div className="header-right">
+              <Link className="theme-btn-main style-2 bg-white-style" to="/contact">
+                <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
+                <span className="theme-btn">Let's Talk</span>
+                <span className="theme-btn-arrow-right"><i className="fa-solid fa-arrow-up-right"></i></span>
+              </Link>
+              <button type="button" className="sidebar__toggle offcanvas-btn" aria-label="Open contact panel" onClick={openOffcanvas}>
+                <span></span><span></span><span></span>
+              </button>
             </div>
+
           </nav>
         </div>
 
         {/* ── OFFCANVAS ── */}
-        <div className="offcanvas-overlay position-fixed top-0 start-0 w-100 h-100"></div>
+        <div className="offcanvas-overlay position-fixed top-0 start-0 w-100 h-100" onClick={closeOffcanvas}></div>
         <div className="offcanvas-menu position-fixed">
           <div className="header-top d-flex align-items-center justify-content-between gap-4">
             <div className="logo">
-              <Link to="/"><img className="brand-logo" src={brand.logo} alt="Solutions Media" /></Link>
+              <Link to="/"><BrandLogo /></Link>
             </div>
-            <button className="offcasvas-close black-bg border-0 text-white d-flex align-items-center justify-content-center rounded-pill">
+            <button className="offcasvas-close black-bg border-0 text-white d-flex align-items-center justify-content-center rounded-pill" aria-label="Close contact panel" onClick={closeOffcanvas}>
               <i className="fa-regular fa-xmark"></i>
             </button>
           </div>
@@ -222,37 +228,32 @@ export default function Header() {
         </div>
 
         {/* ── MOBILE MENU ── */}
-        <div className="mobile-menu-area" style={{display: 'none'}} id="mobile-menu-area">
+        <div className="mobile-menu-area">
           <div className="container">
             <div className="mobile-topbar">
               <div className="d-flex justify-content-between align-items-center">
                 <div className="logo">
-                  <Link to="/"><img className="brand-logo" src={brand.logo} alt="Solutions Media" /></Link>
+                  <Link to="/"><BrandLogo /></Link>
                 </div>
-                <div className="menu-search d-flex align-items-center gap-4">
-                  <a href="#" className="main-header__search search-toggler">
-                    <i className="fa-regular fa-magnifying-glass"></i>
-                  </a>
-                  <div className="bars">
-                    <span></span><span></span><span></span>
-                  </div>
-                </div>
+                <button type="button" className="bars" aria-label="Open navigation" aria-expanded="false" aria-controls="site-mobile-menu">
+                  <span></span><span></span><span></span>
+                </button>
               </div>
             </div>
           </div>
           <div className="mobile-menu-overlay"></div>
-          <div className="mobile-menu-main">
+          <div className="mobile-menu-main" id="site-mobile-menu">
             <div className="logo">
-              <Link to="/"><img className="brand-logo" src={brand.logo} alt="Solutions Media" /></Link>
+              <Link to="/"><BrandLogo /></Link>
             </div>
-            <div className="close-mobile-menu"><i className="fas fa-times"></i></div>
+            <button type="button" className="close-mobile-menu" aria-label="Close navigation"><i className="fas fa-times"></i></button>
             <div className="menu-body">
               <div className="menu-list">
                 <ul className="list-unstyled">
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/about">About Us</Link></li>
                   <li className="sub-mobile-menu">
-                    <a href="#">Services <i className="fas fa-chevron-down float-end"></i></a>
+                    <a href="#" aria-expanded="false">Services <i className="fas fa-chevron-down float-end"></i></a>
                     <ul className="list-unstyled">
                       <li><Link to="/services">All Services</Link></li>
                       {services.map(s => (
@@ -261,7 +262,7 @@ export default function Header() {
                     </ul>
                   </li>
                   <li className="sub-mobile-menu">
-                    <a href="#">Work <i className="fas fa-chevron-down float-end"></i></a>
+                    <a href="#" aria-expanded="false">Work <i className="fas fa-chevron-down float-end"></i></a>
                     <ul className="list-unstyled">
                       <li><Link to="/work">Case Studies</Link></li>
                       <li><Link to="/team">Our Team</Link></li>
@@ -304,21 +305,6 @@ export default function Header() {
         </div>
 
       </header>
-
-      {/* Search Popup */}
-      <div className="search-popup">
-        <div className="search-popup__overlay search-toggler"></div>
-        <div className="search-popup__content">
-          <form role="search" className="search-popup__form">
-            <input type="text" name="search" placeholder="Search Here..." />
-            <button type="submit" aria-label="search submit" className="search-btn">
-              <span><i className="fa-regular fa-magnifying-glass"></i></span>
-            </button>
-          </form>
-        </div>
-      </div>
     </>
   )
 }
-
-

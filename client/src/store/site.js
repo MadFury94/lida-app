@@ -15,7 +15,7 @@ export const brand = {
   location: 'Abuja, Nigeria',
   founded: '2015',
   website: 'www.solutionmediaglobal.com.ng',
-  logo: '/assets/img/logo/solutions-media-logo-white.png',
+  logo: '/Solution Media Gradient Logo.png',
   logoLight: '/assets/img/logo/solutions-media-logo.png',
   logoDark: '/assets/img/logo/solutions-media-logo-dark.png',
   favicon: '/assets/img/favicon.svg',

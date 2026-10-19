@@ -18,7 +18,7 @@ export default function usePageLifecycle(ready = true) {
   useLayoutEffect(() => {
     const root = document.getElementById('smooth-content')
     if (!root || !ready) return undefined
-    let timer; let restoreTimer; let disposed = false
+    let timer; let disposed = false
     const saved = navigation === 'POP' ? (positions.current.get(location.key) || 0) : 0
     const smoother = window.ScrollSmoother?.get?.()
     let wow
@@ -29,7 +29,9 @@ export default function usePageLifecycle(ready = true) {
       else if (smoother) smoother.scrollTo(saved, false)
       else window.scrollTo({ top: saved, left: 0, behavior: 'instant' })
     }
-    const refresh = () => { clearTimeout(timer); timer = setTimeout(() => { if (!disposed) { window.ScrollTrigger?.refresh(); restore() } }, 100) }
+    // Image loads and layout changes only update animation measurements. Restoring
+    // the route's initial position here interrupts scrolling through lazy images.
+    const refresh = () => { clearTimeout(timer); timer = setTimeout(() => { if (!disposed) window.ScrollTrigger?.refresh() }, 100) }
     const record = () => {
       positions.current.set(location.key, smoother?.scrollTop?.() ?? window.scrollY)
       if (positions.current.size > 100) positions.current.delete(positions.current.keys().next().value)
@@ -42,15 +44,15 @@ export default function usePageLifecycle(ready = true) {
       const destination = new URL(link.href, window.location.href)
       if (destination.origin === window.location.origin && destination.href !== window.location.href) persist()
     }
-    restore()
     if (window.WOW) { wow = new window.WOW({ live: false }); wow.init() }
-    window.ScrollTrigger?.refresh(); restoreTimer = setTimeout(restore, 280)
+    window.ScrollTrigger?.refresh()
+    restore()
     root.addEventListener('load', refresh, true); root.addEventListener('error', refresh, true)
     window.addEventListener('resize', refresh); window.addEventListener('scroll', record, { passive: true }); window.addEventListener('pagehide', persist)
     document.addEventListener('click', beforeClick, true)
     const observer = new ResizeObserver(refresh); observer.observe(root); document.fonts?.ready.then(refresh)
     return () => {
-      disposed = true; persist(); clearTimeout(timer); clearTimeout(restoreTimer); observer.disconnect()
+      disposed = true; persist(); clearTimeout(timer); observer.disconnect()
       wow?.stop()
       root.removeEventListener('load', refresh, true); root.removeEventListener('error', refresh, true); window.removeEventListener('resize', refresh); window.removeEventListener('scroll', record); window.removeEventListener('pagehide', persist); document.removeEventListener('click', beforeClick, true)
     }

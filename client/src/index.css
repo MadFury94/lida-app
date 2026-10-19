@@ -8,6 +8,7 @@
     background: var(--bg);
     height: 100%;
 }
+
 .team-portrait {
     display: block;
     width: 100%;
@@ -15,7 +16,11 @@
     object-fit: cover;
     border-radius: 16px;
 }
-.team-profile-card .team-portrait { border-radius: 0; }
+
+.team-profile-card .team-portrait {
+    border-radius: 0;
+}
+
 .team-portrait-placeholder {
     display: grid;
     place-items: center;
@@ -25,6 +30,7 @@
     font-weight: 600;
     letter-spacing: -.04em;
 }
+
 .team-profile-card .team-content {
     display: flex;
     align-items: center;
@@ -32,12 +38,36 @@
     gap: 20px;
     padding: 24px;
 }
-.team-profile-card .content { min-width: 0; }
-.team-profile-card .content p { margin-bottom: 8px; color: var(--text); }
-.team-profile-card .title { font-size: clamp(22px, 3vw, 30px); }
-.team-profile-card .title a { color: var(--white); }
-.team-profile-card .left-items, .team-profile-card .social-icon { display: flex; gap: 12px; align-items: center; }
-.team-profile-card .left-items { flex-wrap: wrap; justify-content: flex-end; }
+
+.team-profile-card .content {
+    min-width: 0;
+}
+
+.team-profile-card .content p {
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.team-profile-card .title {
+    font-size: clamp(22px, 3vw, 30px);
+}
+
+.team-profile-card .title a {
+    color: var(--white);
+}
+
+.team-profile-card .left-items,
+.team-profile-card .social-icon {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.team-profile-card .left-items {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
 .team-profile-card .icon {
     display: grid;
     place-items: center;
@@ -48,7 +78,11 @@
     color: var(--white);
     flex-shrink: 0;
 }
-.team-profile-card a:focus-visible { outline: 2px solid var(--theme); outline-offset: 4px; }
+
+.team-profile-card a:focus-visible {
+    outline: 2px solid var(--theme);
+    outline-offset: 4px;
+}
 
 /* ================================================================
    LIDA DIGITAL — SINGLE SOURCE OF TRUTH FOR COLORS & FONTS
@@ -104,13 +138,13 @@
 
 /* Header height and padding adjustments */
 .header-section {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .header-section.sticky-menu {
-    padding-top: 1px !important;
-    padding-bottom: 1px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .header-main {
@@ -123,9 +157,9 @@
     min-height: auto !important;
 }
 
-/* Logo sizing — PNG optimized for black backgrounds */
+/* Logo sizing */
 .brand-logo {
-    max-width: 160px;
+    max-width: 200px;
     height: auto;
     display: block !important;
     padding: 0 !important;
@@ -134,7 +168,6 @@
     opacity: 1 !important;
 }
 
-/* Override Bootstrap navbar-brand padding */
 .navbar-brand {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -143,17 +176,24 @@
     line-height: 1 !important;
 }
 
-/* Ensure logo has no extra spacing */
 .navbar-brand img {
     margin: 0 !important;
     padding: 0 !important;
     vertical-align: middle !important;
 }
 
-/* Remove any container padding affecting navbar */
 .header-section .container {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+}
+
+/* Bootstrap collapse must stay open on desktop — navbar-expand-xl handles this */
+@media (min-width: 1200px) {
+    .navbar-expand-xl .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        align-items: center;
+    }
 }
 
 /* Testimonials — keep section background dark, reduce light-bg glow */
@@ -1063,6 +1103,7 @@
     transform: none !important;
     clip-path: none !important;
 }
+
 /* Inner-page typography keeps Orixo's serif/sans contrast while allowing
    longer page names to wrap independently of the metadata. */
 .breadcrumb-wrapper .page-heading h1 {
@@ -1132,7 +1173,7 @@
     height: auto;
 }
 
-.about-video-banner-about-page > img {
+.about-video-banner-about-page>img {
     display: block;
     height: auto;
 }
