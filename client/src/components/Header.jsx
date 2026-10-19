@@ -196,10 +196,9 @@ export default function Header() {
             </span>
           </Link>
           <div className="offcanvas_gallery d-none d-lg-block">
-            <img className="gallery_img" src="/assets/img/header/offcanvas1.jpg" alt="" />
-            <img className="gallery_img" src="/assets/img/header/offcanvas2.jpg" alt="" />
-            <img className="gallery_img" src="/assets/img/header/offcanvas3.jpg" alt="" />
-            <img className="gallery_img" src="/assets/img/header/offcanvas4.jpg" alt="" />
+            <img className="gallery_img" src="/assets/img/home-1/solutionexpert3.jpg" alt="" />
+            <img className="gallery_img" src="/assets/img/home-1/solutionmedia-expert.png" alt="" />
+            <img className="gallery_img" src="/assets/img/home-1/solutionmedia-expert2.jpg" alt="" />
           </div>
           <div className="off-contact-info">
             <span className="info-title">Contact Info</span>
