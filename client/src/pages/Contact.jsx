@@ -48,57 +48,57 @@ export default function Contact() {
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="/assets/img/inner-page/cont1.png" alt="img">
+                                                <img src="/assets/img/inner-page/icon1.png" alt="img">
                                             </div>
                                             <div class="contact-content">
-                                                <h2>United State</h2>
+                                                <h2>Abuja, Nigeria</h2>
                                                 <span>Phone number:</span>
                                                 <h3>
-                                                    <a href="tel:+13025550198">+1 302 555-0198</a>
+                                                    <a href="tel:+2347034357040">+234 (0)70 3435 7040</a>
                                                 </h3>
-                                                <span>Email address:</span>
+                                                <span>Projects & Collaboration:</span>
                                                 <h3>
-                                                    <a href="mailto:hello.123@orixo.com">hello.123@orixo.com</a>
+                                                    <a href="mailto:hello@solutionmediaglobal.com.ng">hello@solutionmediaglobal.com.ng</a>
                                                 </h3>
-                                                <a href="contact.html" class="thems-btn w-100">Visit site <i class="fa-solid fa-arrow-up-right"></i></a>
+                                                <a href="/contact" class="thems-btn w-100">Contact us <i class="fa-solid fa-arrow-up-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="/assets/img/inner-page/cont2.png" alt="img">
+                                                <img src="/assets/img/inner-page/icon2.png" alt="img">
                                             </div>
                                             <div class="contact-content">
-                                                <h2>United Kingdom</h2>
-                                                <span>Phone number:</span>
+                                                <h2>Book a Meeting</h2>
+                                                <span>Schedule a call:</span>
                                                 <h3>
-                                                    <a href="tel:+442079460958">+44 20 7946 0958</a>
+                                                    <a href="https://calendly.com/solutionmediaglobal" target="_blank" rel="noreferrer">calendly.com/solutionmediaglobal</a>
                                                 </h3>
-                                                <span>Email address:</span>
+                                                <span>General Enquiries:</span>
                                                 <h3>
-                                                    <a href="mailto:hello.123@orixo.com">hello.456@orixo.com</a>
+                                                    <a href="mailto:hello@solutionmediaglobal.com.ng">hello@solutionmediaglobal.com.ng</a>
                                                 </h3>
-                                                <a href="contact.html" class="thems-btn w-100">Visit site <i class="fa-solid fa-arrow-up-right"></i></a>
+                                                <a href="https://calendly.com/solutionmediaglobal" target="_blank" rel="noreferrer" class="thems-btn w-100">Schedule a meeting <i class="fa-solid fa-arrow-up-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="/assets/img/inner-page/cont3.png" alt="img">
+                                                <img src="/assets/img/inner-page/icon3.png" alt="img">
                                             </div>
                                             <div class="contact-content">
-                                                <h2>Denmark</h2>
-                                                <span>Phone number:</span>
+                                                <h2>Office Address</h2>
+                                                <span>Visit us:</span>
                                                 <h3>
-                                                    <a href="tel:+4566132455">+45 66 13 24 55</a>
+                                                    Plot 246, Adebayo Adedeji Crescent, Utako, Abuja, Nigeria
                                                 </h3>
-                                                <span>Email address:</span>
+                                                <span>Follow us:</span>
                                                 <h3>
-                                                    <a href="mailto:hello.123@orixo.com">hello.789@orixo.com</a>
+                                                    @solutionmedia06
                                                 </h3>
-                                                <a href="contact.html" class="thems-btn w-100">Visit site <i class="fa-solid fa-arrow-up-right"></i></a>
+                                                <a href="/contact" class="thems-btn w-100">Get directions <i class="fa-solid fa-arrow-up-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +114,7 @@ export default function Contact() {
                                 <div class="row g-4">
                                     <div class="col-lg-6">
                                         <div class="contact-map">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29332256.25226939!2d133.41701195!3d-26.1772288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sbd!4v1775899425045!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.4661272698116!2d7.437765!3d9.0631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sUtako%2C%20Abuja%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                        </div>
                                     </div>
                                     <div class="col-lg-6">

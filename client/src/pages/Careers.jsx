@@ -59,7 +59,7 @@ export default function Careers() {
           <div className="row g-5 align-items-center">
             <div className="col-lg-6">
               <div className="career-image">
-                <img src="/assets/img/inner-page/team-2.jpg" alt="The Lida Digital team collaborating" />
+                <img src="/Solution Media career page.jpg" alt="The Solutions Media team collaborating" />
               </div>
             </div>
             <div className="col-lg-6">
@@ -111,7 +111,7 @@ export default function Careers() {
           <div className="career-apply-inner">
             <div>
               <span className="sub-title">Open application</span>
-              <h2>There are no advertised vacancies right now—but we always want to meet exceptional people.</h2>
+              <h2>There are no advertised vacancies right now, but we always want to meet exceptional people.</h2>
               <p>
                 Send your CV or portfolio with a short note about the problems you solve best.
                 We will keep strong applications in our talent network for future opportunities.
@@ -119,7 +119,7 @@ export default function Careers() {
             </div>
             <a
               className="theme-btn-main style-2"
-              href={`mailto:hello@lidadigital.com.ng?subject=${applicationSubject}`}
+              href={`mailto:hello@solutionmediaglobal.com.ng?subject=${applicationSubject}`}
             >
               <span className="theme-btn-arrow-left"><i className="fa-solid fa-arrow-up-right"></i></span>
               <span className="theme-btn">Introduce Yourself</span>

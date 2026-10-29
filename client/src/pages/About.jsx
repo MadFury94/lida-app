@@ -8,8 +8,32 @@ import TeamGrid from '../components/TeamGrid'
 export default function About() {
   usePageTitle('About Solutions Media | Growth Strategy, Branding and Marketing Partner')
   useEffect(() => {
-    if (window.$ && window.$.fn.counterUp) window.$('.count').counterUp({ delay: 10, time: 1000 })
-    
+    const $ = window.$
+    if (!$) return
+
+    const runCounters = () => {
+      if ($.fn.counterUp) {
+        $('.count').counterUp({ delay: 10, time: 1500 })
+      }
+    }
+
+    // Use IntersectionObserver to trigger counters when they scroll into view
+    const counterSection = document.querySelector('.about-conter-items')
+    if (counterSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            runCounters()
+            observer.disconnect()
+          }
+        })
+      }, { threshold: 0.3 })
+      observer.observe(counterSection)
+    } else {
+      // Fallback: retry after DOM settles
+      setTimeout(runCounters, 500)
+      setTimeout(runCounters, 1200)
+    }
   }, [])
 
   return (
@@ -286,17 +310,17 @@ export default function About() {
                                             </a>
                                             <div class="about-conter-items">
                                             <div class="counter-box wow fadeInUp active" data-wow-delay=".3s">
-                                                <span class="sub-text">Corporate</span>
-                                                <h2><span class="count">80</span>+</h2>
+                                                <span class="sub-text">Clients Served</span>
+                                                <h2><span class="count">100</span>+</h2>
                                                 <p>
-                                                    We provide innovative and reliable solutions.
+                                                    Across Nigeria and emerging African markets.
                                                 </p>
                                             </div>
                                             <div class="counter-box wow fadeInUp" data-wow-delay=".5s">
-                                                <span class="sub-text">Business</span>
-                                                <h2><span class="count">100</span>%</h2>
+                                                <span class="sub-text">Client Retention</span>
+                                                <h2><span class="count">98</span>%</h2>
                                                 <p>
-                                                    We provide innovative and reliable solutions.
+                                                    A testament to consistent results.
                                                 </p>
                                             </div>
                                             <div class="about-vide-bg wow fadeInUp" data-wow-delay=".7s">
