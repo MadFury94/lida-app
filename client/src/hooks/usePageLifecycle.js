@@ -29,7 +29,7 @@ export default function usePageLifecycle() {
       else if (smoother) smoother.scrollTo(saved, false)
       else window.scrollTo({ top: saved, left: 0, behavior: 'instant' })
     }
-    const refresh = () => { clearTimeout(timer); timer = setTimeout(() => { if (!disposed) { window.ScrollTrigger?.refresh(); restore() } }, 100) }
+    const refresh = () => { clearTimeout(timer); timer = setTimeout(() => { if (!disposed) { window.ScrollTrigger?.refresh(); if (saved > 0 || location.hash) restore() } }, 100) }
     const record = () => {
       positions.current.set(location.key, smoother?.scrollTop?.() ?? window.scrollY)
       if (positions.current.size > 100) positions.current.delete(positions.current.keys().next().value)
@@ -44,7 +44,12 @@ export default function usePageLifecycle() {
     }
     restore()
     if (window.WOW) { wow = new window.WOW({ live: false }); wow.init() }
-    window.ScrollTrigger?.refresh(); restoreTimer = setTimeout(restore, 280)
+    window.ScrollTrigger?.refresh()
+    // Only re-restore after layout settles if there's an actual position to go to
+    // (saved > 0 = back navigation, or hash anchor). Fresh page loads stay at top.
+    if (saved > 0 || location.hash) {
+      restoreTimer = setTimeout(restore, 280)
+    }
     root.addEventListener('load', refresh, true); root.addEventListener('error', refresh, true)
     window.addEventListener('resize', refresh); window.addEventListener('scroll', record, { passive: true }); window.addEventListener('pagehide', persist)
     document.addEventListener('click', beforeClick, true)
